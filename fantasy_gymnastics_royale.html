@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fantasy Gymnastics Royale</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f1e8;
+      --bg-2: #ebe6d8;
+      --text: #191c1d;
+      --muted: #626a6d;
+      --surface: #fffdf8;
+      --surface-2: #f7f3e8;
+      --line: #d7d0c0;
+      --strong-line: #bdb3a0;
+      --accent: #0f766e;
+      --accent-2: #c2410c;
+      --accent-3: #b08900;
+      --good: #15803d;
+      --bad: #b91c1c;
+      --shadow: 0 18px 60px rgba(58, 47, 28, 0.13);
+      --gold: #c99700;
+      --silver: #9aa3ad;
+      --bronze: #b16a2c;
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #111412;
+      --bg-2: #171a17;
+      --text: #f2efe7;
+      --muted: #b7b0a3;
+      --surface: #1e221f;
+      --surface-2: #252a26;
+      --line: #3d433d;
+      --strong-line: #585f58;
+      --accent: #2dd4bf;
+      --accent-2: #fb7b45;
+      --accent-3: #f4c95d;
+      --good: #4ade80;
+      --bad: #f87171;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+      --gold: #f3c44e;
+      --silver: #c8ced6;
+      --bronze: #d08a4a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    button, input, select { font: inherit; }
+
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent);
+      outline-offset: 2px;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--strong-line);
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, transparent), transparent 48%),
+        var(--surface-2);
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+    }
+
+    .brand-mark svg { width: 22px; height: 22px; }
+
+    .status-pill,
+    .chip {
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .screen {
+      width: min(1180px, calc(100vw - 24px));
+      margin: 0 auto;
+      padding: 28px 0 40px;
+      animation: screen-in 180ms ease-out;
+    }
+
+    @keyframes screen-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .soft-panel {
+      background: color-mix(in srgb, var(--surface) 78%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .metric {
+      min-height: 82px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .btn {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      padding: 9px 13px;
+      font-weight: 800;
+      transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+      transform: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    :root[data-theme="dark"] .btn-primary { color: #06110f; }
+
+    .btn-secondary {
+      background: var(--surface-2);
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .btn-danger {
+      background: color-mix(in srgb, var(--bad) 12%, var(--surface));
+      color: var(--bad);
+      border-color: color-mix(in srgb, var(--bad) 32%, var(--line));
+    }
+
+    .btn-icon {
+      width: 42px;
+      min-width: 42px;
+      padding: 0;
+    }
+
+    .input,
+    .select {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      padding: 9px 12px;
+    }
+
+    .language-select {
+      width: auto;
+      min-width: 152px;
+      min-height: 42px;
+      font-weight: 800;
+    }
+
+    .segment {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 6px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .segment button {
+      min-height: 46px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      font-weight: 900;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .segment button.active {
+      background: var(--surface);
+      border-color: var(--strong-line);
+      color: var(--text);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+    }
+
+    .arena-art {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+
+    .progress {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .step {
+      height: 6px;
+      border-radius: 999px;
+      background: var(--line);
+    }
+
+    .step.active { background: var(--accent); }
+    .step.done { background: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+
+    .rank {
+      width: 34px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      font-weight: 800;
+    }
+
+    .score {
+      font-variant-numeric: tabular-nums;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .player-row td {
+      background: color-mix(in srgb, var(--accent) 13%, transparent);
+      box-shadow: inset 4px 0 0 var(--accent);
+    }
+
+    .q-badge,
+    .medal-badge {
+      min-width: 26px;
+      height: 24px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      border: 1px solid var(--line);
+    }
+
+    .q-badge {
+      color: var(--good);
+      background: color-mix(in srgb, var(--good) 12%, transparent);
+      border-color: color-mix(in srgb, var(--good) 32%, var(--line));
+    }
+
+    .medal-gold { color: #2e2100; background: var(--gold); border-color: color-mix(in srgb, var(--gold) 75%, #000); }
+    .medal-silver { color: #1f2933; background: var(--silver); border-color: color-mix(in srgb, var(--silver) 75%, #000); }
+    .medal-bronze { color: #2c1607; background: var(--bronze); border-color: color-mix(in srgb, var(--bronze) 75%, #000); }
+
+    .podium {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: end;
+      gap: 10px;
+      min-height: 252px;
+    }
+
+    .podium-place {
+      display: grid;
+      gap: 8px;
+      align-content: end;
+      min-width: 0;
+    }
+
+    .podium-name {
+      min-height: 58px;
+      display: grid;
+      align-content: end;
+      text-align: center;
+      font-weight: 900;
+      line-height: 1.15;
+      overflow-wrap: anywhere;
+    }
+
+    .podium-block {
+      border: 1px solid var(--strong-line);
+      border-bottom: 0;
+      border-radius: 8px 8px 0 0;
+      display: grid;
+      place-items: center;
+      padding: 8px;
+      color: #191c1d;
+      font-weight: 1000;
+      min-height: 88px;
+    }
+
+    .podium-place:nth-child(1) { order: 2; }
+    .podium-place:nth-child(2) { order: 1; }
+    .podium-place:nth-child(3) { order: 3; }
+    .podium-place:nth-child(1) .podium-block { min-height: 142px; background: var(--gold); }
+    .podium-place:nth-child(2) .podium-block { min-height: 110px; background: var(--silver); }
+    .podium-place:nth-child(3) .podium-block { min-height: 92px; background: var(--bronze); }
+
+    .tabbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tabbar button {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: var(--muted);
+      font-weight: 900;
+      background: var(--surface-2);
+    }
+
+    .tabbar button.active {
+      color: var(--text);
+      border-color: var(--strong-line);
+      background: var(--surface);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      z-index: 100;
+      transform: translateX(-50%) translateY(120%);
+      opacity: 0;
+      transition: transform 180ms ease, opacity 180ms ease;
+      background: var(--text);
+      color: var(--bg);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+      max-width: min(420px, calc(100vw - 24px));
+      text-align: center;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .app-icon {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      display: inline-grid;
+      place-items: center;
+      font-weight: 1000;
+      color: var(--accent);
+      background: var(--surface-2);
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 760px) {
+      .screen { width: min(100vw - 16px, 1180px); padding-top: 16px; }
+      .topbar-main { align-items: flex-start; }
+      .status-pill { width: 100%; justify-content: center; }
+      .podium { gap: 6px; min-height: 236px; }
+      .podium-name { font-size: 12px; min-height: 62px; }
+      .podium-score { font-size: 12px; }
+      .podium-place:nth-child(1) .podium-block { min-height: 126px; }
+      .podium-place:nth-child(2) .podium-block { min-height: 102px; }
+      .podium-place:nth-child(3) .podium-block { min-height: 86px; }
+      .btn { width: 100%; white-space: normal; }
+      .btn-icon { width: 42px; }
+      .hide-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-main mx-auto flex w-full max-w-[1180px] flex-col gap-3 px-3 py-3 md:flex-row md:items-center md:justify-between">
+        <button class="flex items-center gap-3 text-left" onclick="renderSetup()" title="Voltar ao início">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M10 31h28" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+              <path d="M16 31l4-18 8 18 4-18" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M14 38h20" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="block text-base font-black leading-tight md:text-lg">Fantasy Gymnastics Royale</span>
+            <span id="brandSubtitle" class="block text-xs font-bold uppercase text-[var(--muted)]">Olympic Simulation</span>
+          </span>
+        </button>
+        <div class="flex flex-col gap-2 md:flex-row md:items-center">
+          <div id="phaseLabel" class="status-pill">Configuração</div>
+          <select id="languageSelect" class="select language-select" onchange="setLanguage(this.value)" title="Idioma" aria-label="Idioma">
+            <option value="pt-BR">Português (BR)</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+          <button id="themeButton" class="btn btn-secondary btn-icon" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema"></button>
+        </div>
+      </div>
+    </header>
+
+    <main id="app" class="flex-1"></main>
+
+    <footer id="footerText" class="border-t border-[var(--line)] px-3 py-5 text-center text-sm font-semibold text-[var(--muted)]">
+      Pontuação fantasy inspirada no sistema olímpico: classificatórias, final por equipes, individual geral e finais por aparelhos.
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const APPARATUS = {
+      WAG: [
+        { id: "vt", key: "Salto", short: "VT", name: "Salto", risk: 0.018 },
+        { id: "ub", key: "Assimetricas", short: "UB", name: "Barras Assimétricas", risk: 0.035 },
+        { id: "bb", key: "Trave", short: "BB", name: "Trave", risk: 0.052 },
+        { id: "fx", key: "Solo", short: "FX", name: "Solo", risk: 0.026 }
+      ],
+      MAG: [
+        { id: "fx", key: "Solo", short: "FX", name: "Solo", risk: 0.026 },
+        { id: "ph", key: "Cavalo", short: "PH", name: "Cavalo com Alças", risk: 0.055 },
+        { id: "sr", key: "Argolas", short: "SR", name: "Argolas", risk: 0.032 },
+        { id: "vt", key: "Salto", short: "VT", name: "Salto", risk: 0.018 },
+        { id: "pb", key: "Paralelas", short: "PB", name: "Barras Paralelas", risk: 0.030 },
+        { id: "hb", key: "BarraFixa", short: "HB", name: "Barra Fixa", risk: 0.050 }
+      ]
+    };
+
+    const COMPETING_COUNTRIES = {
+      WAG: ["USA", "BRA", "CHN", "JPN", "GBR", "ITA", "FRA", "GER"],
+      MAG: ["JPN", "CHN", "USA", "GBR", "BRA", "GER", "FRA", "ITA"]
+    };
+
+    const ATHLETE_CSV = `Genero,Nome,Pais,Ano,Salto_D,Salto_E,Solo_D,Solo_E,Assimetricas_D,Assimetricas_E,Trave_D,Trave_E,Cavalo_D,Cavalo_E,Argolas_D,Argolas_E,Paralelas_D,Paralelas_E,BarraFixa_D,BarraFixa_E,Consistency
+F,Simone Biles,USA,2016,6.4,9.3,6.8,8.4,6.2,8.2,6.8,8.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.90
+F,Sunisa Lee,USA,2021,5.4,9.0,5.8,8.2,6.8,8.5,6.6,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Shilese Jones,USA,2023,5.0,9.2,5.8,8.3,6.5,8.6,6.1,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Jade Carey,USA,2022,5.8,9.3,6.2,8.3,5.3,7.8,5.4,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Jordan Chiles,USA,2024,5.0,9.1,5.8,8.3,5.8,8.1,5.5,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Gabby Douglas,USA,2012,5.8,9.1,5.8,8.3,6.4,8.7,6.1,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.87
+F,Rebeca Andrade,BRA,2024,5.6,9.5,6.1,8.4,6.2,8.4,6.1,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.92
+F,Flavia Saraiva,BRA,2023,5.0,8.9,5.8,8.3,5.8,8.2,6.0,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Jade Barbosa,BRA,2024,5.0,9.0,5.6,8.1,5.7,8.1,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Lorrane Oliveira,BRA,2022,4.6,8.8,5.4,8.0,6.0,8.2,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Julia Soares,BRA,2024,4.6,8.9,5.6,8.2,5.4,7.9,6.1,8.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Carolyne Pedro,BRA,2023,4.6,8.8,5.2,8.1,5.4,8.0,5.2,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Qiu Qiyuan,CHN,2023,5.0,8.6,5.4,8.1,6.8,8.4,6.6,8.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Guan Chenchen,CHN,2021,4.6,8.7,5.0,7.8,5.8,8.0,6.9,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Tang Xijing,CHN,2019,4.8,8.9,5.6,8.1,6.2,8.3,6.2,8.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Zhang Jin,CHN,2022,5.0,8.8,5.7,8.0,5.8,8.1,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Ou Yushan,CHN,2021,4.8,8.8,5.6,8.0,6.4,8.2,6.5,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Wei Xiaoyuan,CHN,2021,4.6,8.7,5.0,7.8,6.6,8.4,5.8,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Mai Murakami,JPN,2021,5.4,9.1,6.0,8.4,5.2,8.0,5.6,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Shoko Miyata,JPN,2023,5.0,8.9,5.7,8.2,5.8,8.0,5.8,8.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Aiko Sugihara,JPN,2016,5.0,8.9,5.7,8.2,5.8,8.1,5.8,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Asuka Teramoto,JPN,2016,5.0,8.9,5.6,8.1,5.8,8.2,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+F,Rina Kishi,JPN,2024,5.0,8.8,5.6,8.1,5.6,8.0,5.7,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Haruka Nakamura,JPN,2024,4.6,8.8,5.4,8.0,5.6,8.0,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Jessica Gadirova,GBR,2022,5.0,9.0,6.2,8.4,5.6,8.0,5.8,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Alice Kinsella,GBR,2022,5.0,8.9,5.7,8.2,5.8,8.1,5.7,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Becky Downie,GBR,2019,4.6,8.6,5.0,7.8,6.5,8.4,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Ondine Achampong,GBR,2022,4.6,8.9,5.6,8.2,5.8,8.2,6.0,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Georgia-Mae Fenton,GBR,2021,4.6,8.7,5.3,8.0,6.2,8.3,5.4,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Jennifer Gadirova,GBR,2021,5.0,8.8,5.8,8.2,5.4,7.9,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Alice D'Amato,ITA,2024,5.0,9.1,5.6,8.2,6.4,8.3,5.9,8.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Manila Esposito,ITA,2024,5.0,9.0,5.8,8.3,5.8,8.1,6.3,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Asia D'Amato,ITA,2022,5.4,9.1,5.7,8.1,6.0,8.1,5.7,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Elisa Iorio,ITA,2023,4.6,8.7,5.2,8.0,6.1,8.2,5.4,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Giorgia Villa,ITA,2024,5.0,8.9,5.6,8.1,5.9,8.1,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Angela Andreoli,ITA,2023,5.0,8.8,5.9,8.2,5.4,7.9,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Melanie De Jesus Dos Santos,FRA,2019,5.0,9.0,5.8,8.3,6.2,8.3,5.9,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Coline Devillard,FRA,2023,5.8,9.2,5.0,7.9,4.8,7.8,5.0,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Marine Boyer,FRA,2018,4.8,8.8,5.4,8.0,5.6,8.0,6.0,8.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Morgane Osyssek-Reimer,FRA,2024,5.0,8.9,5.5,8.1,5.6,8.0,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Lorette Charpy,FRA,2022,4.6,8.7,5.4,8.0,6.1,8.2,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Aline Friess,FRA,2021,5.4,9.0,5.2,8.0,5.0,7.8,5.2,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Elisabeth Seitz,GER,2021,4.6,8.7,5.2,7.9,6.4,8.4,5.2,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Pauline Schaefer-Betz,GER,2017,4.8,8.7,5.4,8.0,5.5,7.9,6.4,8.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Sarah Voss,GER,2021,5.0,8.9,5.4,8.0,5.5,8.0,5.6,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Kim Bui,GER,2019,4.6,8.8,5.4,8.0,5.9,8.1,5.2,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Emma Malewski,GER,2022,4.6,8.7,5.2,7.9,5.6,8.0,6.1,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Leah Grießer,GER,2024,4.6,8.6,5.0,7.9,5.7,8.0,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Nadia Comaneci,ROU,1976,5.0,9.9,5.0,9.9,5.0,10.0,5.0,9.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.96
+F,Svetlana Khorkina,RUS,2000,5.4,8.8,5.9,8.8,6.6,9.2,6.0,8.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Oksana Chusovitina,UZB,2008,6.0,9.0,5.6,8.2,5.2,8.0,5.4,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Nina Derwael,BEL,2021,5.0,8.8,5.2,8.0,6.7,8.6,5.4,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Kaylia Nemour,ALG,2024,5.0,8.9,5.6,8.2,7.2,8.5,6.2,8.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+M,Daiki Hashimoto,JPN,2021,5.6,9.2,6.0,8.5,N/A,N/A,N/A,N/A,6.1,8.4,5.8,8.2,6.2,8.6,6.7,8.5,0.90
+M,Kohei Uchimura,JPN,2016,5.6,9.3,6.2,8.8,N/A,N/A,N/A,N/A,6.0,8.5,6.0,8.6,6.4,8.8,6.6,8.7,0.95
+M,Shinnosuke Oka,JPN,2024,5.6,9.1,5.9,8.5,N/A,N/A,N/A,N/A,5.8,8.3,5.8,8.2,6.3,8.6,6.3,8.4,0.88
+M,Wataru Tanigawa,JPN,2022,5.6,9.1,5.8,8.3,N/A,N/A,N/A,N/A,5.8,8.2,5.8,8.1,6.2,8.5,6.0,8.2,0.84
+M,Kazuma Kaya,JPN,2021,5.2,8.9,5.6,8.2,N/A,N/A,N/A,N/A,6.2,8.4,5.7,8.1,6.1,8.4,6.1,8.2,0.86
+M,Kenzo Shirai,JPN,2017,5.6,9.1,6.8,8.6,N/A,N/A,N/A,N/A,5.0,7.8,5.2,7.9,5.8,8.1,5.6,8.0,0.80
+M,Zhang Boheng,CHN,2021,5.6,9.1,6.2,8.5,N/A,N/A,N/A,N/A,6.2,8.4,6.0,8.3,6.5,8.7,6.3,8.4,0.88
+M,Xiao Ruoteng,CHN,2017,5.6,9.0,6.0,8.4,N/A,N/A,N/A,N/A,6.4,8.5,5.9,8.2,6.4,8.6,6.2,8.3,0.87
+M,Zou Jingyuan,CHN,2021,5.6,8.8,5.4,8.0,N/A,N/A,N/A,N/A,5.8,8.2,6.2,8.6,6.9,9.3,5.6,8.1,0.89
+M,Sun Wei,CHN,2021,5.6,8.9,5.8,8.3,N/A,N/A,N/A,N/A,6.0,8.3,5.9,8.2,6.3,8.5,6.1,8.2,0.84
+M,Lin Chaopan,CHN,2018,5.6,8.9,5.8,8.2,N/A,N/A,N/A,N/A,5.8,8.2,5.8,8.1,6.2,8.4,6.0,8.1,0.83
+M,Su Weide,CHN,2023,5.6,8.8,5.8,8.2,N/A,N/A,N/A,N/A,5.6,8.0,5.6,8.0,6.0,8.3,6.3,8.2,0.78
+M,Brody Malone,USA,2022,5.2,9.0,5.8,8.3,N/A,N/A,N/A,N/A,5.9,8.1,5.9,8.2,6.0,8.4,6.5,8.3,0.84
+M,Frederick Richard,USA,2023,5.6,9.0,6.1,8.4,N/A,N/A,N/A,N/A,5.8,8.1,5.7,8.0,6.1,8.3,6.2,8.2,0.82
+M,Yul Moldauer,USA,2017,5.2,8.9,6.0,8.5,N/A,N/A,N/A,N/A,5.8,8.1,5.7,8.1,6.0,8.4,5.8,8.1,0.85
+M,Asher Hong,USA,2024,5.6,9.1,5.8,8.3,N/A,N/A,N/A,N/A,5.7,8.0,6.1,8.3,6.3,8.4,5.8,8.0,0.80
+M,Paul Juda,USA,2024,5.2,9.0,5.8,8.3,N/A,N/A,N/A,N/A,5.7,8.1,5.7,8.1,6.0,8.3,5.9,8.1,0.83
+M,Sam Mikulak,USA,2018,5.2,9.0,6.0,8.4,N/A,N/A,N/A,N/A,5.9,8.1,5.8,8.1,6.1,8.4,6.2,8.2,0.81
+M,Max Whitlock,GBR,2016,5.2,8.8,6.2,8.6,N/A,N/A,N/A,N/A,7.0,8.5,5.4,8.0,5.6,8.2,5.4,8.0,0.88
+M,Joe Fraser,GBR,2019,5.2,8.9,5.8,8.3,N/A,N/A,N/A,N/A,5.8,8.1,5.7,8.1,6.5,8.7,6.0,8.1,0.84
+M,James Hall,GBR,2022,5.2,8.8,5.8,8.2,N/A,N/A,N/A,N/A,5.8,8.1,5.7,8.0,6.1,8.3,5.8,8.0,0.82
+M,Giarnni Regini-Moran,GBR,2022,5.6,9.0,6.0,8.4,N/A,N/A,N/A,N/A,5.3,7.8,5.7,8.0,6.0,8.2,5.6,7.9,0.79
+M,Courtney Tulloch,GBR,2018,5.2,8.8,5.2,8.0,N/A,N/A,N/A,N/A,5.2,7.8,6.4,8.6,5.6,8.0,5.2,7.8,0.80
+M,Jake Jarman,GBR,2023,6.0,9.2,6.4,8.5,N/A,N/A,N/A,N/A,5.2,7.8,5.5,8.0,6.0,8.3,5.6,7.9,0.78
+M,Arthur Nory,BRA,2019,5.2,9.0,5.8,8.4,N/A,N/A,N/A,N/A,5.4,8.0,5.2,8.1,5.6,8.2,6.4,8.5,0.82
+M,Arthur Zanetti,BRA,2012,5.2,8.8,5.4,8.0,N/A,N/A,N/A,N/A,5.0,7.5,6.8,8.9,5.2,8.0,5.0,7.8,0.85
+M,Caio Souza,BRA,2021,5.6,9.0,5.8,8.2,N/A,N/A,N/A,N/A,5.6,8.0,5.8,8.1,5.9,8.2,5.6,8.0,0.80
+M,Diogo Soares,BRA,2024,5.2,8.9,5.8,8.3,N/A,N/A,N/A,N/A,5.7,8.1,5.7,8.0,6.0,8.3,5.7,8.1,0.82
+M,Yuri Guimaraes,BRA,2023,5.2,8.8,5.6,8.2,N/A,N/A,N/A,N/A,5.4,7.9,5.5,8.0,5.8,8.1,5.6,7.9,0.79
+M,Francisco Barreto,BRA,2016,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.5,8.0,5.6,8.0,5.8,8.1,6.0,8.2,0.80
+M,Lukas Dauser,GER,2021,5.2,8.8,5.4,8.0,N/A,N/A,N/A,N/A,5.2,7.8,5.4,8.0,6.6,8.8,5.6,8.0,0.86
+M,Andreas Toba,GER,2016,5.2,8.7,5.6,8.1,N/A,N/A,N/A,N/A,5.8,8.1,5.5,8.0,5.9,8.2,5.8,8.0,0.84
+M,Marcel Nguyen,GER,2012,5.6,8.9,5.8,8.2,N/A,N/A,N/A,N/A,5.6,8.0,6.0,8.3,6.6,8.7,5.8,8.1,0.84
+M,Nils Dunkel,GER,2023,5.2,8.7,5.4,8.0,N/A,N/A,N/A,N/A,6.2,8.4,5.4,7.9,5.7,8.0,5.5,7.9,0.80
+M,Nick Klessing,GER,2024,5.2,8.8,5.4,8.0,N/A,N/A,N/A,N/A,5.6,8.0,6.1,8.3,5.6,8.0,5.4,7.8,0.79
+M,Philipp Herder,GER,2019,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.6,8.0,5.6,8.0,5.9,8.1,5.6,7.9,0.80
+M,Samir Ait Said,FRA,2019,5.2,8.7,5.2,7.9,N/A,N/A,N/A,N/A,5.2,7.8,6.5,8.7,5.4,7.9,5.2,7.7,0.81
+M,Loris Frasca,FRA,2021,5.6,9.0,5.6,8.2,N/A,N/A,N/A,N/A,5.3,7.9,5.5,8.0,5.9,8.2,5.6,8.0,0.79
+M,Cameron-Lie Bernard,FRA,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.5,8.0,5.6,8.0,5.9,8.1,5.7,8.0,0.80
+M,Benjamin Osberger,FRA,2023,5.2,8.7,5.8,8.2,N/A,N/A,N/A,N/A,5.4,7.9,5.3,7.8,5.7,8.0,5.6,7.9,0.79
+M,Leo Saladino,FRA,2022,5.2,8.8,5.5,8.1,N/A,N/A,N/A,N/A,5.4,7.9,5.4,7.9,5.8,8.1,5.8,8.0,0.80
+M,Cyril Tommasone,FRA,2011,5.2,8.7,5.2,7.9,N/A,N/A,N/A,N/A,6.6,8.5,5.2,7.8,5.6,8.0,5.2,7.8,0.82
+M,Nicola Bartolini,ITA,2021,5.2,8.8,6.4,8.5,N/A,N/A,N/A,N/A,5.2,7.8,5.4,7.9,5.8,8.1,5.6,7.9,0.80
+M,Yumin Abbadini,ITA,2024,5.2,8.8,5.8,8.2,N/A,N/A,N/A,N/A,5.8,8.2,5.8,8.1,6.0,8.3,5.8,8.1,0.82
+M,Matteo Levantesi,ITA,2023,5.2,8.7,5.4,8.0,N/A,N/A,N/A,N/A,5.4,7.9,5.5,8.0,6.4,8.6,5.6,7.9,0.81
+M,Carlo Macchini,ITA,2021,5.2,8.7,5.4,8.0,N/A,N/A,N/A,N/A,5.2,7.8,5.2,7.8,5.8,8.1,6.4,8.4,0.80
+M,Mario Macchiati,ITA,2022,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.5,8.0,5.6,8.0,5.9,8.1,5.6,7.9,0.80
+M,Marco Lodadio,ITA,2019,5.2,8.7,5.2,7.9,N/A,N/A,N/A,N/A,5.0,7.7,6.4,8.6,5.4,7.9,5.2,7.7,0.81
+M,Carlos Yulo,PHI,2024,6.0,9.2,6.6,8.6,N/A,N/A,N/A,N/A,5.2,7.8,5.6,8.2,6.2,8.5,5.4,8.0,0.82
+M,Rhys McClenaghan,IRL,2023,5.2,8.5,5.2,8.0,N/A,N/A,N/A,N/A,6.8,8.7,5.0,7.5,5.4,8.0,5.2,7.9,0.87
+M,Eleftherios Petrounias,GRE,2016,5.2,8.5,5.0,7.5,N/A,N/A,N/A,N/A,5.0,7.5,6.3,8.9,5.0,7.5,5.0,7.5,0.86
+M,Ilia Kovtun,UKR,2023,5.2,8.8,5.9,8.2,N/A,N/A,N/A,N/A,6.2,8.3,5.4,8.0,6.7,8.6,5.8,8.2,0.84
+M,Oleg Verniaiev,UKR,2016,5.6,9.0,6.0,8.4,N/A,N/A,N/A,N/A,6.2,8.4,6.0,8.2,6.9,8.8,6.0,8.2,0.86
+M,Adem Asil,TUR,2022,5.6,9.0,5.6,8.1,N/A,N/A,N/A,N/A,5.4,7.9,6.3,8.7,5.8,8.1,5.4,7.9,0.82
+M,Shin Jea-hwan,KOR,2021,6.0,9.2,5.4,8.0,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.8,5.4,7.9,5.2,7.8,0.78
+M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7.8,5.2,7.7,0.81`;
+
+    const ICONS = {
+      moon: '<path d="M21 15.2A8.6 8.6 0 0 1 8.8 3a9.4 9.4 0 1 0 12.2 12.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+      sun: '<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+      play: '<path d="M8 5v14l11-7Z" fill="currentColor"/>',
+      plus: '<path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+      check: '<path d="m20 6-11 11-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>',
+      x: '<path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+      arrow: '<path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+      rotate: '<path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+      trophy: '<path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+      users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+      search: '<circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+      medal: '<path d="M8 2h8l-3 6h-2L8 2ZM12 22a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m12 14 .7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6-1.2-1.1 1.6-.2.7-1.5Z" fill="currentColor"/>',
+      filter: '<path d="M3 5h18M7 12h10M10 19h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+    };
+
+    const I18N = {
+      "pt-BR": {
+        htmlLang: "pt-BR",
+        appSubtitle: "Simulação Olímpica",
+        footer: "Pontuação fantasy inspirada no sistema olímpico: classificatórias, final por equipes, individual geral e finais por aparelhos.",
+        themeToggle: "Alternar tema",
+        languageLabel: "Idioma",
+        phaseSetup: "Configuração",
+        phaseDraft: "Draft",
+        phaseCompetition: "Competição",
+        phaseQuals: "Classificatórias",
+        phaseTeam: "Final por equipes",
+        phaseAA: "Individual geral",
+        phaseApps: "Aparelhos",
+        phaseMedals: "Medalhas",
+        setupKicker: "Criar delegação",
+        setupTitle: "Monte sua equipe e atravesse o ciclo olímpico.",
+        teamName: "Nome da equipe",
+        federation: "Sigla",
+        modality: "Modalidade",
+        female: "Feminina",
+        male: "Masculina",
+        femaleGym: "ginástica feminina",
+        maleGym: "ginástica masculina",
+        athletesInDraft: "Atletas no draft",
+        teamsInQuals: "Equipes na classificatória",
+        apparatus: "Aparelhos",
+        openDraft: "Abrir draft",
+        autoDraft: "Draft automático",
+        randomTeamSystem: "Sorteios de equipe",
+        draftTitle: ({ gender }) => `Draft de ${gender}`,
+        draftPickInstruction: ({ round }) => `Escolha 1 atleta da equipe sorteada para a vaga ${round}/5.`,
+        drawLabel: "Equipe sorteada",
+        drawYear: "Ano sorteado",
+        newDraw: "Novo sorteio",
+        autoComplete: "Autocompletar",
+        confirmTeam: "Confirmar equipe",
+        clearDraft: "Limpar draft",
+        slot: ({ n }) => `Vaga ${n}`,
+        team: "Equipe",
+        bestApp: "Melhor aparelho",
+        consistency: "Consistência",
+        potentialAA: "Potencial AA",
+        recruit: "Recrutar",
+        remove: "Remover",
+        registeredTeam: "Equipe inscrita",
+        seed: "Seed",
+        top8Team: "Top 8",
+        teamFinalRule: "Final por equipes",
+        top24AA: "Top 24",
+        aaRule: "Individual geral, máximo 2 por país",
+        top8Apps: "Top 8",
+        appsRule: "Aparelhos, máximo 2 por país",
+        simulateQuals: "Simular classificatórias",
+        backToDraft: "Voltar ao draft",
+        qualsEnded: "Classificatórias encerradas",
+        playerMadeTeam: "Sua equipe entrou no top 8.",
+        playerMissedTeam: "Sua equipe ficou fora da final por equipes.",
+        teamPosition: "Posição da equipe",
+        athletesInAA: "Atletas no AA",
+        apparatusSlots: "Vagas em aparelhos",
+        teamsTab: "Equipes",
+        aaTab: "Individual geral",
+        appsTab: "Aparelhos",
+        rank: "Rank",
+        gymnast: "Ginasta",
+        country: "País",
+        year: "Ano",
+        action: "Ação",
+        total: "Total",
+        final: "Final",
+        score: "Nota",
+        routine: "Rotina",
+        medal: "Medalha",
+        event: "Evento",
+        name: "Nome",
+        teamFinalKicker: "Notas zeradas e final 3 sobem, 3 contam",
+        teamPodium: "Pódio por equipes",
+        aaButton: "Individual geral",
+        aaFinalKicker: "Top 24 com regra de máximo 2 por país",
+        aaPodium: "Pódio do individual geral",
+        appFinalsButton: "Finais por aparelhos",
+        appFinalsKicker: "Top 8 por aparelho, máximo 2 por país",
+        appFinalsTitle: "Finais por aparelhos",
+        medalTable: "Quadro de medalhas",
+        competitionEnded: "Competição encerrada",
+        newSeason: "Nova temporada",
+        backToApps: "Voltar aos aparelhos",
+        yourTeam: "Sua equipe",
+        goldShort: "O",
+        silverShort: "P",
+        bronzeShort: "B",
+        teamEvent: "Equipes",
+        individualEvent: "Individual",
+        apparatusEvent: "Aparelho",
+        roundNoteClean: "limpa",
+        roundNoteFall: "queda",
+        roundNoteError: "erro",
+        roundNoteStick: "cravada",
+        roundNoteLine: "linha",
+        filledBest: "Equipe preenchida com escolhas fortes dos sorteios.",
+        teamFull: "A equipe já tem 5 atletas.",
+        chooseFive: "Escolha exatamente 5 atletas para avançar.",
+        apparatusNames: {
+          vt: "Salto",
+          ub: "Barras Assimétricas",
+          bb: "Trave",
+          fx: "Solo",
+          ph: "Cavalo com Alças",
+          sr: "Argolas",
+          pb: "Barras Paralelas",
+          hb: "Barra Fixa"
+        }
+      },
+      en: {
+        htmlLang: "en",
+        appSubtitle: "Olympic Simulation",
+        footer: "Fantasy scoring inspired by the Olympic format: qualifications, team final, all-around final, and apparatus finals.",
+        themeToggle: "Toggle theme",
+        languageLabel: "Language",
+        phaseSetup: "Setup",
+        phaseDraft: "Draft",
+        phaseCompetition: "Competition",
+        phaseQuals: "Qualifications",
+        phaseTeam: "Team final",
+        phaseAA: "All-around",
+        phaseApps: "Apparatus",
+        phaseMedals: "Medals",
+        setupKicker: "Create delegation",
+        setupTitle: "Build your team and go through the Olympic cycle.",
+        teamName: "Team name",
+        federation: "Code",
+        modality: "Discipline",
+        female: "Women",
+        male: "Men",
+        femaleGym: "women's artistic gymnastics",
+        maleGym: "men's artistic gymnastics",
+        athletesInDraft: "Athletes in draft",
+        teamsInQuals: "Teams in qualifications",
+        apparatus: "Apparatus",
+        openDraft: "Open draft",
+        autoDraft: "Auto draft",
+        randomTeamSystem: "Team draws",
+        draftTitle: ({ gender }) => `${gender} draft`,
+        draftPickInstruction: ({ round }) => `Choose 1 athlete from the drawn team for roster slot ${round}/5.`,
+        drawLabel: "Drawn team",
+        drawYear: "Drawn year",
+        newDraw: "New draw",
+        autoComplete: "Auto-complete",
+        confirmTeam: "Confirm team",
+        clearDraft: "Clear draft",
+        slot: ({ n }) => `Slot ${n}`,
+        team: "Team",
+        bestApp: "Best apparatus",
+        consistency: "Consistency",
+        potentialAA: "AA potential",
+        recruit: "Recruit",
+        remove: "Remove",
+        registeredTeam: "Registered team",
+        seed: "Seed",
+        top8Team: "Top 8",
+        teamFinalRule: "Team final",
+        top24AA: "Top 24",
+        aaRule: "All-around, max 2 per country",
+        top8Apps: "Top 8",
+        appsRule: "Apparatus, max 2 per country",
+        simulateQuals: "Simulate qualifications",
+        backToDraft: "Back to draft",
+        qualsEnded: "Qualifications complete",
+        playerMadeTeam: "Your team made the top 8.",
+        playerMissedTeam: "Your team missed the team final.",
+        teamPosition: "Team position",
+        athletesInAA: "Athletes in AA",
+        apparatusSlots: "Apparatus berths",
+        teamsTab: "Teams",
+        aaTab: "All-around",
+        appsTab: "Apparatus",
+        rank: "Rank",
+        gymnast: "Gymnast",
+        country: "Country",
+        year: "Year",
+        action: "Action",
+        total: "Total",
+        final: "Final",
+        score: "Score",
+        routine: "Routine",
+        medal: "Medal",
+        event: "Event",
+        name: "Name",
+        teamFinalKicker: "Scores reset; 3 up, 3 count in the final",
+        teamPodium: "Team podium",
+        aaButton: "All-around",
+        aaFinalKicker: "Top 24 with the max-2-per-country rule",
+        aaPodium: "All-around podium",
+        appFinalsButton: "Apparatus finals",
+        appFinalsKicker: "Top 8 per apparatus, max 2 per country",
+        appFinalsTitle: "Apparatus finals",
+        medalTable: "Medal table",
+        competitionEnded: "Competition complete",
+        newSeason: "New season",
+        backToApps: "Back to apparatus",
+        yourTeam: "Your team",
+        goldShort: "G",
+        silverShort: "S",
+        bronzeShort: "B",
+        teamEvent: "Team",
+        individualEvent: "Individual",
+        apparatusEvent: "Apparatus",
+        roundNoteClean: "clean",
+        roundNoteFall: "fall",
+        roundNoteError: "error",
+        roundNoteStick: "stuck",
+        roundNoteLine: "line",
+        filledBest: "Team filled with strong picks from the draws.",
+        teamFull: "The team already has 5 athletes.",
+        chooseFive: "Choose exactly 5 athletes to continue.",
+        apparatusNames: {
+          vt: "Vault",
+          ub: "Uneven Bars",
+          bb: "Balance Beam",
+          fx: "Floor Exercise",
+          ph: "Pommel Horse",
+          sr: "Still Rings",
+          pb: "Parallel Bars",
+          hb: "Horizontal Bar"
+        }
+      },
+      es: {
+        htmlLang: "es",
+        appSubtitle: "Simulación Olímpica",
+        footer: "Puntuación fantasy inspirada en el formato olímpico: clasificatorias, final por equipos, final general individual y finales por aparatos.",
+        themeToggle: "Cambiar tema",
+        languageLabel: "Idioma",
+        phaseSetup: "Configuración",
+        phaseDraft: "Draft",
+        phaseCompetition: "Competición",
+        phaseQuals: "Clasificatorias",
+        phaseTeam: "Final por equipos",
+        phaseAA: "General individual",
+        phaseApps: "Aparatos",
+        phaseMedals: "Medallas",
+        setupKicker: "Crear delegación",
+        setupTitle: "Forma tu equipo y atraviesa el ciclo olímpico.",
+        teamName: "Nombre del equipo",
+        federation: "Sigla",
+        modality: "Modalidad",
+        female: "Femenina",
+        male: "Masculina",
+        femaleGym: "gimnasia artística femenina",
+        maleGym: "gimnasia artística masculina",
+        athletesInDraft: "Atletas en el draft",
+        teamsInQuals: "Equipos en clasificatoria",
+        apparatus: "Aparatos",
+        openDraft: "Abrir draft",
+        autoDraft: "Draft automático",
+        randomTeamSystem: "Sorteos de equipo",
+        draftTitle: ({ gender }) => `Draft de ${gender}`,
+        draftPickInstruction: ({ round }) => `Elige 1 atleta del equipo sorteado para la plaza ${round}/5.`,
+        drawLabel: "Equipo sorteado",
+        drawYear: "Año sorteado",
+        newDraw: "Nuevo sorteo",
+        autoComplete: "Autocompletar",
+        confirmTeam: "Confirmar equipo",
+        clearDraft: "Limpiar draft",
+        slot: ({ n }) => `Plaza ${n}`,
+        team: "Equipo",
+        bestApp: "Mejor aparato",
+        consistency: "Consistencia",
+        potentialAA: "Potencial general",
+        recruit: "Reclutar",
+        remove: "Quitar",
+        registeredTeam: "Equipo inscrito",
+        seed: "Seed",
+        top8Team: "Top 8",
+        teamFinalRule: "Final por equipos",
+        top24AA: "Top 24",
+        aaRule: "General individual, máximo 2 por país",
+        top8Apps: "Top 8",
+        appsRule: "Aparatos, máximo 2 por país",
+        simulateQuals: "Simular clasificatorias",
+        backToDraft: "Volver al draft",
+        qualsEnded: "Clasificatorias terminadas",
+        playerMadeTeam: "Tu equipo entró en el top 8.",
+        playerMissedTeam: "Tu equipo quedó fuera de la final por equipos.",
+        teamPosition: "Posición del equipo",
+        athletesInAA: "Atletas en general",
+        apparatusSlots: "Plazas en aparatos",
+        teamsTab: "Equipos",
+        aaTab: "General individual",
+        appsTab: "Aparatos",
+        rank: "Rank",
+        gymnast: "Gimnasta",
+        country: "País",
+        year: "Año",
+        action: "Acción",
+        total: "Total",
+        final: "Final",
+        score: "Nota",
+        routine: "Rutina",
+        medal: "Medalla",
+        event: "Evento",
+        name: "Nombre",
+        teamFinalKicker: "Notas reiniciadas; 3 compiten y 3 cuentan en la final",
+        teamPodium: "Podio por equipos",
+        aaButton: "General individual",
+        aaFinalKicker: "Top 24 con regla de máximo 2 por país",
+        aaPodium: "Podio general individual",
+        appFinalsButton: "Finales por aparatos",
+        appFinalsKicker: "Top 8 por aparato, máximo 2 por país",
+        appFinalsTitle: "Finales por aparatos",
+        medalTable: "Medallero",
+        competitionEnded: "Competición terminada",
+        newSeason: "Nueva temporada",
+        backToApps: "Volver a aparatos",
+        yourTeam: "Tu equipo",
+        goldShort: "O",
+        silverShort: "P",
+        bronzeShort: "B",
+        teamEvent: "Equipos",
+        individualEvent: "Individual",
+        apparatusEvent: "Aparato",
+        roundNoteClean: "limpia",
+        roundNoteFall: "caída",
+        roundNoteError: "error",
+        roundNoteStick: "clavada",
+        roundNoteLine: "línea",
+        filledBest: "Equipo completado con elecciones fuertes de los sorteos.",
+        teamFull: "El equipo ya tiene 5 atletas.",
+        chooseFive: "Elige exactamente 5 atletas para avanzar.",
+        apparatusNames: {
+          vt: "Salto",
+          ub: "Barras Asimétricas",
+          bb: "Barra de Equilibrio",
+          fx: "Suelo",
+          ph: "Caballo con Arzones",
+          sr: "Anillas",
+          pb: "Barras Paralelas",
+          hb: "Barra Fija"
+        }
+      }
+    };
+
+    const DRAFT_YEARS = [2012, 2016, 2020, 2024];
+
+    const state = {
+      lang: getInitialLanguage(),
+      gender: "WAG",
+      teamName: "Equipe Aurora",
+      federation: "FAN",
+      phase: "setup",
+      view: "setup",
+      selectedIds: [],
+      draftRound: 1,
+      draftDraw: null,
+      draftOptions: [],
+      qualTab: "teams",
+      seed: Date.now(),
+      rng: Math.random,
+      teams: [],
+      results: {}
+    };
+
+    const ATHLETES = parseAthletes(ATHLETE_CSV);
+    const app = document.getElementById("app");
+
+    function icon(name, cls = "") {
+      return `<svg class="${cls}" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">${ICONS[name] || ""}</svg>`;
+    }
+
+    function t(key, vars = {}) {
+      const pack = I18N[state?.lang] || I18N["pt-BR"];
+      const fallback = I18N["pt-BR"][key];
+      const value = pack[key] ?? fallback ?? key;
+      if (typeof value === "function") return value(vars);
+      return String(value).replace(/\{(\w+)\}/g, (_, name) => vars[name] ?? "");
+    }
+
+    function appName(apparatus) {
+      return (I18N[state.lang]?.apparatusNames || I18N["pt-BR"].apparatusNames)[apparatus.id] || apparatus.name;
+    }
+
+    function genderName() {
+      return state.gender === "WAG" ? t("femaleGym") : t("maleGym");
+    }
+
+    function routineNote(note) {
+      const keys = {
+        limpa: "roundNoteClean",
+        queda: "roundNoteFall",
+        erro: "roundNoteError",
+        cravada: "roundNoteStick",
+        linha: "roundNoteLine"
+      };
+      return t(keys[note] || "roundNoteClean");
+    }
+
+    function getInitialLanguage() {
+      const saved = localStorage.getItem("gym-royale-language");
+      if (saved && I18N[saved]) return saved;
+      const browser = navigator.language.toLowerCase();
+      if (browser.startsWith("es")) return "es";
+      if (browser.startsWith("en")) return "en";
+      return "pt-BR";
+    }
+
+    function updateChrome() {
+      const pack = I18N[state.lang] || I18N["pt-BR"];
+      document.documentElement.lang = pack.htmlLang;
+      document.title = `Fantasy Gymnastics Royale · ${pack.appSubtitle}`;
+      const subtitle = document.getElementById("brandSubtitle");
+      const footer = document.getElementById("footerText");
+      const language = document.getElementById("languageSelect");
+      const theme = document.getElementById("themeButton");
+      if (subtitle) subtitle.textContent = pack.appSubtitle;
+      if (footer) footer.textContent = pack.footer;
+      if (language) {
+        language.value = state.lang;
+        language.title = t("languageLabel");
+        language.setAttribute("aria-label", t("languageLabel"));
+      }
+      if (theme) {
+        theme.title = t("themeToggle");
+        theme.setAttribute("aria-label", t("themeToggle"));
+      }
+    }
+
+    function setLanguage(lang) {
+      if (!I18N[lang]) return;
+      state.lang = lang;
+      localStorage.setItem("gym-royale-language", lang);
+      updateChrome();
+      renderCurrentView();
+    }
+
+    function renderCurrentView() {
+      if (state.view === "draft") renderDraftBoard();
+      else if (state.view === "hub") renderTournamentHub();
+      else if (state.view === "quals" && state.results.qual) renderQualifications();
+      else if (state.view === "team" && state.results.teamFinal) renderTeamFinal();
+      else if (state.view === "aa" && state.results.aaFinal) renderAAFinal();
+      else if (state.view === "apps" && state.results.appFinals) renderAppFinals();
+      else if (state.view === "summary" && state.results.appFinals) renderSummary();
+      else renderSetup();
+    }
+
+    function escapeHTML(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function parseAthletes(csv) {
+      const lines = csv.trim().split(/\n+/);
+      const headers = lines.shift().split(",");
+      return lines.map((line, index) => {
+        const cells = line.split(",");
+        const row = {};
+        headers.forEach((header, i) => { row[header] = cells[i]; });
+        const gender = row.Genero === "F" ? "WAG" : "MAG";
+        const stats = {};
+        APPARATUS[gender].forEach((apparatus) => {
+          stats[apparatus.id] = {
+            d: toNumber(row[`${apparatus.key}_D`]),
+            e: toNumber(row[`${apparatus.key}_E`])
+          };
+        });
+        return {
+          id: `${gender}-${slug(row.Nome)}-${row.Pais}-${row.Ano}-${index}`,
+          gender,
+          name: row.Nome,
+          country: row.Pais,
+          year: Number(row.Ano),
+          consistency: Number(row.Consistency || 0.82),
+          stats
+        };
+      });
+    }
+
+    function toNumber(value) {
+      if (!value || value === "N/A") return null;
+      return Number(value);
+    }
+
+    function slug(value) {
+      return String(value).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    }
+
+    function round3(value) {
+      return Math.round((value + Number.EPSILON) * 1000) / 1000;
+    }
+
+    function mulberry32(seed) {
+      return function rng() {
+        let t = seed += 0x6D2B79F5;
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function apps() {
+      return APPARATUS[state.gender];
+    }
+
+    function athleteById(id) {
+      return ATHLETES.find((athlete) => athlete.id === id);
+    }
+
+    function selectedAthletes() {
+      return state.selectedIds.map(athleteById).filter(Boolean);
+    }
+
+    function totalPotential(athlete) {
+      return round3(apps().reduce((sum, apparatus) => {
+        const stat = athlete.stats[apparatus.id];
+        return sum + stat.d + stat.e;
+      }, 0));
+    }
+
+    function appPotential(athlete, apparatusId) {
+      const stat = athlete.stats[apparatusId];
+      return round3(stat.d + stat.e);
+    }
+
+    function bestApp(athlete) {
+      return [...apps()].sort((a, b) => appPotential(athlete, b.id) - appPotential(athlete, a.id))[0];
+    }
+
+    function formatScore(score) {
+      return Number(score).toFixed(3);
+    }
+
+    function displayTeamName(team) {
+      return team.isPlayer ? team.name : `${t("team")} ${team.federation}`;
+    }
+
+    function athleteTeamName(athlete) {
+      return athlete.isPlayerAthlete ? athlete.teamName : `${t("team")} ${athlete.federation}`;
+    }
+
+    function setPhase(phase, label) {
+      hideToast();
+      state.phase = phase;
+      updateChrome();
+      document.getElementById("phaseLabel").innerHTML = label;
+      resetScrollSoon();
+    }
+
+    function resetScrollSoon() {
+      const reset = () => {
+        if (document.activeElement && typeof document.activeElement.blur === "function") {
+          document.activeElement.blur();
+        }
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      };
+      reset();
+      requestAnimationFrame(reset);
+      setTimeout(reset, 80);
+    }
+
+    function progress(current) {
+      const steps = ["setup", "draft", "quals", "team", "aa", "apps"];
+      const index = steps.indexOf(current);
+      return `<div class="progress" aria-hidden="true">${steps.map((step, i) => `<span class="step ${i < index ? "done" : ""} ${i === index ? "active" : ""}"></span>`).join("")}</div>`;
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById("toast");
+      toast.classList.remove("show");
+      clearTimeout(showToast.timer);
+    }
+
+    function getInitialTheme() {
+      const saved = localStorage.getItem("gym-royale-theme");
+      if (saved) return saved;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem("gym-royale-theme", theme);
+      const button = document.getElementById("themeButton");
+      if (button) {
+        button.innerHTML = theme === "dark" ? icon("sun") : icon("moon");
+      }
+      updateChrome();
+    }
+
+    function toggleTheme() {
+      applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+    }
+
+    function apparatusHeaderCells(extraClass = "") {
+      return apps().map((apparatus) => `<th class="${extraClass} text-right">${apparatus.short}</th>`).join("");
+    }
+
+    function statGrid(athlete) {
+      return apps().map((apparatus) => {
+        const stat = athlete.stats[apparatus.id];
+        return `
+          <div class="metric">
+            <div class="flex items-center justify-between gap-2">
+              <span class="app-icon">${apparatus.short}</span>
+              <span class="score">${(stat.d + stat.e).toFixed(1)}</span>
+            </div>
+            <div class="mt-2 text-xs font-bold text-[var(--muted)]">${appName(apparatus)} · D ${stat.d.toFixed(1)} · E ${stat.e.toFixed(1)}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function arenaArt() {
+      return `
+        <svg class="arena-art" viewBox="0 0 720 290" role="img" aria-label="Gymnastics arena">
+          <rect x="0" y="0" width="720" height="290" fill="var(--surface-2)"></rect>
+          <rect x="38" y="42" width="644" height="190" rx="8" fill="none" stroke="var(--strong-line)" stroke-width="3"></rect>
+          <rect x="76" y="77" width="230" height="118" rx="6" fill="color-mix(in srgb, var(--accent) 12%, transparent)" stroke="var(--accent)" stroke-width="3"></rect>
+          <path d="M106 176h170M106 96h170M106 96l170 80M276 96l-170 80" stroke="var(--line)" stroke-width="2"></path>
+          <path d="M382 78v104M500 78v104M372 86h138M372 174h138" stroke="var(--accent-2)" stroke-width="8" stroke-linecap="round"></path>
+          <path d="M592 74v86M560 160h64" stroke="var(--accent)" stroke-width="7" stroke-linecap="round"></path>
+          <path d="M552 196h84" stroke="var(--strong-line)" stroke-width="7" stroke-linecap="round"></path>
+          <circle cx="584" cy="106" r="20" fill="none" stroke="var(--accent-3)" stroke-width="7"></circle>
+          <circle cx="632" cy="106" r="20" fill="none" stroke="var(--accent-3)" stroke-width="7"></circle>
+          <path d="M308 232h104v26H308zM334 204h52v28h-52zM232 242h80v16h-80M408 242h80v16h-80" fill="var(--gold)" opacity=".92"></path>
+          <path d="M86 252c82-22 166-22 252 0s170 22 296 0" fill="none" stroke="var(--accent-2)" stroke-width="3"></path>
+        </svg>
+      `;
+    }
+
+    function renderSetup() {
+      state.view = "setup";
+      setPhase("setup", `${icon("trophy")} ${t("phaseSetup")}`);
+      state.results = {};
+      state.teams = [];
+      app.innerHTML = `
+        <section class="screen">
+          <div class="grid gap-4 lg:grid-cols-[1fr_0.95fr]">
+            <div class="panel p-4 md:p-6">
+              ${progress("setup")}
+              <div class="mt-6">
+                <p class="text-sm font-black uppercase text-[var(--accent)]">${t("setupKicker")}</p>
+                <h1 class="mt-2 text-3xl font-black leading-tight md:text-5xl">${t("setupTitle")}</h1>
+              </div>
+
+              <div class="mt-6 grid gap-4 md:grid-cols-[1.4fr_.6fr]">
+                <label class="grid gap-2">
+                  <span class="text-sm font-black text-[var(--muted)]">${t("teamName")}</span>
+                  <input id="teamNameInput" class="input" maxlength="34" value="${escapeHTML(state.teamName)}" />
+                </label>
+                <label class="grid gap-2">
+                  <span class="text-sm font-black text-[var(--muted)]">${t("federation")}</span>
+                  <input id="federationInput" class="input uppercase" maxlength="3" value="${escapeHTML(state.federation)}" />
+                </label>
+              </div>
+
+              <div class="mt-5">
+                <span class="mb-2 block text-sm font-black text-[var(--muted)]">${t("modality")}</span>
+                <div class="segment">
+                  <button class="${state.gender === "WAG" ? "active" : ""}" onclick="chooseGender('WAG')">
+                    <span class="app-icon">W</span> ${t("female")}
+                  </button>
+                  <button class="${state.gender === "MAG" ? "active" : ""}" onclick="chooseGender('MAG')">
+                    <span class="app-icon">M</span> ${t("male")}
+                  </button>
+                </div>
+              </div>
+
+              <div class="mt-5 grid gap-3 md:grid-cols-3">
+                <div class="metric">
+                  <div class="text-2xl font-black">5</div>
+                  <div class="text-sm font-bold text-[var(--muted)]">${t("athletesInDraft")}</div>
+                </div>
+                <div class="metric">
+                  <div class="text-2xl font-black">${COMPETING_COUNTRIES[state.gender].length + 1}</div>
+                  <div class="text-sm font-bold text-[var(--muted)]">${t("teamsInQuals")}</div>
+                </div>
+                <div class="metric">
+                  <div class="text-2xl font-black">${apps().length}</div>
+                  <div class="text-sm font-bold text-[var(--muted)]">${t("apparatus")}</div>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-col gap-3 md:flex-row md:items-center">
+                <button class="btn btn-primary" onclick="startDraft()">${icon("arrow")} ${t("openDraft")}</button>
+                <button class="btn btn-secondary" onclick="quickStart()">${icon("play")} ${t("autoDraft")}</button>
+              </div>
+            </div>
+
+            <div class="grid gap-4">
+              ${arenaArt()}
+              <div class="soft-panel p-4">
+                <div class="flex flex-wrap gap-2">
+                  ${apps().map((apparatus) => `<span class="chip"><span class="app-icon">${apparatus.short}</span>${appName(apparatus)}</span>`).join("")}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function chooseGender(gender) {
+      state.gender = gender;
+      state.selectedIds = [];
+      state.draftRound = 1;
+      state.draftDraw = null;
+      state.draftOptions = [];
+      renderSetup();
+    }
+
+    function readSetupInputs() {
+      const teamInput = document.getElementById("teamNameInput");
+      const federationInput = document.getElementById("federationInput");
+      state.teamName = (teamInput?.value || state.teamName || "Equipe Fantasy").trim().slice(0, 34) || "Equipe Fantasy";
+      state.federation = (federationInput?.value || state.federation || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
+    }
+
+    function startDraft() {
+      readSetupInputs();
+      state.selectedIds = [];
+      state.draftRound = 1;
+      generateDraftRound();
+      renderDraftBoard();
+    }
+
+    function quickStart() {
+      readSetupInputs();
+      state.selectedIds = [];
+      state.draftRound = 1;
+      while (state.selectedIds.length < 5) {
+        generateDraftRound();
+        const pick = [...state.draftOptions].sort((a, b) => totalPotential(b) - totalPotential(a))[0];
+        if (!pick) break;
+        state.selectedIds.push(pick.id);
+        state.draftRound = Math.min(5, state.selectedIds.length + 1);
+      }
+      renderDraftBoard();
+      showToast(t("filledBest"));
+    }
+
+    function randomItem(items) {
+      return items[Math.floor(Math.random() * items.length)];
+    }
+
+    function shuffled(items) {
+      return [...items].sort(() => Math.random() - 0.5);
+    }
+
+    function eligibleDraftCountries() {
+      const counts = {};
+      ATHLETES.filter((athlete) => athlete.gender === state.gender).forEach((athlete) => {
+        counts[athlete.country] = (counts[athlete.country] || 0) + 1;
+      });
+      const selected = new Set(state.selectedIds);
+      return Object.keys(counts).filter((country) => {
+        if (counts[country] < 5) return false;
+        return ATHLETES.some((athlete) => athlete.gender === state.gender && athlete.country === country && !selected.has(athlete.id));
+      });
+    }
+
+    function generateDraftRound() {
+      const countries = eligibleDraftCountries();
+      const country = randomItem(countries.length ? countries : COMPETING_COUNTRIES[state.gender]);
+      const year = randomItem(DRAFT_YEARS);
+      const selected = new Set(state.selectedIds);
+      const pool = ATHLETES.filter((athlete) => athlete.gender === state.gender && athlete.country === country && !selected.has(athlete.id));
+      state.draftDraw = { country, year };
+      state.draftOptions = shuffled(pool)
+        .sort((a, b) => Math.abs(a.year - year) - Math.abs(b.year - year) || totalPotential(b) - totalPotential(a))
+        .slice(0, 5);
+    }
+
+    function rerollDraft() {
+      if (state.selectedIds.length >= 5) return;
+      generateDraftRound();
+      renderDraftBoard();
+    }
+
+    function renderDraftBoard() {
+      state.view = "draft";
+      if (!state.draftDraw && state.selectedIds.length < 5) generateDraftRound();
+      setPhase("draft", `${icon("users")} ${t("phaseDraft")} · ${state.gender}`);
+      const selected = selectedAthletes();
+      const complete = selected.length === 5;
+      app.innerHTML = `
+        <section class="screen">
+          <div class="grid gap-4">
+            <div class="panel p-4 md:p-5">
+              ${progress("draft")}
+              <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p class="text-sm font-black uppercase text-[var(--accent)]">${escapeHTML(state.teamName)} · ${escapeHTML(state.federation)}</p>
+                  <h1 class="mt-1 text-2xl font-black md:text-4xl">${t("draftTitle", { gender: genderName() })}</h1>
+                </div>
+                <div class="flex gap-2">
+                  <button class="btn btn-secondary" onclick="autoFillDraft()">${icon("plus")} ${t("autoComplete")}</button>
+                  <button class="btn btn-primary" onclick="prepareTournament()" ${complete ? "" : "disabled"}>${icon("check")} ${t("confirmTeam")}</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-4 lg:grid-cols-[360px_1fr]">
+              <aside class="panel p-4">
+                <div class="flex items-center justify-between gap-3">
+                  <h2 class="text-lg font-black">${t("team")} (${selected.length}/5)</h2>
+                  <button class="btn btn-secondary btn-icon" onclick="clearDraft()" title="${t("clearDraft")}" aria-label="${t("clearDraft")}">${icon("x")}</button>
+                </div>
+                <div class="mt-4 grid gap-2">
+                  ${selected.length ? selected.map((athlete) => rosterSlot(athlete)).join("") : emptyRosterSlots()}
+                  ${selected.length < 5 ? Array.from({ length: 5 - selected.length }, (_, i) => `<div class="soft-panel p-3 text-sm font-bold text-[var(--muted)]">${t("slot", { n: selected.length + i + 1 })}</div>`).join("") : ""}
+                </div>
+              </aside>
+
+              <section class="panel p-4">
+                ${complete ? `
+                  <div class="soft-panel p-5">
+                    <p class="text-sm font-black uppercase text-[var(--accent)]">${t("team")}</p>
+                    <h2 class="mt-1 text-2xl font-black">${t("confirmTeam")}</h2>
+                  </div>
+                ` : `
+                  <div class="grid gap-3 md:grid-cols-[1fr_1fr_auto] md:items-end">
+                    <div class="metric">
+                      <div class="text-sm font-black uppercase text-[var(--muted)]">${t("drawLabel")}</div>
+                      <div class="mt-1 text-3xl font-black">${state.draftDraw.country}</div>
+                    </div>
+                    <div class="metric">
+                      <div class="text-sm font-black uppercase text-[var(--muted)]">${t("drawYear")}</div>
+                      <div class="mt-1 text-3xl font-black">${state.draftDraw.year}</div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="rerollDraft()">${icon("rotate")} ${t("newDraw")}</button>
+                  </div>
+                  <p class="mt-4 text-sm font-bold text-[var(--muted)]">${t("draftPickInstruction", { round: state.draftRound })}</p>
+                  <div class="mt-4 grid gap-4 xl:grid-cols-2">
+                    ${state.draftOptions.map((athlete) => draftOptionCard(athlete)).join("")}
+                  </div>
+                `}
+                ${selected.length ? `
+                  <div class="mt-5 table-wrap">
+                    <table>
+                      <thead><tr><th>${t("gymnast")}</th><th>${t("country")}</th><th>${t("year")}</th><th class="text-right">${t("potentialAA")}</th>${apparatusHeaderCells()}</tr></thead>
+                      <tbody>
+                        ${selected.map((athlete) => `
+                          <tr class="player-row">
+                            <td class="font-black">${escapeHTML(athlete.name)}</td>
+                            <td>${athlete.country}</td>
+                            <td>${athlete.year}</td>
+                            <td class="score">${totalPotential(athlete).toFixed(1)}</td>
+                            ${apps().map((apparatus) => `<td class="score">${appPotential(athlete, apparatus.id).toFixed(1)}</td>`).join("")}
+                          </tr>
+                        `).join("")}
+                      </tbody>
+                    </table>
+                  </div>
+                ` : ""}
+              </section>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function rosterSlot(athlete) {
+      const best = bestApp(athlete);
+      return `
+        <div class="card p-3">
+          <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+              <div class="truncate font-black">${escapeHTML(athlete.name)}</div>
+              <div class="mt-1 text-xs font-bold text-[var(--muted)]">${athlete.country} · ${athlete.year} · ${best.short}</div>
+            </div>
+            <button class="btn btn-danger btn-icon" onclick="removeAthlete('${athlete.id}')" title="${t("remove")} ${escapeHTML(athlete.name)}" aria-label="${t("remove")} ${escapeHTML(athlete.name)}">${icon("x")}</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function emptyRosterSlots() {
+      return "";
+    }
+
+    function draftOptionCard(athlete) {
+      const best = bestApp(athlete);
+      return `
+        <article class="card p-4">
+          <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+            <div>
+              <h3 class="text-xl font-black">${escapeHTML(athlete.name)}</h3>
+              <div class="mt-1 flex flex-wrap gap-2">
+                <span class="chip">${athlete.country}</span>
+                <span class="chip">${athlete.year}</span>
+                <span class="chip">${t("bestApp")}: ${best.short}</span>
+                <span class="chip">${t("consistency")} ${(athlete.consistency * 100).toFixed(0)}%</span>
+              </div>
+            </div>
+            <div class="score text-2xl">${totalPotential(athlete).toFixed(1)}</div>
+          </div>
+          <div class="mt-4 grid gap-2 sm:grid-cols-2 ${state.gender === "MAG" ? "lg:grid-cols-3" : ""}">
+            ${statGrid(athlete)}
+          </div>
+          <button class="btn btn-primary mt-4 w-full" onclick="addAthlete('${athlete.id}')">${icon("plus")} ${t("recruit")}</button>
+        </article>
+      `;
+    }
+
+    function addAthlete(id) {
+      if (state.selectedIds.includes(id)) return;
+      if (state.selectedIds.length >= 5) {
+        showToast(t("teamFull"));
+        return;
+      }
+      state.selectedIds.push(id);
+      if (state.selectedIds.length < 5) {
+        state.draftRound = state.selectedIds.length + 1;
+        generateDraftRound();
+      }
+      renderDraftBoard();
+    }
+
+    function removeAthlete(id) {
+      state.selectedIds = state.selectedIds.filter((selectedId) => selectedId !== id);
+      state.draftRound = Math.min(5, state.selectedIds.length + 1);
+      generateDraftRound();
+      renderDraftBoard();
+    }
+
+    function clearDraft() {
+      state.selectedIds = [];
+      state.draftRound = 1;
+      generateDraftRound();
+      renderDraftBoard();
+    }
+
+    function autoFillDraft() {
+      while (state.selectedIds.length < 5) {
+        if (!state.draftOptions.length) generateDraftRound();
+        const pick = [...state.draftOptions].filter((athlete) => !state.selectedIds.includes(athlete.id)).sort((a, b) => totalPotential(b) - totalPotential(a))[0];
+        if (!pick) break;
+        state.selectedIds.push(pick.id);
+        if (state.selectedIds.length < 5) {
+          state.draftRound = state.selectedIds.length + 1;
+          generateDraftRound();
+        }
+      }
+      renderDraftBoard();
+      showToast(t("filledBest"));
+    }
+
+    function cloneAthlete(athlete, team) {
+      const stats = {};
+      Object.keys(athlete.stats).forEach((key) => {
+        stats[key] = { ...athlete.stats[key] };
+      });
+      return {
+        ...athlete,
+        baseId: athlete.id,
+        id: `${athlete.id}--${team.id}`,
+        stats,
+        teamId: team.id,
+        teamName: team.name,
+        federation: team.federation,
+        isPlayerAthlete: team.isPlayer
+      };
+    }
+
+    function prepareTournament() {
+      if (state.selectedIds.length !== 5) {
+        showToast(t("chooseFive"));
+        return;
+      }
+      const playerShell = { id: "player", name: state.teamName, federation: state.federation, isPlayer: true };
+      const playerTeam = {
+        ...playerShell,
+        roster: selectedAthletes().map((athlete) => cloneAthlete(athlete, playerShell))
+      };
+      const selected = new Set(state.selectedIds);
+      const aiTeams = COMPETING_COUNTRIES[state.gender].map((country) => {
+        const shell = { id: `team-${country}`, name: `${t("team")} ${country}`, federation: country, isPlayer: false };
+        const countryPool = ATHLETES.filter((athlete) => athlete.gender === state.gender && athlete.country === country);
+        const availablePool = countryPool.filter((athlete) => !selected.has(athlete.id));
+        const fallbackPool = countryPool.filter((athlete) => selected.has(athlete.id));
+        const roster = [...availablePool, ...fallbackPool]
+          .sort((a, b) => totalPotential(b) - totalPotential(a))
+          .slice(0, 5)
+          .map((athlete) => cloneAthlete(athlete, shell));
+        return { ...shell, roster };
+      }).filter((team) => team.roster.length === 5);
+
+      state.teams = [playerTeam, ...aiTeams];
+      state.results = {};
+      state.seed = Date.now() % 1000000000;
+      state.rng = mulberry32(state.seed);
+      renderTournamentHub();
+    }
+
+    function renderTournamentHub() {
+      state.view = "hub";
+      setPhase("quals", `${icon("play")} ${t("phaseCompetition")}`);
+      const player = state.teams[0];
+      app.innerHTML = `
+        <section class="screen">
+          <div class="panel p-4 md:p-6">
+            ${progress("quals")}
+            <div class="mt-6 grid gap-5 lg:grid-cols-[1fr_340px]">
+              <div>
+                <p class="text-sm font-black uppercase text-[var(--accent)]">${t("registeredTeam")}</p>
+                <h1 class="mt-1 text-3xl font-black md:text-5xl">${escapeHTML(player.name)}</h1>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="chip">${escapeHTML(player.federation)}</span>
+                  <span class="chip">${state.gender}</span>
+                  <span class="chip">${apps().map((apparatus) => apparatus.short).join(" · ")}</span>
+                  <span class="chip">${t("seed")} ${state.seed}</span>
+                </div>
+              </div>
+              <div class="grid gap-2">
+                ${player.roster.map((athlete) => `
+                  <div class="soft-panel p-3">
+                    <div class="font-black">${escapeHTML(athlete.name)}</div>
+                    <div class="text-xs font-bold text-[var(--muted)]">${athlete.country} · ${athlete.year} · AA ${totalPotential(athlete).toFixed(1)}</div>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+
+            <div class="mt-6 grid gap-3 md:grid-cols-3">
+              <div class="metric"><div class="text-2xl font-black">${t("top8Team")}</div><div class="text-sm font-bold text-[var(--muted)]">${t("teamFinalRule")}</div></div>
+              <div class="metric"><div class="text-2xl font-black">${t("top24AA")}</div><div class="text-sm font-bold text-[var(--muted)]">${t("aaRule")}</div></div>
+              <div class="metric"><div class="text-2xl font-black">${t("top8Apps")}</div><div class="text-sm font-bold text-[var(--muted)]">${t("appsRule")}</div></div>
+            </div>
+
+            <div class="mt-6 flex flex-col gap-3 md:flex-row">
+              <button class="btn btn-primary" onclick="runQualifications()">${icon("play")} ${t("simulateQuals")}</button>
+              <button class="btn btn-secondary" onclick="renderDraftBoard()">${icon("arrow")} ${t("backToDraft")}</button>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function simulateRoutine(athlete, apparatus) {
+      const stat = athlete.stats[apparatus.id];
+      const rng = state.rng;
+      let e = stat.e;
+      let note = "limpa";
+      const dailyForm = -0.50 + Math.pow(rng(), 1.38) * 0.70;
+      e += dailyForm;
+
+      const fallChance = apparatus.risk + (1 - athlete.consistency) * 0.075;
+      const majorChance = apparatus.risk * 1.35 + (1 - athlete.consistency) * 0.090;
+      if (rng() < fallChance) {
+        e -= 1.0 + rng() * 0.25;
+        note = "queda";
+      } else if (rng() < majorChance) {
+        e -= 0.30 + rng() * 0.42;
+        note = "erro";
+      } else if (rng() < athlete.consistency * 0.10) {
+        e += 0.06 + rng() * 0.15;
+        note = "cravada";
+      }
+
+      if ((apparatus.id === "fx" || apparatus.id === "vt") && rng() < 0.08) {
+        e -= 0.10;
+        note = note === "limpa" ? "linha" : note;
+      }
+
+      e = Math.max(5.0, Math.min(10.0, e));
+      return {
+        d: stat.d,
+        e: round3(e),
+        total: round3(stat.d + e),
+        note
+      };
+    }
+
+    function runQualifications() {
+      setPhase("quals", `${icon("play")} ${t("phaseQuals")}`);
+      const teamResults = [];
+      const allAthletes = [];
+
+      state.teams.forEach((team) => {
+        const appTotals = {};
+        let total = 0;
+        team.roster.forEach((athlete) => {
+          athlete.qualScores = {};
+          athlete.qualAA = 0;
+          apps().forEach((apparatus) => {
+            const score = simulateRoutine(athlete, apparatus);
+            athlete.qualScores[apparatus.id] = score;
+            athlete.qualAA += score.total;
+          });
+          athlete.qualAA = round3(athlete.qualAA);
+          allAthletes.push(athlete);
+        });
+
+        apps().forEach((apparatus) => {
+          const counted = [...team.roster]
+            .map((athlete) => athlete.qualScores[apparatus.id].total)
+            .sort((a, b) => b - a)
+            .slice(0, 3)
+            .reduce((sum, score) => sum + score, 0);
+          appTotals[apparatus.id] = round3(counted);
+          total += counted;
+        });
+
+        teamResults.push({
+          team,
+          total: round3(total),
+          appTotals
+        });
+      });
+
+      teamResults.sort((a, b) => b.total - a.total);
+      const aaRanking = [...allAthletes].sort((a, b) => b.qualAA - a.qualAA);
+      const aaFinalists = applyTwoPerCountry(aaRanking, 24, (athlete) => athlete.country);
+      const appRankings = {};
+      const appFinalists = {};
+      apps().forEach((apparatus) => {
+        const ranking = [...allAthletes].sort((a, b) => b.qualScores[apparatus.id].total - a.qualScores[apparatus.id].total);
+        appRankings[apparatus.id] = ranking;
+        appFinalists[apparatus.id] = applyTwoPerCountry(ranking, 8, (athlete) => athlete.country);
+      });
+
+      state.results.qual = { teamResults, allAthletes, aaRanking, aaFinalists, appRankings, appFinalists };
+      state.qualTab = "teams";
+      renderQualifications();
+    }
+
+    function applyTwoPerCountry(ranking, limit, countryGetter) {
+      const counts = {};
+      const finalists = [];
+      for (const item of ranking) {
+        const country = countryGetter(item);
+        counts[country] = counts[country] || 0;
+        if (counts[country] < 2) {
+          finalists.push(item);
+          counts[country] += 1;
+        }
+        if (finalists.length === limit) break;
+      }
+      return finalists;
+    }
+
+    function renderQualifications() {
+      state.view = "quals";
+      setPhase("quals", `${icon("check")} ${t("phaseQuals")}`);
+      const qual = state.results.qual;
+      const playerMadeTeam = qual.teamResults.slice(0, 8).some((row) => row.team.isPlayer);
+      const playerAA = qual.aaFinalists.filter((athlete) => athlete.isPlayerAthlete).length;
+      const playerApps = Object.values(qual.appFinalists).flat().filter((athlete) => athlete.isPlayerAthlete).length;
+      app.innerHTML = `
+        <section class="screen">
+          <div class="grid gap-4">
+            <div class="panel p-4 md:p-5">
+              ${progress("quals")}
+              <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p class="text-sm font-black uppercase text-[var(--accent)]">${t("qualsEnded")}</p>
+                  <h1 class="mt-1 text-2xl font-black md:text-4xl">${playerMadeTeam ? t("playerMadeTeam") : t("playerMissedTeam")}</h1>
+                </div>
+                <button class="btn btn-primary" onclick="runTeamFinal()">${icon("arrow")} ${t("teamFinalRule")}</button>
+              </div>
+              <div class="mt-5 grid gap-3 md:grid-cols-3">
+                <div class="metric"><div class="text-2xl font-black">${qual.teamResults.findIndex((row) => row.team.isPlayer) + 1}º</div><div class="text-sm font-bold text-[var(--muted)]">${t("teamPosition")}</div></div>
+                <div class="metric"><div class="text-2xl font-black">${playerAA}</div><div class="text-sm font-bold text-[var(--muted)]">${t("athletesInAA")}</div></div>
+                <div class="metric"><div class="text-2xl font-black">${playerApps}</div><div class="text-sm font-bold text-[var(--muted)]">${t("apparatusSlots")}</div></div>
+              </div>
+            </div>
+
+            <div class="panel p-4">
+              <div class="tabbar">
+                <button class="${state.qualTab === "teams" ? "active" : ""}" onclick="state.qualTab='teams'; renderQualifications()">${t("teamsTab")}</button>
+                <button class="${state.qualTab === "aa" ? "active" : ""}" onclick="state.qualTab='aa'; renderQualifications()">${t("aaTab")}</button>
+                <button class="${state.qualTab === "apps" ? "active" : ""}" onclick="state.qualTab='apps'; renderQualifications()">${t("appsTab")}</button>
+              </div>
+              <div class="mt-4">
+                ${state.qualTab === "teams" ? renderQualTeamTable() : ""}
+                ${state.qualTab === "aa" ? renderQualAATable() : ""}
+                ${state.qualTab === "apps" ? renderQualAppTables() : ""}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderQualTeamTable() {
+      const rows = state.results.qual.teamResults;
+      return `
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>${t("rank")}</th>
+                <th>${t("team")}</th>
+                ${apparatusHeaderCells()}
+                <th class="text-right">${t("total")}</th>
+                <th class="text-center">${t("final")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map((row, index) => `
+                <tr class="${row.team.isPlayer ? "player-row" : ""}">
+                  <td class="rank">${index + 1}</td>
+                  <td><div class="font-black">${escapeHTML(displayTeamName(row.team))}</div><div class="text-xs font-bold text-[var(--muted)]">${escapeHTML(row.team.federation)}</div></td>
+                  ${apps().map((apparatus) => `<td class="score">${formatScore(row.appTotals[apparatus.id])}</td>`).join("")}
+                  <td class="score">${formatScore(row.total)}</td>
+                  <td class="text-center">${index < 8 ? '<span class="q-badge">Q</span>' : ""}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderQualAATable() {
+      const finalistIds = new Set(state.results.qual.aaFinalists.map((athlete) => athlete.id));
+      return `
+        <div class="table-wrap max-h-[680px]">
+          <table>
+            <thead>
+              <tr>
+                <th>${t("rank")}</th>
+                <th>${t("gymnast")}</th>
+                <th>${t("country")}</th>
+                <th>${t("team")}</th>
+                ${apparatusHeaderCells()}
+                <th class="text-right">AA</th>
+                <th class="text-center">${t("final")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${state.results.qual.aaRanking.map((athlete, index) => `
+                <tr class="${athlete.isPlayerAthlete ? "player-row" : ""}">
+                  <td class="rank">${index + 1}</td>
+                  <td><div class="font-black">${escapeHTML(athlete.name)}</div><div class="text-xs font-bold text-[var(--muted)]">${athlete.year}</div></td>
+                  <td class="font-black">${athlete.country}</td>
+                  <td>${escapeHTML(athleteTeamName(athlete))}</td>
+                  ${apps().map((apparatus) => `<td class="score">${formatScore(athlete.qualScores[apparatus.id].total)}</td>`).join("")}
+                  <td class="score">${formatScore(athlete.qualAA)}</td>
+                  <td class="text-center">${finalistIds.has(athlete.id) ? '<span class="q-badge">Q</span>' : ""}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderQualAppTables() {
+      return `
+        <div class="grid gap-4 lg:grid-cols-2">
+          ${apps().map((apparatus) => {
+            const finalistIds = new Set(state.results.qual.appFinalists[apparatus.id].map((athlete) => athlete.id));
+            return `
+              <div class="soft-panel p-3">
+                <div class="mb-3 flex items-center gap-2">
+                  <span class="app-icon">${apparatus.short}</span>
+                  <h3 class="font-black">${appName(apparatus)}</h3>
+                </div>
+                <div class="table-wrap max-h-[360px]">
+                  <table class="min-w-[560px]">
+                    <thead><tr><th>${t("rank")}</th><th>${t("gymnast")}</th><th>${t("country")}</th><th class="text-right">${t("score")}</th><th class="text-center">${t("final")}</th></tr></thead>
+                    <tbody>
+                      ${state.results.qual.appRankings[apparatus.id].map((athlete, index) => `
+                        <tr class="${athlete.isPlayerAthlete ? "player-row" : ""}">
+                          <td class="rank">${index + 1}</td>
+                          <td class="font-black">${escapeHTML(athlete.name)}</td>
+                          <td>${athlete.country}</td>
+                          <td class="score">${formatScore(athlete.qualScores[apparatus.id].total)}</td>
+                          <td class="text-center">${finalistIds.has(athlete.id) ? '<span class="q-badge">Q</span>' : ""}</td>
+                        </tr>
+                      `).join("")}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function runTeamFinal() {
+      setPhase("team", `${icon("medal")} ${t("teamFinalRule")}`);
+      const finalists = state.results.qual.teamResults.slice(0, 8).map((row) => row.team);
+      const results = finalists.map((team) => {
+        let total = 0;
+        const appTotals = {};
+        const lineups = {};
+        apps().forEach((apparatus) => {
+          const lineup = [...team.roster]
+            .sort((a, b) => b.qualScores[apparatus.id].total - a.qualScores[apparatus.id].total)
+            .slice(0, 3);
+          const scores = lineup.map((athlete) => ({ athlete, score: simulateRoutine(athlete, apparatus) }));
+          const apparatusTotal = scores.reduce((sum, item) => sum + item.score.total, 0);
+          appTotals[apparatus.id] = round3(apparatusTotal);
+          lineups[apparatus.id] = scores;
+          total += apparatusTotal;
+        });
+        return { team, total: round3(total), appTotals, lineups };
+      }).sort((a, b) => b.total - a.total);
+      state.results.teamFinal = results;
+      renderTeamFinal();
+    }
+
+    function renderTeamFinal() {
+      state.view = "team";
+      const results = state.results.teamFinal;
+      app.innerHTML = `
+        <section class="screen">
+          <div class="grid gap-4">
+            <div class="panel p-4 md:p-5">
+              ${progress("team")}
+              <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p class="text-sm font-black uppercase text-[var(--accent)]">${t("teamFinalKicker")}</p>
+                  <h1 class="mt-1 text-2xl font-black md:text-4xl">${t("teamPodium")}</h1>
+                </div>
+                <button class="btn btn-primary" onclick="runAAFinal()">${icon("arrow")} ${t("aaButton")}</button>
+              </div>
+            </div>
+            <div class="grid gap-4 lg:grid-cols-[420px_1fr]">
+              <div class="panel p-4">${renderPodium(results.slice(0, 3).map((row, index) => ({
+                rank: index + 1,
+                name: displayTeamName(row.team),
+                sub: row.team.federation,
+                score: row.total,
+                player: row.team.isPlayer
+              })))}</div>
+              <div class="panel p-4">${renderTeamFinalTable()}</div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderTeamFinalTable() {
+      return `
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>${t("rank")}</th><th>${t("team")}</th>${apparatusHeaderCells()}<th class="text-right">${t("total")}</th><th>${t("medal")}</th></tr></thead>
+            <tbody>
+              ${state.results.teamFinal.map((row, index) => `
+                <tr class="${row.team.isPlayer ? "player-row" : ""}">
+                  <td class="rank">${index + 1}</td>
+                  <td><div class="font-black">${escapeHTML(displayTeamName(row.team))}</div><div class="text-xs font-bold text-[var(--muted)]">${escapeHTML(row.team.federation)}</div></td>
+                  ${apps().map((apparatus) => `<td class="score">${formatScore(row.appTotals[apparatus.id])}</td>`).join("")}
+                  <td class="score">${formatScore(row.total)}</td>
+                  <td>${medalBadge(index)}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function runAAFinal() {
+      setPhase("aa", `${icon("trophy")} ${t("aaButton")}`);
+      const results = state.results.qual.aaFinalists.map((athlete) => {
+        let total = 0;
+        const scores = {};
+        apps().forEach((apparatus) => {
+          const score = simulateRoutine(athlete, apparatus);
+          scores[apparatus.id] = score;
+          total += score.total;
+        });
+        return { athlete, scores, total: round3(total) };
+      }).sort((a, b) => b.total - a.total);
+      state.results.aaFinal = results;
+      renderAAFinal();
+    }
+
+    function renderAAFinal() {
+      state.view = "aa";
+      const results = state.results.aaFinal;
+      app.innerHTML = `
+        <section class="screen">
+          <div class="grid gap-4">
+            <div class="panel p-4 md:p-5">
+              ${progress("aa")}
+              <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p class="text-sm font-black uppercase text-[var(--accent)]">${t("aaFinalKicker")}</p>
+                  <h1 class="mt-1 text-2xl font-black md:text-4xl">${t("aaPodium")}</h1>
+                </div>
+                <button class="btn btn-primary" onclick="runAppFinals()">${icon("arrow")} ${t("appFinalsButton")}</button>
+              </div>
+            </div>
+            <div class="grid gap-4 lg:grid-cols-[420px_1fr]">
+              <div class="panel p-4">${renderPodium(results.slice(0, 3).map((row, index) => ({
+                rank: index + 1,
+                name: row.athlete.name,
+                sub: `${row.athlete.country} · ${athleteTeamName(row.athlete)}`,
+                score: row.total,
+                player: row.athlete.isPlayerAthlete
+              })))}</div>
+              <div class="panel p-4">${renderAAFinalTable()}</div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderAAFinalTable() {
+      return `
+        <div class="table-wrap max-h-[690px]">
+          <table>
+            <thead><tr><th>${t("rank")}</th><th>${t("gymnast")}</th><th>${t("country")}</th>${apparatusHeaderCells()}<th class="text-right">AA</th><th>${t("medal")}</th></tr></thead>
+            <tbody>
+              ${state.results.aaFinal.map((row, index) => `
+                <tr class="${row.athlete.isPlayerAthlete ? "player-row" : ""}">
+                  <td class="rank">${index + 1}</td>
+                  <td><div class="font-black">${escapeHTML(row.athlete.name)}</div><div class="text-xs font-bold text-[var(--muted)]">${escapeHTML(athleteTeamName(row.athlete))}</div></td>
+                  <td class="font-black">${row.athlete.country}</td>
+                  ${apps().map((apparatus) => `<td class="score">${formatScore(row.scores[apparatus.id].total)}</td>`).join("")}
+                  <td class="score">${formatScore(row.total)}</td>
+                  <td>${medalBadge(index)}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function runAppFinals() {
+      setPhase("apps", `${icon("medal")} ${t("phaseApps")}`);
+      const finals = {};
+      apps().forEach((apparatus) => {
+        finals[apparatus.id] = state.results.qual.appFinalists[apparatus.id]
+          .map((athlete) => ({ athlete, score: simulateRoutine(athlete, apparatus) }))
+          .sort((a, b) => b.score.total - a.score.total);
+      });
+      state.results.appFinals = finals;
+      renderAppFinals();
+    }
+
+    function renderAppFinals() {
+      state.view = "apps";
+      app.innerHTML = `
+        <section class="screen">
+          <div class="grid gap-4">
+            <div class="panel p-4 md:p-5">
+              ${progress("apps")}
+              <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p class="text-sm font-black uppercase text-[var(--accent)]">${t("appFinalsKicker")}</p>
+                  <h1 class="mt-1 text-2xl font-black md:text-4xl">${t("appFinalsTitle")}</h1>
+                </div>
+                <button class="btn btn-primary" onclick="renderSummary()">${icon("trophy")} ${t("medalTable")}</button>
+              </div>
+            </div>
+
+            <div class="grid gap-4 ${state.gender === "MAG" ? "xl:grid-cols-2" : "lg:grid-cols-2"}">
+              ${apps().map((apparatus) => renderAppFinalPanel(apparatus)).join("")}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderAppFinalPanel(apparatus) {
+      const rows = state.results.appFinals[apparatus.id];
+      return `
+        <section class="panel p-4">
+          <div class="mb-4 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <span class="app-icon">${apparatus.short}</span>
+              <h2 class="text-lg font-black">${appName(apparatus)}</h2>
+            </div>
+            <span class="chip">${t("final")}</span>
+          </div>
+          ${renderPodium(rows.slice(0, 3).map((row, index) => ({
+            rank: index + 1,
+            name: row.athlete.name,
+            sub: `${row.athlete.country} · ${athleteTeamName(row.athlete)}`,
+            score: row.score.total,
+            player: row.athlete.isPlayerAthlete
+          })), true)}
+          <div class="mt-4 table-wrap">
+            <table class="min-w-[620px]">
+              <thead><tr><th>${t("rank")}</th><th>${t("gymnast")}</th><th>${t("country")}</th><th class="text-right">D</th><th class="text-right">E</th><th class="text-right">${t("total")}</th><th>${t("routine")}</th><th>${t("medal")}</th></tr></thead>
+              <tbody>
+                ${rows.map((row, index) => `
+                  <tr class="${row.athlete.isPlayerAthlete ? "player-row" : ""}">
+                    <td class="rank">${index + 1}</td>
+                    <td><div class="font-black">${escapeHTML(row.athlete.name)}</div><div class="text-xs font-bold text-[var(--muted)]">${escapeHTML(athleteTeamName(row.athlete))}</div></td>
+                    <td class="font-black">${row.athlete.country}</td>
+                    <td class="score">${row.score.d.toFixed(1)}</td>
+                    <td class="score">${row.score.e.toFixed(3)}</td>
+                    <td class="score">${formatScore(row.score.total)}</td>
+                    <td>${escapeHTML(routineNote(row.score.note))}</td>
+                    <td>${medalBadge(index)}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      `;
+    }
+
+    function medalBadge(index) {
+      if (index > 2) return "";
+      const labels = ["1", "2", "3"];
+      const classes = ["medal-gold", "medal-silver", "medal-bronze"];
+      return `<span class="medal-badge ${classes[index]}">${labels[index]}</span>`;
+    }
+
+    function renderPodium(items, compact = false) {
+      return `
+        <div class="podium ${compact ? "text-sm" : ""}">
+          ${items.map((item, index) => `
+            <div class="podium-place">
+              <div class="podium-name">
+                <span>${escapeHTML(item.name)}</span>
+                <span class="mt-1 block text-xs font-bold text-[var(--muted)]">${escapeHTML(item.sub)}</span>
+                ${item.player ? `<span class="mt-1 block text-xs font-black text-[var(--accent)]">${t("yourTeam")}</span>` : ""}
+              </div>
+              <div class="podium-score text-center font-mono font-black">${formatScore(item.score)}</div>
+              <div class="podium-block">
+                <span class="text-3xl">${index + 1}</span>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function collectMedals() {
+      const medals = [];
+      if (state.results.teamFinal) {
+        state.results.teamFinal.slice(0, 3).forEach((row, index) => {
+          medals.push({ typeKey: "teamEvent", event: t("team"), rank: index + 1, owner: displayTeamName(row.team), country: row.team.federation, score: row.total, player: row.team.isPlayer });
+        });
+      }
+      if (state.results.aaFinal) {
+        state.results.aaFinal.slice(0, 3).forEach((row, index) => {
+          medals.push({ typeKey: "individualEvent", event: "AA", rank: index + 1, owner: row.athlete.name, country: row.athlete.country, score: row.total, player: row.athlete.isPlayerAthlete });
+        });
+      }
+      if (state.results.appFinals) {
+        apps().forEach((apparatus) => {
+          state.results.appFinals[apparatus.id].slice(0, 3).forEach((row, index) => {
+            medals.push({ typeKey: "apparatusEvent", event: appName(apparatus), rank: index + 1, owner: row.athlete.name, country: row.athlete.country, score: row.score.total, player: row.athlete.isPlayerAthlete });
+          });
+        });
+      }
+      return medals;
+    }
+
+    function renderSummary() {
+      state.view = "summary";
+      setPhase("apps", `${icon("trophy")} ${t("phaseMedals")}`);
+      const medals = collectMedals();
+      const tally = {};
+      medals.forEach((medal) => {
+        const key = medal.country;
+        tally[key] = tally[key] || { country: key, gold: 0, silver: 0, bronze: 0, total: 0 };
+        if (medal.rank === 1) tally[key].gold += 1;
+        if (medal.rank === 2) tally[key].silver += 1;
+        if (medal.rank === 3) tally[key].bronze += 1;
+        tally[key].total += 1;
+      });
+      const tallyRows = Object.values(tally).sort((a, b) => b.gold - a.gold || b.silver - a.silver || b.bronze - a.bronze || a.country.localeCompare(b.country));
+      app.innerHTML = `
+        <section class="screen">
+          <div class="grid gap-4 lg:grid-cols-[360px_1fr]">
+            <div class="panel p-4 md:p-5">
+              ${progress("apps")}
+              <div class="mt-5">
+                <p class="text-sm font-black uppercase text-[var(--accent)]">${t("competitionEnded")}</p>
+                <h1 class="mt-1 text-3xl font-black md:text-4xl">${t("medalTable")}</h1>
+              </div>
+              <div class="mt-5 table-wrap">
+                <table class="min-w-[320px]">
+                  <thead><tr><th>${t("country")}</th><th class="text-right">${t("goldShort")}</th><th class="text-right">${t("silverShort")}</th><th class="text-right">${t("bronzeShort")}</th><th class="text-right">${t("total")}</th></tr></thead>
+                  <tbody>
+                    ${tallyRows.map((row) => `
+                      <tr>
+                        <td class="font-black">${escapeHTML(row.country)}</td>
+                        <td class="score">${row.gold}</td>
+                        <td class="score">${row.silver}</td>
+                        <td class="score">${row.bronze}</td>
+                        <td class="score">${row.total}</td>
+                      </tr>
+                    `).join("")}
+                  </tbody>
+                </table>
+              </div>
+              <div class="mt-5 grid gap-2">
+                <button class="btn btn-primary" onclick="renderSetup()">${icon("rotate")} ${t("newSeason")}</button>
+                <button class="btn btn-secondary" onclick="renderAppFinals()">${icon("arrow")} ${t("backToApps")}</button>
+              </div>
+            </div>
+            <div class="panel p-4">
+              <div class="table-wrap max-h-[760px]">
+                <table>
+                  <thead><tr><th>${t("medal")}</th><th>${t("event")}</th><th>${t("name")}</th><th>${t("country")}</th><th class="text-right">${t("score")}</th></tr></thead>
+                  <tbody>
+                    ${medals.map((medal) => `
+                      <tr class="${medal.player ? "player-row" : ""}">
+                        <td>${medalBadge(medal.rank - 1)}</td>
+                        <td><div class="font-black">${escapeHTML(medal.event)}</div><div class="text-xs font-bold text-[var(--muted)]">${escapeHTML(t(medal.typeKey))}</div></td>
+                        <td class="font-black">${escapeHTML(medal.owner)}</td>
+                        <td>${escapeHTML(medal.country)}</td>
+                        <td class="score">${formatScore(medal.score)}</td>
+                      </tr>
+                    `).join("")}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      applyTheme(getInitialTheme());
+      renderSetup();
+    });
+  </script>
+</body>
+</html>
