@@ -526,7 +526,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       rerollTeam: "Reroll equipe", rerollUsed: "usado", autoComplete: "Autocompletar",
       confirmTeam: "Confirmar equipe", clearDraft: "Limpar draft", slot: ({ n }) => `Vaga ${n}`,
       team: "Equipe", bestApp: "Melhor aparelho", consistency: "Consistência", potentialAA: "Potencial AA",
-      recruit: "Recrutar", remove: "Remover", registeredTeam: "Equipe inscrita", seed: "Seed",
+      recruit: "Recrutar", selected: "Na equipe", remove: "Remover", registeredTeam: "Equipe inscrita", seed: "Seed",
       top8Team: "Top 8", teamFinalRule: "Final por equipes", top24AA: "Top 24", aaRule: "Individual geral, máx. 2 por país",
       top8Apps: "Top 8", appsRule: "Aparelhos, máx. 2 por país",
       simulateQuals: "Simular classificatórias", backToDraft: "Voltar ao draft", qualsEnded: "Classificatórias encerradas",
@@ -572,7 +572,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       rerollTeam: "Team reroll", rerollUsed: "used", autoComplete: "Auto-complete",
       confirmTeam: "Confirm team", clearDraft: "Clear draft", slot: ({ n }) => `Slot ${n}`,
       team: "Team", bestApp: "Best apparatus", consistency: "Consistency", potentialAA: "AA potential",
-      recruit: "Recruit", remove: "Remove", registeredTeam: "Registered team", seed: "Seed",
+      recruit: "Recruit", selected: "On team", remove: "Remove", registeredTeam: "Registered team", seed: "Seed",
       top8Team: "Top 8", teamFinalRule: "Team final", top24AA: "Top 24", aaRule: "All-around, max 2 per country",
       top8Apps: "Top 8", appsRule: "Apparatus, max 2 per country",
       simulateQuals: "Simulate qualifications", backToDraft: "Back to draft", qualsEnded: "Qualifications complete",
@@ -617,7 +617,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       rerollTeam: "Reroll equipo", rerollUsed: "usado", autoComplete: "Autocompletar",
       confirmTeam: "Confirmar equipo", clearDraft: "Limpiar draft", slot: ({ n }) => `Plaza ${n}`,
       team: "Equipo", bestApp: "Mejor aparato", consistency: "Consistencia", potentialAA: "Potencial general",
-      recruit: "Reclutar", remove: "Quitar", registeredTeam: "Equipo inscrito", seed: "Seed",
+      recruit: "Reclutar", selected: "En el equipo", remove: "Quitar", registeredTeam: "Equipo inscrito", seed: "Seed",
       top8Team: "Top 8", teamFinalRule: "Final por equipos", top24AA: "Top 24", aaRule: "General individual, máx. 2 por país",
       top8Apps: "Top 8", appsRule: "Aparatos, máx. 2 por país",
       simulateQuals: "Simular clasificatorias", backToDraft: "Volver al draft", qualsEnded: "Clasificatorias terminadas",
@@ -948,14 +948,22 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   }
   function randomItem(items) { return items[Math.floor(Math.random() * items.length)]; }
   function shuffled(items) { return [...items].sort(() => Math.random() - 0.5); }
-  function draftPool(country, year) {
+  function draftPool(country, year, options = {}) {
+    const includeSelected = Boolean(options.includeSelected);
     const selected = new Set(state.selectedIds);
-    return ATHLETES.filter((a) => a.gender === state.gender && a.country === country && a.year === year && !selected.has(a.id));
+    return ATHLETES
+      .filter((a) => (
+        a.gender === state.gender
+        && a.country === country
+        && a.year <= year
+        && (includeSelected || !selected.has(a.id))
+      ))
+      .sort((a, b) => b.year - a.year || totalPotential(b) - totalPotential(a));
   }
   function availableDraftCombos() {
     const seen = new Set();
     return ATHLETES
-      .filter((a) => a.gender === state.gender && !state.selectedIds.includes(a.id))
+      .filter((a) => a.gender === state.gender)
       .map((a) => ({ country: a.country, year: a.year }))
       .filter((combo) => {
         const key = `${combo.country}-${combo.year}`;
@@ -967,14 +975,14 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   function availableYearsForCountry(country) {
     return [...new Set(
       ATHLETES
-        .filter((a) => a.gender === state.gender && a.country === country && !state.selectedIds.includes(a.id))
+        .filter((a) => a.gender === state.gender && a.country === country)
         .map((a) => a.year)
     )].filter((year) => draftPool(country, year).length > 0).sort((a, b) => a - b);
   }
   function availableCountriesForYear(year) {
     return [...new Set(
       ATHLETES
-        .filter((a) => a.gender === state.gender && a.year === year && !state.selectedIds.includes(a.id))
+        .filter((a) => a.gender === state.gender && a.year <= year)
         .map((a) => a.country)
     )].filter((country) => draftPool(country, year).length > 0).sort();
   }
@@ -990,12 +998,16 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   function setDraftDraw(country, year, resetRerolls = false) {
     if (resetRerolls) resetDraftRerolls();
     state.draftDraw = { country, year };
-    state.draftOptions = shuffled(draftPool(country, year)).sort((a, b) => totalPotential(b) - totalPotential(a));
+    state.draftOptions = draftPool(country, year, { includeSelected: true });
   }
   function generateDraftRound() {
     const combos = availableDraftCombos();
-    const preferred = combos.filter((combo) => hasYearRerollOption(combo.country, combo.year) && hasTeamRerollOption(combo.country, combo.year));
-    const combo = randomItem(preferred.length ? preferred : combos);
+    const preferred = combos.filter((combo) => {
+      const poolSize = draftPool(combo.country, combo.year).length;
+      return poolSize > 1 && hasYearRerollOption(combo.country, combo.year) && hasTeamRerollOption(combo.country, combo.year);
+    });
+    const secondary = combos.filter((combo) => draftPool(combo.country, combo.year).length > 1);
+    const combo = randomItem(preferred.length ? preferred : (secondary.length ? secondary : combos));
     if (!combo) {
       state.draftDraw = null;
       state.draftOptions = [];
@@ -1015,15 +1027,17 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   function rerollDraftYear() {
     if (!canRerollYear()) return;
     const years = availableYearsForCountry(state.draftDraw.country).filter((year) => year !== state.draftDraw.year);
+    const preferredYears = years.filter((year) => draftPool(state.draftDraw.country, year).length > 1);
     state.draftRerolls.year = true;
-    setDraftDraw(state.draftDraw.country, randomItem(years), false);
+    setDraftDraw(state.draftDraw.country, randomItem(preferredYears.length ? preferredYears : years), false);
     renderDraftBoard();
   }
   function rerollDraftTeam() {
     if (!canRerollTeam()) return;
     const countries = availableCountriesForYear(state.draftDraw.year).filter((country) => country !== state.draftDraw.country);
+    const preferredCountries = countries.filter((country) => draftPool(country, state.draftDraw.year).length > 1);
     state.draftRerolls.team = true;
-    setDraftDraw(randomItem(countries), state.draftDraw.year, false);
+    setDraftDraw(randomItem(preferredCountries.length ? preferredCountries : countries), state.draftDraw.year, false);
     renderDraftBoard();
   }
 
@@ -1088,6 +1102,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   }
   function draftOptionCard(a) {
     const best = bestApp(a);
+    const isSelected = state.selectedIds.includes(a.id);
     return `<article class="card draft-card p-4">
       <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
         <div><h3 class="display text-xl">${escapeHTML(a.name)}</h3>
@@ -1099,7 +1114,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
         <div class="score-lg">${totalPotential(a).toFixed(1)}</div>
       </div>
       <div class="mt-4 grid gap-2 sm:grid-cols-2 ${state.gender === "MAG" ? "lg:grid-cols-3" : ""}">${statGrid(a)}</div>
-      <button class="btn btn-primary mt-4 w-full" data-act="addAthlete" data-id="${a.id}">${icon("plus")} ${t("recruit")}</button>
+      <button class="btn ${isSelected ? "btn-secondary" : "btn-primary"} mt-4 w-full" data-act="addAthlete" data-id="${a.id}" ${isSelected ? "disabled" : ""}>${isSelected ? icon("check") : icon("plus")} ${isSelected ? t("selected") : t("recruit")}</button>
     </article>`;
   }
   function addAthlete(id) {
