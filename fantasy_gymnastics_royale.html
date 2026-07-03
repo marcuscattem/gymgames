@@ -289,6 +289,14 @@
     .log-you { background:var(--accent-soft); box-shadow:inset 3px 0 0 var(--accent); }
     .log-empty { color:var(--muted); font-weight:700; margin:0; }
 
+    .commentary-list { display:grid; gap:8px; max-height:292px; overflow:auto; }
+    .commentary-card { border:1px solid var(--line); border-radius:10px; background:var(--surface-2); padding:10px 12px; animation:ded-in 200ms ease-out; }
+    .commentary-card.you { background:var(--accent-soft); border-color:color-mix(in srgb,var(--accent) 38%,var(--line)); box-shadow:inset 3px 0 0 var(--accent); }
+    .commentary-card.top { border-color:color-mix(in srgb,var(--accent-3) 44%,var(--line)); }
+    .commentary-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; color:var(--muted); font-size:11px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; }
+    .commentary-text { margin-top:4px; color:var(--text); font-size:13.5px; font-weight:700; line-height:1.35; }
+    .commentary-empty { margin:0; color:var(--muted); font-weight:700; }
+
     .arena-art { width:100%; height:auto; display:block; border-radius:var(--radius); border:1px solid var(--line); background:var(--surface-2); }
 
     /* toast */
@@ -830,6 +838,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       rotationLog: "Rotinas da rotação", play: "Reproduzir", pause: "Pausar", nextRoutine: "Próxima rotina",
       skipRotation: "Pular rotação", skipToEnd: "Ir ao resultado", speed: "Velocidade", counts: "conta", dropped: "descartada",
       finalStanding: "Classificação final", liveDone: "Final encerrada", seeResults: "Ver resultado completo", awaiting: "Aguardando início da rotação…",
+      commentaryTitle: "Comentários dos narradores", commentaryEmpty: "Os comentários entram assim que a rotação começa.",
       apparatusNames: { vt: "Salto", ub: "Barras Assimétricas", bb: "Trave", fx: "Solo", ph: "Cavalo com Alças", sr: "Argolas", pb: "Barras Paralelas", hb: "Barra Fixa" }
     },
     en: {
@@ -876,6 +885,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       rotationLog: "Rotation routines", play: "Play", pause: "Pause", nextRoutine: "Next routine",
       skipRotation: "Skip rotation", skipToEnd: "Skip to result", speed: "Speed", counts: "counts", dropped: "dropped",
       finalStanding: "Final standing", liveDone: "Final complete", seeResults: "See full result", awaiting: "Awaiting rotation start…",
+      commentaryTitle: "Commentary booth", commentaryEmpty: "Commentary appears once the rotation starts.",
       apparatusNames: { vt: "Vault", ub: "Uneven Bars", bb: "Balance Beam", fx: "Floor Exercise", ph: "Pommel Horse", sr: "Still Rings", pb: "Parallel Bars", hb: "Horizontal Bar" }
     },
     es: {
@@ -922,6 +932,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       rotationLog: "Rutinas de la rotación", play: "Reproducir", pause: "Pausar", nextRoutine: "Próxima rutina",
       skipRotation: "Saltar rotación", skipToEnd: "Ir al resultado", speed: "Velocidad", counts: "cuenta", dropped: "descartada",
       finalStanding: "Clasificación final", liveDone: "Final terminada", seeResults: "Ver resultado completo", awaiting: "Esperando inicio de la rotación…",
+      commentaryTitle: "Comentarios de narradores", commentaryEmpty: "Los comentarios aparecen cuando empieza la rotación.",
       apparatusNames: { vt: "Salto", ub: "Barras Asimétricas", bb: "Barra de Equilibrio", fx: "Suelo", ph: "Caballo con Arzones", sr: "Anillas", pb: "Barras Paralelas", hb: "Barra Fija" }
     }
   };
@@ -1077,7 +1088,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   function displayTeamName(team) { return team.isPlayer ? team.name : `${t("team")} ${team.federation}`; }
   function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${a.federation}`; }
   function apparatusById(id) { return apps().find((a) => a.id === id); }
-  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr" };
+  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru" };
   function flagHtml(code) {
     const iso = IOC_ISO[code];
     if (!iso) return `<span class="flag-custom" aria-hidden="true">${icon("flag")}</span>`;
@@ -1699,7 +1710,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       teamData: data.teamData, rotations: data.rotations,
       rotIndex: 0, routineIndex: -1, // -1 = not started this rotation
       playing: true, speed: 1, timer: null,
-      running: {}, log: [], done: false
+      running: {}, log: [], comments: [], done: false, finalCommented: false
     };
     data.teamData.forEach((td) => { state.live.running[td.team.id] = 0; });
     renderLive();
@@ -1710,6 +1721,169 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     clearTimeout(state.live.timer);
     if (!state.live.playing || state.live.done) return;
     state.live.timer = setTimeout(advanceLive, delay ?? liveSpeedMs());
+  }
+  function liveRankingData() {
+    const L = state.live;
+    return [...L.teamData].map((td) => ({ td, val: L.running[td.team.id] || 0 }))
+      .sort((a, b) => b.val - a.val)
+      .map((row, index) => ({ ...row, rank: index + 1 }));
+  }
+  function liveTeamRank(teamId) {
+    return liveRankingData().find((row) => row.td.team.id === teamId);
+  }
+  function strongestDeduction(score) {
+    return [...score.deductions, ...score.neutral].sort((a, b) => b.value - a.value)[0] || null;
+  }
+  function ordinal(rank) {
+    if (state.lang === "en") {
+      const suffix = rank % 10 === 1 && rank % 100 !== 11 ? "st" : rank % 10 === 2 && rank % 100 !== 12 ? "nd" : rank % 10 === 3 && rank % 100 !== 13 ? "rd" : "th";
+      return `${rank}${suffix}`;
+    }
+    return `${rank}º`;
+  }
+  function commentaryPhrase(kind, data = {}) {
+    const lang = state.lang;
+    const pack = {
+      "pt-BR": {
+        stick: `${data.name} cravou ${data.app} e arrancou um bônus de embalo na execução. ${data.score} para ${data.team}; rotina de quem sustenta final grande.`,
+        fall: `${data.name} sofreu queda em ${data.app}. A maior batida foi ${data.fault} (-${data.value}), e a nota ficou em ${data.score}.`,
+        error: `${data.name} teve quebra visível em ${data.app}, principalmente em ${data.fault} (-${data.value}). Mesmo assim, salvou ${data.score}.`,
+        line: `${data.name} entregou bom volume em ${data.app}, mas a dedução neutra pesou. ${data.score} para ${data.team}.`,
+        clean: `${data.name} fez rotina limpa em ${data.app}, quase sem dar margem para os árbitros. ${data.score} entra forte para ${data.team}.`,
+        steady: `${data.name} controlou ${data.app}; ${data.fault} custou -${data.value}, mas ${data.score} mantém ${data.team} na briga.`,
+        podium: `${data.team} aparece em ${data.rank} no placar ao vivo. Se segurar esse ritmo, é conversa direta de pódio.`,
+        playerPodium: `Sua equipe sobe para ${data.rank} no ao vivo. Esse ${data.score} muda o clima da final.`,
+        skipBest: `No bloco pulado, o grande destaque foi ${data.name} em ${data.app}: ${data.score}, defendendo ${data.team}.`,
+        skipPlayer: `Da sua equipe, ${data.name} foi a melhor rotina do bloco: ${data.score} em ${data.app}.`,
+        finalTop: `${data.team} fecha a final na liderança com ${data.score}. Ouro decidido no conjunto, não em uma rotina só.`,
+        finalPlayerPodium: `Pódio para sua equipe: ${data.rank} lugar com ${data.score}. Quando precisava, a equipe respondeu.`,
+        finalPlayer: `Sua equipe encerra em ${data.rank}, com ${data.score}. Ficou fora do pódio, mas teve momentos para guardar.`
+      },
+      en: {
+        stick: `${data.name} stuck ${data.app} and earned that execution pop. ${data.score} for ${data.team}; a routine built for a major final.`,
+        fall: `${data.name} fell on ${data.app}. The biggest hit was ${data.fault} (-${data.value}), leaving the score at ${data.score}.`,
+        error: `${data.name} had a clear break on ${data.app}, especially ${data.fault} (-${data.value}). Still, ${data.score} keeps it alive.`,
+        line: `${data.name} showed strong content on ${data.app}, but the neutral deduction mattered. ${data.score} for ${data.team}.`,
+        clean: `${data.name} delivered a clean ${data.app} set with little for the judges to take. ${data.score} lands well for ${data.team}.`,
+        steady: `${data.name} managed ${data.app}; ${data.fault} cost -${data.value}, but ${data.score} keeps ${data.team} in the fight.`,
+        podium: `${data.team} moves into ${data.rank} on the live board. Hold that pace and it is podium talk.`,
+        playerPodium: `Your team climbs to ${data.rank} live. That ${data.score} changes the whole mood of the final.`,
+        skipBest: `In the skipped block, the standout was ${data.name} on ${data.app}: ${data.score} for ${data.team}.`,
+        skipPlayer: `For your team, ${data.name} had the best routine of the block: ${data.score} on ${data.app}.`,
+        finalTop: `${data.team} closes the final on top with ${data.score}. Gold won by the whole lineup, not one routine.`,
+        finalPlayerPodium: `Podium for your team: ${data.rank} place with ${data.score}. When it mattered, the team answered.`,
+        finalPlayer: `Your team finishes ${data.rank}, with ${data.score}. No podium, but there were moments worth keeping.`
+      },
+      es: {
+        stick: `${data.name} clavó ${data.app} y ganó impulso extra en la ejecución. ${data.score} para ${data.team}; rutina de final grande.`,
+        fall: `${data.name} sufrió una caída en ${data.app}. El golpe mayor fue ${data.fault} (-${data.value}), y la nota quedó en ${data.score}.`,
+        error: `${data.name} tuvo una ruptura clara en ${data.app}, sobre todo ${data.fault} (-${data.value}). Aun así, salvó ${data.score}.`,
+        line: `${data.name} mostró buen contenido en ${data.app}, pero la deducción neutral pesó. ${data.score} para ${data.team}.`,
+        clean: `${data.name} hizo una rutina limpia en ${data.app}, casi sin margen para los jueces. ${data.score} entra fuerte para ${data.team}.`,
+        steady: `${data.name} controló ${data.app}; ${data.fault} costó -${data.value}, pero ${data.score} mantiene a ${data.team} en la pelea.`,
+        podium: `${data.team} aparece ${data.rank} en el marcador en vivo. Si mantiene este ritmo, habla de podio.`,
+        playerPodium: `Tu equipo sube al ${data.rank} en vivo. Ese ${data.score} cambia el clima de la final.`,
+        skipBest: `En el bloque saltado, el destaque fue ${data.name} en ${data.app}: ${data.score} para ${data.team}.`,
+        skipPlayer: `De tu equipo, ${data.name} tuvo la mejor rutina del bloque: ${data.score} en ${data.app}.`,
+        finalTop: `${data.team} cierra la final en la cima con ${data.score}. Oro decidido por todo el equipo, no por una sola rutina.`,
+        finalPlayerPodium: `Podio para tu equipo: ${data.rank} lugar con ${data.score}. Cuando importaba, el equipo respondió.`,
+        finalPlayer: `Tu equipo termina ${data.rank}, con ${data.score}. Sin podio, pero con momentos para guardar.`
+      }
+    };
+    return (pack[lang] || pack["pt-BR"])[kind];
+  }
+  function makeRoutineComment(r) {
+    const s = r.score;
+    const rank = liveTeamRank(r.teamId);
+    const strongest = strongestDeduction(s);
+    const data = {
+      name: r.athlete.name,
+      team: displayTeamName(r.team),
+      app: appName(r.apparatus),
+      score: formatScore(s.total),
+      fault: strongest ? faultLabel(strongest.code) : t("noDeductions").toLowerCase(),
+      value: strongest ? strongest.value.toFixed(1) : "0.0",
+      rank: rank ? ordinal(rank.rank) : ""
+    };
+    let kind = "steady";
+    if (s.note === "cravada") kind = "stick";
+    else if (s.note === "queda") kind = "fall";
+    else if (s.note === "erro") kind = "error";
+    else if (s.neutralDed) kind = "line";
+    else if (s.execDed <= 0.4) kind = "clean";
+
+    let text = commentaryPhrase(kind, data);
+    const topThree = rank && rank.rank <= 3 && (rank.val || 0) > 0;
+    if (r.team.isPlayer && topThree) text += ` ${commentaryPhrase("playerPodium", data)}`;
+    else if (topThree && s.total >= 14.2) text += ` ${commentaryPhrase("podium", data)}`;
+    return {
+      meta: `${r.team.federation} · ${appName(r.apparatus)} · ${formatScore(s.total)}`,
+      text, you: r.team.isPlayer, top: topThree
+    };
+  }
+  function pushLiveComment(comment) {
+    const L = state.live;
+    if (!L.comments) L.comments = [];
+    L.comments.unshift({ ...comment, id: `${Date.now()}-${L.comments.length}` });
+    L.comments = L.comments.slice(0, 70);
+  }
+  function addRoutineComment(r) {
+    pushLiveComment(makeRoutineComment(r));
+  }
+  function addSkipComments(processed) {
+    if (!processed.length) return;
+    const best = [...processed].sort((a, b) => b.score.total - a.score.total)[0];
+    pushLiveComment({
+      meta: `${best.team.federation} · ${appName(best.apparatus)} · ${formatScore(best.score.total)}`,
+      text: commentaryPhrase("skipBest", {
+        name: best.athlete.name, app: appName(best.apparatus), score: formatScore(best.score.total), team: displayTeamName(best.team)
+      }),
+      you: best.team.isPlayer, top: true
+    });
+    const playerBest = processed.filter((r) => r.team.isPlayer).sort((a, b) => b.score.total - a.score.total)[0];
+    if (playerBest && playerBest !== best) {
+      pushLiveComment({
+        meta: `${playerBest.team.federation} · ${appName(playerBest.apparatus)} · ${formatScore(playerBest.score.total)}`,
+        text: commentaryPhrase("skipPlayer", {
+          name: playerBest.athlete.name, app: appName(playerBest.apparatus), score: formatScore(playerBest.score.total)
+        }),
+        you: true, top: false
+      });
+    }
+    const playerRank = liveRankingData().find((row) => row.td.team.isPlayer);
+    if (playerRank && playerRank.rank <= 3 && playerRank.val > 0) {
+      pushLiveComment({
+        meta: `${state.federation} · ${formatScore(playerRank.val)}`,
+        text: commentaryPhrase("playerPodium", {
+          rank: ordinal(playerRank.rank), score: formatScore(playerRank.val)
+        }),
+        you: true, top: true
+      });
+    }
+  }
+  function addFinalLiveCommentary() {
+    const L = state.live;
+    if (L.finalCommented) return;
+    L.finalCommented = true;
+    const ranking = liveRankingData();
+    const leader = ranking[0];
+    if (leader) {
+      pushLiveComment({
+        meta: `${leader.td.team.federation} · ${formatScore(leader.val)}`,
+        text: commentaryPhrase("finalTop", { team: displayTeamName(leader.td.team), score: formatScore(leader.val) }),
+        you: leader.td.team.isPlayer, top: true
+      });
+    }
+    const player = ranking.find((row) => row.td.team.isPlayer);
+    if (player && (player.rank <= 3 || player !== leader)) {
+      pushLiveComment({
+        meta: `${state.federation} · ${formatScore(player.val)}`,
+        text: commentaryPhrase(player.rank <= 3 ? "finalPlayerPodium" : "finalPlayer", {
+          rank: ordinal(player.rank), score: formatScore(player.val)
+        }),
+        you: true, top: player.rank <= 3
+      });
+    }
   }
   function advanceLive() {
     const L = state.live;
@@ -1724,11 +1898,13 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     const r = rot.routines[L.routineIndex];
     L.running[r.teamId] = round3((L.running[r.teamId] || 0) + r.score.total);
     L.log.unshift(r);
+    addRoutineComment(r);
     updateLive();
     scheduleLiveTick();
   }
   function finishLive() {
     state.live.done = true; state.live.playing = false; clearTimeout(state.live.timer);
+    addFinalLiveCommentary();
     // commit to results.teamFinal so downstream views work
     commitTeamFinalFromLive();
     updateLive();
@@ -1749,16 +1925,20 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   function liveSkipRotation() {
     const L = state.live; if (L.done) return; L.playing = false; clearTimeout(L.timer);
     const rot = L.rotations[L.rotIndex];
-    for (let i = L.routineIndex + 1; i < rot.routines.length; i++) { const r = rot.routines[i]; L.running[r.teamId] = round3((L.running[r.teamId] || 0) + r.score.total); L.log.unshift(r); }
+    const processed = [];
+    for (let i = L.routineIndex + 1; i < rot.routines.length; i++) { const r = rot.routines[i]; L.running[r.teamId] = round3((L.running[r.teamId] || 0) + r.score.total); L.log.unshift(r); processed.push(r); }
+    addSkipComments(processed);
     L.routineIndex = rot.routines.length - 1;
     if (L.rotIndex + 1 >= L.rotations.length) { finishLive(); } else { L.rotIndex += 1; L.routineIndex = -1; updateLive(); }
   }
   function liveSkipEnd() {
     const L = state.live; if (L.done) return; clearTimeout(L.timer); L.playing = false;
+    const processed = [];
     for (let ri = L.rotIndex; ri < L.rotations.length; ri++) {
       const rot = L.rotations[ri]; const start = ri === L.rotIndex ? L.routineIndex + 1 : 0;
-      for (let i = start; i < rot.routines.length; i++) { const r = rot.routines[i]; L.running[r.teamId] = round3((L.running[r.teamId] || 0) + r.score.total); L.log.unshift(r); }
+      for (let i = start; i < rot.routines.length; i++) { const r = rot.routines[i]; L.running[r.teamId] = round3((L.running[r.teamId] || 0) + r.score.total); L.log.unshift(r); processed.push(r); }
     }
+    addSkipComments(processed);
     L.rotIndex = L.rotations.length - 1; L.routineIndex = L.rotations[L.rotIndex].routines.length - 1;
     finishLive();
   }
@@ -1771,12 +1951,11 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   }
   function liveStandingsRows() {
     const L = state.live;
-    const order = [...L.teamData].map((td) => ({ td, val: L.running[td.team.id] || 0 }))
-      .sort((a, b) => b.val - a.val);
+    const order = liveRankingData();
     return order.map((o, i) => {
       const medalCls = i === 0 ? "stand-gold" : i === 1 ? "stand-silver" : i === 2 ? "stand-bronze" : "";
       return `<div class="stand-row ${o.td.team.isPlayer ? "stand-you" : ""} ${medalCls}">
-        <span class="stand-rank">${i + 1}</span>
+        <span class="stand-rank">${o.rank}</span>
         <span class="stand-name">${escapeHTML(displayTeamName(o.td.team))}</span>
         <span class="stand-fed">${flagHtml(o.td.team.federation)}${escapeHTML(o.td.team.federation)}</span>
         <span class="stand-score">${o.val ? formatScore(o.val) : "—"}</span>
@@ -1812,11 +1991,19 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       </div>
       <div class="spot-ded">
         <div class="ded-head"><span>${t("deductions")}</span><span class="ded-start">${t("startVal")} 10.000 − ${s.execDed.toFixed(1)}${s.neutralDed ? " − " + s.neutralDed.toFixed(1) + " ND" : ""}</span></div>
-        ${dl.length ? `<ul class="ded-list">${dl.map((d) => `<li class="${d.major ? "ded-major" : ""}"><span class="ded-lab">${icon("minus")} ${escapeHTML(d.label)}</span><span class="ded-val">−${d.value.toFixed(1)}</span></li>`).join("")}
+        ${dl.length || s.neutral.length ? `<ul class="ded-list">${dl.map((d) => `<li class="${d.major ? "ded-major" : ""}"><span class="ded-lab">${icon("minus")} ${escapeHTML(d.label)}</span><span class="ded-val">−${d.value.toFixed(1)}</span></li>`).join("")}
           ${s.neutral.map((d) => `<li class="ded-neutral"><span class="ded-lab">${icon("flag")} ${escapeHTML(faultLabel(d.code))}</span><span class="ded-val">−${d.value.toFixed(1)}</span></li>`).join("")}</ul>`
           : `<p class="ded-empty">${icon("check")} ${t("noDeductions")}</p>`}
       </div>
     </div>`;
+  }
+  function liveCommentaryPanel() {
+    const comments = state.live.comments || [];
+    if (!comments.length) return `<p class="commentary-empty">${t("commentaryEmpty")}</p>`;
+    return comments.slice(0, 16).map((c) => `<article class="commentary-card ${c.you ? "you" : ""} ${c.top ? "top" : ""}">
+      <div class="commentary-meta"><span>${escapeHTML(c.meta)}</span></div>
+      <p class="commentary-text">${escapeHTML(c.text)}</p>
+    </article>`).join("");
   }
   function rotationLog() {
     const L = state.live;
@@ -1846,6 +2033,10 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
             <div class="grid gap-4 lg:grid-cols-[1fr_340px]">
               <div class="grid gap-4">
                 <div class="panel spot-panel p-4 md:p-5" id="spotMount"></div>
+                <div class="panel p-4">
+                  <h2 class="section-title mb-3">${icon("live")} ${t("commentaryTitle")}</h2>
+                  <div class="commentary-list" id="commentaryMount"></div>
+                </div>
                 <div class="panel p-4">
                   <h2 class="section-title mb-3">${icon("list")} ${t("rotationLog")}</h2>
                   <div class="log-list" id="logMount"></div>
@@ -1886,12 +2077,14 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     const L = state.live;
     const header = document.getElementById("liveHeader");
     const spot = document.getElementById("spotMount");
+    const commentary = document.getElementById("commentaryMount");
     const log = document.getElementById("logMount");
     const stand = document.getElementById("standMount");
     const standTitle = document.getElementById("standTitle");
     if (!header) { renderLive(); return; }
     header.innerHTML = liveHeaderHTML();
     spot.innerHTML = spotlightCard();
+    if (commentary) commentary.innerHTML = liveCommentaryPanel();
     log.innerHTML = rotationLog();
     stand.innerHTML = liveStandingsRows();
     standTitle.innerHTML = `${icon("trophy")} ${L.done ? t("finalStanding") : t("liveStandings")}`;
