@@ -296,6 +296,9 @@
     .commentary-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; color:var(--muted); font-size:11px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; }
     .commentary-text { margin-top:4px; color:var(--text); font-size:13.5px; font-weight:700; line-height:1.35; }
     .commentary-empty { margin:0; color:var(--muted); font-weight:700; }
+    .commentary-ticker { border:1px solid color-mix(in srgb,var(--accent) 34%,var(--line)); border-radius:var(--radius-sm); background:linear-gradient(135deg,var(--accent-soft),var(--surface-2)); padding:12px 14px; box-shadow:inset 3px 0 0 var(--accent); animation:spot-in 220ms ease-out; }
+    .commentary-ticker .commentary-meta { color:var(--accent); }
+    .commentary-ticker .commentary-text { font-size:15px; margin-top:5px; }
 
     .arena-art { width:100%; height:auto; display:block; border-radius:var(--radius); border:1px solid var(--line); background:var(--surface-2); }
 
@@ -378,8 +381,8 @@
     panamerican: {
       names: { "pt-BR": "Jogos Pan-Americanos", en: "Pan American Games", es: "Juegos Panamericanos" },
       countries: {
-        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI"],
-        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI"]
+        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM"],
+        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN"]
       }
     },
     european: {
@@ -633,6 +636,42 @@ F,Hillary Heron,PAN,2024,5.0,8.8,5.7,8.1,5.2,7.8,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A
 F,Sandra Collantes,COL,2024,4.6,8.7,5.2,7.9,5.5,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
 F,Angel Barajas,COL,2024,4.6,8.7,5.1,7.8,5.3,7.8,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
 F,Karol Bautista,COL,2024,4.6,8.6,5.1,7.8,5.4,7.9,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Kara Eaker,USA,2019,5.0,9.2,5.6,8.3,5.8,8.0,6.4,8.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Morgan Hurd,USA,2019,5.0,9.1,5.8,8.2,6.0,8.3,5.9,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Riley McCusker,USA,2019,5.0,8.9,5.6,8.4,6.2,8.7,6.0,8.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+F,Leanne Wong,USA,2019,4.8,8.9,5.7,8.2,5.8,8.3,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Aleah Finnegan,USA,2019,5.0,9.1,5.8,8.2,5.4,8.0,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Thais Fidelis,BRA,2019,5.0,8.7,5.7,8.2,5.5,8.0,5.6,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Jade Barbosa,BRA,2019,5.0,8.9,5.6,8.1,5.6,8.0,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Ellie Black,CAN,2019,5.4,9.1,5.6,8.0,5.8,8.2,5.9,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Brooklyn Moors,CAN,2019,4.6,7.9,5.9,8.2,5.5,7.9,5.6,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Shallon Olsen,CAN,2019,5.6,8.8,5.4,7.8,4.8,7.7,5.0,7.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Isabela Onyshko,CAN,2019,4.8,8.7,5.4,7.8,5.8,7.9,5.6,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Victoria-Kayen Woo,CAN,2019,4.8,8.8,5.3,7.8,5.6,7.8,5.5,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Rebeca Andrade,BRA,2023,5.6,9.5,5.8,8.2,6.2,8.1,5.8,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.91
+F,Jade Barbosa,BRA,2023,5.0,8.8,5.5,8.0,5.5,7.9,5.4,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Julia Soares,BRA,2023,4.6,8.7,5.6,8.1,5.3,7.8,6.0,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Kayla DiCello,USA,2023,5.0,9.1,5.8,8.4,5.9,8.2,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+F,Kaliya Lincoln,USA,2023,5.0,8.9,6.1,8.4,5.2,7.8,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Zoe Miller,USA,2023,4.6,8.7,5.0,7.8,6.4,8.5,5.2,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Tiana Sumanasekera,USA,2023,5.0,9.1,5.5,8.0,5.6,7.9,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Frederique Sgarbossa,CAN,2023,4.8,8.2,5.3,7.8,5.5,7.8,5.4,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Sydney Turner,CAN,2023,4.6,8.5,5.2,7.8,5.4,7.8,5.3,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Sophia Weisberg,BRA,2025,4.6,8.6,5.5,8.1,5.3,7.8,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Bridgette Caquatto,USA,2011,5.0,9.0,5.8,8.9,6.0,8.6,5.8,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Shawn Johnson,USA,2011,5.0,8.9,5.5,8.0,6.0,8.4,6.0,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Bridget Sloan,USA,2011,5.0,8.9,5.6,8.1,6.0,8.3,5.8,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Brandie Jay,USA,2011,5.4,9.0,5.5,7.9,5.7,8.0,5.5,7.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Jessie DeZiel,USA,2011,5.0,8.8,5.6,7.6,5.6,7.9,5.5,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Ana Sofia Gomez,GUA,2011,5.0,9.5,5.5,7.3,6.0,8.7,5.8,7.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Kristina Vaculik,CAN,2011,5.0,8.9,5.6,8.2,5.9,7.9,6.0,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Peng-Peng Lee,CAN,2011,5.0,8.9,5.8,7.9,6.0,8.3,6.0,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Mikaela Gerber,CAN,2011,4.8,8.7,5.6,8.4,5.5,7.8,5.8,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Daniele Hypolito,BRA,2011,5.0,9.0,5.7,7.7,5.8,7.7,5.8,7.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Daiane Dos Santos,BRA,2011,5.0,8.8,5.8,8.2,5.0,7.4,5.2,7.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Priscila Domingues,BRA,2011,4.8,8.6,5.2,7.7,5.4,7.5,5.6,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Adrian Gomes,BRA,2011,4.8,8.7,5.2,7.6,5.3,7.5,5.4,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Bruna Leal,BRA,2011,4.8,8.6,5.2,7.5,5.3,7.4,5.3,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
 F,Martina Dominici,ARG,2024,4.8,8.7,5.4,8.0,5.5,7.9,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
 F,Abigail Magistrati,ARG,2024,4.6,8.7,5.3,7.9,5.5,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
 F,Daniela Gomez,ARG,2024,4.6,8.6,5.2,7.8,5.4,7.8,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
@@ -658,6 +697,43 @@ M,Jossimar Calvo,COL,2024,5.2,8.8,5.7,8.2,N/A,N/A,N/A,N/A,6.0,8.3,5.5,8.0,6.2,8.
 M,Andres Martinez,COL,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.6,8.0,5.4,7.9,5.8,8.1,5.6,7.9,0.78
 M,Carlos Calvo,COL,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.7,8.0,5.3,7.8,5.8,8.1,5.5,7.9,0.78
 M,Karim Rida,COL,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.4,7.8,5.4,7.9,5.8,8.0,5.5,7.8,0.77
+M,Samuel Mikulak,USA,2015,5.4,9.0,6.0,8.9,N/A,N/A,N/A,N/A,5.8,8.7,5.8,8.9,6.2,8.9,6.2,8.9,0.87
+M,Paul Ruggeri,USA,2015,5.2,8.9,5.9,8.8,N/A,N/A,N/A,N/A,5.4,8.3,5.5,8.4,5.8,8.5,6.3,8.8,0.82
+M,Marvin Kimble,USA,2015,5.2,8.8,5.6,8.3,N/A,N/A,N/A,N/A,5.6,8.6,5.5,8.3,5.8,8.7,6.0,8.5,0.80
+M,Steven Legendre,USA,2015,5.6,8.9,6.2,8.7,N/A,N/A,N/A,N/A,5.0,7.9,5.6,8.9,5.6,8.1,5.4,7.9,0.79
+M,Arthur Nory,BRA,2015,5.4,8.9,5.8,8.5,N/A,N/A,N/A,N/A,5.6,8.7,5.3,8.0,5.7,8.7,6.2,8.8,0.82
+M,Caio Souza,BRA,2015,5.6,8.8,5.7,8.0,N/A,N/A,N/A,N/A,5.8,8.8,5.7,8.9,6.0,9.0,5.8,8.8,0.83
+M,Lucas Bitencourt,BRA,2015,5.2,7.5,5.6,8.7,N/A,N/A,N/A,N/A,5.8,8.9,5.8,8.8,5.8,8.1,5.8,8.9,0.80
+M,Carlos Calvo,COL,2015,5.2,7.2,5.7,8.5,N/A,N/A,N/A,N/A,5.5,7.8,5.5,7.6,5.8,7.9,5.6,7.8,0.78
+M,Jorge Hugo Giraldo,COL,2015,5.2,8.6,5.9,8.7,N/A,N/A,N/A,N/A,5.5,8.7,5.4,7.7,6.2,9.1,5.8,8.6,0.83
+M,Didier Lugo,COL,2015,5.2,7.9,5.4,7.8,N/A,N/A,N/A,N/A,5.8,9.2,5.6,8.8,5.4,7.9,5.2,7.8,0.79
+M,Jhonny Munoz,COL,2015,5.2,8.0,5.6,8.3,N/A,N/A,N/A,N/A,5.4,7.9,5.3,8.2,5.8,8.8,5.7,8.3,0.79
+M,Riley Loos,USA,2022,5.6,8.9,6.0,8.4,N/A,N/A,N/A,N/A,5.8,8.1,6.1,8.3,5.8,8.1,5.8,8.0,0.81
+M,Vitaly Guimaraes,BRA,2024,5.6,8.9,6.1,8.4,N/A,N/A,N/A,N/A,5.6,8.1,5.8,8.2,5.9,8.2,5.8,8.0,0.81
+M,Diogo Speranza,BRA,2024,5.2,8.7,5.6,8.0,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.8,8.1,6.2,8.4,0.79
+M,Arthur Nory,BRA,2023,5.2,8.8,5.6,8.5,N/A,N/A,N/A,N/A,5.3,7.9,5.3,8.0,5.8,7.8,5.7,8.6,0.81
+M,Diogo Soares,BRA,2023,5.2,8.4,5.4,8.2,N/A,N/A,N/A,N/A,5.4,7.6,5.4,7.6,6.0,8.1,5.9,8.1,0.82
+M,Bernardo Miranda,BRA,2023,5.2,8.7,5.4,8.0,N/A,N/A,N/A,N/A,5.6,8.1,5.4,8.0,6.0,8.1,5.7,8.4,0.80
+M,Patrick Sampaio,BRA,2023,5.2,7.8,5.5,8.1,N/A,N/A,N/A,N/A,5.3,7.9,5.4,7.8,5.6,7.9,5.4,7.8,0.77
+M,Cameron Bock,USA,2023,5.2,8.3,5.6,8.2,N/A,N/A,N/A,N/A,5.4,8.2,5.4,8.2,5.8,7.6,5.8,8.0,0.81
+M,Stephen Nedoroscik,USA,2023,4.8,7.5,5.0,7.6,N/A,N/A,N/A,N/A,6.3,8.3,5.0,7.5,5.2,7.8,5.2,7.8,0.78
+M,Curran Phillips,USA,2023,5.2,8.7,5.4,8.0,N/A,N/A,N/A,N/A,5.2,7.7,5.4,8.0,6.5,8.1,5.8,7.6,0.79
+M,Colt Walker,USA,2023,5.2,8.3,5.6,8.0,N/A,N/A,N/A,N/A,5.4,8.2,5.4,8.2,6.2,8.2,5.8,7.9,0.81
+M,Kristopher Bohorquez,COL,2023,5.2,6.5,5.4,7.8,N/A,N/A,N/A,N/A,5.6,8.0,5.4,7.8,5.8,7.1,5.4,6.0,0.76
+M,Dilan Jimenez,COL,2023,5.2,6.2,5.4,7.4,N/A,N/A,N/A,N/A,5.4,7.4,5.4,8.0,5.8,7.8,5.4,6.9,0.76
+M,Juan Larrahondo,COL,2023,5.6,8.2,5.4,7.8,N/A,N/A,N/A,N/A,5.4,6.5,5.6,8.7,5.4,7.8,5.4,7.8,0.77
+M,Sergio Vargas,COL,2023,5.2,8.0,5.4,7.8,N/A,N/A,N/A,N/A,5.4,7.8,5.4,7.8,5.8,7.3,5.4,7.4,0.76
+M,Camilo Vera,COL,2025,5.2,8.7,5.8,8.2,N/A,N/A,N/A,N/A,5.8,8.1,5.5,8.0,6.0,8.2,5.9,8.1,0.81
+M,Petrix Barbosa,BRA,2011,5.4,8.8,5.8,8.4,N/A,N/A,N/A,N/A,5.5,8.1,5.6,8.2,5.8,8.3,5.6,8.1,0.81
+M,Francisco Barreto Junior,BRA,2011,5.2,8.7,5.8,8.1,N/A,N/A,N/A,N/A,5.8,8.3,5.5,8.0,5.9,8.2,6.1,8.3,0.82
+M,Diego Hypolito,BRA,2011,5.6,8.9,6.4,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.8,5.4,7.9,5.2,7.7,0.80
+M,Sergio Sasaki,BRA,2011,5.4,8.9,5.9,8.3,N/A,N/A,N/A,N/A,5.7,8.1,5.7,8.0,5.9,8.2,5.8,8.0,0.82
+M,Pericles Silva,BRA,2011,5.2,8.7,5.6,8.0,N/A,N/A,N/A,N/A,5.5,7.9,5.5,8.0,5.8,8.1,5.5,7.8,0.78
+M,Paul Ruggeri,USA,2011,5.2,8.8,6.0,8.4,N/A,N/A,N/A,N/A,5.5,8.0,5.5,8.0,5.8,8.3,6.3,8.5,0.82
+M,Brandon Wynn,USA,2011,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.3,7.8,6.2,8.6,5.5,7.9,5.2,7.7,0.80
+M,Tyler Mizoguchi,USA,2011,5.2,8.7,5.7,8.1,N/A,N/A,N/A,N/A,5.7,8.1,5.6,8.0,5.8,8.1,5.7,8.0,0.81
+M,Sho Nakamori,USA,2011,5.2,8.7,5.6,8.0,N/A,N/A,N/A,N/A,5.6,8.0,5.6,7.9,5.8,8.1,5.8,8.0,0.80
+M,Donothan Bailey,USA,2011,5.2,8.7,5.7,8.1,N/A,N/A,N/A,N/A,5.7,8.1,5.6,8.0,5.8,8.1,5.7,8.0,0.80
 M,Federico Molinari,ARG,2024,5.2,8.7,5.3,7.9,N/A,N/A,N/A,N/A,5.4,7.8,6.4,8.6,5.4,7.9,5.2,7.8,0.80
 M,Daniel Villafane,ARG,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.7,8.0,5.4,7.9,5.8,8.1,5.6,7.9,0.80
 M,Nicolas Cordoba,ARG,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.3,7.8,5.2,7.8,5.6,7.9,6.2,8.2,0.79
@@ -1088,7 +1164,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   function displayTeamName(team) { return team.isPlayer ? team.name : `${t("team")} ${team.federation}`; }
   function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${a.federation}`; }
   function apparatusById(id) { return apps().find((a) => a.id === id); }
-  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru" };
+  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru" };
   function flagHtml(code) {
     const iso = IOC_ISO[code];
     if (!iso) return `<span class="flag-custom" aria-hidden="true">${icon("flag")}</span>`;
@@ -2005,6 +2081,14 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       <p class="commentary-text">${escapeHTML(c.text)}</p>
     </article>`).join("");
   }
+  function liveCommentaryTicker() {
+    const comment = (state.live.comments || [])[0];
+    if (!comment) return `<div class="commentary-ticker"><div class="commentary-meta">${t("commentaryTitle")}</div><p class="commentary-text">${t("commentaryEmpty")}</p></div>`;
+    return `<div class="commentary-ticker ${comment.you ? "you" : ""}">
+      <div class="commentary-meta">${escapeHTML(comment.meta)}</div>
+      <p class="commentary-text">${escapeHTML(comment.text)}</p>
+    </div>`;
+  }
   function rotationLog() {
     const L = state.live;
     const rot = L.rotations[L.rotIndex];
@@ -2032,6 +2116,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
             </div>
             <div class="grid gap-4 lg:grid-cols-[1fr_340px]">
               <div class="grid gap-4">
+                <div id="commentaryTickerMount"></div>
                 <div class="panel spot-panel p-4 md:p-5" id="spotMount"></div>
                 <div class="panel p-4">
                   <h2 class="section-title mb-3">${icon("live")} ${t("commentaryTitle")}</h2>
@@ -2076,6 +2161,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   function updateLive() {
     const L = state.live;
     const header = document.getElementById("liveHeader");
+    const ticker = document.getElementById("commentaryTickerMount");
     const spot = document.getElementById("spotMount");
     const commentary = document.getElementById("commentaryMount");
     const log = document.getElementById("logMount");
@@ -2083,6 +2169,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     const standTitle = document.getElementById("standTitle");
     if (!header) { renderLive(); return; }
     header.innerHTML = liveHeaderHTML();
+    if (ticker) ticker.innerHTML = liveCommentaryTicker();
     spot.innerHTML = spotlightCard();
     if (commentary) commentary.innerHTML = liveCommentaryPanel();
     log.innerHTML = rotationLog();
