@@ -90,6 +90,8 @@
     .segment button .seg-ico { display:inline-grid; place-items:center; color:currentColor; }
     .segment button.active { background:var(--surface); border-color:var(--strong-line); color:var(--text); box-shadow:var(--shadow-sm); }
     .segment button.active .seg-ico { color:var(--accent); }
+    .competition-segment { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .competition-segment button { min-height:54px; padding:8px 10px; white-space:normal; line-height:1.15; }
 
     /* chips + app icons */
     .chip { min-height:32px; display:inline-flex; align-items:center; gap:7px; border:1px solid var(--line); background:var(--surface-2); border-radius:999px; padding:5px 12px; font-size:13px; font-weight:700; white-space:nowrap; }
@@ -135,10 +137,10 @@
     .q-badge { min-width:26px; height:24px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-size:12px; font-weight:900; color:var(--good); background:color-mix(in srgb,var(--good) 12%,transparent); border:1px solid color-mix(in srgb,var(--good) 30%,var(--line)); }
     .medal-h-g { color:var(--gold); } .medal-h-s { color:var(--silver); } .medal-h-b { color:var(--bronze); }
 
-    .medal-badge { min-width:26px; height:26px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-family:var(--disp); font-size:13px; font-weight:900; border:1px solid; }
-    .medal-gold { color:#2e2100; background:var(--gold); border-color:color-mix(in srgb,var(--gold) 72%,#000); }
-    .medal-silver { color:#1f2933; background:var(--silver); border-color:color-mix(in srgb,var(--silver) 72%,#000); }
-    .medal-bronze { color:#2c1607; background:var(--bronze); border-color:color-mix(in srgb,var(--bronze) 72%,#000); }
+    .medal-badge { min-width:26px; height:26px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-family:var(--disp); font-size:13px; font-weight:900; border:1px solid; box-shadow:inset 0 1.5px 0 rgba(255,255,255,.55), inset 0 -2px 4px rgba(0,0,0,.18), 0 1px 3px rgba(0,0,0,.15); }
+    .medal-gold { color:#2e2100; border-color:color-mix(in srgb,var(--gold) 68%,#000); background:radial-gradient(circle at 35% 30%, color-mix(in srgb,var(--gold) 45%,#fff), var(--gold) 62%, color-mix(in srgb,var(--gold) 72%,#000)); }
+    .medal-silver { color:#1f2933; border-color:color-mix(in srgb,var(--silver) 68%,#000); background:radial-gradient(circle at 35% 30%, color-mix(in srgb,var(--silver) 45%,#fff), var(--silver) 62%, color-mix(in srgb,var(--silver) 72%,#000)); }
+    .medal-bronze { color:#2c1607; border-color:color-mix(in srgb,var(--bronze) 68%,#000); background:radial-gradient(circle at 35% 30%, color-mix(in srgb,var(--bronze) 45%,#fff), var(--bronze) 62%, color-mix(in srgb,var(--bronze) 72%,#000)); }
 
     /* tabbar */
     .tabbar { display:flex; flex-wrap:wrap; gap:8px; }
@@ -148,19 +150,62 @@
     .tabbar button.active svg { color:var(--accent); }
 
     /* podium */
-    .podium { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:end; gap:10px; min-height:256px; }
-    .podium-place { display:grid; gap:8px; align-content:end; min-width:0; }
-    .podium-name { min-height:60px; display:grid; align-content:end; text-align:center; font-family:var(--disp); font-weight:800; line-height:1.1; font-size:17px; overflow-wrap:anywhere; }
+    .podium { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:end; gap:12px; min-height:270px; }
+    .podium-place { display:grid; align-content:end; min-width:0; }
+    .podium-name { min-height:56px; display:grid; align-content:end; justify-items:center; text-align:center; font-family:var(--disp); font-weight:800; line-height:1.1; font-size:17px; overflow-wrap:anywhere; }
     .podium-sub { margin-top:3px; font-family:var(--ui); font-size:11.5px; font-weight:700; color:var(--muted); }
     .podium-you { margin-top:3px; font-family:var(--ui); font-size:11px; font-weight:800; color:var(--accent); }
-    .podium-score { text-align:center; font-family:var(--disp); font-weight:900; font-variant-numeric:tabular-nums; font-size:18px; }
-    .podium-block { border:1px solid var(--strong-line); border-bottom:0; border-radius:10px 10px 0 0; display:grid; place-items:center; padding:8px; color:#191c1d; min-height:88px; }
-    .podium-rank { font-family:var(--disp); font-weight:900; font-size:32px; }
+    .podium-block { position:relative; margin-top:26px; border-radius:10px 10px 0 0; display:grid; align-content:end; justify-items:center; gap:2px; padding:10px 8px 13px; min-height:92px; transform-origin:bottom; animation:podium-rise .55s cubic-bezier(.2,.9,.25,1) backwards; box-shadow:inset 0 2px 0 rgba(255,255,255,.45), inset 0 -18px 28px rgba(0,0,0,.14), 0 12px 26px rgba(58,47,28,.16); }
+    @keyframes podium-rise { from { transform:scaleY(.25); opacity:0; } to { transform:none; opacity:1; } }
+    .podium-medal { position:absolute; top:-19px; left:50%; transform:translateX(-50%); width:38px; height:38px; border-radius:999px; display:grid; place-items:center; font-family:var(--disp); font-weight:900; font-size:17px; border:2px solid; box-shadow:0 5px 12px rgba(0,0,0,.25), inset 0 2px 0 rgba(255,255,255,.55), inset 0 -3px 6px rgba(0,0,0,.2); }
+    .podium-score { font-family:var(--disp); font-weight:900; font-variant-numeric:tabular-nums; font-size:22px; line-height:1; }
     .podium-place:nth-child(1){order:2;} .podium-place:nth-child(2){order:1;} .podium-place:nth-child(3){order:3;}
-    .podium-place:nth-child(1) .podium-block{min-height:146px; background:var(--gold);}
-    .podium-place:nth-child(2) .podium-block{min-height:112px; background:var(--silver);}
-    .podium-place:nth-child(3) .podium-block{min-height:94px; background:var(--bronze);}
-    .podium.compact { min-height:200px; } .podium.compact .podium-name{ font-size:14px; min-height:48px; } .podium.compact .podium-block{ min-height:70px; } .podium.compact .podium-place:nth-child(1) .podium-block{min-height:104px;} .podium.compact .podium-place:nth-child(2) .podium-block{min-height:84px;}
+    .podium-place:nth-child(1) .podium-block{ min-height:150px; animation-delay:.28s; color:#2e2100; background:linear-gradient(180deg, color-mix(in srgb,var(--gold) 58%,#fff), var(--gold) 42%, color-mix(in srgb,var(--gold) 72%,#000)); box-shadow:inset 0 2px 0 rgba(255,255,255,.5), inset 0 -18px 28px rgba(0,0,0,.14), 0 12px 26px rgba(58,47,28,.16), 0 0 46px color-mix(in srgb,var(--gold) 32%,transparent); }
+    .podium-place:nth-child(2) .podium-block{ min-height:116px; animation-delay:.14s; color:#1f2933; background:linear-gradient(180deg, color-mix(in srgb,var(--silver) 58%,#fff), var(--silver) 42%, color-mix(in srgb,var(--silver) 72%,#000)); }
+    .podium-place:nth-child(3) .podium-block{ min-height:96px; color:#2c1607; background:linear-gradient(180deg, color-mix(in srgb,var(--bronze) 58%,#fff), var(--bronze) 42%, color-mix(in srgb,var(--bronze) 72%,#000)); }
+    .podium-place:nth-child(1) .podium-medal{ color:#2e2100; border-color:color-mix(in srgb,var(--gold) 62%,#000); background:radial-gradient(circle at 35% 30%, color-mix(in srgb,var(--gold) 45%,#fff), var(--gold) 62%, color-mix(in srgb,var(--gold) 72%,#000)); }
+    .podium-place:nth-child(2) .podium-medal{ color:#1f2933; border-color:color-mix(in srgb,var(--silver) 62%,#000); background:radial-gradient(circle at 35% 30%, color-mix(in srgb,var(--silver) 45%,#fff), var(--silver) 62%, color-mix(in srgb,var(--silver) 72%,#000)); }
+    .podium-place:nth-child(3) .podium-medal{ color:#2c1607; border-color:color-mix(in srgb,var(--bronze) 62%,#000); background:radial-gradient(circle at 35% 30%, color-mix(in srgb,var(--bronze) 45%,#fff), var(--bronze) 62%, color-mix(in srgb,var(--bronze) 72%,#000)); }
+    .podium.compact { min-height:206px; } .podium.compact .podium-name{ font-size:14px; min-height:44px; } .podium.compact .podium-block{ min-height:72px; margin-top:22px; } .podium.compact .podium-medal{ width:32px; height:32px; font-size:14px; top:-16px; } .podium.compact .podium-score{ font-size:18px; } .podium.compact .podium-place:nth-child(1) .podium-block{min-height:108px;} .podium.compact .podium-place:nth-child(2) .podium-block{min-height:88px;}
+
+    /* medal tally + haul */
+    .medal-haul { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:11px 13px; border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line)); border-radius:var(--radius-sm); background:var(--accent-soft); }
+    .haul-label { font-size:13px; font-weight:800; }
+    .haul-set { display:flex; gap:7px; }
+    .medal-haul .medal-badge { min-width:30px; height:30px; font-size:14px; }
+    .tally-head { display:grid; grid-template-columns:22px 1fr 34px 34px 34px 48px; gap:8px; padding:0 12px; margin-bottom:6px; font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+    .tally-head .tally-h { text-align:center; }
+    .tally-list { display:grid; gap:6px; }
+    .tally-row { display:grid; grid-template-columns:22px 1fr 34px 34px 34px 48px; align-items:center; gap:8px; padding:10px 12px; border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--surface-2); }
+    .tally-rank { font-family:var(--disp); font-weight:900; color:var(--muted); font-variant-numeric:tabular-nums; }
+    .tally-country { font-weight:800; font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .tally-num { font-family:var(--disp); font-weight:800; font-size:15px; font-variant-numeric:tabular-nums; text-align:center; }
+    .tally-total { font-weight:900; }
+    .tally-top { border-color:color-mix(in srgb,var(--gold) 55%,var(--line)); background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 16%,transparent),transparent 65%),var(--surface); }
+    .tally-top .tally-rank { color:var(--gold); }
+    .tally-you { border-color:color-mix(in srgb,var(--accent) 40%,var(--line)); background:var(--accent-soft); box-shadow:inset 3px 0 0 var(--accent); }
+
+    /* medal sessions + flags */
+    .sess-card { overflow:hidden; }
+    .sess-head { display:flex; align-items:center; gap:8px; padding:11px 14px; border-bottom:1px solid var(--line); background:var(--surface-2); font-family:var(--disp); font-weight:800; font-size:16px; }
+    .sess-head svg { width:17px; height:17px; color:var(--accent); flex:0 0 auto; }
+    .sess-list { padding:8px; display:grid; gap:4px; }
+    .sess-row { display:grid; grid-template-columns:26px 1fr auto auto; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; }
+    .sess-row:hover { background:var(--surface-2); }
+    .sess-you { background:var(--accent-soft); box-shadow:inset 3px 0 0 var(--accent); }
+    .sess-you:hover { background:var(--accent-soft); }
+    .sess-name { font-weight:800; font-size:13.5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .sess-score { font-family:var(--disp); font-weight:800; font-variant-numeric:tabular-nums; font-size:14px; }
+    .country-tag { display:inline-flex; align-items:center; gap:6px; font-weight:800; white-space:nowrap; }
+    .flag-img { width:21px; height:15px; object-fit:cover; border-radius:3px; border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,.12); flex:0 0 auto; }
+    .flag-custom { display:inline-grid; place-items:center; width:21px; height:15px; border-radius:3px; border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line)); background:var(--accent-soft); color:var(--accent); flex:0 0 auto; }
+    .flag-custom svg { width:10px; height:10px; }
+    .tally-country { display:inline-flex; align-items:center; gap:7px; }
+    .sub-fed { display:inline-flex; align-items:center; gap:6px; }
+    .sub-fed .flag-img, .sub-fed .flag-custom { width:18px; height:13px; }
+    .stand-fed { display:inline-flex; align-items:center; gap:5px; }
+    .stand-fed .flag-img, .stand-fed .flag-custom { width:18px; height:13px; }
+    .spot-meta .flag-img, .spot-meta .flag-custom { width:19px; height:14px; }
 
     /* progress */
     .progress { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:6px; }
@@ -314,9 +359,35 @@
     ]
   };
 
-  const COMPETING_COUNTRIES = {
-    WAG: ["USA", "BRA", "CHN", "JPN", "GBR", "ITA", "FRA", "GER"],
-    MAG: ["JPN", "CHN", "USA", "GBR", "BRA", "GER", "FRA", "ITA"]
+  const COMPETITIONS = {
+    olympics: {
+      names: { "pt-BR": "Jogos Olímpicos", en: "Olympic Games", es: "Juegos Olímpicos" },
+      countries: {
+        WAG: ["USA", "BRA", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "CAN", "NED", "AUS", "BEL", "ROU", "PHI"],
+        MAG: ["JPN", "CHN", "USA", "GBR", "BRA", "GER", "FRA", "ITA", "CAN", "UKR", "TUR", "KOR", "NED", "PHI"]
+      }
+    },
+    panamerican: {
+      names: { "pt-BR": "Jogos Pan-Americanos", en: "Pan American Games", es: "Juegos Panamericanos" },
+      countries: {
+        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI"],
+        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI"]
+      }
+    },
+    european: {
+      names: { "pt-BR": "Campeonato Europeu de Ginástica Artística", en: "European Artistic Gymnastics Championships", es: "Campeonato Europeo de Gimnasia Artística" },
+      countries: {
+        WAG: ["GBR", "ITA", "FRA", "GER", "NED", "BEL", "ROU", "HUN", "SUI", "ESP", "UKR"],
+        MAG: ["GBR", "ITA", "FRA", "GER", "NED", "UKR", "TUR", "SUI", "ESP", "HUN", "ROU"]
+      }
+    },
+    asian: {
+      names: { "pt-BR": "Campeonato Asiático de Ginástica Artística", en: "Asian Artistic Gymnastics Championships", es: "Campeonato Asiático de Gimnasia Artística" },
+      countries: {
+        WAG: ["CHN", "JPN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND"],
+        MAG: ["JPN", "CHN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND"]
+      }
+    }
   };
 
   const ATHLETE_CSV = `Genero,Nome,Pais,Ano,Salto_D,Salto_E,Solo_D,Solo_E,Assimetricas_D,Assimetricas_E,Trave_D,Trave_E,Cavalo_D,Cavalo_E,Argolas_D,Argolas_E,Paralelas_D,Paralelas_E,BarraFixa_D,BarraFixa_E,Consistency
@@ -430,6 +501,211 @@ M,Adem Asil,TUR,2022,5.6,9.0,5.6,8.1,N/A,N/A,N/A,N/A,5.4,7.9,6.3,8.7,5.8,8.1,5.4
 M,Shin Jea-hwan,KOR,2021,6.0,9.2,5.4,8.0,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.8,5.4,7.9,5.2,7.8,0.78
 M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7.8,5.2,7.7,0.81`;
 
+  const ATHLETE_SEASON_CSV = `F,Simone Biles,USA,2024,5.6,9.4,6.8,8.5,5.8,8.0,6.5,8.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.92
+F,Sunisa Lee,USA,2024,5.0,8.9,5.8,8.2,6.4,8.5,6.2,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Jade Carey,USA,2024,5.8,9.2,6.1,8.3,5.0,7.7,5.2,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Hezly Rivera,USA,2024,4.6,8.8,5.3,8.0,5.8,8.0,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Flavia Saraiva,BRA,2024,5.0,8.9,5.8,8.3,5.7,8.1,6.0,8.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Lorrane Oliveira,BRA,2024,4.6,8.8,5.3,8.0,5.8,8.1,5.3,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Qiu Qiyuan,CHN,2024,4.8,8.6,5.4,8.0,6.8,8.5,6.5,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Ou Yushan,CHN,2024,4.8,8.7,5.5,8.0,6.1,8.1,6.2,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Zhou Yaqin,CHN,2024,4.6,8.6,5.2,7.9,5.6,8.0,6.7,8.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Zhang Yihan,CHN,2024,4.6,8.6,5.3,7.9,6.2,8.2,5.8,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Luo Huan,CHN,2024,4.6,8.6,5.0,7.8,6.1,8.2,5.7,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Mana Okamura,JPN,2024,4.6,8.7,5.4,8.0,5.7,8.1,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Kohane Ushioku,JPN,2024,4.6,8.7,5.3,8.0,5.5,7.9,5.7,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Hazuki Watanabe,JPN,2024,4.6,8.7,5.2,7.9,5.5,7.9,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Ellie Black,CAN,2024,5.0,9.0,5.5,8.2,5.6,8.0,5.9,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.87
+F,Ava Stewart,CAN,2024,4.6,8.8,5.3,8.0,5.7,8.1,5.7,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Cassie Lee,CAN,2024,4.6,8.7,5.2,7.9,5.4,7.9,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Shallon Olsen,CAN,2024,5.6,9.1,5.2,7.9,4.8,7.6,5.0,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Aurelie Tran,CAN,2024,4.8,8.8,5.4,8.1,5.8,8.1,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Aleah Finnegan,PHI,2024,5.0,8.8,5.6,8.1,5.4,7.9,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Emma Malabuyo,PHI,2024,4.6,8.7,5.6,8.2,5.2,7.8,5.7,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Levi Jung-Ruivivar,PHI,2024,4.6,8.7,5.2,7.9,5.8,8.1,5.5,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Naomi Visser,NED,2024,4.8,8.9,5.5,8.2,6.0,8.3,5.7,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+F,Sanna Veerman,NED,2024,4.6,8.7,5.0,7.8,6.2,8.3,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Vera van Pol,NED,2024,4.8,8.8,5.3,8.0,5.6,8.0,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Lieke Wevers,NED,2024,4.6,8.7,5.3,8.1,5.5,8.0,5.7,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Tisha Volleman,NED,2024,5.0,8.9,5.4,8.1,5.3,7.9,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Georgia Godwin,AUS,2024,5.0,8.9,5.5,8.1,5.6,8.0,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Ruby Pass,AUS,2024,4.8,8.8,5.4,8.0,5.6,8.0,5.7,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Kate McDonald,AUS,2024,4.6,8.7,5.1,7.9,5.8,8.1,5.5,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Emily Whitehead,AUS,2024,4.8,8.8,5.6,8.1,5.4,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Breanna Scott,AUS,2024,4.6,8.7,5.2,7.9,5.5,8.0,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Nina Derwael,BEL,2024,4.8,8.8,5.0,7.9,6.4,8.5,5.4,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Lisa Vaelen,BEL,2024,5.0,8.9,5.4,8.0,5.6,8.0,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Maellyse Brassart,BEL,2024,4.8,8.7,5.3,7.9,5.5,7.9,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Jutta Verkest,BEL,2024,4.6,8.7,5.2,7.9,5.4,7.9,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Erika Pinxten,BEL,2024,4.6,8.6,5.1,7.8,5.4,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+M,Rene Cournoyer,CAN,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.7,8.1,5.7,8.0,5.9,8.2,5.8,8.0,0.81
+M,Felix Dolci,CAN,2024,5.2,8.8,5.9,8.3,N/A,N/A,N/A,N/A,5.8,8.1,5.6,8.0,6.0,8.3,5.8,8.1,0.82
+M,William Emard,CAN,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.6,8.0,5.8,8.1,6.0,8.3,5.6,7.9,0.81
+M,Zachary Clay,CAN,2024,5.2,8.7,5.4,8.0,N/A,N/A,N/A,N/A,5.9,8.2,5.6,8.0,5.8,8.1,5.5,7.9,0.80
+M,Jayson Rampersad,CAN,2024,5.2,8.8,5.7,8.2,N/A,N/A,N/A,N/A,5.4,7.9,5.5,7.9,5.8,8.1,5.6,7.9,0.79
+M,Carlos Yulo,PHI,2021,5.6,9.1,6.5,8.6,N/A,N/A,N/A,N/A,5.2,7.8,5.5,8.1,6.1,8.4,5.4,8.0,0.82
+M,Juancho Besana,PHI,2024,5.6,8.9,5.6,8.1,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.8,5.4,7.9,5.2,7.8,0.77
+M,John Ivan Cruz,PHI,2024,5.2,8.7,5.7,8.1,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7.8,5.2,7.7,0.76
+M,Ilia Kovtun,UKR,2024,5.2,8.8,5.9,8.2,N/A,N/A,N/A,N/A,6.2,8.3,5.5,8.0,6.7,8.6,5.8,8.2,0.85
+M,Radomyr Stelmakh,UKR,2024,5.2,8.8,5.8,8.1,N/A,N/A,N/A,N/A,5.9,8.2,5.5,7.9,6.1,8.3,5.7,8.0,0.81
+M,Nazar Chepurnyi,UKR,2024,5.6,9.0,5.8,8.2,N/A,N/A,N/A,N/A,5.2,7.8,5.5,8.0,5.9,8.2,5.5,7.9,0.79
+M,Igor Radivilov,UKR,2024,5.6,9.0,5.4,7.9,N/A,N/A,N/A,N/A,5.0,7.6,6.2,8.6,5.4,7.9,5.0,7.6,0.80
+M,Oleg Verniaiev,UKR,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.8,8.1,5.8,8.1,6.5,8.6,5.7,8.0,0.82
+M,Adem Asil,TUR,2024,5.6,9.0,5.6,8.1,N/A,N/A,N/A,N/A,5.4,7.9,6.3,8.7,5.8,8.1,5.4,7.9,0.82
+M,Ferhat Arican,TUR,2024,5.2,8.8,5.4,8.0,N/A,N/A,N/A,N/A,5.2,7.8,5.4,7.9,6.6,8.7,5.6,8.0,0.82
+M,Ahmet Onder,TUR,2024,5.2,8.8,5.8,8.2,N/A,N/A,N/A,N/A,5.6,8.0,5.7,8.0,6.1,8.3,5.8,8.0,0.81
+M,Ibrahim Colak,TUR,2024,5.2,8.7,5.2,7.8,N/A,N/A,N/A,N/A,5.0,7.5,6.4,8.7,5.2,7.8,5.0,7.6,0.80
+M,Mehmet Ayberk Kosak,TUR,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.4,7.9,5.5,7.9,5.8,8.0,5.6,7.9,0.79
+M,Shin Sol-yi,KOR,2024,5.2,8.8,5.5,8.0,N/A,N/A,N/A,N/A,5.5,8.0,5.6,8.0,5.9,8.1,5.6,7.9,0.79
+M,Kim Han-sol,KOR,2024,5.6,9.0,6.0,8.3,N/A,N/A,N/A,N/A,5.2,7.8,5.4,7.9,5.7,8.0,5.4,7.8,0.80
+M,Lee Junho,KOR,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.6,8.0,5.6,8.0,6.0,8.2,5.7,8.0,0.80
+M,Ryu Sunghyun,KOR,2024,5.2,8.8,6.2,8.4,N/A,N/A,N/A,N/A,5.2,7.8,5.3,7.8,5.7,8.0,5.4,7.8,0.79
+M,Yang Hak-seon,KOR,2024,6.0,9.1,5.0,7.6,N/A,N/A,N/A,N/A,5.0,7.5,5.0,7.5,5.0,7.6,5.0,7.5,0.76
+M,Casimir Schmidt,NED,2024,5.2,8.8,5.8,8.2,N/A,N/A,N/A,N/A,5.6,8.0,5.5,8.0,6.0,8.3,5.8,8.0,0.81
+M,Frank Rijken,NED,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.5,8.0,5.6,8.0,5.9,8.2,5.7,8.0,0.80
+M,Martijn de Veer,NED,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.4,7.9,5.5,7.9,5.8,8.1,5.6,7.9,0.79
+M,Jermain Grunberg,NED,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.7,8.0,5.5,7.8,0.78
+M,Loran de Munck,NED,2024,5.2,8.6,5.2,7.8,N/A,N/A,N/A,N/A,6.5,8.6,5.0,7.5,5.4,7.9,5.2,7.8,0.82`;
+
+  // Historical seasons are normalized to the current D/E model for gameplay.
+  // They are not literal historical Code of Points scores, because apparatus
+  // rules, event programs, and scoring systems changed radically across eras.
+  const ATHLETE_HISTORIC_CSV = `M,Carl Schuhmann,GER,1896,4.8,9.5,4.6,9.2,N/A,N/A,N/A,N/A,4.2,8.8,4.4,8.9,4.8,9.2,4.6,9.1,0.88
+M,Hermann Weingartner,GER,1896,4.6,9.3,4.5,9.1,N/A,N/A,N/A,N/A,4.7,9.2,4.4,8.9,4.9,9.4,5.0,9.5,0.90
+M,Alfred Flatow,GER,1896,4.4,9.1,4.4,9.0,N/A,N/A,N/A,N/A,4.2,8.8,4.2,8.7,4.9,9.4,4.8,9.3,0.88
+M,Louis Zutter,SUI,1896,4.6,9.2,4.4,9.0,N/A,N/A,N/A,N/A,5.0,9.5,4.2,8.7,4.4,8.9,4.3,8.8,0.87
+M,Ioannis Mitropoulos,GRE,1896,4.2,8.9,4.3,8.9,N/A,N/A,N/A,N/A,4.2,8.8,4.8,9.4,4.3,8.8,4.3,8.8,0.86
+M,Fritz Hofmann,GER,1896,4.6,9.2,4.6,9.1,N/A,N/A,N/A,N/A,4.3,8.8,4.4,8.8,4.6,9.1,4.5,9.0,0.86
+M,George Eyser,USA,1904,4.8,9.2,4.7,9.2,N/A,N/A,N/A,N/A,4.6,9.0,4.4,8.8,4.8,9.2,4.7,9.1,0.87
+M,Anton Heida,USA,1904,4.7,9.2,4.6,9.1,N/A,N/A,N/A,N/A,4.5,8.9,4.5,8.9,4.8,9.2,4.8,9.2,0.87
+M,Julius Lenhart,AUT,1904,4.6,9.1,4.6,9.1,N/A,N/A,N/A,N/A,4.6,9.0,4.4,8.8,4.7,9.1,4.6,9.0,0.86
+M,Alberto Braglia,ITA,1912,4.9,9.4,4.8,9.4,N/A,N/A,N/A,N/A,4.8,9.2,4.7,9.1,4.9,9.3,4.8,9.2,0.90
+M,Giorgio Zampori,ITA,1920,4.8,9.3,4.7,9.2,N/A,N/A,N/A,N/A,4.8,9.1,4.6,9.0,4.9,9.2,4.7,9.1,0.88
+M,Georges Miez,SUI,1928,5.0,9.3,4.9,9.3,N/A,N/A,N/A,N/A,5.0,9.2,4.7,9.0,5.0,9.3,4.9,9.2,0.90
+M,Viktor Chukarin,URS,1952,5.2,9.4,5.1,9.3,N/A,N/A,N/A,N/A,5.2,9.3,5.0,9.2,5.2,9.4,5.1,9.3,0.92
+M,Takashi Ono,JPN,1960,5.2,9.4,5.2,9.4,N/A,N/A,N/A,N/A,5.1,9.2,5.0,9.1,5.3,9.4,5.3,9.5,0.92
+M,Boris Shakhlin,URS,1960,5.2,9.4,5.1,9.3,N/A,N/A,N/A,N/A,5.3,9.4,5.2,9.3,5.2,9.4,5.1,9.3,0.93
+M,Yukio Endo,JPN,1964,5.3,9.4,5.3,9.4,N/A,N/A,N/A,N/A,5.1,9.2,5.1,9.2,5.3,9.4,5.2,9.3,0.92
+M,Sawao Kato,JPN,1972,5.4,9.4,5.5,9.5,N/A,N/A,N/A,N/A,5.2,9.2,5.2,9.2,5.5,9.5,5.4,9.4,0.94
+M,Nikolai Andrianov,URS,1976,5.6,9.4,5.5,9.4,N/A,N/A,N/A,N/A,5.4,9.2,5.5,9.4,5.5,9.4,5.3,9.2,0.92
+M,Alexander Dityatin,URS,1980,5.4,9.4,5.4,9.3,N/A,N/A,N/A,N/A,5.5,9.3,5.5,9.4,5.6,9.5,5.3,9.2,0.93
+M,Li Ning,CHN,1984,5.6,9.4,5.6,9.4,N/A,N/A,N/A,N/A,5.4,9.1,5.5,9.3,5.6,9.4,5.5,9.3,0.90
+M,Dmitry Bilozerchev,URS,1988,5.5,9.4,5.6,9.4,N/A,N/A,N/A,N/A,5.7,9.5,5.4,9.2,5.5,9.4,5.5,9.4,0.92
+M,Vitaly Scherbo,EUN,1992,5.8,9.4,5.8,9.4,N/A,N/A,N/A,N/A,5.7,9.4,5.8,9.5,5.9,9.5,5.6,9.2,0.93
+M,Li Xiaoshuang,CHN,1996,5.7,9.3,5.9,9.4,N/A,N/A,N/A,N/A,5.4,9.1,5.5,9.1,5.7,9.3,5.5,9.2,0.88
+M,Alexei Nemov,RUS,2000,5.8,9.3,5.9,9.4,N/A,N/A,N/A,N/A,5.5,9.0,5.6,9.1,5.8,9.3,5.9,9.4,0.88
+M,Yang Wei,CHN,2008,5.8,9.2,6.0,9.2,N/A,N/A,N/A,N/A,6.0,9.1,5.8,9.0,6.2,9.3,6.0,9.1,0.90
+M,Epke Zonderland,NED,2012,5.2,8.8,5.2,8.0,N/A,N/A,N/A,N/A,5.0,7.7,5.0,7.7,5.6,8.1,7.2,8.8,0.78
+M,Fabian Hambuechen,GER,2016,5.2,8.9,5.7,8.2,N/A,N/A,N/A,N/A,5.5,8.0,5.5,8.0,5.9,8.2,6.8,8.7,0.82
+F,Estella Agsteribbe,NED,1928,3.8,9.4,3.6,9.3,3.6,9.4,3.4,9.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Elka de Levie,NED,1928,3.7,9.3,3.6,9.2,3.5,9.3,3.4,9.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.87
+F,Helena Nordheim,NED,1928,3.7,9.3,3.6,9.2,3.5,9.2,3.4,9.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Anna Polak,NED,1928,3.7,9.2,3.6,9.2,3.5,9.2,3.4,9.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Judikje Simons,NED,1928,3.7,9.2,3.6,9.2,3.5,9.2,3.4,9.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Agnes Keleti,HUN,1956,4.6,9.6,4.8,9.6,4.9,9.7,4.8,9.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.94
+F,Larisa Latynina,URS,1960,4.8,9.5,5.0,9.7,4.9,9.5,4.9,9.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.95
+F,Vera Caslavska,TCH,1968,4.9,9.6,5.0,9.6,4.9,9.5,4.9,9.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.94
+F,Ludmilla Tourischeva,URS,1972,5.0,9.5,5.1,9.5,5.0,9.4,5.0,9.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.93
+F,Olga Korbut,URS,1972,4.8,9.4,5.1,9.5,5.2,9.6,5.2,9.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Nelli Kim,URS,1976,5.1,9.5,5.2,9.5,5.0,9.4,5.1,9.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.91
+F,Mary Lou Retton,USA,1984,5.2,9.5,5.2,9.4,4.9,9.2,5.0,9.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.91
+F,Ecaterina Szabo,ROU,1984,5.1,9.5,5.2,9.5,5.0,9.3,5.1,9.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.92
+F,Daniela Silivas,ROU,1988,5.2,9.5,5.5,9.6,5.4,9.6,5.4,9.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.93
+F,Svetlana Boginskaya,URS,1988,5.2,9.5,5.2,9.5,5.1,9.4,5.2,9.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.91
+F,Shannon Miller,USA,1996,5.0,9.4,5.2,9.4,5.5,9.6,5.6,9.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.93
+F,Lilia Podkopayeva,UKR,1996,5.3,9.5,5.7,9.6,5.4,9.4,5.3,9.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.91
+F,Simona Amanar,ROU,2000,5.8,9.4,5.6,9.2,5.1,8.9,5.2,9.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Carly Patterson,USA,2004,5.0,9.3,5.4,9.2,5.8,9.5,5.4,9.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.90
+F,Nastia Liukin,USA,2008,5.0,9.2,5.5,9.2,6.8,9.4,6.4,9.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.91
+F,Aliya Mustafina,RUS,2012,5.5,9.1,5.9,9.0,6.8,9.2,6.0,9.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Sandra Izbasa,ROU,2012,5.8,9.3,6.1,9.1,5.1,8.8,5.8,9.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84`;
+
+  const ATHLETE_REGIONAL_CSV = `F,Luisa Blanco,COL,2024,4.8,8.8,5.4,8.1,5.7,8.1,5.7,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Hillary Heron,PAN,2024,5.0,8.8,5.7,8.1,5.2,7.8,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Sandra Collantes,COL,2024,4.6,8.7,5.2,7.9,5.5,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Angel Barajas,COL,2024,4.6,8.7,5.1,7.8,5.3,7.8,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Karol Bautista,COL,2024,4.6,8.6,5.1,7.8,5.4,7.9,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Martina Dominici,ARG,2024,4.8,8.7,5.4,8.0,5.5,7.9,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Abigail Magistrati,ARG,2024,4.6,8.7,5.3,7.9,5.5,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Daniela Gomez,ARG,2024,4.6,8.6,5.2,7.8,5.4,7.8,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Mia Mainardi,ARG,2024,4.6,8.6,5.2,7.8,5.3,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Sofia Maldonado,ARG,2024,4.6,8.6,5.1,7.8,5.3,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+F,Marcia Videaux,CUB,2024,5.4,9.0,5.4,8.0,5.0,7.7,5.2,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Yesenia Ferrera,CUB,2024,5.0,8.8,5.5,8.1,5.0,7.7,5.3,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Patricia Perez,CUB,2024,4.6,8.6,5.2,7.8,5.3,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+F,Dania Bacallao,CUB,2024,4.6,8.6,5.2,7.8,5.2,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+F,Leyanet Gonzalez,CUB,2024,4.6,8.6,5.1,7.7,5.2,7.8,5.2,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.75
+F,Natalia Escalera,MEX,2024,5.0,8.9,5.4,8.0,5.5,8.0,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Ahtziri Sandoval,MEX,2024,4.8,8.8,5.3,7.9,5.8,8.1,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Alexa Moreno,MEX,2024,5.8,9.1,5.2,7.8,4.8,7.6,5.1,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Cassandra Loustalot,MEX,2024,4.6,8.7,5.2,7.9,5.4,7.9,5.3,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Paulina Campos,MEX,2024,4.6,8.6,5.1,7.8,5.3,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+F,Makarena Pinto,CHI,2024,5.0,8.8,5.3,7.9,5.0,7.7,5.2,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Franchesca Santi,CHI,2024,4.8,8.7,5.2,7.8,5.2,7.8,5.2,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+F,Isidora Araya,CHI,2024,4.6,8.6,5.1,7.8,5.2,7.8,5.2,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.75
+F,Fernanda Valenzuela,CHI,2024,4.6,8.6,5.1,7.7,5.2,7.7,5.2,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.75
+F,Simona Castro,CHI,2024,4.6,8.6,5.2,7.8,5.2,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+M,Angel Barajas,COL,2024,5.2,8.8,5.8,8.2,N/A,N/A,N/A,N/A,5.6,8.0,5.4,7.9,5.9,8.2,6.6,8.5,0.82
+M,Jossimar Calvo,COL,2024,5.2,8.8,5.7,8.2,N/A,N/A,N/A,N/A,6.0,8.3,5.5,8.0,6.2,8.4,5.8,8.0,0.81
+M,Andres Martinez,COL,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.6,8.0,5.4,7.9,5.8,8.1,5.6,7.9,0.78
+M,Carlos Calvo,COL,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.7,8.0,5.3,7.8,5.8,8.1,5.5,7.9,0.78
+M,Karim Rida,COL,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.4,7.8,5.4,7.9,5.8,8.0,5.5,7.8,0.77
+M,Federico Molinari,ARG,2024,5.2,8.7,5.3,7.9,N/A,N/A,N/A,N/A,5.4,7.8,6.4,8.6,5.4,7.9,5.2,7.8,0.80
+M,Daniel Villafane,ARG,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.7,8.0,5.4,7.9,5.8,8.1,5.6,7.9,0.80
+M,Nicolas Cordoba,ARG,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.3,7.8,5.2,7.8,5.6,7.9,6.2,8.2,0.79
+M,Santiago Mayol,ARG,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.5,7.9,5.4,7.9,5.7,8.0,5.5,7.8,0.77
+M,Agustin Menendez,ARG,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.4,7.8,5.3,7.8,5.6,7.9,5.5,7.8,0.77
+M,Manrique Larduet,CUB,2024,5.6,8.9,5.8,8.2,N/A,N/A,N/A,N/A,5.8,8.1,5.8,8.2,6.1,8.4,5.8,8.1,0.82
+M,Randy Leru,CUB,2024,5.2,8.8,5.5,8.0,N/A,N/A,N/A,N/A,5.4,7.9,5.5,7.9,5.8,8.1,6.2,8.2,0.79
+M,Lazaro Lamelas,CUB,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.4,7.8,5.5,7.9,5.7,8.0,5.5,7.8,0.77
+M,Marcos Antonio,CUB,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.3,7.8,5.4,7.9,5.7,8.0,5.4,7.8,0.77
+M,Cristian Fernandez,CUB,2024,5.2,8.6,5.3,7.8,N/A,N/A,N/A,N/A,5.3,7.8,5.4,7.8,5.6,7.9,5.4,7.8,0.76
+M,Kevin Cerda,MEX,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,6.0,8.2,5.8,8.0,0.80
+M,Daniel Corral,MEX,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,6.2,8.3,5.4,7.9,5.8,8.0,5.5,7.8,0.80
+M,Fabián de Luna,MEX,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.4,7.8,6.2,8.5,5.5,7.9,5.4,7.8,0.79
+M,Isaac Nunez,MEX,2024,5.2,8.7,5.6,8.0,N/A,N/A,N/A,N/A,5.6,8.0,5.4,7.9,5.8,8.1,5.6,7.9,0.79
+M,Rodrigo Gomez,MEX,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.4,7.8,5.3,7.8,5.7,8.0,5.5,7.8,0.77
+M,Tomas Gonzalez,CHI,2024,5.6,8.9,6.0,8.4,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7.9,5.2,7.7,0.79
+M,Joel Alvarez,CHI,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.4,7.8,5.4,7.8,5.7,8.0,5.5,7.8,0.77
+M,Juan Raffo,CHI,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.5,7.9,5.3,7.8,5.7,8.0,5.5,7.8,0.77
+M,Matias Gonzalez,CHI,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.3,7.8,5.3,7.8,5.6,7.9,5.4,7.8,0.76
+M,Felipe Piña,CHI,2024,5.2,8.6,5.3,7.8,N/A,N/A,N/A,N/A,5.3,7.8,5.3,7.8,5.6,7.9,5.4,7.8,0.76
+F,Ana Perez,ESP,2024,4.8,8.8,5.5,8.1,5.6,8.0,5.7,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Alba Petisco,ESP,2024,4.8,8.8,5.4,8.0,5.5,7.9,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Laura Casabuena,ESP,2024,4.8,8.8,5.6,8.1,5.3,7.8,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Maia Llacer,ESP,2024,4.6,8.7,5.3,8.0,5.5,7.9,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Claudia Villalba,ESP,2024,4.6,8.7,5.3,7.9,5.4,7.9,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+M,Nestor Abad,ESP,2024,5.2,8.8,5.7,8.2,N/A,N/A,N/A,N/A,5.7,8.1,5.7,8.0,6.0,8.3,5.8,8.0,0.82
+M,Joel Plata,ESP,2024,5.2,8.8,5.7,8.1,N/A,N/A,N/A,N/A,5.7,8.0,5.6,8.0,6.0,8.2,5.8,8.0,0.81
+M,Ray Zapata,ESP,2024,5.6,8.9,6.2,8.5,N/A,N/A,N/A,N/A,5.0,7.6,5.3,7.8,5.6,8.0,5.2,7.7,0.79
+M,Thierno Diallo,ESP,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.8,8.1,5.7,8.0,0.80
+M,Adrian Vera,ESP,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.5,7.9,5.4,7.9,5.7,8.0,5.6,7.9,0.78
+F,Giulia Steingruber,SUI,2016,6.2,9.2,5.8,8.4,5.2,7.8,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Leonie Meier,SUI,2024,4.8,8.8,5.4,8.0,5.5,7.9,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Lena Bickel,SUI,2024,4.6,8.7,5.3,7.9,5.4,7.9,5.5,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Anina Wildi,SUI,2024,4.6,8.6,5.2,7.8,5.4,7.8,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+M,Pablo Braegger,SUI,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.4,7.8,5.4,7.9,5.8,8.0,6.4,8.3,0.80
+M,Christian Baumann,SUI,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.4,7.8,5.5,7.9,6.3,8.4,5.5,7.8,0.80
+M,Taha Serhani,SUI,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.4,7.9,5.5,7.9,5.8,8.0,5.6,7.9,0.78
+M,Noe Seifert,SUI,2024,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.7,8.1,5.6,8.0,6.0,8.2,5.7,8.0,0.81
+F,Sanon Vasiliki,UZB,2024,4.8,8.7,5.3,7.9,5.5,7.9,5.5,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Dildora Aripova,UZB,2024,4.6,8.6,5.2,7.8,5.4,7.8,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Sevara Safoeva,UZB,2024,4.6,8.6,5.2,7.8,5.3,7.8,5.4,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+M,Abdulaziz Mirvaliev,UZB,2024,5.2,8.7,5.5,8.0,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,5.6,7.9,0.79
+M,Rasuljon Abdurakhimov,UZB,2024,5.2,8.7,5.4,7.9,N/A,N/A,N/A,N/A,5.8,8.2,5.4,7.8,5.8,8.0,5.5,7.8,0.78
+M,Nariman Kurbanov,KAZ,2024,5.2,8.6,5.2,7.8,N/A,N/A,N/A,N/A,6.8,8.7,5.0,7.5,5.4,7.9,5.2,7.8,0.84
+F,Aida Bauyrzhanova,KAZ,2024,4.6,8.6,5.3,7.8,5.3,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.75
+F,Yeo Seojeong,KOR,2024,6.0,9.1,5.0,7.7,5.0,7.6,5.0,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Lee Yunseo,KOR,2024,4.8,8.8,5.3,8.0,5.7,8.1,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Shin Solyi,KOR,2024,4.8,8.7,5.3,7.9,5.5,8.0,5.5,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Um Dohyun,KOR,2024,4.6,8.7,5.2,7.9,5.4,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Lee Dayeong,KOR,2024,4.6,8.6,5.2,7.8,5.4,7.9,5.4,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Kylee Kvamme,PHI,2024,4.6,8.6,5.2,7.8,5.3,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+F,Kaitlin De Guzman,PHI,2024,4.6,8.7,5.2,7.9,5.4,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Sozonova Anastasiya,UZB,2024,4.6,8.6,5.2,7.8,5.4,7.8,5.4,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+F,Elizaveta Zubritskaya,UZB,2024,4.6,8.6,5.2,7.8,5.3,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.75
+M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,6.3,8.3,0.82`;
+
   const ICONS = {
     moon: '<path d="M21 15.2A8.6 8.6 0 0 1 8.8 3a9.4 9.4 0 1 0 12.2 12.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
     sun: '<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
@@ -516,9 +792,10 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       phaseSetup: "Configuração", phaseDraft: "Draft", phaseCompetition: "Competição", phaseQuals: "Classificatórias",
       phaseTeam: "Final por equipes", phaseAA: "Individual geral", phaseApps: "Aparelhos", phaseMedals: "Medalhas", phaseLive: "Ao vivo",
       setupKicker: "Criar delegação", setupTitle: "Monte sua equipe e atravesse o ciclo olímpico.",
-      teamName: "Nome da equipe", federation: "Sigla", modality: "Modalidade", female: "Feminina", male: "Masculina",
+      teamName: "Nome da equipe", federation: "Sigla", modality: "Modalidade", competition: "Competição", female: "Feminina", male: "Masculina",
       femaleGym: "ginástica feminina", maleGym: "ginástica masculina",
       athletesInDraft: "Atletas no draft", teamsInQuals: "Equipes na classificatória", apparatus: "Aparelhos",
+      seasons: "Temporadas",
       openDraft: "Abrir draft", autoDraft: "Draft automático",
       draftTitle: ({ gender }) => `Draft de ${gender}`,
       draftPickInstruction: ({ round }) => `Escolha 1 atleta da equipe sorteada para a vaga ${round}/5.`,
@@ -540,7 +817,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       appFinalsButton: "Finais por aparelhos", appFinalsKicker: "Top 8 por aparelho, máx. 2 por país",
       appFinalsTitle: "Finais por aparelhos", medalTable: "Quadro de medalhas",
       competitionEnded: "Competição encerrada", newSeason: "Nova temporada", backToApps: "Voltar aos aparelhos",
-      yourTeam: "Sua equipe", goldShort: "O", silverShort: "P", bronzeShort: "B",
+      yourTeam: "Sua equipe", goldShort: "O", silverShort: "P", bronzeShort: "B", yourMedals: "Suas medalhas", allMedals: "Todas as medalhas",
       teamEvent: "Equipes", individualEvent: "Individual", apparatusEvent: "Aparelho",
       roundNoteClean: "limpa", roundNoteFall: "queda", roundNoteError: "erro", roundNoteStick: "cravada", roundNoteLine: "linha",
       filledBest: "Equipe preenchida com escolhas fortes dos sorteios.", teamFull: "A equipe já tem 5 atletas.",
@@ -562,9 +839,10 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       phaseSetup: "Setup", phaseDraft: "Draft", phaseCompetition: "Competition", phaseQuals: "Qualifications",
       phaseTeam: "Team final", phaseAA: "All-around", phaseApps: "Apparatus", phaseMedals: "Medals", phaseLive: "Live",
       setupKicker: "Create delegation", setupTitle: "Build your team and go through the Olympic cycle.",
-      teamName: "Team name", federation: "Code", modality: "Discipline", female: "Women", male: "Men",
+      teamName: "Team name", federation: "Code", modality: "Discipline", competition: "Competition", female: "Women", male: "Men",
       femaleGym: "women's artistic gymnastics", maleGym: "men's artistic gymnastics",
       athletesInDraft: "Athletes in draft", teamsInQuals: "Teams in qualifications", apparatus: "Apparatus",
+      seasons: "Seasons",
       openDraft: "Open draft", autoDraft: "Auto draft",
       draftTitle: ({ gender }) => `${gender} draft`,
       draftPickInstruction: ({ round }) => `Choose 1 athlete from the drawn team for roster slot ${round}/5.`,
@@ -586,7 +864,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       appFinalsButton: "Apparatus finals", appFinalsKicker: "Top 8 per apparatus, max 2 per country",
       appFinalsTitle: "Apparatus finals", medalTable: "Medal table",
       competitionEnded: "Competition complete", newSeason: "New season", backToApps: "Back to apparatus",
-      yourTeam: "Your team", goldShort: "G", silverShort: "S", bronzeShort: "B",
+      yourTeam: "Your team", goldShort: "G", silverShort: "S", bronzeShort: "B", yourMedals: "Your medals", allMedals: "All medals",
       teamEvent: "Team", individualEvent: "Individual", apparatusEvent: "Apparatus",
       roundNoteClean: "clean", roundNoteFall: "fall", roundNoteError: "error", roundNoteStick: "stuck", roundNoteLine: "line",
       filledBest: "Team filled with strong picks from the draws.", teamFull: "The team already has 5 athletes.",
@@ -607,9 +885,10 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       phaseSetup: "Configuración", phaseDraft: "Draft", phaseCompetition: "Competición", phaseQuals: "Clasificatorias",
       phaseTeam: "Final por equipos", phaseAA: "General individual", phaseApps: "Aparatos", phaseMedals: "Medallas", phaseLive: "En vivo",
       setupKicker: "Crear delegación", setupTitle: "Forma tu equipo y atraviesa el ciclo olímpico.",
-      teamName: "Nombre del equipo", federation: "Sigla", modality: "Modalidad", female: "Femenina", male: "Masculina",
+      teamName: "Nombre del equipo", federation: "Sigla", modality: "Modalidad", competition: "Competición", female: "Femenina", male: "Masculina",
       femaleGym: "gimnasia artística femenina", maleGym: "gimnasia artística masculina",
       athletesInDraft: "Atletas en el draft", teamsInQuals: "Equipos en clasificatoria", apparatus: "Aparatos",
+      seasons: "Temporadas",
       openDraft: "Abrir draft", autoDraft: "Draft automático",
       draftTitle: ({ gender }) => `Draft de ${gender}`,
       draftPickInstruction: ({ round }) => `Elige 1 atleta del equipo sorteado para la plaza ${round}/5.`,
@@ -631,7 +910,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       appFinalsButton: "Finales por aparatos", appFinalsKicker: "Top 8 por aparato, máx. 2 por país",
       appFinalsTitle: "Finales por aparatos", medalTable: "Medallero",
       competitionEnded: "Competición terminada", newSeason: "Nueva temporada", backToApps: "Volver a aparatos",
-      yourTeam: "Tu equipo", goldShort: "O", silverShort: "P", bronzeShort: "B",
+      yourTeam: "Tu equipo", goldShort: "O", silverShort: "P", bronzeShort: "B", yourMedals: "Tus medallas", allMedals: "Todas las medallas",
       teamEvent: "Equipos", individualEvent: "Individual", apparatusEvent: "Aparato",
       roundNoteClean: "limpia", roundNoteFall: "caída", roundNoteError: "error", roundNoteStick: "clavada", roundNoteLine: "línea",
       filledBest: "Equipo completado con elecciones fuertes de los sorteos.", teamFull: "El equipo ya tiene 5 atletas.",
@@ -648,13 +927,13 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   };
 
   const state = {
-    lang: getInitialLanguage(), gender: "WAG", teamName: "Equipe Aurora", federation: "FAN",
+    lang: getInitialLanguage(), gender: "WAG", competition: getInitialCompetition(), teamName: getInitialTeamName(), federation: getInitialFederation(),
     phase: "setup", view: "setup", selectedIds: [], draftRound: 1, draftDraw: null,
     draftRerolls: { year: false, team: false }, draftOptions: [],
     qualTab: "teams", seed: Date.now(), rng: Math.random, teams: [], results: {}, live: null
   };
 
-  const ATHLETES = parseAthletes(ATHLETE_CSV);
+  const ATHLETES = parseAthletes(`${ATHLETE_CSV}\n${ATHLETE_SEASON_CSV}\n${ATHLETE_HISTORIC_CSV}\n${ATHLETE_REGIONAL_CSV}`);
   let app;
 
   /* ---------- helpers ---------- */
@@ -682,6 +961,16 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
     return (I18N[state.lang]?.apparatusNames || I18N["pt-BR"].apparatusNames)[apparatus.id] || apparatus.name;
   }
   function genderName() { return state.gender === "WAG" ? t("femaleGym") : t("maleGym"); }
+  function competitionName(key = state.competition) {
+    const comp = COMPETITIONS[key] || COMPETITIONS.olympics;
+    return comp.names[state.lang] || comp.names["pt-BR"];
+  }
+  function competitionCountries(gender = state.gender) {
+    return [...((COMPETITIONS[state.competition] || COMPETITIONS.olympics).countries[gender] || [])];
+  }
+  function isCountryEligible(country, gender = state.gender) {
+    return competitionCountries(gender).includes(country);
+  }
   function routineNote(note) {
     const keys = { limpa: "roundNoteClean", queda: "roundNoteFall", erro: "roundNoteError", cravada: "roundNoteStick", linha: "roundNoteLine" };
     return t(keys[note] || "roundNoteClean");
@@ -693,6 +982,20 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
     if (b.startsWith("es")) return "es";
     if (b.startsWith("en")) return "en";
     return "pt-BR";
+  }
+  function getInitialCompetition() {
+    const saved = localStorage.getItem("gym-royale-competition");
+    return COMPETITIONS[saved] ? saved : "olympics";
+  }
+  function getInitialTeamName() {
+    return (localStorage.getItem("gym-royale-team-name") || "Equipe Aurora").trim().slice(0, 34) || "Equipe Aurora";
+  }
+  function getInitialFederation() {
+    return (localStorage.getItem("gym-royale-federation") || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
+  }
+  function persistTeamIdentity() {
+    localStorage.setItem("gym-royale-team-name", state.teamName);
+    localStorage.setItem("gym-royale-federation", state.federation);
   }
   function updateChrome() {
     const pack = I18N[state.lang] || I18N["pt-BR"];
@@ -738,6 +1041,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       APPARATUS[gender].forEach((a) => { stats[a.id] = { d: toNumber(row[`${a.key}_D`]), e: toNumber(row[`${a.key}_E`]) }; });
       return {
         id: `${gender}-${slug(row.Nome)}-${row.Pais}-${row.Ano}-${index}`,
+        baseKey: `${gender}-${slug(row.Nome)}-${row.Pais}`,
         gender, name: row.Nome, country: row.Pais, year: Number(row.Ano),
         consistency: Number(row.Consistency || 0.82), stats
       };
@@ -758,6 +1062,14 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   function apps() { return APPARATUS[state.gender]; }
   function athleteById(id) { return ATHLETES.find((a) => a.id === id); }
   function selectedAthletes() { return state.selectedIds.map(athleteById).filter(Boolean); }
+  function selectedBaseKeys() { return new Set(selectedAthletes().map((a) => a.baseKey)); }
+  function competitionTeamCountries() {
+    const gender = state.gender;
+    return competitionCountries().filter((country) => {
+      const pool = uniqueBestSeasons(ATHLETES.filter((a) => a.gender === gender && a.country === country));
+      return pool.length >= 5;
+    });
+  }
   function totalPotential(a) { return round3(apps().reduce((s, ap) => s + a.stats[ap.id].d + a.stats[ap.id].e, 0)); }
   function appPotential(a, id) { return round3(a.stats[id].d + a.stats[id].e); }
   function bestApp(a) { return [...apps()].sort((x, y) => appPotential(a, y.id) - appPotential(a, x.id))[0]; }
@@ -765,6 +1077,13 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   function displayTeamName(team) { return team.isPlayer ? team.name : `${t("team")} ${team.federation}`; }
   function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${a.federation}`; }
   function apparatusById(id) { return apps().find((a) => a.id === id); }
+  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr" };
+  function flagHtml(code) {
+    const iso = IOC_ISO[code];
+    if (!iso) return `<span class="flag-custom" aria-hidden="true">${icon("flag")}</span>`;
+    return `<img class="flag-img" src="https://flagcdn.com/h24/${iso}.png" alt="" loading="lazy" onerror="this.style.display='none'">`;
+  }
+  function countryLabel(code) { return `<span class="country-tag">${flagHtml(code)}<span>${escapeHTML(code)}</span></span>`; }
 
   function setPhase(phase, label) {
     hideToast(); state.phase = phase; updateChrome();
@@ -872,14 +1191,24 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
 
   /* ---------- SETUP ---------- */
   function arenaArt() {
-    return `<svg class="arena-art" viewBox="0 0 720 290" role="img" aria-label="Ginásio">
+    const years = [...new Set(ATHLETES.filter((a) => a.gender === state.gender).map((a) => a.year))].sort((a, b) => a - b);
+    const first = years[0];
+    const last = years[years.length - 1];
+    return `<svg class="arena-art" viewBox="0 0 720 290" role="img" aria-label="Linha do tempo olímpica">
       <rect x="0" y="0" width="720" height="290" fill="var(--surface-2)"></rect>
       <rect x="30" y="34" width="660" height="222" rx="10" fill="none" stroke="var(--strong-line)" stroke-width="2"></rect>
-      <g transform="translate(70,72)" color="var(--accent)">${scaleGroup(APP_PICTO.fx, 3.4)}</g>
-      <g transform="translate(250,78)" color="var(--accent-2)">${scaleGroup(APP_PICTO.bb, 3.4)}</g>
-      <g transform="translate(430,72)" color="var(--accent-3)">${scaleGroup(APP_PICTO.ub, 3.4)}</g>
-      <g transform="translate(590,74)" color="var(--accent)">${scaleGroup(APP_PICTO.vt, 3.4)}</g>
-      <path d="M70 236c110-26 220-26 330 0s150 24 250 4" fill="none" stroke="var(--accent-2)" stroke-width="2"></path>
+      <text x="58" y="92" fill="var(--accent)" font-family="var(--disp)" font-size="56" font-weight="900">${first}</text>
+      <text x="58" y="142" fill="var(--text)" font-family="var(--disp)" font-size="34" font-weight="800">${state.gender}</text>
+      <text x="58" y="174" fill="var(--muted)" font-family="var(--ui)" font-size="15" font-weight="800">${genderName()}</text>
+      <path d="M76 216H644" fill="none" stroke="var(--strong-line)" stroke-width="3" stroke-linecap="round"></path>
+      <circle cx="76" cy="216" r="9" fill="var(--accent)"></circle>
+      <circle cx="218" cy="216" r="7" fill="var(--accent-2)"></circle>
+      <circle cx="360" cy="216" r="7" fill="var(--accent-3)"></circle>
+      <circle cx="502" cy="216" r="7" fill="var(--accent-2)"></circle>
+      <circle cx="644" cy="216" r="9" fill="var(--accent)"></circle>
+      <text x="585" y="92" fill="var(--accent)" font-family="var(--disp)" font-size="56" font-weight="900" text-anchor="end">${last}</text>
+      <text x="585" y="132" fill="var(--muted)" font-family="var(--ui)" font-size="15" font-weight="800" text-anchor="end">${ATHLETES.filter((a) => a.gender === state.gender).length} ${t("athletesInDraft")}</text>
+      <text x="585" y="158" fill="var(--muted)" font-family="var(--ui)" font-size="15" font-weight="800" text-anchor="end">${years.length} ${t("seasons")}</text>
     </svg>`;
   }
   function scaleGroup(picto, k) { return `<g transform="scale(${k})">${picto}</g>`; }
@@ -903,13 +1232,19 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
             <div class="mt-5">
               <span class="field-label mb-2 block">${t("modality")}</span>
               <div class="segment">
-                <button class="${state.gender === "WAG" ? "active" : ""}" data-act="gender" data-val="WAG"><span class="seg-ico">${appIconSvg("bb", 18)}</span>${t("female")}</button>
-                <button class="${state.gender === "MAG" ? "active" : ""}" data-act="gender" data-val="MAG"><span class="seg-ico">${appIconSvg("sr", 18)}</span>${t("male")}</button>
+                <button class="${state.gender === "WAG" ? "active" : ""}" data-act="gender" data-val="WAG">${t("female")}</button>
+                <button class="${state.gender === "MAG" ? "active" : ""}" data-act="gender" data-val="MAG">${t("male")}</button>
+              </div>
+            </div>
+            <div class="mt-5">
+              <span class="field-label mb-2 block">${t("competition")}</span>
+              <div class="segment competition-segment">
+                ${Object.keys(COMPETITIONS).map((key) => `<button class="${state.competition === key ? "active" : ""}" data-act="competition" data-val="${key}">${escapeHTML(competitionName(key))}</button>`).join("")}
               </div>
             </div>
             <div class="mt-5 grid gap-3 md:grid-cols-3">
               <div class="metric"><div class="metric-num">5</div><div class="metric-cap">${t("athletesInDraft")}</div></div>
-              <div class="metric"><div class="metric-num">${COMPETING_COUNTRIES[state.gender].length + 1}</div><div class="metric-cap">${t("teamsInQuals")}</div></div>
+              <div class="metric"><div class="metric-num">${competitionTeamCountries().length + 1}</div><div class="metric-cap">${t("teamsInQuals")}</div></div>
               <div class="metric"><div class="metric-num">${apps().length}</div><div class="metric-cap">${t("apparatus")}</div></div>
             </div>
             <div class="mt-6 flex flex-col gap-3 md:flex-row md:items-center">
@@ -921,7 +1256,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
             ${arenaArt()}
             <div class="soft-panel p-4">
               <div class="flex flex-wrap gap-2">
-                ${apps().map((a) => `<span class="chip chip-app">${appTag(a, "app-icon app-icon-sm")}${appName(a)}</span>`).join("")}
+                ${apps().map((a) => `<span class="chip">${appName(a)}</span>`).join("")}
               </div>
             </div>
           </div>
@@ -929,15 +1264,23 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       </section>`;
   }
   function chooseGender(g) { state.gender = g; state.selectedIds = []; state.draftRound = 1; state.draftDraw = null; state.draftOptions = []; resetDraftRerolls(); renderSetup(); }
+  function chooseCompetition(key) {
+    if (!COMPETITIONS[key]) return;
+    state.competition = key;
+    localStorage.setItem("gym-royale-competition", key);
+    state.selectedIds = []; state.draftRound = 1; state.draftDraw = null; state.draftOptions = [];
+    resetDraftRerolls(); renderSetup();
+  }
   function readSetupInputs() {
     const ti = document.getElementById("teamNameInput");
     const fi = document.getElementById("federationInput");
     state.teamName = (ti?.value || state.teamName || "Equipe Fantasy").trim().slice(0, 34) || "Equipe Fantasy";
     state.federation = (fi?.value || state.federation || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
+    persistTeamIdentity();
   }
-  function startDraft() { readSetupInputs(); state.selectedIds = []; state.draftRound = 1; generateDraftRound(); renderDraftBoard(); }
+  function startDraft() { readSetupInputs(); state.selectedIds = []; state.draftRound = 1; resetDraftRerolls(); generateDraftRound(); renderDraftBoard(); }
   function quickStart() {
-    readSetupInputs(); state.selectedIds = []; state.draftRound = 1;
+    readSetupInputs(); state.selectedIds = []; state.draftRound = 1; resetDraftRerolls();
     while (state.selectedIds.length < 5) {
       generateDraftRound();
       const pick = [...state.draftOptions].sort((a, b) => totalPotential(b) - totalPotential(a))[0];
@@ -950,20 +1293,21 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   function shuffled(items) { return [...items].sort(() => Math.random() - 0.5); }
   function draftPool(country, year, options = {}) {
     const includeSelected = Boolean(options.includeSelected);
-    const selected = new Set(state.selectedIds);
+    const selected = selectedBaseKeys();
     return ATHLETES
       .filter((a) => (
         a.gender === state.gender
+        && isCountryEligible(a.country)
         && a.country === country
-        && a.year <= year
-        && (includeSelected || !selected.has(a.id))
+        && a.year === year
+        && (includeSelected || !selected.has(a.baseKey))
       ))
-      .sort((a, b) => b.year - a.year || totalPotential(b) - totalPotential(a));
+      .sort((a, b) => totalPotential(b) - totalPotential(a));
   }
   function availableDraftCombos() {
     const seen = new Set();
     return ATHLETES
-      .filter((a) => a.gender === state.gender)
+      .filter((a) => a.gender === state.gender && isCountryEligible(a.country))
       .map((a) => ({ country: a.country, year: a.year }))
       .filter((combo) => {
         const key = `${combo.country}-${combo.year}`;
@@ -975,14 +1319,14 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   function availableYearsForCountry(country) {
     return [...new Set(
       ATHLETES
-        .filter((a) => a.gender === state.gender && a.country === country)
+        .filter((a) => a.gender === state.gender && isCountryEligible(a.country) && a.country === country)
         .map((a) => a.year)
     )].filter((year) => draftPool(country, year).length > 0).sort((a, b) => a - b);
   }
   function availableCountriesForYear(year) {
     return [...new Set(
       ATHLETES
-        .filter((a) => a.gender === state.gender && a.year <= year)
+        .filter((a) => a.gender === state.gender && isCountryEligible(a.country) && a.year === year)
         .map((a) => a.country)
     )].filter((country) => draftPool(country, year).length > 0).sort();
   }
@@ -995,8 +1339,17 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   function hasTeamRerollOption(country, year) {
     return availableCountriesForYear(year).some((candidateCountry) => candidateCountry !== country);
   }
-  function setDraftDraw(country, year, resetRerolls = false) {
-    if (resetRerolls) resetDraftRerolls();
+  function yearRerollChoices(country, year) {
+    const years = availableYearsForCountry(country).filter((candidateYear) => candidateYear !== year);
+    const preserving = years.filter((candidateYear) => state.draftRerolls.team || hasTeamRerollOption(country, candidateYear));
+    return preserving.length ? preserving : (state.draftRerolls.team ? years : []);
+  }
+  function teamRerollChoices(country, year) {
+    const countries = availableCountriesForYear(year).filter((candidateCountry) => candidateCountry !== country);
+    const preserving = countries.filter((candidateCountry) => state.draftRerolls.year || hasYearRerollOption(candidateCountry, year));
+    return preserving.length ? preserving : (state.draftRerolls.year ? countries : []);
+  }
+  function setDraftDraw(country, year) {
     state.draftDraw = { country, year };
     state.draftOptions = draftPool(country, year, { includeSelected: true });
   }
@@ -1004,7 +1357,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
     const combos = availableDraftCombos();
     const preferred = combos.filter((combo) => {
       const poolSize = draftPool(combo.country, combo.year).length;
-      return poolSize > 1 && hasYearRerollOption(combo.country, combo.year) && hasTeamRerollOption(combo.country, combo.year);
+      return poolSize > 1 && yearRerollChoices(combo.country, combo.year).length > 0 && teamRerollChoices(combo.country, combo.year).length > 0;
     });
     const secondary = combos.filter((combo) => draftPool(combo.country, combo.year).length > 1);
     const combo = randomItem(preferred.length ? preferred : (secondary.length ? secondary : combos));
@@ -1014,30 +1367,32 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       resetDraftRerolls();
       return;
     }
-    setDraftDraw(combo.country, combo.year, true);
+    setDraftDraw(combo.country, combo.year);
   }
   function canRerollYear() {
     if (!state.draftDraw || state.draftRerolls.year || state.selectedIds.length >= 5) return false;
-    return hasYearRerollOption(state.draftDraw.country, state.draftDraw.year);
+    return yearRerollChoices(state.draftDraw.country, state.draftDraw.year).length > 0;
   }
   function canRerollTeam() {
     if (!state.draftDraw || state.draftRerolls.team || state.selectedIds.length >= 5) return false;
-    return hasTeamRerollOption(state.draftDraw.country, state.draftDraw.year);
+    return teamRerollChoices(state.draftDraw.country, state.draftDraw.year).length > 0;
   }
   function rerollDraftYear() {
     if (!canRerollYear()) return;
-    const years = availableYearsForCountry(state.draftDraw.country).filter((year) => year !== state.draftDraw.year);
-    const preferredYears = years.filter((year) => draftPool(state.draftDraw.country, year).length > 1);
+    const years = yearRerollChoices(state.draftDraw.country, state.draftDraw.year);
+    const preferredYears = years.filter((year) => draftPool(state.draftDraw.country, year).length > 1 && (state.draftRerolls.team || hasTeamRerollOption(state.draftDraw.country, year)));
+    const fallbackYears = years.filter((year) => draftPool(state.draftDraw.country, year).length > 1);
     state.draftRerolls.year = true;
-    setDraftDraw(state.draftDraw.country, randomItem(preferredYears.length ? preferredYears : years), false);
+    setDraftDraw(state.draftDraw.country, randomItem(preferredYears.length ? preferredYears : (fallbackYears.length ? fallbackYears : years)));
     renderDraftBoard();
   }
   function rerollDraftTeam() {
     if (!canRerollTeam()) return;
-    const countries = availableCountriesForYear(state.draftDraw.year).filter((country) => country !== state.draftDraw.country);
-    const preferredCountries = countries.filter((country) => draftPool(country, state.draftDraw.year).length > 1);
+    const countries = teamRerollChoices(state.draftDraw.country, state.draftDraw.year);
+    const preferredCountries = countries.filter((country) => draftPool(country, state.draftDraw.year).length > 1 && (state.draftRerolls.year || hasYearRerollOption(country, state.draftDraw.year)));
+    const fallbackCountries = countries.filter((country) => draftPool(country, state.draftDraw.year).length > 1);
     state.draftRerolls.team = true;
-    setDraftDraw(randomItem(preferredCountries.length ? preferredCountries : countries), state.draftDraw.year, false);
+    setDraftDraw(randomItem(preferredCountries.length ? preferredCountries : (fallbackCountries.length ? fallbackCountries : countries)), state.draftDraw.year);
     renderDraftBoard();
   }
 
@@ -1102,7 +1457,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   }
   function draftOptionCard(a) {
     const best = bestApp(a);
-    const isSelected = state.selectedIds.includes(a.id);
+    const isSelected = selectedBaseKeys().has(a.baseKey);
     return `<article class="card draft-card p-4">
       <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
         <div><h3 class="display text-xl">${escapeHTML(a.name)}</h3>
@@ -1118,18 +1473,20 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
     </article>`;
   }
   function addAthlete(id) {
-    if (state.selectedIds.includes(id)) return;
+    const athlete = athleteById(id);
+    if (!athlete || selectedBaseKeys().has(athlete.baseKey)) return;
     if (state.selectedIds.length >= 5) { showToast(t("teamFull")); return; }
     state.selectedIds.push(id);
     if (state.selectedIds.length < 5) { state.draftRound = state.selectedIds.length + 1; generateDraftRound(); }
     renderDraftBoard();
   }
   function removeAthlete(id) { state.selectedIds = state.selectedIds.filter((x) => x !== id); state.draftRound = Math.min(5, state.selectedIds.length + 1); generateDraftRound(); renderDraftBoard(); }
-  function clearDraft() { state.selectedIds = []; state.draftRound = 1; generateDraftRound(); renderDraftBoard(); }
+  function clearDraft() { state.selectedIds = []; state.draftRound = 1; resetDraftRerolls(); generateDraftRound(); renderDraftBoard(); }
   function autoFillDraft() {
     while (state.selectedIds.length < 5) {
       if (!state.draftOptions.length) generateDraftRound();
-      const pick = [...state.draftOptions].filter((a) => !state.selectedIds.includes(a.id)).sort((a, b) => totalPotential(b) - totalPotential(a))[0];
+      const selected = selectedBaseKeys();
+      const pick = [...state.draftOptions].filter((a) => !selected.has(a.baseKey)).sort((a, b) => totalPotential(b) - totalPotential(a))[0];
       if (!pick) break;
       state.selectedIds.push(pick.id);
       if (state.selectedIds.length < 5) { state.draftRound = state.selectedIds.length + 1; generateDraftRound(); }
@@ -1140,15 +1497,22 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
     const stats = {}; Object.keys(a.stats).forEach((k) => { stats[k] = { ...a.stats[k] }; });
     return { ...a, baseId: a.id, id: `${a.id}--${team.id}`, stats, teamId: team.id, teamName: team.name, federation: team.federation, isPlayerAthlete: team.isPlayer };
   }
+  function uniqueBestSeasons(pool) {
+    const byPerson = new Map();
+    [...pool].sort((a, b) => totalPotential(b) - totalPotential(a)).forEach((a) => {
+      if (!byPerson.has(a.baseKey)) byPerson.set(a.baseKey, a);
+    });
+    return [...byPerson.values()];
+  }
   function prepareTournament() {
     if (state.selectedIds.length !== 5) { showToast(t("chooseFive")); return; }
     const shell = { id: "player", name: state.teamName, federation: state.federation, isPlayer: true };
     const playerTeam = { ...shell, roster: selectedAthletes().map((a) => cloneAthlete(a, shell)) };
-    const selected = new Set(state.selectedIds);
-    const aiTeams = COMPETING_COUNTRIES[state.gender].map((country) => {
+    const selected = selectedBaseKeys();
+    const aiTeams = competitionTeamCountries().map((country) => {
       const s = { id: `team-${country}`, name: `${t("team")} ${country}`, federation: country, isPlayer: false };
-      const pool = ATHLETES.filter((a) => a.gender === state.gender && a.country === country);
-      const roster = [...pool.filter((a) => !selected.has(a.id)), ...pool.filter((a) => selected.has(a.id))]
+      const pool = uniqueBestSeasons(ATHLETES.filter((a) => a.gender === state.gender && a.country === country));
+      const roster = [...pool.filter((a) => !selected.has(a.baseKey)), ...pool.filter((a) => selected.has(a.baseKey))]
         .sort((a, b) => totalPotential(b) - totalPotential(a)).slice(0, 5).map((a) => cloneAthlete(a, s));
       return { ...s, roster };
     }).filter((tm) => tm.roster.length === 5);
@@ -1167,7 +1531,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
           ${progress("quals")}
           <div class="mt-6 grid gap-5 lg:grid-cols-[1fr_340px]">
             <div>
-              <p class="kicker">${t("registeredTeam")}</p>
+              <p class="kicker">${escapeHTML(competitionName())} · ${t("registeredTeam")}</p>
               <h1 class="mt-1 display text-3xl md:text-5xl">${escapeHTML(player.name)}</h1>
               <div class="mt-4 flex flex-wrap gap-2">
                 <span class="chip">${escapeHTML(player.federation)}</span>
@@ -1272,7 +1636,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   function renderQualTeamTable() {
     const rows = state.results.qual.teamResults;
     return `<div class="table-wrap"><table><thead><tr><th>${t("rank")}</th><th>${t("team")}</th>${apparatusHeaderCells()}<th class="num">${t("total")}</th><th class="ctr">${t("final")}</th></tr></thead><tbody>
-      ${rows.map((r, i) => `<tr class="${r.team.isPlayer ? "player-row" : ""} ${i < 8 ? "qrow" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub">${escapeHTML(r.team.federation)}</div></td>${apps().map((ap) => `<td class="score">${formatScore(r.appTotals[ap.id])}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td class="ctr">${i < 8 ? '<span class="q-badge">Q</span>' : ""}</td></tr>`).join("")}
+      ${rows.map((r, i) => `<tr class="${r.team.isPlayer ? "player-row" : ""} ${i < 8 ? "qrow" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub sub-fed">${flagHtml(r.team.federation)}${escapeHTML(r.team.federation)}</div></td>${apps().map((ap) => `<td class="score">${formatScore(r.appTotals[ap.id])}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td class="ctr">${i < 8 ? '<span class="q-badge">Q</span>' : ""}</td></tr>`).join("")}
     </tbody></table></div>`;
   }
   function renderQualAATable() {
@@ -1410,11 +1774,11 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
     const order = [...L.teamData].map((td) => ({ td, val: L.running[td.team.id] || 0 }))
       .sort((a, b) => b.val - a.val);
     return order.map((o, i) => {
-      const medalCls = i === 0 ? "st-gold" : i === 1 ? "st-silver" : i === 2 ? "st-bronze" : "";
+      const medalCls = i === 0 ? "stand-gold" : i === 1 ? "stand-silver" : i === 2 ? "stand-bronze" : "";
       return `<div class="stand-row ${o.td.team.isPlayer ? "stand-you" : ""} ${medalCls}">
         <span class="stand-rank">${i + 1}</span>
         <span class="stand-name">${escapeHTML(displayTeamName(o.td.team))}</span>
-        <span class="stand-fed">${escapeHTML(o.td.team.federation)}</span>
+        <span class="stand-fed">${flagHtml(o.td.team.federation)}${escapeHTML(o.td.team.federation)}</span>
         <span class="stand-score">${o.val ? formatScore(o.val) : "—"}</span>
       </div>`;
     }).join("");
@@ -1438,7 +1802,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
         <div class="min-w-0">
           <div class="sub">${t("nowPerforming")}</div>
           <h3 class="display spot-name">${escapeHTML(r.athlete.name)}</h3>
-          <div class="spot-meta">${escapeHTML(athleteTeamName(r.team))} · ${r.athlete.country} ${r.team.isPlayer ? `<span class="you-tag">${t("yourTeam")}</span>` : ""}</div>
+          <div class="spot-meta">${escapeHTML(athleteTeamName(r.team))} · ${countryLabel(r.athlete.country)} ${r.team.isPlayer ? `<span class="you-tag">${t("yourTeam")}</span>` : ""}</div>
         </div>
       </div>
       <div class="spot-scores">
@@ -1567,7 +1931,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   }
   function renderTeamFinalTable() {
     return `<div class="table-wrap"><table><thead><tr><th>${t("rank")}</th><th>${t("team")}</th>${apparatusHeaderCells()}<th class="num">${t("total")}</th><th>${t("medal")}</th></tr></thead><tbody>
-      ${state.results.teamFinal.map((r, i) => `<tr class="${r.team.isPlayer ? "player-row" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub">${escapeHTML(r.team.federation)}</div></td>${apps().map((ap) => `<td class="score">${formatScore(r.appTotals[ap.id])}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td>${medalBadge(i)}</td></tr>`).join("")}
+      ${state.results.teamFinal.map((r, i) => `<tr class="${r.team.isPlayer ? "player-row" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub sub-fed">${flagHtml(r.team.federation)}${escapeHTML(r.team.federation)}</div></td>${apps().map((ap) => `<td class="score">${formatScore(r.appTotals[ap.id])}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td>${medalBadge(i)}</td></tr>`).join("")}
     </tbody></table></div>`;
   }
 
@@ -1598,7 +1962,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   }
   function renderAAFinalTable() {
     return `<div class="table-wrap tall"><table><thead><tr><th>${t("rank")}</th><th>${t("gymnast")}</th><th>${t("country")}</th>${apparatusHeaderCells()}<th class="num">AA</th><th>${t("medal")}</th></tr></thead><tbody>
-      ${state.results.aaFinal.map((r, i) => `<tr class="${r.athlete.isPlayerAthlete ? "player-row" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(r.athlete.name)}</div><div class="sub">${escapeHTML(athleteTeamName(r.athlete))}</div></td><td class="strong">${r.athlete.country}</td>${apps().map((ap) => `<td class="score">${formatScore(r.scores[ap.id].total)}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td>${medalBadge(i)}</td></tr>`).join("")}
+      ${state.results.aaFinal.map((r, i) => `<tr class="${r.athlete.isPlayerAthlete ? "player-row" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(r.athlete.name)}</div><div class="sub">${escapeHTML(athleteTeamName(r.athlete))}</div></td><td>${countryLabel(r.athlete.country)}</td>${apps().map((ap) => `<td class="score">${formatScore(r.scores[ap.id].total)}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td>${medalBadge(i)}</td></tr>`).join("")}
     </tbody></table></div>`;
   }
 
@@ -1627,7 +1991,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       <div class="mb-4 flex items-center justify-between gap-3"><div class="flex items-center gap-2">${appTag(ap)}<h2 class="section-title">${appName(ap)}</h2></div><span class="chip">${t("final")}</span></div>
       ${renderPodium(rows.slice(0, 3).map((r, i) => ({ rank: i + 1, name: r.athlete.name, sub: `${r.athlete.country} · ${athleteTeamName(r.athlete)}`, score: r.score.total, player: r.athlete.isPlayerAthlete })), true)}
       <div class="mt-4 table-wrap"><table class="min-w-[620px]"><thead><tr><th>${t("rank")}</th><th>${t("gymnast")}</th><th>${t("country")}</th><th class="num">D</th><th class="num">E</th><th class="num">${t("total")}</th><th>${t("routine")}</th><th>${t("medal")}</th></tr></thead><tbody>
-        ${rows.map((r, i) => `<tr class="${r.athlete.isPlayerAthlete ? "player-row" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(r.athlete.name)}</div><div class="sub">${escapeHTML(athleteTeamName(r.athlete))}</div></td><td class="strong">${r.athlete.country}</td><td class="score">${r.score.d.toFixed(1)}</td><td class="score">${r.score.e.toFixed(3)}</td><td class="score">${formatScore(r.score.total)}</td><td><span class="note-pill sm ${r.score.note === "queda" ? "note-fall" : r.score.note === "erro" ? "note-error" : r.score.note === "cravada" ? "note-stick" : "note-clean"}">${escapeHTML(routineNote(r.score.note))}</span></td><td>${medalBadge(i)}</td></tr>`).join("")}
+        ${rows.map((r, i) => `<tr class="${r.athlete.isPlayerAthlete ? "player-row" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(r.athlete.name)}</div><div class="sub">${escapeHTML(athleteTeamName(r.athlete))}</div></td><td>${countryLabel(r.athlete.country)}</td><td class="score">${r.score.d.toFixed(1)}</td><td class="score">${r.score.e.toFixed(3)}</td><td class="score">${formatScore(r.score.total)}</td><td><span class="note-pill sm ${r.score.note === "queda" ? "note-fall" : r.score.note === "erro" ? "note-error" : r.score.note === "cravada" ? "note-stick" : "note-clean"}">${escapeHTML(routineNote(r.score.note))}</span></td><td>${medalBadge(i)}</td></tr>`).join("")}
       </tbody></table></div>
     </section>`;
   }
@@ -1641,8 +2005,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
     return `<div class="podium ${compact ? "compact" : ""}">
       ${items.map((item, i) => `<div class="podium-place">
         <div class="podium-name"><span>${escapeHTML(item.name)}</span><span class="podium-sub">${escapeHTML(item.sub)}</span>${item.player ? `<span class="podium-you">${t("yourTeam")}</span>` : ""}</div>
-        <div class="podium-score">${formatScore(item.score)}</div>
-        <div class="podium-block"><span class="podium-rank">${i + 1}</span></div>
+        <div class="podium-block"><span class="podium-medal">${i + 1}</span><span class="podium-score">${formatScore(item.score)}</span></div>
       </div>`).join("")}
     </div>`;
   }
@@ -1667,18 +2030,32 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
       tally[m.country].total += 1;
     });
     const rows = Object.values(tally).sort((a, b) => b.gold - a.gold || b.silver - a.silver || b.bronze - a.bronze || a.country.localeCompare(b.country));
+    const yours = medals.filter((m) => m.player);
+    const haul = [1, 2, 3].map((rk) => yours.filter((m) => m.rank === rk).length);
+    const playerFed = state.federation;
+    const sessions = [];
+    if (state.results.teamFinal) sessions.push({ title: t("phaseTeam"), iconHtml: icon("users"), items: medals.filter((m) => m.typeKey === "teamEvent") });
+    if (state.results.aaFinal) sessions.push({ title: t("aaButton"), iconHtml: icon("trophy"), items: medals.filter((m) => m.typeKey === "individualEvent") });
+    if (state.results.appFinals) apps().forEach((ap) => sessions.push({ title: appName(ap), iconHtml: appIconSvg(ap.id, 17), items: medals.filter((m) => m.appId === ap.id) }));
     app.innerHTML = `
-      <section class="screen"><div class="grid gap-4 lg:grid-cols-[360px_1fr]">
+      <section class="screen"><div class="grid gap-4 lg:grid-cols-[380px_1fr]">
         <div class="panel p-4 md:p-5">${progress("apps")}
           <div class="mt-5"><p class="kicker">${t("competitionEnded")}</p><h1 class="mt-1 display text-3xl md:text-4xl">${t("medalTable")}</h1></div>
-          <div class="mt-5 table-wrap"><table class="min-w-[320px]"><thead><tr><th>${t("country")}</th><th class="num medal-h medal-h-g">${t("goldShort")}</th><th class="num medal-h medal-h-s">${t("silverShort")}</th><th class="num medal-h medal-h-b">${t("bronzeShort")}</th><th class="num">${t("total")}</th></tr></thead><tbody>
-            ${rows.map((r) => `<tr><td class="strong">${escapeHTML(r.country)}</td><td class="score">${r.gold}</td><td class="score">${r.silver}</td><td class="score">${r.bronze}</td><td class="score">${r.total}</td></tr>`).join("")}
-          </tbody></table></div>
+          <div class="mt-4 medal-haul"><span class="haul-label">${t("yourMedals")}</span><span class="haul-set"><span class="medal-badge medal-gold">${haul[0]}</span><span class="medal-badge medal-silver">${haul[1]}</span><span class="medal-badge medal-bronze">${haul[2]}</span></span></div>
+          <div class="mt-5 tally-head"><span></span><span></span><span class="tally-h medal-h-g">${t("goldShort")}</span><span class="tally-h medal-h-s">${t("silverShort")}</span><span class="tally-h medal-h-b">${t("bronzeShort")}</span><span class="tally-h">${t("total")}</span></div>
+          <div class="tally-list">
+            ${rows.map((r, i) => `<div class="tally-row ${i === 0 ? "tally-top" : ""} ${r.country === playerFed ? "tally-you" : ""}"><span class="tally-rank">${i + 1}</span><span class="tally-country">${flagHtml(r.country)}<span>${escapeHTML(r.country)}</span></span><span class="tally-num">${r.gold}</span><span class="tally-num">${r.silver}</span><span class="tally-num">${r.bronze}</span><span class="tally-num tally-total">${r.total}</span></div>`).join("")}
+          </div>
           <div class="mt-5 grid gap-2"><button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button><button class="btn btn-secondary" data-act="backToApps">${icon("arrow")} ${t("backToApps")}</button></div>
         </div>
-        <div class="panel p-4"><div class="table-wrap tall"><table><thead><tr><th>${t("medal")}</th><th>${t("event")}</th><th>${t("name")}</th><th>${t("country")}</th><th class="num">${t("score")}</th></tr></thead><tbody>
-          ${medals.map((m) => `<tr class="${m.player ? "player-row" : ""}"><td>${medalBadge(m.rank - 1)}</td><td><div class="strong flex items-center gap-1.5">${m.appId ? appIconSvg(m.appId, 15) : ""}${escapeHTML(m.event)}</div><div class="sub">${escapeHTML(t(m.typeKey))}</div></td><td class="strong">${escapeHTML(m.owner)}</td><td>${escapeHTML(m.country)}</td><td class="score">${formatScore(m.score)}</td></tr>`).join("")}
-        </tbody></table></div></div>
+        <div class="grid content-start gap-4 md:grid-cols-2">
+          ${sessions.map((s) => `<section class="panel sess-card">
+            <div class="sess-head">${s.iconHtml}<span>${escapeHTML(s.title)}</span></div>
+            <div class="sess-list">
+              ${s.items.map((m) => `<div class="sess-row ${m.player ? "sess-you" : ""}">${medalBadge(m.rank - 1)}<span class="sess-name">${escapeHTML(m.owner)}</span>${countryLabel(m.country)}<span class="sess-score">${formatScore(m.score)}</span></div>`).join("")}
+            </div>
+          </section>`).join("")}
+        </div>
       </div></section>`;
   }
   function seeTeamResultsFromLive() { commitTeamFinalFromLive(); renderTeamFinal(); }
@@ -1686,6 +2063,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
   /* ---------- event delegation ---------- */
   const ACTIONS = {
     gender: (el) => chooseGender(el.dataset.val),
+    competition: (el) => chooseCompetition(el.dataset.val),
     startDraft, quickStart, autoFill: autoFillDraft, prepare: prepareTournament,
     clearDraft, rerollYear: rerollDraftYear, rerollTeam: rerollDraftTeam,
     addAthlete: (el) => addAthlete(el.dataset.id), removeAthlete: (el) => removeAthlete(el.dataset.id),
@@ -1704,6 +2082,17 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
     const act = el.dataset.act;
     if (ACTIONS[act]) { e.preventDefault(); ACTIONS[act](el); }
   }
+  function onInput(e) {
+    if (e.target?.id === "teamNameInput") {
+      state.teamName = (e.target.value || "Equipe Fantasy").trim().slice(0, 34) || "Equipe Fantasy";
+      persistTeamIdentity();
+    }
+    if (e.target?.id === "federationInput") {
+      state.federation = (e.target.value || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
+      e.target.value = state.federation;
+      persistTeamIdentity();
+    }
+  }
 
   /* ---------- boot ---------- */
   function boot() {
@@ -1712,6 +2101,7 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
     if (app.dataset.booted) return true;
     app.dataset.booted = "1";
     document.addEventListener("click", onClick);
+    document.addEventListener("input", onInput);
     const brand = document.getElementById("brandHome");
     if (brand) brand.addEventListener("click", renderSetup);
     const themeBtn = document.getElementById("themeButton");
@@ -1731,6 +2121,6 @@ M,Artem Dolgopyat,ISR,2021,5.2,8.8,6.6,8.6,N/A,N/A,N/A,N/A,5.0,7.6,5.2,7.7,5.4,7
 
 document.addEventListener("DOMContentLoaded", function(){ if (window.GymRoyale) window.GymRoyale.boot(); });
 
-  </script>
+</script>
 </body>
 </html>
