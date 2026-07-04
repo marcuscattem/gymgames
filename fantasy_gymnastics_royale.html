@@ -295,6 +295,9 @@
     .commentary-card.top { border-color:color-mix(in srgb,var(--accent-3) 44%,var(--line)); }
     .commentary-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px; color:var(--muted); font-size:11px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; }
     .commentary-text { margin-top:4px; color:var(--text); font-size:13.5px; font-weight:700; line-height:1.35; }
+    .speaker-chip { display:inline-flex; align-items:center; gap:4px; padding:2px 8px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; }
+    .speaker-chip.analyst { background:color-mix(in srgb,var(--accent-3) 16%,transparent); color:var(--accent-3); }
+    .commentary-card.from-analyst { border-left:3px solid color-mix(in srgb,var(--accent-3) 55%,var(--line)); }
     .commentary-empty { margin:0; color:var(--muted); font-weight:700; }
     .commentary-ticker { border:1px solid color-mix(in srgb,var(--accent) 34%,var(--line)); border-radius:var(--radius-sm); background:linear-gradient(135deg,var(--accent-soft),var(--surface-2)); padding:12px 14px; box-shadow:inset 3px 0 0 var(--accent); animation:spot-in 220ms ease-out; }
     .commentary-ticker .commentary-meta { color:var(--accent); }
@@ -381,8 +384,22 @@
     panamerican: {
       names: { "pt-BR": "Jogos Pan-Americanos", en: "Pan American Games", es: "Juegos Panamericanos" },
       countries: {
-        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM"],
-        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN"]
+        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "HAI", "BAR", "DOM", "BOL"],
+        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "DOM", "BOL"]
+      }
+    },
+    panam2026: {
+      names: { "pt-BR": "Pan-Americano Rio 2026", en: "Pan American Championships Rio 2026", es: "Panamericano Río 2026" },
+      countries: {
+        WAG: ["USA", "BRA", "CAN", "ARG", "MEX", "COL", "PAN", "JAM", "CHI", "PUR", "CUB", "VEN"],
+        MAG: ["CAN", "COL", "USA", "BRA", "PUR", "MEX", "CUB", "CHI", "ARG", "GUA", "JAM", "VEN", "PER"]
+      }
+    },
+    battleRoyale: {
+      names: { "pt-BR": "Battle Royale livre", en: "Free Battle Royale", es: "Battle Royale libre" },
+      countries: {
+        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "HAI", "BAR", "DOM", "BOL", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "NED", "AUS", "BEL", "ROU", "PHI", "KOR", "UZB", "KAZ", "TPE", "IND"],
+        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "DOM", "BOL", "JPN", "CHN", "GBR", "GER", "FRA", "ITA", "UKR", "TUR", "KOR", "NED", "PHI", "UZB", "KAZ", "TPE", "IND"]
       }
     },
     european: {
@@ -395,8 +412,15 @@
     asian: {
       names: { "pt-BR": "Campeonato Asiático de Ginástica Artística", en: "Asian Artistic Gymnastics Championships", es: "Campeonato Asiático de Gimnasia Artística" },
       countries: {
-        WAG: ["CHN", "JPN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND"],
-        MAG: ["JPN", "CHN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND"]
+        WAG: ["CHN", "JPN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND", "PRK", "MAS", "SGP"],
+        MAG: ["JPN", "CHN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND", "IRI"]
+      }
+    },
+    asian2026: {
+      names: { "pt-BR": "Asiático Zunyi 2026", en: "Asian Championships Zunyi 2026", es: "Asiático Zunyi 2026" },
+      countries: {
+        WAG: ["CHN", "JPN", "KOR", "PRK", "MAS", "UZB", "TPE", "SGP"],
+        MAG: ["CHN", "JPN", "KOR", "PHI", "TPE", "UZB", "KAZ", "IRI"]
       }
     }
   };
@@ -483,7 +507,6 @@ M,Arthur Nory,BRA,2019,5.2,9.0,5.8,8.4,N/A,N/A,N/A,N/A,5.4,8.0,5.2,8.1,5.6,8.2,6
 M,Arthur Zanetti,BRA,2012,5.2,8.8,5.4,8.0,N/A,N/A,N/A,N/A,5.0,7.5,6.8,8.9,5.2,8.0,5.0,7.8,0.85
 M,Caio Souza,BRA,2021,5.6,9.0,5.8,8.2,N/A,N/A,N/A,N/A,5.6,8.0,5.8,8.1,5.9,8.2,5.6,8.0,0.80
 M,Diogo Soares,BRA,2024,5.2,8.9,5.8,8.3,N/A,N/A,N/A,N/A,5.7,8.1,5.7,8.0,6.0,8.3,5.7,8.1,0.82
-M,Yuri Guimaraes,BRA,2023,5.2,8.8,5.6,8.2,N/A,N/A,N/A,N/A,5.4,7.9,5.5,8.0,5.8,8.1,5.6,7.9,0.79
 M,Francisco Barreto,BRA,2016,5.2,8.8,5.6,8.1,N/A,N/A,N/A,N/A,5.5,8.0,5.6,8.0,5.8,8.1,6.0,8.2,0.80
 M,Lukas Dauser,GER,2021,5.2,8.8,5.4,8.0,N/A,N/A,N/A,N/A,5.2,7.8,5.4,8.0,6.6,8.8,5.6,8.0,0.86
 M,Andreas Toba,GER,2016,5.2,8.7,5.6,8.1,N/A,N/A,N/A,N/A,5.8,8.1,5.5,8.0,5.9,8.2,5.8,8.0,0.84
@@ -634,7 +657,6 @@ F,Sandra Izbasa,ROU,2012,5.8,9.3,6.1,9.1,5.1,8.8,5.8,9.0,N/A,N/A,N/A,N/A,N/A,N/A
   const ATHLETE_REGIONAL_CSV = `F,Luisa Blanco,COL,2024,4.8,8.8,5.4,8.1,5.7,8.1,5.7,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
 F,Hillary Heron,PAN,2024,5.0,8.8,5.7,8.1,5.2,7.8,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
 F,Sandra Collantes,COL,2024,4.6,8.7,5.2,7.9,5.5,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
-F,Angel Barajas,COL,2024,4.6,8.7,5.1,7.8,5.3,7.8,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
 F,Karol Bautista,COL,2024,4.6,8.6,5.1,7.8,5.4,7.9,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
 F,Kara Eaker,USA,2019,5.0,9.2,5.6,8.3,5.8,8.0,6.4,8.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
 F,Morgan Hurd,USA,2019,5.0,9.1,5.8,8.2,6.0,8.3,5.9,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
@@ -651,12 +673,6 @@ F,Victoria-Kayen Woo,CAN,2019,4.8,8.8,5.3,7.8,5.6,7.8,5.5,7.8,N/A,N/A,N/A,N/A,N/
 F,Rebeca Andrade,BRA,2023,5.6,9.5,5.8,8.2,6.2,8.1,5.8,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.91
 F,Jade Barbosa,BRA,2023,5.0,8.8,5.5,8.0,5.5,7.9,5.4,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
 F,Julia Soares,BRA,2023,4.6,8.7,5.6,8.1,5.3,7.8,6.0,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
-F,Kayla DiCello,USA,2023,5.0,9.1,5.8,8.4,5.9,8.2,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
-F,Kaliya Lincoln,USA,2023,5.0,8.9,6.1,8.4,5.2,7.8,5.6,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
-F,Zoe Miller,USA,2023,4.6,8.7,5.0,7.8,6.4,8.5,5.2,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
-F,Tiana Sumanasekera,USA,2023,5.0,9.1,5.5,8.0,5.6,7.9,5.8,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
-F,Frederique Sgarbossa,CAN,2023,4.8,8.2,5.3,7.8,5.5,7.8,5.4,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
-F,Sydney Turner,CAN,2023,4.6,8.5,5.2,7.8,5.4,7.8,5.3,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
 F,Sophia Weisberg,BRA,2025,4.6,8.6,5.5,8.1,5.3,7.8,5.4,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
 F,Bridgette Caquatto,USA,2011,5.0,9.0,5.8,8.9,6.0,8.6,5.8,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
 F,Shawn Johnson,USA,2011,5.0,8.9,5.5,8.0,6.0,8.4,6.0,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
@@ -712,17 +728,6 @@ M,Riley Loos,USA,2022,5.6,8.9,6.0,8.4,N/A,N/A,N/A,N/A,5.8,8.1,6.1,8.3,5.8,8.1,5.
 M,Vitaly Guimaraes,BRA,2024,5.6,8.9,6.1,8.4,N/A,N/A,N/A,N/A,5.6,8.1,5.8,8.2,5.9,8.2,5.8,8.0,0.81
 M,Diogo Speranza,BRA,2024,5.2,8.7,5.6,8.0,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.8,8.1,6.2,8.4,0.79
 M,Arthur Nory,BRA,2023,5.2,8.8,5.6,8.5,N/A,N/A,N/A,N/A,5.3,7.9,5.3,8.0,5.8,7.8,5.7,8.6,0.81
-M,Diogo Soares,BRA,2023,5.2,8.4,5.4,8.2,N/A,N/A,N/A,N/A,5.4,7.6,5.4,7.6,6.0,8.1,5.9,8.1,0.82
-M,Bernardo Miranda,BRA,2023,5.2,8.7,5.4,8.0,N/A,N/A,N/A,N/A,5.6,8.1,5.4,8.0,6.0,8.1,5.7,8.4,0.80
-M,Patrick Sampaio,BRA,2023,5.2,7.8,5.5,8.1,N/A,N/A,N/A,N/A,5.3,7.9,5.4,7.8,5.6,7.9,5.4,7.8,0.77
-M,Cameron Bock,USA,2023,5.2,8.3,5.6,8.2,N/A,N/A,N/A,N/A,5.4,8.2,5.4,8.2,5.8,7.6,5.8,8.0,0.81
-M,Stephen Nedoroscik,USA,2023,4.8,7.5,5.0,7.6,N/A,N/A,N/A,N/A,6.3,8.3,5.0,7.5,5.2,7.8,5.2,7.8,0.78
-M,Curran Phillips,USA,2023,5.2,8.7,5.4,8.0,N/A,N/A,N/A,N/A,5.2,7.7,5.4,8.0,6.5,8.1,5.8,7.6,0.79
-M,Colt Walker,USA,2023,5.2,8.3,5.6,8.0,N/A,N/A,N/A,N/A,5.4,8.2,5.4,8.2,6.2,8.2,5.8,7.9,0.81
-M,Kristopher Bohorquez,COL,2023,5.2,6.5,5.4,7.8,N/A,N/A,N/A,N/A,5.6,8.0,5.4,7.8,5.8,7.1,5.4,6.0,0.76
-M,Dilan Jimenez,COL,2023,5.2,6.2,5.4,7.4,N/A,N/A,N/A,N/A,5.4,7.4,5.4,8.0,5.8,7.8,5.4,6.9,0.76
-M,Juan Larrahondo,COL,2023,5.6,8.2,5.4,7.8,N/A,N/A,N/A,N/A,5.4,6.5,5.6,8.7,5.4,7.8,5.4,7.8,0.77
-M,Sergio Vargas,COL,2023,5.2,8.0,5.4,7.8,N/A,N/A,N/A,N/A,5.4,7.8,5.4,7.8,5.8,7.3,5.4,7.4,0.76
 M,Camilo Vera,COL,2025,5.2,8.7,5.8,8.2,N/A,N/A,N/A,N/A,5.8,8.1,5.5,8.0,6.0,8.2,5.9,8.1,0.81
 M,Petrix Barbosa,BRA,2011,5.4,8.8,5.8,8.4,N/A,N/A,N/A,N/A,5.5,8.1,5.6,8.2,5.8,8.3,5.6,8.1,0.81
 M,Francisco Barreto Junior,BRA,2011,5.2,8.7,5.8,8.1,N/A,N/A,N/A,N/A,5.8,8.3,5.5,8.0,5.9,8.2,6.1,8.3,0.82
@@ -789,6 +794,178 @@ F,Kaitlin De Guzman,PHI,2024,4.6,8.7,5.2,7.9,5.4,7.9,5.4,7.9,N/A,N/A,N/A,N/A,N/A
 F,Sozonova Anastasiya,UZB,2024,4.6,8.6,5.2,7.8,5.4,7.8,5.4,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
 F,Elizaveta Zubritskaya,UZB,2024,4.6,8.6,5.2,7.8,5.3,7.8,5.3,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.75
 M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,6.3,8.3,0.82`;
+  const ATHLETE_PANAM_CSV = `F,Ava Stewart,CAN,2023,4.6,8.7,4.8,7.7,5.4,7.5,6.1,7.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Aurelie Tran,CAN,2023,4.6,8.6,4.8,8.1,5.3,7.5,5.0,7.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Cassie Lee,CAN,2023,4.4,8.4,4.8,7.6,4.5,7.3,4.9,7.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Natalia Escalera,MEX,2023,4.6,8.9,5.3,7.6,5.7,6.7,5.3,7.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Ahtziri Sandoval,MEX,2023,5.2,8.7,4.7,7.2,5.6,7.6,4.8,6.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Paulina Campos,MEX,2023,4.4,7.4,4.2,7.6,5.5,6.5,4.7,6.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+F,Cassandra Loustalot,MEX,2023,4.4,8.1,5.1,6.5,4.6,6.8,5.4,7.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Alexa Moreno,MEX,2023,5.0,8.7,4.8,7.6,5.4,6.5,4.8,7.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Milagros Curti,ARG,2023,4.4,8.0,4.8,7.5,4.3,7.3,4.9,7.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Nicole Iribarne,ARG,2023,4.4,8.3,4.8,7.1,4.2,7.8,4.6,6.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Lucila Estarli,ARG,2023,4.4,8.4,4.6,6.5,4.3,6.8,4.6,7.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Leila Martinez,ARG,2023,4.0,8.0,4.3,6.5,4.5,7.4,4.7,6.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Karla Navas,PAN,2023,4.6,7.9,4.2,7.2,4.8,7.2,4.5,6.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Lana Herrera,PAN,2023,3.8,8.1,4.6,7.0,4.3,6.9,4.6,6.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Valentina Brostella,PAN,2023,4.2,8.0,4.3,6.5,4.1,7.0,4.2,6.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Celia Kuriakuz,PAN,2023,3.8,7.8,4.0,7.0,3.8,6.8,4.2,6.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Makarena Pinto,CHI,2023,4.6,8.2,4.8,7.1,4.2,7.1,4.2,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Barbara Achondo,CHI,2023,3.8,7.6,4.4,8.0,4.2,7.2,3.8,7.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Franchesca Santi,CHI,2023,4.2,8.0,4.2,7.2,4.0,6.8,4.0,6.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Sofia Casella,CHI,2023,4.0,8.0,4.4,7.0,3.8,7.3,4.5,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Antonia Marihuan,CHI,2023,3.8,7.6,4.1,7.1,4.6,6.5,4.0,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Stella Diaz,PUR,2023,4.2,8.0,3.6,7.5,4.8,6.5,4.5,6.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Alejandra Alvarez,PUR,2023,4.4,8.2,4.3,6.6,3.6,7.2,4.3,6.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Karelys Diaz,PUR,2023,4.4,8.1,4.6,7.0,4.3,6.7,4.8,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Ainhoa Herrero,PUR,2023,3.4,7.6,4.2,7.3,3.3,6.5,4.0,6.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Katyna Alicea,PUR,2023,3.6,7.6,3.8,6.8,3.6,6.6,4.3,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Ginna Escobar,COL,2023,4.4,8.3,4.5,6.5,4.4,7.3,4.3,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Yiseth Valenzuela,COL,2023,4.4,8.3,4.3,7.6,4.2,7.0,4.6,7.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Angelica Mesa,COL,2023,4.3,8.2,4.5,7.1,3.2,6.5,4.2,6.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Daira Lamadrid,COL,2023,4.2,8.0,4.2,7.0,4.4,6.5,4.6,7.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Lynnzee Brown,HAI,2023,4.6,8.8,4.7,7.4,3.2,7.8,4.3,7.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Alexa Grande,ESA,2023,4.2,8.3,4.6,7.4,3.9,6.8,4.6,6.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Anya Pilgrim,BAR,2023,4.5,8.4,4.5,7.0,3.7,6.6,4.5,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.78
+F,Alais Perea,ECU,2023,4.4,8.3,4.3,7.3,4.4,7.2,4.3,6.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Ashley Bohorquez,ECU,2023,4.6,7.7,4.9,7.1,4.4,6.6,4.5,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Franciny Morales,CRC,2023,4.2,8.4,4.6,6.8,4.5,6.5,4.5,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Deborah Salmina,VEN,2023,4.4,8.2,4.5,7.1,3.8,7.0,4.9,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Ana Karina Mendez,PER,2023,4.0,7.9,4.5,6.5,4.7,7.2,5.0,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+F,Camil Betances,DOM,2023,4.2,8.4,4.3,6.5,3.2,7.3,4.3,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.77
+F,Diana Vasquez,BOL,2023,4.2,8.3,4.1,6.5,2.1,7.4,4.2,6.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.76
+M,Donnell Whittenburg,USA,2023,4.9,9.2,6.4,7.3,N/A,N/A,N/A,N/A,5.0,7.4,6.0,8.4,5.8,7.9,5.1,8.1,0.84
+M,Vahe Petrosyan,USA,2023,4.8,9.0,4.8,6.5,N/A,N/A,N/A,N/A,5.3,8.1,4.4,8.2,4.8,6.5,4.7,8.2,0.76
+M,Felix Dolci,CAN,2023,5.2,9.3,6.0,8.4,N/A,N/A,N/A,N/A,4.2,8.0,5.4,8.5,5.6,8.3,5.6,7.2,0.86
+M,William Emard,CAN,2023,5.2,9.3,5.7,8.0,N/A,N/A,N/A,N/A,4.1,8.3,5.5,8.2,5.5,7.9,4.9,7.5,0.76
+M,Rene Cournoyer,CAN,2023,5.0,9.2,5.3,7.8,N/A,N/A,N/A,N/A,4.2,7.2,5.4,8.3,5.3,7.7,5.3,8.5,0.79
+M,Zachary Clay,CAN,2023,4.6,8.6,4.4,7.8,N/A,N/A,N/A,N/A,5.7,8.5,4.4,8.6,5.2,8.5,4.7,7.9,0.79
+M,Jayson Rampersad,CAN,2023,4.6,8.6,5.1,8.0,N/A,N/A,N/A,N/A,6.1,8.2,4.4,7.8,4.8,7.8,4.4,7.6,0.81
+M,Arthur Mariano,BRA,2023,5.2,9.3,5.3,8.5,N/A,N/A,N/A,N/A,4.2,7.9,4.1,8.4,5.1,7.8,5.6,8.7,0.80
+M,Rodrigo Gomez,MEX,2023,4.9,8.9,5.4,8.2,N/A,N/A,N/A,N/A,5.2,7.6,4.7,8.1,4.6,8.1,3.9,8.5,0.83
+M,Isaac Nunez,MEX,2023,4.9,9.0,4.9,8.0,N/A,N/A,N/A,N/A,4.8,7.4,4.3,8.6,5.9,8.0,5.1,7.4,0.83
+M,Fabian de Luna,MEX,2023,5.2,8.2,4.7,7.0,N/A,N/A,N/A,N/A,4.0,7.2,5.6,7.8,4.9,7.1,4.0,7.8,0.79
+M,Alonso Perez,MEX,2023,4.6,8.6,5.4,8.2,N/A,N/A,N/A,N/A,4.2,8.0,4.4,7.8,4.6,7.6,4.2,7.4,0.79
+M,Josue Juarez,MEX,2023,4.8,8.6,4.4,7.6,N/A,N/A,N/A,N/A,4.0,7.2,4.6,7.6,5.6,6.5,4.4,7.9,0.78
+M,Santiago Mayol,ARG,2023,4.9,8.8,5.7,8.0,N/A,N/A,N/A,N/A,5.5,7.9,4.8,7.7,4.9,8.3,5.0,7.7,0.80
+M,Julian Jato,ARG,2023,4.4,8.8,4.6,8.4,N/A,N/A,N/A,N/A,4.3,7.7,4.8,7.8,5.3,8.0,4.9,8.1,0.83
+M,Daniel Villafane,ARG,2023,5.2,8.8,4.4,8.0,N/A,N/A,N/A,N/A,4.2,7.2,6.0,8.2,4.8,7.8,4.4,7.4,0.81
+M,Luca Alfieri,ARG,2023,4.4,8.6,4.4,7.8,N/A,N/A,N/A,N/A,4.7,8.6,4.2,7.8,4.1,8.0,4.9,8.3,0.81
+M,Santiago Agostinelli,ARG,2023,4.8,9.0,5.4,7.8,N/A,N/A,N/A,N/A,4.0,7.2,4.7,8.3,4.5,8.2,4.1,8.3,0.81
+M,Alejandro de la Cruz,CUB,2023,5.2,8.6,5.0,8.4,N/A,N/A,N/A,N/A,4.4,6.5,5.5,7.9,5.3,8.0,3.9,8.3,0.80
+M,Diorges Escobar,CUB,2023,4.8,9.1,5.4,6.5,N/A,N/A,N/A,N/A,4.5,6.5,4.2,7.8,5.9,7.6,4.9,8.5,0.78
+M,Pablo Pozo,CUB,2023,4.8,8.3,4.2,8.1,N/A,N/A,N/A,N/A,5.2,6.5,4.2,7.2,5.4,7.5,4.9,8.2,0.74
+M,Jose Escandon,CUB,2023,4.6,8.4,5.3,6.5,N/A,N/A,N/A,N/A,4.2,7.0,4.3,7.2,5.7,8.0,4.9,6.9,0.78
+M,Yohendry Villaverde,CUB,2023,5.2,8.3,4.4,7.4,N/A,N/A,N/A,N/A,5.0,7.2,4.2,7.6,4.6,7.4,4.2,7.2,0.77
+M,Joel Alvarez,CHI,2023,4.8,8.9,5.2,8.2,N/A,N/A,N/A,N/A,4.3,8.1,4.9,8.3,5.0,8.3,5.0,7.8,0.83
+M,Luciano Letelier,CHI,2023,4.9,8.4,5.7,7.5,N/A,N/A,N/A,N/A,5.5,6.6,4.1,8.1,4.9,7.4,5.0,7.0,0.76
+M,Josue Armijo,CHI,2023,4.8,8.8,4.2,6.9,N/A,N/A,N/A,N/A,4.0,8.2,4.4,7.6,4.2,8.3,4.2,7.8,0.77
+M,Prado Cristobal,CHI,2023,4.8,8.3,4.3,6.5,N/A,N/A,N/A,N/A,3.6,7.0,4.2,7.4,4.4,7.6,3.4,7.0,0.76
+M,Joaquin Alvarez,CHI,2023,4.4,8.4,4.2,7.6,N/A,N/A,N/A,N/A,3.8,7.2,5.4,7.4,4.8,8.1,4.0,7.2,0.79
+M,Andres Martinez,COL,2023,4.7,9.0,4.3,8.3,N/A,N/A,N/A,N/A,5.4,6.5,4.9,7.9,5.1,7.4,5.4,7.8,0.82
+M,Jose Lopez,PUR,2023,5.2,8.0,4.8,7.7,N/A,N/A,N/A,N/A,4.4,7.4,5.2,7.6,4.8,8.2,4.8,7.5,0.81
+M,Andres Perez,PUR,2023,4.8,8.5,5.0,7.6,N/A,N/A,N/A,N/A,4.7,7.7,4.3,7.5,5.5,7.6,4.9,8.2,0.80
+M,Nelson Guilbe,PUR,2023,4.6,8.6,4.6,7.6,N/A,N/A,N/A,N/A,5.6,8.4,4.4,7.8,4.8,7.8,4.4,7.4,0.81
+M,Edward Gonzales,PER,2023,4.9,8.9,5.1,7.9,N/A,N/A,N/A,N/A,5.4,7.7,5.0,7.3,5.4,7.9,4.6,7.9,0.81
+M,Daniel Alarcon,PER,2023,4.6,8.7,4.9,7.1,N/A,N/A,N/A,N/A,4.6,7.3,5.2,7.7,4.6,7.6,4.7,7.7,0.81
+M,Adickxon Trejo,VEN,2023,4.8,8.8,5.1,7.5,N/A,N/A,N/A,N/A,5.4,6.9,4.3,8.1,4.6,7.8,4.1,8.3,0.81
+M,Edward Rolin,VEN,2023,4.8,8.5,5.5,6.5,N/A,N/A,N/A,N/A,4.0,6.5,4.3,7.2,5.0,6.5,3.3,6.5,0.74
+M,Audrys Nin Reyes,DOM,2023,5.2,9.0,4.9,8.3,N/A,N/A,N/A,N/A,4.8,7.3,4.7,8.3,5.5,8.0,5.4,7.9,0.85
+M,Leandro Pena,DOM,2023,4.8,8.3,4.4,7.4,N/A,N/A,N/A,N/A,4.0,7.0,4.7,7.8,4.6,7.4,4.9,7.9,0.79
+M,Caleb Faulk,JAM,2023,4.4,8.2,4.5,8.1,N/A,N/A,N/A,N/A,3.0,8.3,4.5,8.2,4.0,8.1,4.2,7.4,0.83
+M,Jorge Vega,GUA,2023,5.2,8.4,5.5,8.0,N/A,N/A,N/A,N/A,4.2,7.2,4.6,7.8,4.6,7.6,4.2,7.4,0.77
+M,Johnny Valencia,ECU,2023,4.4,8.1,4.5,8.1,N/A,N/A,N/A,N/A,4.3,7.7,4.2,7.5,4.6,7.5,4.0,7.2,0.81
+M,Cesar Lopez,ECU,2023,4.4,8.4,4.4,7.5,N/A,N/A,N/A,N/A,3.8,7.0,4.7,8.4,5.0,6.5,4.6,8.1,0.80
+M,Oliver Sons,BOL,2023,4.8,9.0,4.9,6.5,N/A,N/A,N/A,N/A,3.5,6.5,5.0,7.6,4.4,6.9,3.6,7.2,0.76
+M,Andres Valverde,CRC,2023,4.4,8.6,4.7,7.8,N/A,N/A,N/A,N/A,3.9,8.0,3.6,7.4,3.6,7.8,3.7,6.5,0.78
+M,Richard Atencio,PAN,2023,4.4,8.5,5.1,7.2,N/A,N/A,N/A,N/A,4.1,7.0,4.1,7.5,4.8,8.1,4.5,6.8,0.79
+F,Kayla DiCello,USA,2023,5.0,9.1,5.5,8.2,5.6,8.1,5.7,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+F,Tiana Sumanasekera,USA,2023,5.0,9.1,5.7,7.3,5.3,7.6,6.1,7.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+F,Kaliya Lincoln,USA,2023,5.0,8.9,6.1,8.1,4.8,7.5,5.5,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Zoe Miller,USA,2023,4.6,8.5,4.8,7.5,6.4,8.3,5.0,7.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Sydney Turner,CAN,2023,4.5,8.5,4.5,8.0,5.0,6.5,5.3,7.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Frederique Sgarbossa,CAN,2023,4.6,8.4,4.4,7.4,4.6,7.5,4.6,7.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.79
+M,Cameron Bock,USA,2023,4.9,9.5,5.2,8.2,N/A,N/A,N/A,N/A,5.4,8.4,5.2,8.0,5.6,8.3,5.2,8.1,0.83
+M,Colt Walker,USA,2023,4.9,9.6,5.2,8.4,N/A,N/A,N/A,N/A,5.4,6.6,5.4,8.2,6.0,8.4,5.2,8.5,0.81
+M,Curran Phillips,USA,2023,4.9,9.7,5.0,7.8,N/A,N/A,N/A,N/A,4.6,7.2,4.6,7.8,6.8,8.1,5.8,7.6,0.79
+M,Stephen Nedoroscik,USA,2023,4.4,8.6,4.4,7.6,N/A,N/A,N/A,N/A,6.4,7.3,4.6,7.8,4.8,7.6,4.4,7.4,0.81
+M,Diogo Soares,BRA,2023,5.2,8.9,5.4,8.2,N/A,N/A,N/A,N/A,5.8,7.5,4.4,8.7,5.7,7.8,5.5,8.3,0.84
+M,Yuri Guimaraes,BRA,2023,5.2,9.2,5.7,8.0,N/A,N/A,N/A,N/A,4.0,8.0,4.7,8.1,5.2,8.6,5.0,8.6,0.77
+M,Bernardo Miranda,BRA,2023,4.8,8.8,4.8,8.0,N/A,N/A,N/A,N/A,4.3,8.2,4.4,8.0,5.6,8.5,5.3,8.8,0.81
+M,Patrick Sampaio,BRA,2023,4.8,8.8,5.3,8.0,N/A,N/A,N/A,N/A,4.2,7.4,4.3,8.4,4.8,7.8,4.6,7.6,0.79
+M,Dilan Jimenez,COL,2023,4.6,9.0,4.6,7.7,N/A,N/A,N/A,N/A,4.1,6.5,5.1,7.1,5.9,7.8,4.7,7.9,0.76
+M,Juan Larrahondo,COL,2023,5.2,8.9,5.5,8.1,N/A,N/A,N/A,N/A,4.0,7.0,4.3,7.6,4.6,7.6,4.2,7.4,0.79
+M,Kristopher Bohorquez,COL,2023,4.4,8.4,4.7,7.0,N/A,N/A,N/A,N/A,4.0,7.0,5.6,8.1,4.8,8.1,3.7,7.7,0.81
+M,Sergio Vargas,COL,2023,4.4,8.4,4.4,7.6,N/A,N/A,N/A,N/A,4.8,7.2,4.2,7.6,4.8,8.3,5.0,7.8,0.79`;
+  const ATHLETE_Y2026_CSV = `F,Claire Pease,USA,2026,5.0,9.2,5.6,8.2,6.0,7.6,5.7,7.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.89
+F,Charleigh Bullock,USA,2026,5.0,8.5,5.4,7.5,5.4,8.1,5.5,7.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+F,Thais Fidelis,BRA,2026,5.0,8.1,5.5,8.0,5.4,7.7,5.4,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+F,Sophia Weisberg,BRA,2026,5.0,7.8,5.2,7.6,5.6,7.4,5.1,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Lia Monica Fontaine,CAN,2026,5.4,8.8,5.2,7.6,5.4,7.4,5.1,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Lia Redick,CAN,2026,5.0,7.7,5.4,8.0,5.4,7.3,5.1,7.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Isabella Ajalla,ARG,2026,5.0,7.6,5.2,8.0,5.4,7.2,5.6,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+F,Julieta Lucas,ARG,2026,4.6,8.0,4.8,7.8,5.0,7.6,4.7,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Victoria Mata,MEX,2026,4.6,7.7,4.8,7.5,5.0,7.3,4.7,7.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Simone Rose,USA,2026,5.0,7.6,5.2,7.4,5.7,7.6,5.8,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+F,Aurelie Tran,CAN,2026,5.0,7.5,5.2,7.3,5.7,7.8,5.1,7.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Jahzara Ranger,JAM,2026,4.6,7.5,4.8,7.3,5.0,7.1,4.7,7.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Ana Gabriela Gutierrez,PAN,2026,4.6,7.4,4.8,7.2,5.0,7.0,4.7,7.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Rebeca Andrade,BRA,2026,5.6,8.9,5.4,8.4,5.6,8.4,5.3,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+M,Camilo Vera,COL,2026,5.2,8.7,5.8,7.7,N/A,N/A,N/A,N/A,5.8,7.7,5.5,8.0,5.7,7.8,5.8,7.7,0.88
+M,Angel Barajas,COL,2026,5.6,7.9,5.6,8.3,N/A,N/A,N/A,N/A,5.2,8.6,5.5,8.0,5.7,7.8,6.4,8.8,0.89
+M,Yul Moldauer,USA,2026,5.0,8.1,5.2,7.9,N/A,N/A,N/A,N/A,5.2,7.9,5.4,8.1,5.9,8.3,5.2,7.9,0.85
+M,Rene Cournoyer,CAN,2026,5.0,8.1,5.2,7.9,N/A,N/A,N/A,N/A,5.2,7.9,4.9,8.2,5.1,8.0,5.2,7.9,0.84
+M,Xavier Olasz,CAN,2026,5.0,7.6,5.2,7.4,N/A,N/A,N/A,N/A,5.2,7.4,4.9,7.7,5.1,7.5,5.2,7.4,0.84
+M,Diogo Soares,BRA,2026,5.0,7.6,5.2,7.4,N/A,N/A,N/A,N/A,5.2,7.4,4.9,7.7,5.7,8.2,5.5,8.6,0.85
+M,Elel Wahrmann Baker,JAM,2026,4.6,7.9,4.8,7.7,N/A,N/A,N/A,N/A,4.8,7.7,4.5,8.0,4.7,7.8,4.8,7.7,0.80
+M,Isaac Nunez,MEX,2026,5.0,7.4,5.2,7.2,N/A,N/A,N/A,N/A,5.2,7.2,4.9,7.5,5.1,7.3,5.2,7.2,0.84
+M,Diorges Escobar,CUB,2026,4.6,7.8,4.8,7.6,N/A,N/A,N/A,N/A,4.8,7.6,4.5,7.9,5.9,7.8,4.8,7.6,0.80
+M,Jefferson Rahi Garcia,GUA,2026,4.6,7.7,4.8,7.5,N/A,N/A,N/A,N/A,4.8,7.5,4.5,7.8,4.7,7.6,4.8,7.5,0.80
+M,Jose Lopez,PUR,2026,5.2,8.2,4.8,7.4,N/A,N/A,N/A,N/A,4.8,7.4,4.5,7.7,4.7,7.5,4.8,7.4,0.80
+M,Santiago Mayol,ARG,2026,4.6,7.6,4.8,7.4,N/A,N/A,N/A,N/A,4.8,7.4,4.5,7.7,4.7,7.5,4.8,7.4,0.80
+M,Patrick Hoopes,USA,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,6.4,8.2,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Jordan Carroll,CAN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,6.2,8.3,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,William Emard,CAN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,5.5,8.3,4.7,8.0,4.8,8.0,0.84
+M,Joaquin Alvarez,CHI,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,5.0,8.6,4.7,8.0,4.8,8.0,0.84
+M,Felix Dolci,CAN,2026,5.2,8.4,5.4,8.4,N/A,N/A,N/A,N/A,5.4,8.4,5.4,8.1,5.3,8.4,5.4,8.4,0.88
+M,Jorge Vega,GUA,2026,4.6,8.0,5.5,8.7,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Vitaliy Guimaraes,BRA,2026,4.6,8.0,5.4,8.3,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Josue Armijo,CHI,2026,5.2,8.4,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Arthur Nory Mariano,BRA,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,5.5,8.5,0.84
+F,Ke Qinqin,CHN,2026,5.6,8.5,5.8,8.3,6.0,8.1,5.7,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Zhang Qingying,CHN,2026,5.6,8.3,5.8,8.1,6.0,7.9,5.7,8.2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Misa Nishiyama,JPN,2026,5.6,8.1,5.8,7.9,6.0,7.7,5.7,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Rina Kishi,JPN,2026,5.0,8.2,5.2,8.0,5.4,7.8,5.1,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,An Chang Ok,PRK,2026,5.0,8.2,5.2,8.0,5.4,7.8,5.1,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Yeo Seojeong,KOR,2026,5.0,8.1,5.2,7.9,5.4,7.7,5.1,8.0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Jo Kyong Byol,PRK,2026,5.0,7.8,5.2,7.6,5.4,7.4,5.1,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Lee Yunseo,KOR,2026,5.0,7.6,5.2,7.4,5.4,7.2,5.1,7.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+F,Yeap Kang Xian,MAS,2026,4.6,7.8,4.8,7.6,5.0,7.4,4.7,7.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Dildora Aripova,UZB,2026,4.6,7.7,4.8,7.5,5.0,7.3,4.7,7.6,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Lai Pin-Ju,TPE,2026,4.6,7.6,4.8,7.4,5.0,7.2,4.7,7.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Amanda Yap,SGP,2026,4.6,7.6,4.8,7.4,5.0,7.2,4.7,7.5,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.80
+F,Park Nayoung,KOR,2026,5.0,7.4,5.2,7.2,5.4,7.0,5.1,7.3,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+M,Zhang Boheng,CHN,2026,5.6,8.6,5.8,8.4,N/A,N/A,N/A,N/A,5.6,8.8,5.6,8.8,6.4,8.5,6.0,9.0,0.89
+M,Yang Haonan,CHN,2026,5.6,8.1,5.8,7.9,N/A,N/A,N/A,N/A,5.8,7.9,5.8,8.8,5.7,8.0,5.8,7.9,0.88
+M,Teppei Miwa,JPN,2026,5.6,8.1,5.8,7.9,N/A,N/A,N/A,N/A,5.8,7.9,5.5,8.2,5.7,8.0,5.8,7.9,0.88
+M,Carlos Yulo,PHI,2026,5.6,8.9,5.6,9.1,N/A,N/A,N/A,N/A,5.8,7.8,5.5,8.1,5.7,7.9,5.8,7.8,0.89
+M,Wataru Tanigawa,JPN,2026,5.6,8.7,5.2,8.3,N/A,N/A,N/A,N/A,5.2,8.3,4.9,8.6,5.1,8.4,5.2,8.3,0.84
+M,Ryu Sunghyun,KOR,2026,5.0,8.5,5.2,8.3,N/A,N/A,N/A,N/A,5.2,8.3,4.9,8.6,5.9,8.6,5.2,8.3,0.84
+M,Hung Yuan-Hsi,TPE,2026,5.0,8.1,5.2,7.9,N/A,N/A,N/A,N/A,5.2,7.9,4.9,8.2,5.4,8.4,5.2,7.9,0.84
+M,Ravshan Kamiljanov,UZB,2026,5.0,8.0,5.2,7.8,N/A,N/A,N/A,N/A,5.2,7.8,4.9,8.1,5.1,7.9,5.2,7.8,0.84
+M,Lee Junghyo,KOR,2026,5.0,8.0,5.2,7.8,N/A,N/A,N/A,N/A,5.2,7.8,4.9,8.1,5.1,7.9,5.2,7.8,0.84
+M,Khabibullo Ergashev,UZB,2026,5.0,7.9,5.2,7.7,N/A,N/A,N/A,N/A,5.2,7.7,4.9,8.0,5.1,7.8,5.2,7.7,0.84
+M,Roman Khegay,KAZ,2026,5.0,7.9,5.2,7.7,N/A,N/A,N/A,N/A,5.2,7.7,4.9,8.0,5.1,7.8,5.2,7.7,0.84
+M,Nurtan Idrissov,KAZ,2026,5.0,7.9,5.2,7.7,N/A,N/A,N/A,N/A,5.2,7.7,4.9,8.0,5.1,7.8,5.2,7.7,0.84
+M,Eldrew Yulo,PHI,2026,4.6,8.0,5.4,8.9,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Shoma Tsukiyama,JPN,2026,4.6,8.0,5.6,9.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Utkirbek Juraev,UZB,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,6.4,8.2,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Lee Chih-Kai,TPE,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,6.2,7.9,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Mahdi Ahmad Kohani,IRI,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,5.6,8.5,4.7,8.0,4.8,8.0,0.84
+M,Kim Jaeho,KOR,2026,5.4,8.8,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Mahdi Olfati,IRI,2026,5.6,8.5,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,4.8,8.0,0.84
+M,Tang Chia-Hung,TPE,2026,5.2,8.4,5.4,8.4,N/A,N/A,N/A,N/A,5.4,8.4,5.1,8.4,5.3,8.4,6.6,8.9,0.88
+M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,5.8,8.5,0.84`;
 
   const ICONS = {
     moon: '<path d="M21 15.2A8.6 8.6 0 0 1 8.8 3a9.4 9.4 0 1 0 12.2 12.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
@@ -906,6 +1083,12 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       roundNoteClean: "limpa", roundNoteFall: "queda", roundNoteError: "erro", roundNoteStick: "cravada", roundNoteLine: "linha",
       filledBest: "Equipe preenchida com escolhas fortes dos sorteios.", teamFull: "A equipe já tem 5 atletas.",
       chooseFive: "Escolha exatamente 5 atletas para avançar.",
+      battleMixed: "Misto livre", battleTeams: "64 equipes", battleFormat: "Percentil · Top 12 → Top 4 → Campeão",
+      battleDraftTitle: "Battle Royale livre", battlePickInstruction: "Monte uma equipe mista de 6 atletas. Cada rodada transforma notas reais em pontos por percentil.",
+      battleRoster: "Esquadrão", battlePool: "Mercado livre", battleStart: "Iniciar Battle Royale", battleAuto: "Montar esquadrão",
+      battlePoints: "Pontos", battleRaw: "Nota bruta", battleQual: "Classificatória", battleSemi: "Semifinal", battleGrandFinal: "Final",
+      battleChampion: "Campeão Battle Royale", battleQualified: "Classificado", battleEliminated: "Eliminado", battlePercentile: "Pontuação por percentil",
+      chooseBattleSix: "Escolha exatamente 6 atletas para entrar no Battle Royale.", battleFilled: "Esquadrão Battle Royale preenchido.",
       // Live
       watchLive: "Assistir ao vivo", liveTitle: "Final por equipes · Ao vivo", quickResult: "Resultado rápido",
       rotation: "Rotação", nowPerforming: "Agora na plataforma", onApparatus: "no aparelho",
@@ -954,6 +1137,12 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       roundNoteClean: "clean", roundNoteFall: "fall", roundNoteError: "error", roundNoteStick: "stuck", roundNoteLine: "line",
       filledBest: "Team filled with strong picks from the draws.", teamFull: "The team already has 5 athletes.",
       chooseFive: "Choose exactly 5 athletes to continue.",
+      battleMixed: "Free mixed", battleTeams: "64 teams", battleFormat: "Percentile · Top 12 → Top 4 → Champion",
+      battleDraftTitle: "Free Battle Royale", battlePickInstruction: "Build a mixed squad of 6 athletes. Each round converts raw scores into percentile points.",
+      battleRoster: "Squad", battlePool: "Free market", battleStart: "Start Battle Royale", battleAuto: "Build squad",
+      battlePoints: "Points", battleRaw: "Raw score", battleQual: "Qualification", battleSemi: "Semi-final", battleGrandFinal: "Final",
+      battleChampion: "Battle Royale champion", battleQualified: "Qualified", battleEliminated: "Eliminated", battlePercentile: "Percentile scoring",
+      chooseBattleSix: "Choose exactly 6 athletes to enter Battle Royale.", battleFilled: "Battle Royale squad filled.",
       watchLive: "Watch live", liveTitle: "Team final · Live", quickResult: "Quick result",
       rotation: "Rotation", nowPerforming: "Now performing", onApparatus: "on",
       difficulty: "Difficulty", execution: "Execution", deductions: "Deductions", neutral: "Neutral deductions",
@@ -1001,6 +1190,12 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       roundNoteClean: "limpia", roundNoteFall: "caída", roundNoteError: "error", roundNoteStick: "clavada", roundNoteLine: "línea",
       filledBest: "Equipo completado con elecciones fuertes de los sorteos.", teamFull: "El equipo ya tiene 5 atletas.",
       chooseFive: "Elige exactamente 5 atletas para avanzar.",
+      battleMixed: "Mixto libre", battleTeams: "64 equipos", battleFormat: "Percentil · Top 12 → Top 4 → Campeón",
+      battleDraftTitle: "Battle Royale libre", battlePickInstruction: "Forma un equipo mixto de 6 atletas. Cada ronda convierte notas reales en puntos por percentil.",
+      battleRoster: "Escuadra", battlePool: "Mercado libre", battleStart: "Iniciar Battle Royale", battleAuto: "Montar escuadra",
+      battlePoints: "Puntos", battleRaw: "Nota bruta", battleQual: "Clasificatoria", battleSemi: "Semifinal", battleGrandFinal: "Final",
+      battleChampion: "Campeón Battle Royale", battleQualified: "Clasificado", battleEliminated: "Eliminado", battlePercentile: "Puntuación por percentil",
+      chooseBattleSix: "Elige exactamente 6 atletas para entrar en Battle Royale.", battleFilled: "Escuadra Battle Royale completada.",
       watchLive: "Ver en vivo", liveTitle: "Final por equipos · En vivo", quickResult: "Resultado rápido",
       rotation: "Rotación", nowPerforming: "En la plataforma", onApparatus: "en",
       difficulty: "Dificultad", execution: "Ejecución", deductions: "Deducciones", neutral: "Deducciones neutras",
@@ -1019,8 +1214,16 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     draftRerolls: { year: false, team: false }, draftOptions: [],
     qualTab: "teams", seed: Date.now(), rng: Math.random, teams: [], results: {}, live: null
   };
+  const BATTLE_CONFIG = {
+    rosterSize: 6, teamCount: 64,
+    stages: [
+      { key: "qual", titleKey: "battleQual", routines: 8, advance: 12, pressure: 0.12 },
+      { key: "semi", titleKey: "battleSemi", routines: 6, advance: 4, pressure: 0.24 },
+      { key: "final", titleKey: "battleGrandFinal", routines: 4, advance: 1, pressure: 0.38 }
+    ]
+  };
 
-  const ATHLETES = parseAthletes(`${ATHLETE_CSV}\n${ATHLETE_SEASON_CSV}\n${ATHLETE_HISTORIC_CSV}\n${ATHLETE_REGIONAL_CSV}`);
+  const ATHLETES = parseAthletes(`${ATHLETE_CSV}\n${ATHLETE_SEASON_CSV}\n${ATHLETE_HISTORIC_CSV}\n${ATHLETE_REGIONAL_CSV}\n${ATHLETE_PANAM_CSV}\n${ATHLETE_Y2026_CSV}`);
   let app;
 
   /* ---------- helpers ---------- */
@@ -1104,6 +1307,8 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   }
   function renderCurrentView() {
     if (state.view === "draft") renderDraftBoard();
+    else if (state.view === "battleDraft") renderBattleDraft();
+    else if (state.view === "battle" && state.results.battle) renderBattleResults();
     else if (state.view === "hub") renderTournamentHub();
     else if (state.view === "quals" && state.results.qual) renderQualifications();
     else if (state.view === "live" && state.live) renderLive();
@@ -1146,7 +1351,19 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
   }
+  // Distribuição aproximadamente normal (soma de 3 uniformes), média 0, faixa ±1.5.
+  // Substitui o pow() enviesado: dias muito bons e muito ruins são raros, dias medianos são a regra.
+  function gauss(rng) { return (rng() + rng() + rng()) - 1.5; }
+  // "Forma do dia" por atleta e por sessão: correlaciona os aparelhos de uma mesma competição
+  // (quem acorda mal tende a errar em mais de um aparelho — como acontece de verdade).
+  function sessionDayForms(athletes) {
+    const forms = {};
+    athletes.forEach((a) => { forms[a.id] = gauss(state.rng) * 0.16; });
+    return forms;
+  }
   function apps() { return APPARATUS[state.gender]; }
+  function isBattleMode() { return state.competition === "battleRoyale"; }
+  function athleteApps(a) { return APPARATUS[a.gender] || APPARATUS.WAG; }
   function athleteById(id) { return ATHLETES.find((a) => a.id === id); }
   function selectedAthletes() { return state.selectedIds.map(athleteById).filter(Boolean); }
   function selectedBaseKeys() { return new Set(selectedAthletes().map((a) => a.baseKey)); }
@@ -1158,13 +1375,15 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     });
   }
   function totalPotential(a) { return round3(apps().reduce((s, ap) => s + a.stats[ap.id].d + a.stats[ap.id].e, 0)); }
+  function athleteTotalPotential(a) { return round3(athleteApps(a).reduce((s, ap) => s + a.stats[ap.id].d + a.stats[ap.id].e, 0)); }
   function appPotential(a, id) { return round3(a.stats[id].d + a.stats[id].e); }
   function bestApp(a) { return [...apps()].sort((x, y) => appPotential(a, y.id) - appPotential(a, x.id))[0]; }
+  function athleteBestApp(a) { return [...athleteApps(a)].sort((x, y) => appPotential(a, y.id) - appPotential(a, x.id))[0]; }
   function formatScore(s) { return Number(s).toFixed(3); }
   function displayTeamName(team) { return team.isPlayer ? team.name : `${t("team")} ${team.federation}`; }
   function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${a.federation}`; }
   function apparatusById(id) { return apps().find((a) => a.id === id); }
-  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru" };
+  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru", DOM: "do", ECU: "ec", CRC: "cr", ESA: "sv", HAI: "ht", BAR: "bb", BOL: "bo", PRK: "kp" };
   function flagHtml(code) {
     const iso = IOC_ISO[code];
     if (!iso) return `<span class="flag-custom" aria-hidden="true">${icon("flag")}</span>`;
@@ -1223,40 +1442,50 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   }
 
   /* ---------- scoring model with itemized deductions ---------- */
-  function buildRoutine(athlete, apparatus, rng) {
+  // ctx.dayForm: forma do dia da sessão (negativo = dia bom); ctx.pressure: 0 a ~0.5
+  // (finais, última rotação, entrar logo depois de uma queda da equipe...)
+  function buildRoutine(athlete, apparatus, rng, ctx = {}) {
+    const dayForm = ctx.dayForm || 0;
+    const pressure = Math.max(0, Math.min(0.6, ctx.pressure || 0));
     const stat = athlete.stats[apparatus.id];
     const D = stat.d;
     const typicalDed = Math.max(0.2, round1(10 - stat.e)); // typical execution deductions
-    const dailyForm = (Math.pow(rng(), 1.3) - 0.45) * 0.9; // + means worse day
+    // Curva em sino: variações extremas ficam raras. Pressão empurra levemente para pior;
+    // atletas consistentes ("clutch") sofrem menos com ela.
+    const clutch = 1 - (athlete.consistency - 0.7) * 1.6; // ~1.0 média, <1 para os mais consistentes
+    const dailyForm = gauss(rng) * 0.42 + dayForm + pressure * 0.16 * Math.max(0.35, clutch);
     let targetDed = typicalDed + dailyForm;
 
     const deductions = [];
     const neutral = [];
     let note = "limpa";
 
-    const fallChance = apparatus.risk + (1 - athlete.consistency) * 0.075;
-    const majorChance = apparatus.risk * 1.35 + (1 - athlete.consistency) * 0.090;
+    const nerveFactor = 1 + pressure * Math.max(0.35, clutch);
+    const fallChance = (apparatus.risk + (1 - athlete.consistency) * 0.075) * nerveFactor;
+    const majorChance = (apparatus.risk * 1.35 + (1 - athlete.consistency) * 0.090) * nerveFactor;
     let major = null;
     if (rng() < fallChance) { major = { code: "fall", value: 1.0 }; note = "queda"; targetDed += 0.4 + rng() * 0.5; }
     else if (rng() < majorChance) { const v = round1(0.3 + rng() * 0.5); major = { code: "majorbreak", value: v }; note = "erro"; }
-    else if (rng() < athlete.consistency * 0.12) { note = "cravada"; targetDed = Math.max(0.1, targetDed - (0.15 + rng() * 0.2)); }
+    else if (rng() < athlete.consistency * 0.12 * (1 - pressure * 0.4)) { note = "cravada"; targetDed = Math.max(0.1, targetDed - (0.15 + rng() * 0.2)); }
 
     if (major) deductions.push(major);
     let remaining = Math.max(0, round1(targetDed - (major ? major.value : 0)));
 
     // distribute remaining across execution faults in 0.1 steps
-    const pool = [...(FAULT_POOL[apparatus.id] || FAULT_POOL.generic), ...FAULT_POOL.generic];
-    const uniquePool = [...new Set(pool)];
+    // Pool ponderado: falhas específicas do aparelho pesam 2×, aterrissagem sempre presente
+    // (na vida real, passo no pouso é a dedução mais comum de todas).
+    const specific = FAULT_POOL[apparatus.id] || FAULT_POOL.generic;
+    const weightedPool = [...specific, ...specific, ...FAULT_POOL.generic, "landstep", "form"];
     let steps = Math.round(remaining * 10);
     const used = {};
     let guard = 0;
-    while (steps > 0 && guard < 40) {
+    while (steps > 0 && guard < 60) {
       guard++;
-      const code = uniquePool[Math.floor(rng() * uniquePool.length)];
-      const chunk = Math.min(steps, 1 + Math.floor(rng() * 3)); // 0.1–0.3 per fault
+      const code = weightedPool[Math.floor(rng() * weightedPool.length)];
+      if ((used[code] || 0) >= 5) continue; // no máximo -0.5 por tipo de falha
+      const chunk = Math.min(steps, 1 + Math.floor(rng() * 3), 5 - (used[code] || 0)); // 0.1–0.3 per fault
       used[code] = (used[code] || 0) + chunk;
       steps -= chunk;
-      if (used[code] >= 5) steps -= 0; // cap prevents runaway
     }
     Object.keys(used).forEach((code) => deductions.push({ code, value: round1(used[code] / 10) }));
 
@@ -1274,7 +1503,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     return { d: D, e: E, total, note, deductions, neutral, execDed, neutralDed };
   }
   // Back-compat alias
-  function simulateRoutine(athlete, apparatus) { return buildRoutine(athlete, apparatus, state.rng); }
+  function simulateRoutine(athlete, apparatus, ctx = {}) { return buildRoutine(athlete, apparatus, state.rng, ctx); }
 
   /* ---------- SETUP ---------- */
   function arenaArt() {
@@ -1303,6 +1532,8 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   function renderSetup() {
     state.view = "setup"; setPhase("setup", `${icon("trophy")} ${t("phaseSetup")}`);
     state.results = {}; state.teams = []; state.live = null;
+    const battle = isBattleMode();
+    const displayApps = battle ? [...new Map([...APPARATUS.WAG, ...APPARATUS.MAG].map((a) => [a.id, a])).values()] : apps();
     app.innerHTML = `
       <section class="screen">
         <div class="grid gap-4 lg:grid-cols-[1fr_0.95fr]">
@@ -1318,10 +1549,10 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
             </div>
             <div class="mt-5">
               <span class="field-label mb-2 block">${t("modality")}</span>
-              <div class="segment">
+              ${battle ? `<div class="metric"><div class="metric-num">${t("battleMixed")}</div><div class="metric-cap">${t("battleFormat")}</div></div>` : `<div class="segment">
                 <button class="${state.gender === "WAG" ? "active" : ""}" data-act="gender" data-val="WAG">${t("female")}</button>
                 <button class="${state.gender === "MAG" ? "active" : ""}" data-act="gender" data-val="MAG">${t("male")}</button>
-              </div>
+              </div>`}
             </div>
             <div class="mt-5">
               <span class="field-label mb-2 block">${t("competition")}</span>
@@ -1330,20 +1561,20 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
               </div>
             </div>
             <div class="mt-5 grid gap-3 md:grid-cols-3">
-              <div class="metric"><div class="metric-num">5</div><div class="metric-cap">${t("athletesInDraft")}</div></div>
-              <div class="metric"><div class="metric-num">${competitionTeamCountries().length + 1}</div><div class="metric-cap">${t("teamsInQuals")}</div></div>
-              <div class="metric"><div class="metric-num">${apps().length}</div><div class="metric-cap">${t("apparatus")}</div></div>
+              <div class="metric"><div class="metric-num">${battle ? BATTLE_CONFIG.rosterSize : 5}</div><div class="metric-cap">${t("athletesInDraft")}</div></div>
+              <div class="metric"><div class="metric-num">${battle ? BATTLE_CONFIG.teamCount : competitionTeamCountries().length + 1}</div><div class="metric-cap">${battle ? t("battleTeams") : t("teamsInQuals")}</div></div>
+              <div class="metric"><div class="metric-num">${battle ? 100 : displayApps.length}</div><div class="metric-cap">${battle ? t("battlePoints") : t("apparatus")}</div></div>
             </div>
             <div class="mt-6 flex flex-col gap-3 md:flex-row md:items-center">
-              <button class="btn btn-primary" data-act="startDraft">${icon("arrow")} ${t("openDraft")}</button>
-              <button class="btn btn-secondary" data-act="quickStart">${icon("play")} ${t("autoDraft")}</button>
+              <button class="btn btn-primary" data-act="startDraft">${icon("arrow")} ${battle ? t("battleDraftTitle") : t("openDraft")}</button>
+              <button class="btn btn-secondary" data-act="quickStart">${icon("play")} ${battle ? t("battleAuto") : t("autoDraft")}</button>
             </div>
           </div>
           <div class="grid gap-4">
             ${arenaArt()}
             <div class="soft-panel p-4">
               <div class="flex flex-wrap gap-2">
-                ${apps().map((a) => `<span class="chip">${appName(a)}</span>`).join("")}
+                ${displayApps.map((a) => `<span class="chip">${appName(a)}</span>`).join("")}
               </div>
             </div>
           </div>
@@ -1365,9 +1596,9 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     state.federation = (fi?.value || state.federation || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
     persistTeamIdentity();
   }
-  function startDraft() { readSetupInputs(); state.selectedIds = []; state.draftRound = 1; resetDraftRerolls(); generateDraftRound(); renderDraftBoard(); }
   function quickStart() {
     readSetupInputs(); state.selectedIds = []; state.draftRound = 1; resetDraftRerolls();
+    if (isBattleMode()) { autoFillBattleDraft(); return; }
     while (state.selectedIds.length < 5) {
       generateDraftRound();
       const pick = [...state.draftOptions].sort((a, b) => totalPotential(b) - totalPotential(a))[0];
@@ -1376,8 +1607,14 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     }
     renderDraftBoard(); showToast(t("filledBest"));
   }
-  function randomItem(items) { return items[Math.floor(Math.random() * items.length)]; }
-  function shuffled(items) { return [...items].sort(() => Math.random() - 0.5); }
+  function startDraft() { readSetupInputs(); state.selectedIds = []; state.draftRound = 1; resetDraftRerolls(); if (isBattleMode()) renderBattleDraft(); else { generateDraftRound(); renderDraftBoard(); } }
+  function randomItem(items) { return items[Math.floor(state.rng() * items.length)]; }
+  function shuffled(items) {
+    // Fisher–Yates com RNG semeado (sort(random) é enviesado e quebra a reprodutibilidade da seed)
+    const a = [...items];
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(state.rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  }
   function draftPool(country, year, options = {}) {
     const includeSelected = Boolean(options.includeSelected);
     const selected = selectedBaseKeys();
@@ -1542,6 +1779,210 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
         <button class="btn btn-danger btn-icon" data-act="removeAthlete" data-id="${a.id}" title="${t("remove")}" aria-label="${t("remove")} ${escapeHTML(a.name)}">${icon("x")}</button>
       </div></div>`;
   }
+
+  /* ---------- BATTLE ROYALE LIVRE ---------- */
+  function battleDraftPool() {
+    return uniqueBestSeasons(ATHLETES, athleteTotalPotential).sort((a, b) => athleteTotalPotential(b) - athleteTotalPotential(a));
+  }
+  function battleRosterSlot(a) {
+    const best = athleteBestApp(a);
+    return `<div class="card roster-card p-3">
+      <div class="flex items-start justify-between gap-3">
+        <div class="min-w-0"><div class="truncate strong">${escapeHTML(a.name)}</div><div class="mt-1 sub flex items-center gap-1.5">${a.gender} · ${countryLabel(a.country)} · ${a.year} · ${appTag(best, "app-icon app-icon-xs")} ${best.short}</div></div>
+        <button class="btn btn-danger btn-icon" data-act="removeBattleAthlete" data-id="${a.id}" title="${t("remove")}" aria-label="${t("remove")} ${escapeHTML(a.name)}">${icon("x")}</button>
+      </div></div>`;
+  }
+  function battleOptionRow(a) {
+    const best = athleteBestApp(a);
+    const isSelected = selectedBaseKeys().has(a.baseKey);
+    return `<tr class="${isSelected ? "player-row" : ""}">
+      <td><div class="strong">${escapeHTML(a.name)}</div><div class="sub">${a.gender} · ${a.year}</div></td>
+      <td>${countryLabel(a.country)}</td>
+      <td><span class="chip chip-app">${appTag(best, "app-icon app-icon-sm")} ${best.short}</span></td>
+      <td class="score">${athleteTotalPotential(a).toFixed(1)}</td>
+      <td><button class="btn ${isSelected ? "btn-secondary" : "btn-primary"}" data-act="addBattleAthlete" data-id="${a.id}" ${isSelected ? "disabled" : ""}>${isSelected ? icon("check") : icon("plus")} ${isSelected ? t("selected") : t("recruit")}</button></td>
+    </tr>`;
+  }
+  function renderBattleDraft() {
+    state.view = "battleDraft"; setPhase("draft", `${icon("live")} ${t("battleDraftTitle")}`);
+    const selected = selectedAthletes();
+    const complete = selected.length === BATTLE_CONFIG.rosterSize;
+    const pool = battleDraftPool();
+    app.innerHTML = `
+      <section class="screen">
+        <div class="grid gap-4">
+          <div class="panel p-4 md:p-5">
+            ${progress("draft")}
+            <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div><p class="kicker">${escapeHTML(competitionName())} · ${t("battleFormat")}</p><h1 class="mt-1 display text-2xl md:text-4xl">${t("battleDraftTitle")}</h1><p class="mt-2 hint">${t("battlePickInstruction")}</p></div>
+              <div class="flex gap-2">
+                <button class="btn btn-secondary" data-act="battleAuto">${icon("plus")} ${t("battleAuto")}</button>
+                <button class="btn btn-primary" data-act="battleStart" ${complete ? "" : "disabled"}>${icon("play")} ${t("battleStart")}</button>
+              </div>
+            </div>
+          </div>
+          <div class="grid gap-4 lg:grid-cols-[360px_1fr]">
+            <aside class="panel p-4">
+              <div class="flex items-center justify-between gap-3">
+                <h2 class="section-title">${t("battleRoster")} <span class="count-pill">${selected.length}/${BATTLE_CONFIG.rosterSize}</span></h2>
+                <button class="btn btn-secondary btn-icon" data-act="clearBattleDraft" title="${t("clearDraft")}" aria-label="${t("clearDraft")}">${icon("x")}</button>
+              </div>
+              <div class="mt-4 grid gap-2">
+                ${selected.map((a) => battleRosterSlot(a)).join("")}
+                ${selected.length < BATTLE_CONFIG.rosterSize ? Array.from({ length: BATTLE_CONFIG.rosterSize - selected.length }, (_, i) => `<div class="slot-empty">${icon("plus")} ${t("slot", { n: selected.length + i + 1 })}</div>`).join("") : ""}
+              </div>
+            </aside>
+            <section class="panel p-4">
+              <div class="mb-4 grid gap-3 md:grid-cols-3">
+                <div class="metric"><div class="metric-num">${BATTLE_CONFIG.teamCount}</div><div class="metric-cap">${t("battleTeams")}</div></div>
+                <div class="metric"><div class="metric-num">12 → 4 → 1</div><div class="metric-cap">${t("battleQualified")}</div></div>
+                <div class="metric"><div class="metric-num">100</div><div class="metric-cap">${t("battlePercentile")}</div></div>
+              </div>
+              <div class="table-wrap tall"><table><thead><tr><th>${t("gymnast")}</th><th>${t("country")}</th><th>${t("bestApp")}</th><th class="num">${t("potentialAA")}</th><th>${t("action")}</th></tr></thead><tbody>
+                ${pool.map((a) => battleOptionRow(a)).join("")}
+              </tbody></table></div>
+            </section>
+          </div>
+        </div>
+      </section>`;
+  }
+  function addBattleAthlete(id) {
+    const athlete = athleteById(id);
+    if (!athlete || selectedBaseKeys().has(athlete.baseKey)) return;
+    if (state.selectedIds.length >= BATTLE_CONFIG.rosterSize) { showToast(t("chooseBattleSix")); return; }
+    state.selectedIds.push(id); renderBattleDraft();
+  }
+  function removeBattleAthlete(id) { state.selectedIds = state.selectedIds.filter((x) => x !== id); renderBattleDraft(); }
+  function clearBattleDraft() { state.selectedIds = []; renderBattleDraft(); }
+  function autoFillBattleDraft() {
+    state.selectedIds = [];
+    const pool = battleDraftPool();
+    const byGender = { WAG: pool.filter((a) => a.gender === "WAG"), MAG: pool.filter((a) => a.gender === "MAG") };
+    const picks = [];
+    for (let i = 0; i < BATTLE_CONFIG.rosterSize; i++) {
+      const source = i % 2 === 0 ? byGender.WAG : byGender.MAG;
+      const pick = source.find((a) => !picks.some((p) => p.baseKey === a.baseKey)) || pool.find((a) => !picks.some((p) => p.baseKey === a.baseKey));
+      if (pick) picks.push(pick);
+    }
+    state.selectedIds = picks.map((a) => a.id);
+    renderBattleDraft(); showToast(t("battleFilled"));
+  }
+  function buildBattleTeams() {
+    const shell = { id: "player", name: state.teamName, federation: state.federation, isPlayer: true };
+    const playerTeam = { ...shell, roster: selectedAthletes().map((a) => cloneAthlete(a, shell)) };
+    const selected = selectedBaseKeys();
+    const pool = battleDraftPool().filter((a) => !selected.has(a.baseKey));
+    const wag = pool.filter((a) => a.gender === "WAG");
+    const mag = pool.filter((a) => a.gender === "MAG");
+    const teams = [playerTeam];
+    for (let i = 1; i < BATTLE_CONFIG.teamCount; i++) {
+      const s = { id: `battle-${i}`, name: `${t("battleDraftTitle")} ${String(i).padStart(2, "0")}`, federation: "BRL", isPlayer: false };
+      const roster = [];
+      for (let j = 0; j < BATTLE_CONFIG.rosterSize; j++) {
+        const source = j % 2 === 0 ? wag : mag;
+        const fallback = j % 2 === 0 ? mag : wag;
+        const pick = source[(i * 5 + j * 11) % source.length] || fallback[(i * 7 + j * 13) % fallback.length] || pool[(i + j) % pool.length];
+        if (pick && !roster.some((a) => a.baseKey === pick.baseKey)) roster.push(pick);
+      }
+      while (roster.length < BATTLE_CONFIG.rosterSize) {
+        const pick = pool[(i * 17 + roster.length * 19) % pool.length];
+        if (!roster.some((a) => a.baseKey === pick.baseKey)) roster.push(pick); else break;
+      }
+      teams.push({ ...s, roster: roster.map((a) => cloneAthlete(a, s)) });
+    }
+    return teams;
+  }
+  function chooseBattleLineup(team, routineCount) {
+    const candidates = [];
+    team.roster.forEach((athlete) => athleteApps(athlete).forEach((ap) => {
+      candidates.push({ athlete, apparatus: ap, potential: appPotential(athlete, ap.id) + state.rng() * 0.18 });
+    }));
+    return candidates.sort((a, b) => b.potential - a.potential).slice(0, routineCount);
+  }
+  function simulateBattleStage(config, teams) {
+    const dayForms = sessionDayForms(teams.flatMap((tm) => tm.roster));
+    const routines = [];
+    teams.forEach((team) => {
+      chooseBattleLineup(team, config.routines).forEach((entry, idx) => {
+        const score = simulateRoutine(entry.athlete, entry.apparatus, { dayForm: dayForms[entry.athlete.id], pressure: config.pressure + idx * 0.015 });
+        routines.push({ teamId: team.id, team, athlete: entry.athlete, apparatus: entry.apparatus, score, raw: score.total, points: 0 });
+      });
+    });
+    [...new Set(routines.map((r) => r.apparatus.id))].forEach((appId) => {
+      const group = routines.filter((r) => r.apparatus.id === appId).sort((a, b) => b.raw - a.raw);
+      group.forEach((r, index) => { r.points = group.length === 1 ? 100 : round3(100 * (group.length - 1 - index) / (group.length - 1)); });
+    });
+    const rows = teams.map((team) => {
+      const teamRoutines = routines.filter((r) => r.teamId === team.id);
+      return {
+        team,
+        routines: teamRoutines,
+        points: round3(teamRoutines.reduce((s, r) => s + r.points, 0)),
+        raw: round3(teamRoutines.reduce((s, r) => s + r.raw, 0))
+      };
+    }).sort((a, b) => b.points - a.points).map((row, index) => ({ ...row, rank: index + 1 }));
+    return { ...config, routineCount: config.routines, rows, routines };
+  }
+  function runBattleRoyale() {
+    if (state.selectedIds.length !== BATTLE_CONFIG.rosterSize) { showToast(t("chooseBattleSix")); return; }
+    state.seed = Date.now() % 1000000000; state.rng = mulberry32(state.seed);
+    const teams = buildBattleTeams();
+    const stages = [];
+    let alive = teams;
+    BATTLE_CONFIG.stages.forEach((config) => {
+      const stage = simulateBattleStage(config, alive);
+      stages.push(stage);
+      alive = stage.rows.slice(0, config.advance).map((r) => r.team);
+    });
+    state.results = { battle: { stages, champion: stages[stages.length - 1].rows[0], seed: state.seed } };
+    renderBattleResults();
+  }
+  function battleStageTable(stage) {
+    const keep = stage.rows.slice(0, Math.min(16, stage.rows.length));
+    const player = stage.rows.find((r) => r.team.isPlayer);
+    const rows = player && !keep.some((r) => r.team.id === player.team.id) ? [...keep, player] : keep;
+    return `<div class="table-wrap"><table><thead><tr><th>${t("rank")}</th><th>${t("team")}</th><th class="num">${t("battlePoints")}</th><th class="num">${t("battleRaw")}</th><th>${t("final")}</th></tr></thead><tbody>
+      ${rows.map((r) => `<tr class="${r.team.isPlayer ? "player-row" : ""}"><td class="rank">${r.rank}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub sub-fed">${flagHtml(r.team.federation)}${escapeHTML(r.team.federation)}</div></td><td class="score">${formatScore(r.points)}</td><td class="score">${formatScore(r.raw)}</td><td>${r.rank <= stage.advance ? '<span class="q-badge">Q</span>' : ""}</td></tr>`).join("")}
+    </tbody></table></div>`;
+  }
+  function battleTopRoutines(stage) {
+    return [...stage.routines].sort((a, b) => b.points - a.points).slice(0, 6).map((r) => `<div class="sess-row ${r.team.isPlayer ? "sess-you" : ""}">
+      <span class="sess-name">${escapeHTML(r.athlete.name)}</span>${countryLabel(r.athlete.country)}<span>${appTag(r.apparatus, "app-icon app-icon-xs")} ${r.apparatus.short}</span><span class="sess-score">${formatScore(r.points)}</span>
+    </div>`).join("");
+  }
+  function renderBattleResults() {
+    state.view = "battle"; setPhase("team", `${icon("live")} ${t("battleDraftTitle")}`);
+    const battle = state.results.battle;
+    const champion = battle.champion;
+    const playerRows = battle.stages.map((stage) => ({ stage, row: stage.rows.find((r) => r.team.isPlayer) })).filter((item) => item.row);
+    app.innerHTML = `
+      <section class="screen">
+        <div class="grid gap-4">
+          <div class="panel p-4 md:p-5">
+            ${progress("team")}
+            <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div><p class="kicker">${t("battlePercentile")} · ${t("battleFormat")}</p><h1 class="mt-1 display text-2xl md:text-4xl">${t("battleChampion")}: ${escapeHTML(displayTeamName(champion.team))}</h1></div>
+              <button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button>
+            </div>
+          </div>
+          <div class="grid gap-4 lg:grid-cols-[360px_1fr]">
+            <aside class="panel p-4">
+              ${renderPodium(battle.stages[battle.stages.length - 1].rows.slice(0, 3).map((r) => ({ rank: r.rank, name: displayTeamName(r.team), sub: r.team.federation, score: r.points, player: r.team.isPlayer })))}
+              <div class="mt-4 grid gap-2">
+                ${playerRows.map(({ stage, row }) => `<div class="soft-panel p-3"><div class="strong">${t(stage.titleKey)} · #${row.rank}</div><div class="sub">${escapeHTML(displayTeamName(row.team))} · ${formatScore(row.points)} ${t("battlePoints")}</div></div>`).join("")}
+              </div>
+            </aside>
+            <div class="grid gap-4">
+              ${battle.stages.map((stage) => `<section class="panel p-4">
+                <div class="mb-3 flex flex-col gap-2 md:flex-row md:items-center md:justify-between"><h2 class="section-title">${t(stage.titleKey)} · ${stage.routineCount} ${t("routine")}</h2><span class="chip">${stage.advance === 1 ? t("battleChampion") : `${stage.advance} ${t("battleQualified")}`}</span></div>
+                ${battleStageTable(stage)}
+                <div class="mt-4 sess-list">${battleTopRoutines(stage)}</div>
+              </section>`).join("")}
+            </div>
+          </div>
+        </div>
+      </section>`;
+  }
   function draftOptionCard(a) {
     const best = bestApp(a);
     const isSelected = selectedBaseKeys().has(a.baseKey);
@@ -1584,9 +2025,9 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     const stats = {}; Object.keys(a.stats).forEach((k) => { stats[k] = { ...a.stats[k] }; });
     return { ...a, baseId: a.id, id: `${a.id}--${team.id}`, stats, teamId: team.id, teamName: team.name, federation: team.federation, isPlayerAthlete: team.isPlayer };
   }
-  function uniqueBestSeasons(pool) {
+  function uniqueBestSeasons(pool, potentialFn = totalPotential) {
     const byPerson = new Map();
-    [...pool].sort((a, b) => totalPotential(b) - totalPotential(a)).forEach((a) => {
+    [...pool].sort((a, b) => potentialFn(b) - potentialFn(a)).forEach((a) => {
       if (!byPerson.has(a.baseKey)) byPerson.set(a.baseKey, a);
     });
     return [...byPerson.values()];
@@ -1648,11 +2089,12 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   function runQualifications() {
     setPhase("quals", `${icon("play")} ${t("phaseQuals")}`);
     const teamResults = []; const allAthletes = [];
+    const dayForms = sessionDayForms(state.teams.flatMap((tm) => tm.roster));
     state.teams.forEach((team) => {
       const appTotals = {}; let total = 0;
       team.roster.forEach((a) => {
         a.qualScores = {}; a.qualAA = 0;
-        apps().forEach((ap) => { const sc = simulateRoutine(a, ap); a.qualScores[ap.id] = sc; a.qualAA += sc.total; });
+        apps().forEach((ap) => { const sc = simulateRoutine(a, ap, { dayForm: dayForms[a.id] }); a.qualScores[ap.id] = sc; a.qualAA += sc.total; });
         a.qualAA = round3(a.qualAA); allAthletes.push(a);
       });
       apps().forEach((ap) => {
@@ -1756,12 +2198,21 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       return { team, lineups, appTotals: {}, total: 0, running: 0 };
     });
     // rotations = one per apparatus. In each rotation, each team performs its 3 counters on that apparatus.
+    const dayForms = sessionDayForms(teamData.flatMap((td) => td.team.roster));
+    const lastRot = apps().length - 1;
     const rotations = apps().map((ap, rIndex) => {
       const routines = [];
       teamData.forEach((td) => {
+        let prev = null; // efeito de momento dentro da equipe na rotação
         td.lineups[ap.id].forEach((athlete, sub) => {
-          const score = buildRoutine(athlete, ap, state.rng);
-          routines.push({ teamId: td.team.id, team: td.team, athlete, apparatus: ap, score, sub });
+          let pressure = 0.10 + (rIndex === lastRot ? 0.08 : 0); // final; última rotação pesa mais
+          let after = null;
+          if (prev && prev.score.note === "queda") { pressure += 0.18; after = { kind: "fall", name: prev.athlete.name }; }
+          else if (prev && prev.score.note === "cravada") { pressure -= 0.08; after = { kind: "stick", name: prev.athlete.name }; }
+          const score = buildRoutine(athlete, ap, state.rng, { dayForm: dayForms[athlete.id], pressure });
+          const routine = { teamId: td.team.id, team: td.team, athlete, apparatus: ap, score, sub, after };
+          routines.push(routine);
+          prev = routine;
         });
       });
       return { apparatus: ap, index: rIndex, routines };
@@ -1786,9 +2237,13 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       teamData: data.teamData, rotations: data.rotations,
       rotIndex: 0, routineIndex: -1, // -1 = not started this rotation
       playing: true, speed: 1, timer: null,
-      running: {}, log: [], comments: [], done: false, finalCommented: false
+      running: {}, log: [], comments: [], done: false, finalCommented: false,
+      bestByApp: {}, lastVar: {}
     };
     data.teamData.forEach((td) => { state.live.running[td.team.id] = 0; });
+    // abertura da transmissão + primeira rotação
+    pushLiveComment(boothComment("opening", {}, { meta: escapeHTML(competitionName()) }));
+    pushLiveComment(boothComment("rotationIntro", { rot: 1, app: appName(state.live.rotations[0].apparatus) }, { meta: `${t("rotation")} 1/${state.live.rotations.length}` }));
     renderLive();
     scheduleLiveTick(500);
   }
@@ -1817,59 +2272,321 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     }
     return `${rank}º`;
   }
-  function commentaryPhrase(kind, data = {}) {
-    const lang = state.lang;
-    const pack = {
-      "pt-BR": {
-        stick: `${data.name} cravou ${data.app} e arrancou um bônus de embalo na execução. ${data.score} para ${data.team}; rotina de quem sustenta final grande.`,
-        fall: `${data.name} sofreu queda em ${data.app}. A maior batida foi ${data.fault} (-${data.value}), e a nota ficou em ${data.score}.`,
-        error: `${data.name} teve quebra visível em ${data.app}, principalmente em ${data.fault} (-${data.value}). Mesmo assim, salvou ${data.score}.`,
-        line: `${data.name} entregou bom volume em ${data.app}, mas a dedução neutra pesou. ${data.score} para ${data.team}.`,
-        clean: `${data.name} fez rotina limpa em ${data.app}, quase sem dar margem para os árbitros. ${data.score} entra forte para ${data.team}.`,
-        steady: `${data.name} controlou ${data.app}; ${data.fault} custou -${data.value}, mas ${data.score} mantém ${data.team} na briga.`,
-        podium: `${data.team} aparece em ${data.rank} no placar ao vivo. Se segurar esse ritmo, é conversa direta de pódio.`,
-        playerPodium: `Sua equipe sobe para ${data.rank} no ao vivo. Esse ${data.score} muda o clima da final.`,
-        skipBest: `No bloco pulado, o grande destaque foi ${data.name} em ${data.app}: ${data.score}, defendendo ${data.team}.`,
-        skipPlayer: `Da sua equipe, ${data.name} foi a melhor rotina do bloco: ${data.score} em ${data.app}.`,
-        finalTop: `${data.team} fecha a final na liderança com ${data.score}. Ouro decidido no conjunto, não em uma rotina só.`,
-        finalPlayerPodium: `Pódio para sua equipe: ${data.rank} lugar com ${data.score}. Quando precisava, a equipe respondeu.`,
-        finalPlayer: `Sua equipe encerra em ${data.rank}, com ${data.score}. Ficou fora do pódio, mas teve momentos para guardar.`
-      },
-      en: {
-        stick: `${data.name} stuck ${data.app} and earned that execution pop. ${data.score} for ${data.team}; a routine built for a major final.`,
-        fall: `${data.name} fell on ${data.app}. The biggest hit was ${data.fault} (-${data.value}), leaving the score at ${data.score}.`,
-        error: `${data.name} had a clear break on ${data.app}, especially ${data.fault} (-${data.value}). Still, ${data.score} keeps it alive.`,
-        line: `${data.name} showed strong content on ${data.app}, but the neutral deduction mattered. ${data.score} for ${data.team}.`,
-        clean: `${data.name} delivered a clean ${data.app} set with little for the judges to take. ${data.score} lands well for ${data.team}.`,
-        steady: `${data.name} managed ${data.app}; ${data.fault} cost -${data.value}, but ${data.score} keeps ${data.team} in the fight.`,
-        podium: `${data.team} moves into ${data.rank} on the live board. Hold that pace and it is podium talk.`,
-        playerPodium: `Your team climbs to ${data.rank} live. That ${data.score} changes the whole mood of the final.`,
-        skipBest: `In the skipped block, the standout was ${data.name} on ${data.app}: ${data.score} for ${data.team}.`,
-        skipPlayer: `For your team, ${data.name} had the best routine of the block: ${data.score} on ${data.app}.`,
-        finalTop: `${data.team} closes the final on top with ${data.score}. Gold won by the whole lineup, not one routine.`,
-        finalPlayerPodium: `Podium for your team: ${data.rank} place with ${data.score}. When it mattered, the team answered.`,
-        finalPlayer: `Your team finishes ${data.rank}, with ${data.score}. No podium, but there were moments worth keeping.`
-      },
-      es: {
-        stick: `${data.name} clavó ${data.app} y ganó impulso extra en la ejecución. ${data.score} para ${data.team}; rutina de final grande.`,
-        fall: `${data.name} sufrió una caída en ${data.app}. El golpe mayor fue ${data.fault} (-${data.value}), y la nota quedó en ${data.score}.`,
-        error: `${data.name} tuvo una ruptura clara en ${data.app}, sobre todo ${data.fault} (-${data.value}). Aun así, salvó ${data.score}.`,
-        line: `${data.name} mostró buen contenido en ${data.app}, pero la deducción neutral pesó. ${data.score} para ${data.team}.`,
-        clean: `${data.name} hizo una rutina limpia en ${data.app}, casi sin margen para los jueces. ${data.score} entra fuerte para ${data.team}.`,
-        steady: `${data.name} controló ${data.app}; ${data.fault} costó -${data.value}, pero ${data.score} mantiene a ${data.team} en la pelea.`,
-        podium: `${data.team} aparece ${data.rank} en el marcador en vivo. Si mantiene este ritmo, habla de podio.`,
-        playerPodium: `Tu equipo sube al ${data.rank} en vivo. Ese ${data.score} cambia el clima de la final.`,
-        skipBest: `En el bloque saltado, el destaque fue ${data.name} en ${data.app}: ${data.score} para ${data.team}.`,
-        skipPlayer: `De tu equipo, ${data.name} tuvo la mejor rutina del bloque: ${data.score} en ${data.app}.`,
-        finalTop: `${data.team} cierra la final en la cima con ${data.score}. Oro decidido por todo el equipo, no por una sola rutina.`,
-        finalPlayerPodium: `Podio para tu equipo: ${data.rank} lugar con ${data.score}. Cuando importaba, el equipo respondió.`,
-        finalPlayer: `Tu equipo termina ${data.rank}, con ${data.score}. Sin podio, pero con momentos para guardar.`
-      }
-    };
-    return (pack[lang] || pack["pt-BR"])[kind];
+  /* ---------- cabine de transmissão: narração + comentários técnicos ---------- */
+  // Duas vozes fictícias inspiradas em transmissões reais de ginástica:
+  // o narrador (emoção, jogada a jogada) e o comentarista ex-ginasta (leitura técnica).
+  const BOOTH = {
+    "pt-BR": { pbp: { name: "Rui Valente", role: "Narração" }, analyst: { name: "Dani Fontoura", role: "Comentarista" } },
+    en: { pbp: { name: "Mike Callahan", role: "Play-by-play" }, analyst: { name: "Erin Wells", role: "Analyst" } },
+    es: { pbp: { name: "Andrés Peralta", role: "Narración" }, analyst: { name: "Lucía Ferrer", role: "Comentarista" } }
+  };
+  const KIND_SPEAKER = {
+    opening: "pbp", rotationIntro: "pbp", lastRotation: "analyst",
+    stick: "pbp", stickAnalysis: "analyst", fall: "pbp", fallAnalysis: "analyst", fallRecovery: "pbp",
+    error: "pbp", clean: "pbp", steady: "analyst", line: "analyst",
+    bigScore: "pbp", dayBest: "analyst", leadChange: "pbp",
+    podium: "analyst", playerPodium: "pbp", skipBest: "analyst", skipPlayer: "analyst",
+    finalTop: "pbp", finalPlayerPodium: "pbp", finalPlayer: "analyst"
+  };
+  const COMMENTARY = {
+    "pt-BR": {
+      opening: [
+        "Está no ar a final por equipes! Aqui é três sobem, três contam: não existe nota para descartar, não existe onde se esconder.",
+        "Arena lotada e o ouro na mesa! Começa a final por equipes — cada aterrissagem vale ouro, literalmente.",
+        "Aperte o cinto: final por equipes começando! Oito equipes, um pódio e a regra mais cruel da ginástica: todas as notas contam."
+      ],
+      rotationIntro: [
+        "Rotação {rot}: as atenções se voltam para {app}.",
+        "Muda o cenário! Rotação {rot}, agora é a vez de {app}.",
+        "Seguimos em frente: rotação {rot}, com {app} no centro do ginásio."
+      ],
+      lastRotation: [
+        "Última rotação, e a conta é simples: {leader} defende {gap} sobre {chaser}. Uma queda muda tudo.",
+        "Chegamos ao momento da verdade: {leader} na frente, {chaser} a {gap}. Agora é coração na mão.",
+        "Rotação final, vantagem de {leader}: {gap}. Nessa altura ninguém vence no talento — vence no controle."
+      ],
+      stick: [
+        "CRAVOU! {name} pregou os pés no chão! {score} no placar para {team}!",
+        "Que aterrissagem, senhoras e senhores! {name} cravou em {app} e a arena veio abaixo! {score}!",
+        "Não mexeu um centímetro! {name} fecha a série com cravada e anota {score}!",
+        "Perfeito no pouso! {name} cravou, abriu os braços e olhou para a arquibancada. {score} para {team}!"
+      ],
+      stickAnalysis: [
+        "Olha o detalhe técnico: peito erguido, joelhos absorvendo o impacto e calcanhares presos no solo. Os árbitros não têm de onde tirar.",
+        "Isso se treina mil vezes no ginásio: travar a aterrissagem mesmo com fadiga. Execução de {e} não aparece por acaso.",
+        "Cravada em final vale mais do que décimos: muda a energia do banco e coloca pressão em todas as outras equipes."
+      ],
+      fall: [
+        "Caiu! Ah, que pena... {name} não segurou e a mão foi ao chão. A nota despenca para {score}.",
+        "Queda de {name} em {app}! Silêncio na arena... é um ponto inteiro que vai embora. {score} no placar.",
+        "Não deu! {name} perdeu a linha e caiu. {score} — agora é cabeça erguida para fechar a rotação."
+      ],
+      fallAnalysis: [
+        "Além do 1.0 da queda, vêm as deduções de execução no elemento: {fault} custou {value} sozinho. O prejuízo total é enorme.",
+        "O erro nasce antes da queda: {fault} tirou o eixo e não havia como salvar. Agora o desafio é mental — a série tem que terminar bem.",
+        "Em final por equipes não existe descarte: essa nota conta. A equipe precisa responder já na próxima série."
+      ],
+      fallRecovery: [
+        "Que resposta! Logo depois da queda de {prev}, {name} entra com sangue frio e entrega {score}!",
+        "É disso que uma final é feita: {name} viu {prev} cair, subiu em seguida e segurou a equipe com {score}!",
+        "Frieza pura! A pressão dobrou depois do erro de {prev}, e a resposta de {name} foi {score} em {app}!"
+      ],
+      error: [
+        "Quebra grande na série de {name}! {fault} custou caro (-{value}), e a nota fica em {score}.",
+        "{name} escapou por pouco de uma queda, mas o erro ficou marcado: {fault}, -{value}. {score} no placar.",
+        "Série sofrida de {name} em {app}. O maior desconto foi {fault} (-{value}), e sobrou {score}."
+      ],
+      clean: [
+        "Série limpa de {name}! Quase nada para os árbitros anotarem: {score} para {team}.",
+        "{name} passeou em {app}. Trabalho de escola, sem sustos: {score}.",
+        "Sem drama e sem desconto grande: {name} entrega exatamente o que a equipe pedia. {score}."
+      ],
+      steady: [
+        "{name} administrou bem a série. O maior desconto foi {fault} (-{value}), mas {score} mantém {team} viva na briga.",
+        "Boa gestão de risco: {name} segurou onde precisava, e o {score} cumpre a missão para {team}.",
+        "Teve {fault} no meio do caminho (-{value}), mas nada que comprometa: {score} é nota de tabela para {team}."
+      ],
+      line: [
+        "O conteúdo era bom, mas o pé saiu da área: dedução neutra direto na nota final. {score} para {team}.",
+        "{name} pagou na linha: a penalidade neutra corta depois da soma, e isso dói. Ficou em {score}."
+      ],
+      bigScore: [
+        "QUE NOTA! {score} para {name}! A arena explode!",
+        "Abram espaço no placar: {score}! {name} acabou de subir o sarrafo desta final!",
+        "Isso é nota de pódio! {name} anota {score} e muda a conversa!"
+      ],
+      dayBest: [
+        "E é a melhor nota do dia em {app}: {score}. Referência lançada para quem ainda vai competir.",
+        "Anota aí: {score} de {name} é, até agora, a maior nota em {app} nesta final."
+      ],
+      leadChange: [
+        "MUDANÇA NA PONTA! {team} assume a liderança da final!",
+        "Vira o placar! {team} agora lidera — e a arena percebeu na hora!",
+        "Troca de liderança: {team} passa à frente. Que final, senhoras e senhores!"
+      ],
+      podium: [
+        "{team} aparece em {rank} no parcial. Se sustentar esse ritmo, é conversa direta de pódio.",
+        "No recorte de agora, {team} é {rank}. A briga por medalha está completamente aberta."
+      ],
+      playerPodium: [
+        "Sua equipe sobe para {rank} no ao vivo! Esse {score} muda o clima da final!",
+        "A torcida agradece: sua equipe aparece em {rank} depois desse {score}!"
+      ],
+      skipBest: [
+        "No bloco que passou, o destaque foi {name} em {app}: {score} defendendo {team}.",
+        "Resumo rápido do trecho: a melhor série foi de {name}, {score} em {app} para {team}."
+      ],
+      skipPlayer: [
+        "Da sua equipe, a melhor série do bloco foi de {name}: {score} em {app}.",
+        "Pelo seu time, quem mais brilhou no trecho foi {name}, com {score} em {app}."
+      ],
+      finalTop: [
+        "ACABOU! {team} é campeã da final por equipes com {score}! Ouro construído série a série!",
+        "Fecha o placar: {team} no lugar mais alto do pódio, {score} no total. Que campanha!"
+      ],
+      finalPlayerPodium: [
+        "PÓDIO! Sua equipe termina em {rank} lugar com {score}! Quando o ginásio pesou, vocês responderam!",
+        "Medalha para a sua equipe: {rank} lugar, {score}. Guarde esta noite na memória!"
+      ],
+      finalPlayer: [
+        "Sua equipe encerra em {rank}, com {score}. O pódio escapou, mas ficaram séries para guardar.",
+        "Fim de prova: {rank} lugar e {score} no total. A base está montada para o próximo ciclo."
+      ]
+    },
+    en: {
+      opening: [
+        "Welcome to the team final! Three up, three count — every score stays on the board tonight.",
+        "The arena is packed and the gold is on the line. Team final: no dropped scores, no place to hide."
+      ],
+      rotationIntro: [
+        "Rotation {rot}: all eyes on {app}.",
+        "On we go — rotation {rot}, and it's {app} time."
+      ],
+      lastRotation: [
+        "Final rotation, and the math is simple: {leader} protects {gap} over {chaser}. One fall changes everything.",
+        "The moment of truth: {leader} leads {chaser} by {gap}. From here it's about nerve, not talent."
+      ],
+      stick: [
+        "STUCK IT! {name} nails the landing — {score} for {team}!",
+        "Not an inch of movement on that dismount! {name} sticks it cold for {score}!",
+        "Feet glued to the mat! {name} finishes with a stick and posts {score}!"
+      ],
+      stickAnalysis: [
+        "Look at the technique: chest up, knees absorbing, heels planted. The judges have nothing to take.",
+        "You drill that landing a thousand times in the gym. An execution score of {e} doesn't happen by accident."
+      ],
+      fall: [
+        "Down! Oh no — {name} couldn't hold it, hands on the mat. The score tumbles to {score}.",
+        "A fall for {name} on {app}! You could hear a pin drop... that's a full point gone. {score}."
+      ],
+      fallAnalysis: [
+        "It's not just the 1.0 for the fall — the execution deductions pile on top. {fault} cost {value} on its own.",
+        "The mistake starts before the fall: {fault} broke the line and there was no saving it. Now it's a mental game."
+      ],
+      fallRecovery: [
+        "What an answer! Right after {prev} went down, {name} steps up ice-cold and delivers {score}!",
+        "That's what finals are made of: {name} watched {prev} fall, then held the team together with {score}!"
+      ],
+      error: [
+        "A big break for {name}! {fault} was costly (-{value}) and the score settles at {score}.",
+        "{name} fought to stay on, but the damage was done: {fault}, -{value}. {score} on the board."
+      ],
+      clean: [
+        "A clean set from {name}! Almost nothing for the judges — {score} for {team}.",
+        "Textbook work from {name} on {app}. No drama: {score}."
+      ],
+      steady: [
+        "{name} managed that routine well. Biggest hit was {fault} (-{value}), but {score} keeps {team} right in it.",
+        "Smart risk management from {name}: {score} does exactly the job {team} needed."
+      ],
+      line: [
+        "Strong content, but a foot over the line — the neutral deduction comes straight off the total. {score} for {team}."
+      ],
+      bigScore: [
+        "WHAT A SCORE! {score} for {name}! The building erupts!",
+        "That is a podium number: {score}! {name} just raised the bar in this final!"
+      ],
+      dayBest: [
+        "And that's the best mark of the day on {app}: {score}. The benchmark is set.",
+        "Write it down: {score} from {name} is the top score on {app} so far in this final."
+      ],
+      leadChange: [
+        "LEAD CHANGE! {team} takes over at the top!",
+        "Flip the board — {team} is now in front, and the crowd knows it!"
+      ],
+      podium: [
+        "{team} sits {rank} as it stands. Hold that pace and it's medal talk."
+      ],
+      playerPodium: [
+        "Your team climbs to {rank} live! That {score} changes the mood of this final!"
+      ],
+      skipBest: [
+        "In the block we skipped, the standout was {name} on {app}: {score} for {team}."
+      ],
+      skipPlayer: [
+        "For your team, the best routine of that stretch came from {name}: {score} on {app}."
+      ],
+      finalTop: [
+        "IT'S OVER! {team} wins the team final with {score} — a gold built routine by routine!",
+        "The board is closed: {team} on top of the podium with {score}. What a campaign!"
+      ],
+      finalPlayerPodium: [
+        "PODIUM! Your team finishes {rank} with {score}! When the arena got heavy, you answered!"
+      ],
+      finalPlayer: [
+        "Your team finishes {rank} with {score}. No podium tonight, but plenty to build on."
+      ]
+    },
+    es: {
+      opening: [
+        "¡Comienza la final por equipos! Tres suben, tres cuentan: no hay nota para descartar ni lugar donde esconderse.",
+        "Arena llena y el oro sobre la mesa. Final por equipos: cada aterrizaje vale oro, literalmente."
+      ],
+      rotationIntro: [
+        "Rotación {rot}: todas las miradas en {app}.",
+        "Cambia el escenario: rotación {rot}, ahora le toca a {app}."
+      ],
+      lastRotation: [
+        "Última rotación y la cuenta es simple: {leader} defiende {gap} sobre {chaser}. Una caída lo cambia todo.",
+        "El momento de la verdad: {leader} al frente, {chaser} a {gap}. Aquí gana el que controla los nervios."
+      ],
+      stick: [
+        "¡CLAVADA! ¡{name} pegó los pies al suelo! ¡{score} para {team}!",
+        "¡Ni un centímetro de movimiento! {name} clava la salida y anota {score}!"
+      ],
+      stickAnalysis: [
+        "Miren el detalle técnico: pecho arriba, rodillas absorbiendo y talones fijos. Los jueces no tienen de dónde descontar.",
+        "Ese aterrizaje se entrena mil veces en el gimnasio. Una ejecución de {e} no aparece por casualidad."
+      ],
+      fall: [
+        "¡Se cayó! Qué pena... {name} no pudo sostenerlo y la mano tocó el suelo. La nota se desploma a {score}.",
+        "¡Caída de {name} en {app}! Silencio en la arena... un punto entero que se va. {score}."
+      ],
+      fallAnalysis: [
+        "Además del 1.0 de la caída, se suman las deducciones de ejecución: {fault} costó {value} por sí solo.",
+        "El error nace antes de la caída: {fault} rompió el eje y no había forma de salvarlo. Ahora el reto es mental."
+      ],
+      fallRecovery: [
+        "¡Qué respuesta! Justo después de la caída de {prev}, {name} entra con sangre fría y entrega {score}!",
+        "De esto están hechas las finales: {name} vio caer a {prev} y sostuvo al equipo con {score}!"
+      ],
+      error: [
+        "¡Ruptura grande en la serie de {name}! {fault} costó caro (-{value}) y la nota queda en {score}.",
+        "{name} evitó la caída por poco, pero el daño quedó: {fault}, -{value}. {score} en el marcador."
+      ],
+      clean: [
+        "¡Serie limpia de {name}! Casi nada para los jueces: {score} para {team}.",
+        "Trabajo de escuela de {name} en {app}. Sin sustos: {score}."
+      ],
+      steady: [
+        "{name} administró bien la serie. El mayor descuento fue {fault} (-{value}), pero {score} mantiene a {team} en la pelea.",
+        "Buena gestión del riesgo de {name}: {score} cumple justo lo que {team} necesitaba."
+      ],
+      line: [
+        "El contenido era bueno, pero el pie salió del área: deducción neutral directa a la nota final. {score} para {team}."
+      ],
+      bigScore: [
+        "¡QUÉ NOTA! ¡{score} para {name}! ¡La arena explota!",
+        "Eso es nota de podio: ¡{score}! ¡{name} acaba de subir el listón de esta final!"
+      ],
+      dayBest: [
+        "Y es la mejor nota del día en {app}: {score}. La referencia está puesta.",
+        "Apunten: {score} de {name} es, hasta ahora, la nota más alta en {app} de esta final."
+      ],
+      leadChange: [
+        "¡CAMBIO EN LA PUNTA! ¡{team} asume el liderato de la final!",
+        "¡Se da vuelta el marcador! {team} ahora lidera, ¡y la arena lo sabe!"
+      ],
+      podium: [
+        "{team} aparece {rank} en el parcial. Si sostiene el ritmo, es conversación directa de podio."
+      ],
+      playerPodium: [
+        "¡Tu equipo sube al {rank} en vivo! ¡Ese {score} cambia el clima de la final!"
+      ],
+      skipBest: [
+        "En el bloque saltado, el destaque fue {name} en {app}: {score} para {team}."
+      ],
+      skipPlayer: [
+        "De tu equipo, la mejor serie del bloque fue de {name}: {score} en {app}."
+      ],
+      finalTop: [
+        "¡SE ACABÓ! ¡{team} gana la final por equipos con {score}! ¡Oro construido serie a serie!",
+        "Cierra el marcador: {team} en lo más alto del podio con {score}. ¡Qué campaña!"
+      ],
+      finalPlayerPodium: [
+        "¡PODIO! ¡Tu equipo termina {rank} con {score}! ¡Cuando la arena pesó, respondieron!"
+      ],
+      finalPlayer: [
+        "Tu equipo termina {rank}, con {score}. El podio se escapó, pero quedaron series para recordar."
+      ]
+    }
+  };
+  function fillPhrase(tpl, data) { return String(tpl).replace(/\{(\w+)\}/g, (m, k) => (data[k] != null ? String(data[k]) : "")); }
+  function boothSpeaker(kind) {
+    const key = KIND_SPEAKER[kind] || "pbp";
+    const booth = BOOTH[state.lang] || BOOTH["pt-BR"];
+    return { key, ...booth[key] };
   }
-  function makeRoutineComment(r) {
+  function commentaryPhrase(kind, data = {}) {
+    const pack = COMMENTARY[state.lang] || COMMENTARY["pt-BR"];
+    const variants = pack[kind] || COMMENTARY["pt-BR"][kind] || [""];
+    const mem = state.live ? (state.live.lastVar = state.live.lastVar || {}) : {};
+    let idx = Math.floor(state.rng() * variants.length);
+    if (variants.length > 1 && mem[kind] === idx) idx = (idx + 1) % variants.length; // evita repetir a frase anterior
+    mem[kind] = idx;
+    return fillPhrase(variants[idx], data);
+  }
+  function boothComment(kind, data = {}, extras = {}) {
+    const sp = boothSpeaker(kind);
+    return {
+      text: commentaryPhrase(kind, data),
+      speaker: sp.key, speakerName: sp.name, speakerRole: sp.role,
+      meta: extras.meta || "", you: !!extras.you, top: !!extras.top
+    };
+  }
+  function makeRoutineComments(r, prevLeaderId) {
     const s = r.score;
+    const L = state.live;
     const rank = liveTeamRank(r.teamId);
     const strongest = strongestDeduction(s);
     const data = {
@@ -1879,62 +2596,97 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
       score: formatScore(s.total),
       fault: strongest ? faultLabel(strongest.code) : t("noDeductions").toLowerCase(),
       value: strongest ? strongest.value.toFixed(1) : "0.0",
-      rank: rank ? ordinal(rank.rank) : ""
+      rank: rank ? ordinal(rank.rank) : "",
+      d: s.d.toFixed(1), e: s.e.toFixed(3),
+      prev: r.after ? r.after.name : ""
     };
+    const meta = `${r.team.federation} · ${appName(r.apparatus)} · ${formatScore(s.total)}`;
+    const out = [];
+
     let kind = "steady";
     if (s.note === "cravada") kind = "stick";
     else if (s.note === "queda") kind = "fall";
     else if (s.note === "erro") kind = "error";
     else if (s.neutralDed) kind = "line";
     else if (s.execDed <= 0.4) kind = "clean";
+    // resposta logo depois da queda de colega: vira o fio condutor da narração
+    if (r.after && r.after.kind === "fall" && (kind === "stick" || kind === "clean" || kind === "steady")) kind = "fallRecovery";
 
-    let text = commentaryPhrase(kind, data);
+    out.push(boothComment(kind, data, { meta, you: r.team.isPlayer }));
+
+    // segunda voz: leitura técnica nos momentos-chave
+    if (kind === "stick") out.push(boothComment("stickAnalysis", data, { meta, you: r.team.isPlayer }));
+    else if (kind === "fall") out.push(boothComment("fallAnalysis", data, { meta, you: r.team.isPlayer }));
+
+    // melhor nota do dia no aparelho
+    L.bestByApp = L.bestByApp || {};
+    const prevBest = L.bestByApp[r.apparatus.id] || 0;
+    if (s.total > prevBest) {
+      L.bestByApp[r.apparatus.id] = s.total;
+      if (prevBest > 0 && s.total >= 13.4 && kind !== "fall") out.push(boothComment("dayBest", data, { meta, top: true, you: r.team.isPlayer }));
+    }
+    // nota gigante
+    if (s.total >= 14.6 && kind !== "stick" && kind !== "fallRecovery") out.push(boothComment("bigScore", data, { meta, top: true, you: r.team.isPlayer }));
+
+    // virada na liderança
+    const leaderNow = liveRankingData()[0];
+    if (leaderNow && prevLeaderId && leaderNow.td.team.id !== prevLeaderId && leaderNow.td.team.id === r.teamId) {
+      out.push(boothComment("leadChange", { team: displayTeamName(r.team) }, { meta: `${r.team.federation} · ${formatScore(leaderNow.val)}`, top: true, you: r.team.isPlayer }));
+    }
+
+    // parciais de pódio (com moderação, para não virar spam)
     const topThree = rank && rank.rank <= 3 && (rank.val || 0) > 0;
-    if (r.team.isPlayer && topThree) text += ` ${commentaryPhrase("playerPodium", data)}`;
-    else if (topThree && s.total >= 14.2) text += ` ${commentaryPhrase("podium", data)}`;
-    return {
-      meta: `${r.team.federation} · ${appName(r.apparatus)} · ${formatScore(s.total)}`,
-      text, you: r.team.isPlayer, top: topThree
-    };
+    if (topThree && r.team.isPlayer && s.total >= 13.6 && kind !== "fall") {
+      out.push(boothComment("playerPodium", { rank: ordinal(rank.rank), score: formatScore(s.total) }, { meta, you: true, top: true }));
+    } else if (topThree && s.total >= 14.3 && kind === "clean") {
+      out.push(boothComment("podium", { team: displayTeamName(r.team), rank: ordinal(rank.rank) }, { meta, top: true }));
+    }
+    return out.slice(0, 3);
   }
   function pushLiveComment(comment) {
     const L = state.live;
     if (!L.comments) L.comments = [];
-    L.comments.unshift({ ...comment, id: `${Date.now()}-${L.comments.length}` });
+    L.comments.unshift({ ...comment, id: `${Date.now()}-${L.comments.length}-${Math.floor(state.rng() * 1e6)}` });
     L.comments = L.comments.slice(0, 70);
   }
-  function addRoutineComment(r) {
-    pushLiveComment(makeRoutineComment(r));
+  function addRoutineComment(r, prevLeaderId) {
+    makeRoutineComments(r, prevLeaderId).forEach((c) => pushLiveComment(c));
+  }
+  function addRotationIntro() {
+    const L = state.live;
+    const rot = L.rotations[L.rotIndex];
+    pushLiveComment(boothComment("rotationIntro", { rot: L.rotIndex + 1, app: appName(rot.apparatus) }, { meta: `${t("rotation")} ${L.rotIndex + 1}/${L.rotations.length}` }));
+    if (L.rotIndex === L.rotations.length - 1) {
+      const ranking = liveRankingData();
+      if (ranking.length >= 2 && ranking[0].val > 0) {
+        pushLiveComment(boothComment("lastRotation", {
+          leader: displayTeamName(ranking[0].td.team),
+          chaser: displayTeamName(ranking[1].td.team),
+          gap: formatScore(Math.max(0, ranking[0].val - ranking[1].val))
+        }, { meta: t("liveStandings"), top: true }));
+      }
+    }
   }
   function addSkipComments(processed) {
     if (!processed.length) return;
+    const L = state.live;
+    L.bestByApp = L.bestByApp || {};
+    processed.forEach((r) => { if (r.score.total > (L.bestByApp[r.apparatus.id] || 0)) L.bestByApp[r.apparatus.id] = r.score.total; });
     const best = [...processed].sort((a, b) => b.score.total - a.score.total)[0];
-    pushLiveComment({
-      meta: `${best.team.federation} · ${appName(best.apparatus)} · ${formatScore(best.score.total)}`,
-      text: commentaryPhrase("skipBest", {
-        name: best.athlete.name, app: appName(best.apparatus), score: formatScore(best.score.total), team: displayTeamName(best.team)
-      }),
-      you: best.team.isPlayer, top: true
-    });
+    pushLiveComment(boothComment("skipBest", {
+      name: best.athlete.name, app: appName(best.apparatus), score: formatScore(best.score.total), team: displayTeamName(best.team)
+    }, { meta: `${best.team.federation} · ${appName(best.apparatus)} · ${formatScore(best.score.total)}`, you: best.team.isPlayer, top: true }));
     const playerBest = processed.filter((r) => r.team.isPlayer).sort((a, b) => b.score.total - a.score.total)[0];
     if (playerBest && playerBest !== best) {
-      pushLiveComment({
-        meta: `${playerBest.team.federation} · ${appName(playerBest.apparatus)} · ${formatScore(playerBest.score.total)}`,
-        text: commentaryPhrase("skipPlayer", {
-          name: playerBest.athlete.name, app: appName(playerBest.apparatus), score: formatScore(playerBest.score.total)
-        }),
-        you: true, top: false
-      });
+      pushLiveComment(boothComment("skipPlayer", {
+        name: playerBest.athlete.name, app: appName(playerBest.apparatus), score: formatScore(playerBest.score.total)
+      }, { meta: `${playerBest.team.federation} · ${appName(playerBest.apparatus)} · ${formatScore(playerBest.score.total)}`, you: true }));
     }
     const playerRank = liveRankingData().find((row) => row.td.team.isPlayer);
     if (playerRank && playerRank.rank <= 3 && playerRank.val > 0) {
-      pushLiveComment({
-        meta: `${state.federation} · ${formatScore(playerRank.val)}`,
-        text: commentaryPhrase("playerPodium", {
-          rank: ordinal(playerRank.rank), score: formatScore(playerRank.val)
-        }),
-        you: true, top: true
-      });
+      pushLiveComment(boothComment("playerPodium", {
+        rank: ordinal(playerRank.rank), score: formatScore(playerRank.val)
+      }, { meta: `${state.federation} · ${formatScore(playerRank.val)}`, you: true, top: true }));
     }
   }
   function addFinalLiveCommentary() {
@@ -1944,21 +2696,14 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     const ranking = liveRankingData();
     const leader = ranking[0];
     if (leader) {
-      pushLiveComment({
-        meta: `${leader.td.team.federation} · ${formatScore(leader.val)}`,
-        text: commentaryPhrase("finalTop", { team: displayTeamName(leader.td.team), score: formatScore(leader.val) }),
-        you: leader.td.team.isPlayer, top: true
-      });
+      pushLiveComment(boothComment("finalTop", { team: displayTeamName(leader.td.team), score: formatScore(leader.val) },
+        { meta: `${leader.td.team.federation} · ${formatScore(leader.val)}`, you: leader.td.team.isPlayer, top: true }));
     }
     const player = ranking.find((row) => row.td.team.isPlayer);
     if (player && (player.rank <= 3 || player !== leader)) {
-      pushLiveComment({
-        meta: `${state.federation} · ${formatScore(player.val)}`,
-        text: commentaryPhrase(player.rank <= 3 ? "finalPlayerPodium" : "finalPlayer", {
-          rank: ordinal(player.rank), score: formatScore(player.val)
-        }),
-        you: true, top: player.rank <= 3
-      });
+      pushLiveComment(boothComment(player.rank <= 3 ? "finalPlayerPodium" : "finalPlayer", {
+        rank: ordinal(player.rank), score: formatScore(player.val)
+      }, { meta: `${state.federation} · ${formatScore(player.val)}`, you: true, top: player.rank <= 3 }));
     }
   }
   function advanceLive() {
@@ -1969,12 +2714,16 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     if (L.routineIndex >= rot.routines.length) {
       // next rotation
       if (L.rotIndex + 1 >= L.rotations.length) { finishLive(); return; }
-      L.rotIndex += 1; L.routineIndex = -1; updateLive(); scheduleLiveTick(1100); return;
+      L.rotIndex += 1; L.routineIndex = -1;
+      addRotationIntro();
+      updateLive(); scheduleLiveTick(1100); return;
     }
     const r = rot.routines[L.routineIndex];
+    const prevLeader = liveRankingData()[0];
+    const prevLeaderId = prevLeader && prevLeader.val > 0 ? prevLeader.td.team.id : null;
     L.running[r.teamId] = round3((L.running[r.teamId] || 0) + r.score.total);
     L.log.unshift(r);
-    addRoutineComment(r);
+    addRoutineComment(r, prevLeaderId);
     updateLive();
     scheduleLiveTick();
   }
@@ -2076,8 +2825,8 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   function liveCommentaryPanel() {
     const comments = state.live.comments || [];
     if (!comments.length) return `<p class="commentary-empty">${t("commentaryEmpty")}</p>`;
-    return comments.slice(0, 16).map((c) => `<article class="commentary-card ${c.you ? "you" : ""} ${c.top ? "top" : ""}">
-      <div class="commentary-meta"><span>${escapeHTML(c.meta)}</span></div>
+    return comments.slice(0, 20).map((c) => `<article class="commentary-card ${c.you ? "you" : ""} ${c.top ? "top" : ""} ${c.speaker === "analyst" ? "from-analyst" : ""}">
+      <div class="commentary-meta">${c.speakerName ? `<span class="speaker-chip ${c.speaker === "analyst" ? "analyst" : ""}">${escapeHTML(c.speakerName)}</span>` : ""}<span>${escapeHTML(c.meta)}</span></div>
       <p class="commentary-text">${escapeHTML(c.text)}</p>
     </article>`).join("");
   }
@@ -2085,7 +2834,7 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     const comment = (state.live.comments || [])[0];
     if (!comment) return `<div class="commentary-ticker"><div class="commentary-meta">${t("commentaryTitle")}</div><p class="commentary-text">${t("commentaryEmpty")}</p></div>`;
     return `<div class="commentary-ticker ${comment.you ? "you" : ""}">
-      <div class="commentary-meta">${escapeHTML(comment.meta)}</div>
+      <div class="commentary-meta">${comment.speakerName ? `<span class="speaker-chip ${comment.speaker === "analyst" ? "analyst" : ""}">${escapeHTML(comment.speakerName)} · ${escapeHTML(comment.speakerRole || "")}</span>` : ""}<span>${escapeHTML(comment.meta)}</span></div>
       <p class="commentary-text">${escapeHTML(comment.text)}</p>
     </div>`;
   }
@@ -2181,11 +2930,12 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   function runTeamFinal() {
     setPhase("team", `${icon("medal")} ${t("teamFinalRule")}`);
     const finalists = state.results.qual.teamResults.slice(0, 8).map((r) => r.team);
+    const dayForms = sessionDayForms(finalists.flatMap((tm) => tm.roster));
     const results = finalists.map((team) => {
       let total = 0; const appTotals = {}; const lineups = {};
       apps().forEach((ap) => {
         const lineup = [...team.roster].sort((a, b) => b.qualScores[ap.id].total - a.qualScores[ap.id].total).slice(0, 3);
-        const scores = lineup.map((a) => ({ athlete: a, score: simulateRoutine(a, ap) }));
+        const scores = lineup.map((a) => ({ athlete: a, score: simulateRoutine(a, ap, { dayForm: dayForms[a.id], pressure: 0.12 }) }));
         const at = scores.reduce((s, i) => s + i.score.total, 0);
         appTotals[ap.id] = round3(at); lineups[ap.id] = scores; total += at;
       });
@@ -2218,11 +2968,12 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   /* ---------- AA FINAL ---------- */
   function runAAFinal() {
     setPhase("aa", `${icon("trophy")} ${t("aaButton")}`);
+    const dayForms = sessionDayForms(state.results.qual.aaFinalists);
     const results = state.results.qual.aaFinalists.map((a) => {
-      let total = 0; const scores = {};
-      apps().forEach((ap) => { const sc = simulateRoutine(a, ap); scores[ap.id] = sc; total += sc.total; });
-      return { athlete: a, scores, total: round3(total) };
-    }).sort((a, b) => b.total - a.total);
+      let total = 0; let eSum = 0; const scores = {};
+      apps().forEach((ap) => { const sc = simulateRoutine(a, ap, { dayForm: dayForms[a.id], pressure: 0.14 }); scores[ap.id] = sc; total += sc.total; eSum += sc.e; });
+      return { athlete: a, scores, total: round3(total), eSum: round3(eSum) };
+    }).sort((a, b) => b.total - a.total || b.eSum - a.eSum); // desempate FIG: maior execução
     state.results.aaFinal = results; renderAAFinal();
   }
   function renderAAFinal() {
@@ -2250,7 +3001,10 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
   function runAppFinals() {
     setPhase("apps", `${icon("medal")} ${t("phaseApps")}`);
     const finals = {};
-    apps().forEach((ap) => { finals[ap.id] = state.results.qual.appFinalists[ap.id].map((a) => ({ athlete: a, score: simulateRoutine(a, ap) })).sort((x, y) => y.score.total - x.score.total); });
+    const appFinalAthletes = [...new Set(apps().flatMap((ap) => state.results.qual.appFinalists[ap.id]))];
+    const dayForms = sessionDayForms(appFinalAthletes);
+    // Final por aparelho: uma série só, pressão máxima — desempate FIG pela nota E
+    apps().forEach((ap) => { finals[ap.id] = state.results.qual.appFinalists[ap.id].map((a) => ({ athlete: a, score: simulateRoutine(a, ap, { dayForm: dayForms[a.id], pressure: 0.22 }) })).sort((x, y) => y.score.total - x.score.total || y.score.e - x.score.e); });
     state.results.appFinals = finals; renderAppFinals();
   }
   function renderAppFinals() {
@@ -2347,6 +3101,8 @@ M,Milad Karimi,KAZ,2024,5.2,8.8,6.0,8.3,N/A,N/A,N/A,N/A,5.6,8.0,5.5,7.9,5.9,8.1,
     startDraft, quickStart, autoFill: autoFillDraft, prepare: prepareTournament,
     clearDraft, rerollYear: rerollDraftYear, rerollTeam: rerollDraftTeam,
     addAthlete: (el) => addAthlete(el.dataset.id), removeAthlete: (el) => removeAthlete(el.dataset.id),
+    battleAuto: autoFillBattleDraft, battleStart: runBattleRoyale, clearBattleDraft,
+    addBattleAthlete: (el) => addBattleAthlete(el.dataset.id), removeBattleAthlete: (el) => removeBattleAthlete(el.dataset.id),
     runQuals: runQualifications, backToDraft: renderDraftBoard,
     qualTab: (el) => { state.qualTab = el.dataset.val; renderQualifications(); },
     liveTeamFinal: runLiveTeamFinal, teamFinal: runTeamFinal,
