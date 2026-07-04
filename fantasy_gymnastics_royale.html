@@ -202,6 +202,8 @@
     .flag-img { width:21px; height:15px; object-fit:cover; border-radius:3px; border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,.12); flex:0 0 auto; }
     .flag-custom { display:inline-grid; place-items:center; width:21px; height:15px; border-radius:3px; border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line)); background:var(--accent-soft); color:var(--accent); flex:0 0 auto; }
     .flag-custom svg { width:10px; height:10px; }
+    .flag-preview { display:flex; align-items:center; gap:10px; min-height:44px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--surface-2); font-weight:900; }
+    .flag-preview .flag-img, .flag-preview .flag-custom { width:28px; height:20px; }
     .tally-country { display:inline-flex; align-items:center; gap:7px; }
     .sub-fed { display:inline-flex; align-items:center; gap:6px; }
     .sub-fed .flag-img, .sub-fed .flag-custom { width:18px; height:13px; }
@@ -1113,7 +1115,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
       phaseSetup: "Configuração", phaseDraft: "Draft", phaseCompetition: "Competição", phaseQuals: "Classificatórias",
       phaseTeam: "Final por equipes", phaseAA: "Individual geral", phaseApps: "Aparelhos", phaseMedals: "Medalhas", phaseLive: "Ao vivo",
       setupKicker: "Criar delegação", setupTitle: "Monte sua equipe e atravesse o ciclo olímpico.",
-      teamName: "Nome da equipe", federation: "Sigla", modality: "Modalidade", competition: "Competição", female: "Feminina", male: "Masculina",
+      teamName: "Nome da equipe", federation: "Bandeira", customFlag: "Bandeira personalizada", uploadFlag: "Enviar bandeira", clearFlag: "Remover bandeira", flagTooLarge: "Use uma imagem menor para salvar como bandeira.", modality: "Modalidade", competition: "Competição", female: "Feminina", male: "Masculina",
       femaleGym: "ginástica feminina", maleGym: "ginástica masculina",
       athletesInDraft: "Atletas no draft", teamsInQuals: "Equipes na classificatória", apparatus: "Aparelhos",
       seasons: "Temporadas",
@@ -1145,7 +1147,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
       chooseFive: "Escolha exatamente 5 atletas para avançar.",
       battleMixed: "Misto livre", battleTeams: "64 equipes", battleFormat: "Percentil · Top 12 → Top 4 → Campeão",
       battleDraftTitle: "Battle Royale livre", battlePickInstruction: "Monte uma equipe mista de 6 atletas. Cada rodada transforma notas reais em pontos por percentil.",
-      battleRoster: "Esquadrão", battlePool: "Mercado livre", battleStart: "Iniciar Battle Royale", battleAuto: "Montar esquadrão",
+      battleRoster: "Esquadrão", battlePool: "Opções da rodada", battleRound: ({ round, total }) => `Escolha ${round}/${total}`, battleNewOptions: "Novas 5 opções", battleStart: "Iniciar Battle Royale", battleAuto: "Montar esquadrão",
       battlePoints: "Pontos", battleRaw: "Nota bruta", battleQual: "Classificatória", battleSemi: "Semifinal", battleGrandFinal: "Final",
       battleChampion: "Campeão Battle Royale", battleQualified: "Classificado", battleEliminated: "Eliminado", battlePercentile: "Pontuação por percentil",
       chooseBattleSix: "Escolha exatamente 6 atletas para entrar no Battle Royale.", battleFilled: "Esquadrão Battle Royale preenchido.",
@@ -1167,7 +1169,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
       phaseSetup: "Setup", phaseDraft: "Draft", phaseCompetition: "Competition", phaseQuals: "Qualifications",
       phaseTeam: "Team final", phaseAA: "All-around", phaseApps: "Apparatus", phaseMedals: "Medals", phaseLive: "Live",
       setupKicker: "Create delegation", setupTitle: "Build your team and go through the Olympic cycle.",
-      teamName: "Team name", federation: "Code", modality: "Discipline", competition: "Competition", female: "Women", male: "Men",
+      teamName: "Team name", federation: "Flag", customFlag: "Custom flag", uploadFlag: "Upload flag", clearFlag: "Remove flag", flagTooLarge: "Use a smaller image to save it as a flag.", modality: "Discipline", competition: "Competition", female: "Women", male: "Men",
       femaleGym: "women's artistic gymnastics", maleGym: "men's artistic gymnastics",
       athletesInDraft: "Athletes in draft", teamsInQuals: "Teams in qualifications", apparatus: "Apparatus",
       seasons: "Seasons",
@@ -1199,7 +1201,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
       chooseFive: "Choose exactly 5 athletes to continue.",
       battleMixed: "Free mixed", battleTeams: "64 teams", battleFormat: "Percentile · Top 12 → Top 4 → Champion",
       battleDraftTitle: "Free Battle Royale", battlePickInstruction: "Build a mixed squad of 6 athletes. Each round converts raw scores into percentile points.",
-      battleRoster: "Squad", battlePool: "Free market", battleStart: "Start Battle Royale", battleAuto: "Build squad",
+      battleRoster: "Squad", battlePool: "Round options", battleRound: ({ round, total }) => `Pick ${round}/${total}`, battleNewOptions: "New 5 options", battleStart: "Start Battle Royale", battleAuto: "Build squad",
       battlePoints: "Points", battleRaw: "Raw score", battleQual: "Qualification", battleSemi: "Semi-final", battleGrandFinal: "Final",
       battleChampion: "Battle Royale champion", battleQualified: "Qualified", battleEliminated: "Eliminated", battlePercentile: "Percentile scoring",
       chooseBattleSix: "Choose exactly 6 athletes to enter Battle Royale.", battleFilled: "Battle Royale squad filled.",
@@ -1220,7 +1222,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
       phaseSetup: "Configuración", phaseDraft: "Draft", phaseCompetition: "Competición", phaseQuals: "Clasificatorias",
       phaseTeam: "Final por equipos", phaseAA: "General individual", phaseApps: "Aparatos", phaseMedals: "Medallas", phaseLive: "En vivo",
       setupKicker: "Crear delegación", setupTitle: "Forma tu equipo y atraviesa el ciclo olímpico.",
-      teamName: "Nombre del equipo", federation: "Sigla", modality: "Modalidad", competition: "Competición", female: "Femenina", male: "Masculina",
+      teamName: "Nombre del equipo", federation: "Bandera", customFlag: "Bandera personalizada", uploadFlag: "Subir bandera", clearFlag: "Quitar bandera", flagTooLarge: "Usa una imagen más pequeña para guardarla como bandera.", modality: "Modalidad", competition: "Competición", female: "Femenina", male: "Masculina",
       femaleGym: "gimnasia artística femenina", maleGym: "gimnasia artística masculina",
       athletesInDraft: "Atletas en el draft", teamsInQuals: "Equipos en clasificatoria", apparatus: "Aparatos",
       seasons: "Temporadas",
@@ -1252,7 +1254,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
       chooseFive: "Elige exactamente 5 atletas para avanzar.",
       battleMixed: "Mixto libre", battleTeams: "64 equipos", battleFormat: "Percentil · Top 12 → Top 4 → Campeón",
       battleDraftTitle: "Battle Royale libre", battlePickInstruction: "Forma un equipo mixto de 6 atletas. Cada ronda convierte notas reales en puntos por percentil.",
-      battleRoster: "Escuadra", battlePool: "Mercado libre", battleStart: "Iniciar Battle Royale", battleAuto: "Montar escuadra",
+      battleRoster: "Escuadra", battlePool: "Opciones de la ronda", battleRound: ({ round, total }) => `Elección ${round}/${total}`, battleNewOptions: "Nuevas 5 opciones", battleStart: "Iniciar Battle Royale", battleAuto: "Montar escuadra",
       battlePoints: "Puntos", battleRaw: "Nota bruta", battleQual: "Clasificatoria", battleSemi: "Semifinal", battleGrandFinal: "Final",
       battleChampion: "Campeón Battle Royale", battleQualified: "Clasificado", battleEliminated: "Eliminado", battlePercentile: "Puntuación por percentil",
       chooseBattleSix: "Elige exactamente 6 atletas para entrar en Battle Royale.", battleFilled: "Escuadra Battle Royale completada.",
@@ -1272,6 +1274,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     lang: getInitialLanguage(), gender: "WAG", competition: getInitialCompetition(), teamName: getInitialTeamName(), federation: getInitialFederation(),
     phase: "setup", view: "setup", selectedIds: [], draftRound: 1, draftDraw: null,
     draftRerolls: { year: false, team: false }, draftOptions: [],
+    battleOptions: [], customFlag: getInitialCustomFlag(),
     qualTab: "teams", seed: Date.now(), rng: Math.random, teams: [], results: {}, live: null
   };
   const BATTLE_CONFIG = {
@@ -1343,9 +1346,14 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
   function getInitialFederation() {
     return (localStorage.getItem("gym-royale-federation") || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
   }
+  function getInitialCustomFlag() {
+    return localStorage.getItem("gym-royale-custom-flag") || "";
+  }
   function persistTeamIdentity() {
     localStorage.setItem("gym-royale-team-name", state.teamName);
     localStorage.setItem("gym-royale-federation", state.federation);
+    if (state.customFlag) localStorage.setItem("gym-royale-custom-flag", state.customFlag);
+    else localStorage.removeItem("gym-royale-custom-flag");
   }
   function updateChrome() {
     const pack = I18N[state.lang] || I18N["pt-BR"];
@@ -1440,16 +1448,40 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
   function bestApp(a) { return [...apps()].sort((x, y) => appPotential(a, y.id) - appPotential(a, x.id))[0]; }
   function athleteBestApp(a) { return [...athleteApps(a)].sort((x, y) => appPotential(a, y.id) - appPotential(a, x.id))[0]; }
   function formatScore(s) { return Number(s).toFixed(3); }
-  function displayTeamName(team) { return team.isPlayer ? team.name : `${t("team")} ${team.federation}`; }
-  function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${a.federation}`; }
+  function displayTeamName(team) {
+    if (!team) return "";
+    if (team.isPlayer) return team.name;
+    if (team.federation === "BRL" || String(team.id || "").startsWith("battle-")) return team.name;
+    return `${t("team")} ${countryName(team.federation)}`;
+  }
+  function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${countryName(a.federation)}`; }
   function apparatusById(id) { return apps().find((a) => a.id === id); }
-  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru", DOM: "do", ECU: "ec", CRC: "cr", ESA: "sv", HAI: "ht", BAR: "bb", BOL: "bo", PRK: "kp" };
+  const COUNTRY_NAMES = {
+    "pt-BR": { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japão", GBR: "Grã-Bretanha", ITA: "Itália", FRA: "França", GER: "Alemanha", CAN: "Canadá", NED: "Holanda", AUS: "Austrália", BEL: "Bélgica", UKR: "Ucrânia", TUR: "Turquia", KOR: "Coreia do Sul", ROU: "Romênia", PHI: "Filipinas", COL: "Colômbia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Porto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungria", SUI: "Suíça", ESP: "Espanha", UZB: "Uzbequistão", KAZ: "Cazaquistão", TPE: "Taiwan", IND: "Índia", ALG: "Argélia", AUT: "Áustria", GRE: "Grécia", IRL: "Irlanda", ISR: "Israel", RUS: "Rússia", DOM: "República Dominicana", ECU: "Equador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolívia", PRK: "Coreia do Norte", MAS: "Malásia", SGP: "Singapura", IRI: "Irã", FAN: "Fantasy" },
+    en: { USA: "United States", BRA: "Brazil", CHN: "China", JPN: "Japan", GBR: "Great Britain", ITA: "Italy", FRA: "France", GER: "Germany", CAN: "Canada", NED: "Netherlands", AUS: "Australia", BEL: "Belgium", UKR: "Ukraine", TUR: "Turkey", KOR: "South Korea", ROU: "Romania", PHI: "Philippines", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "Mexico", CHI: "Chile", PAN: "Panama", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungary", SUI: "Switzerland", ESP: "Spain", UZB: "Uzbekistan", KAZ: "Kazakhstan", TPE: "Taiwan", IND: "India", ALG: "Algeria", AUT: "Austria", GRE: "Greece", IRL: "Ireland", ISR: "Israel", RUS: "Russia", DOM: "Dominican Republic", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolivia", PRK: "North Korea", MAS: "Malaysia", SGP: "Singapore", IRI: "Iran", FAN: "Fantasy" },
+    es: { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japón", GBR: "Gran Bretaña", ITA: "Italia", FRA: "Francia", GER: "Alemania", CAN: "Canadá", NED: "Países Bajos", AUS: "Australia", BEL: "Bélgica", UKR: "Ucrania", TUR: "Turquía", KOR: "Corea del Sur", ROU: "Rumania", PHI: "Filipinas", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Perú", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungría", SUI: "Suiza", ESP: "España", UZB: "Uzbekistán", KAZ: "Kazajistán", TPE: "Taiwán", IND: "India", ALG: "Argelia", AUT: "Austria", GRE: "Grecia", IRL: "Irlanda", ISR: "Israel", RUS: "Rusia", DOM: "República Dominicana", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haití", BAR: "Barbados", BOL: "Bolivia", PRK: "Corea del Norte", MAS: "Malasia", SGP: "Singapur", IRI: "Irán", FAN: "Fantasy" }
+  };
+  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru", DOM: "do", ECU: "ec", CRC: "cr", ESA: "sv", HAI: "ht", BAR: "bb", BOL: "bo", PRK: "kp", MAS: "my", SGP: "sg", IRI: "ir" };
+  function countryName(code) {
+    return (COUNTRY_NAMES[state.lang] || COUNTRY_NAMES["pt-BR"])[code] || COUNTRY_NAMES["pt-BR"][code] || code;
+  }
+  function flagOptions() {
+    const codes = new Set([...Object.keys(IOC_ISO), ...ATHLETES.map((a) => a.country), state.federation || "FAN"]);
+    return [...codes].sort((a, b) => countryName(a).localeCompare(countryName(b), state.lang));
+  }
   function flagHtml(code) {
     const iso = IOC_ISO[code];
     if (!iso) return `<span class="flag-custom" aria-hidden="true">${icon("flag")}</span>`;
     return `<img class="flag-img" src="https://flagcdn.com/h24/${iso}.png" alt="" loading="lazy" onerror="this.style.display='none'">`;
   }
-  function countryLabel(code) { return `<span class="country-tag">${flagHtml(code)}<span>${escapeHTML(code)}</span></span>`; }
+  function customFlagHtml(src = state.customFlag) {
+    return src ? `<img class="flag-img" src="${escapeHTML(src)}" alt="">` : "";
+  }
+  function teamFlagHtml(team = {}) {
+    if (team.isPlayer && state.customFlag) return customFlagHtml();
+    return flagHtml(team.federation || state.federation);
+  }
+  function countryLabel(code) { return `<span class="country-tag">${flagHtml(code)}<span>${escapeHTML(countryName(code))}</span></span>`; }
 
   function setPhase(phase, label) {
     hideToast(); state.phase = phase; updateChrome();
@@ -1603,9 +1635,20 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
               <p class="kicker">${t("setupKicker")}</p>
               <h1 class="mt-2 display text-3xl md:text-5xl">${t("setupTitle")}</h1>
             </div>
-            <div class="mt-6 grid gap-4 md:grid-cols-[1.4fr_.6fr]">
+            <div class="mt-6 grid gap-4 ${battle ? "" : "md:grid-cols-[1.15fr_.85fr]" }">
               <label class="field"><span class="field-label">${t("teamName")}</span><input id="teamNameInput" class="input" maxlength="34" value="${escapeHTML(state.teamName)}" /></label>
-              <label class="field"><span class="field-label">${t("federation")}</span><input id="federationInput" class="input uppercase" maxlength="3" value="${escapeHTML(state.federation)}" /></label>
+              ${battle ? "" : `<div class="field">
+                <span class="field-label">${t("federation")}</span>
+                <select id="federationInput" class="input">
+                  ${flagOptions().map((code) => `<option value="${escapeHTML(code)}" ${code === state.federation ? "selected" : ""}>${escapeHTML(countryName(code))} (${escapeHTML(code)})</option>`).join("")}
+                </select>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <input id="customFlagInput" class="hidden" type="file" accept="image/*">
+                  <button type="button" class="btn btn-secondary" data-act="uploadFlag">${icon("flag")} ${t("uploadFlag")}</button>
+                  ${state.customFlag ? `<button type="button" class="btn btn-secondary" data-act="clearFlag">${icon("x")} ${t("clearFlag")}</button>` : ""}
+                </div>
+                <div class="mt-2 flag-preview">${teamFlagHtml({ isPlayer: true, federation: state.federation })}<span>${escapeHTML(state.customFlag ? t("customFlag") : countryName(state.federation))}</span></div>
+              </div>`}
             </div>
             <div class="mt-5">
               <span class="field-label mb-2 block">${t("modality")}</span>
@@ -1646,7 +1689,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     if (!COMPETITIONS[key]) return;
     state.competition = key;
     localStorage.setItem("gym-royale-competition", key);
-    state.selectedIds = []; state.draftRound = 1; state.draftDraw = null; state.draftOptions = [];
+    state.selectedIds = []; state.draftRound = 1; state.draftDraw = null; state.draftOptions = []; state.battleOptions = [];
     resetDraftRerolls(); renderSetup();
   }
   function readSetupInputs() {
@@ -1667,7 +1710,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     }
     renderDraftBoard(); showToast(t("filledBest"));
   }
-  function startDraft() { readSetupInputs(); state.selectedIds = []; state.draftRound = 1; resetDraftRerolls(); if (isBattleMode()) renderBattleDraft(); else { generateDraftRound(); renderDraftBoard(); } }
+  function startDraft() { readSetupInputs(); state.selectedIds = []; state.draftRound = 1; state.battleOptions = []; resetDraftRerolls(); if (isBattleMode()) renderBattleDraft(); else { generateDraftRound(); renderDraftBoard(); } }
   function randomItem(items) { return items[Math.floor(state.rng() * items.length)]; }
   function shuffled(items) {
     // Fisher–Yates com RNG semeado (sort(random) é enviesado e quebra a reprodutibilidade da seed)
@@ -1793,7 +1836,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
             ${progress("draft")}
             <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <p class="kicker">${escapeHTML(state.teamName)} · ${escapeHTML(state.federation)}</p>
+                <p class="kicker">${escapeHTML(state.teamName)} · ${escapeHTML(countryName(state.federation))}</p>
                 <h1 class="mt-1 display text-2xl md:text-4xl">${t("draftTitle", { gender: genderName() })}</h1>
               </div>
               <div class="flex gap-2">
@@ -1844,6 +1887,19 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
   function battleDraftPool() {
     return uniqueBestSeasons(ATHLETES, athleteTotalPotential).sort((a, b) => athleteTotalPotential(b) - athleteTotalPotential(a));
   }
+  function generateBattleOptions() {
+    const selected = selectedBaseKeys();
+    state.battleOptions = shuffled(battleDraftPool().filter((a) => !selected.has(a.baseKey))).slice(0, 5);
+  }
+  function ensureBattleOptions() {
+    if (state.selectedIds.length >= BATTLE_CONFIG.rosterSize) {
+      state.battleOptions = [];
+      return;
+    }
+    const selected = selectedBaseKeys();
+    state.battleOptions = (state.battleOptions || []).filter((a) => !selected.has(a.baseKey));
+    if (!state.battleOptions.length) generateBattleOptions();
+  }
   function battleRosterSlot(a) {
     const best = athleteBestApp(a);
     return `<div class="card roster-card p-3">
@@ -1867,7 +1923,8 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     state.view = "battleDraft"; setPhase("draft", `${icon("live")} ${t("battleDraftTitle")}`);
     const selected = selectedAthletes();
     const complete = selected.length === BATTLE_CONFIG.rosterSize;
-    const pool = battleDraftPool();
+    ensureBattleOptions();
+    const pool = state.battleOptions || [];
     app.innerHTML = `
       <section class="screen">
         <div class="grid gap-4">
@@ -1898,6 +1955,13 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
                 <div class="metric"><div class="metric-num">12 → 4 → 1</div><div class="metric-cap">${t("battleQualified")}</div></div>
                 <div class="metric"><div class="metric-num">100</div><div class="metric-cap">${t("battlePercentile")}</div></div>
               </div>
+              <div class="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h2 class="section-title">${t("battlePool")}</h2>
+                  <p class="hint">${t("battleRound", { round: Math.min(selected.length + 1, BATTLE_CONFIG.rosterSize), total: BATTLE_CONFIG.rosterSize })}</p>
+                </div>
+                <button class="btn btn-secondary" data-act="battleRerollOptions" ${complete ? "disabled" : ""}>${icon("rotate")} ${t("battleNewOptions")}</button>
+              </div>
               <div class="table-wrap tall"><table><thead><tr><th>${t("gymnast")}</th><th>${t("country")}</th><th>${t("bestApp")}</th><th class="num">${t("potentialAA")}</th><th>${t("action")}</th></tr></thead><tbody>
                 ${pool.map((a) => battleOptionRow(a)).join("")}
               </tbody></table></div>
@@ -1910,28 +1974,31 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     const athlete = athleteById(id);
     if (!athlete || selectedBaseKeys().has(athlete.baseKey)) return;
     if (state.selectedIds.length >= BATTLE_CONFIG.rosterSize) { showToast(t("chooseBattleSix")); return; }
-    state.selectedIds.push(id); renderBattleDraft();
+    state.selectedIds.push(id);
+    if (state.selectedIds.length < BATTLE_CONFIG.rosterSize) generateBattleOptions();
+    else state.battleOptions = [];
+    renderBattleDraft();
   }
-  function removeBattleAthlete(id) { state.selectedIds = state.selectedIds.filter((x) => x !== id); renderBattleDraft(); }
-  function clearBattleDraft() { state.selectedIds = []; renderBattleDraft(); }
+  function removeBattleAthlete(id) { state.selectedIds = state.selectedIds.filter((x) => x !== id); generateBattleOptions(); renderBattleDraft(); }
+  function clearBattleDraft() { state.selectedIds = []; generateBattleOptions(); renderBattleDraft(); }
   function autoFillBattleDraft() {
     state.selectedIds = [];
-    const pool = battleDraftPool();
-    const byGender = { WAG: pool.filter((a) => a.gender === "WAG"), MAG: pool.filter((a) => a.gender === "MAG") };
-    const picks = [];
-    for (let i = 0; i < BATTLE_CONFIG.rosterSize; i++) {
-      const source = i % 2 === 0 ? byGender.WAG : byGender.MAG;
-      const pick = source.find((a) => !picks.some((p) => p.baseKey === a.baseKey)) || pool.find((a) => !picks.some((p) => p.baseKey === a.baseKey));
-      if (pick) picks.push(pick);
+    state.battleOptions = [];
+    while (state.selectedIds.length < BATTLE_CONFIG.rosterSize) {
+      generateBattleOptions();
+      const pool = state.battleOptions || [];
+      const pick = [...pool].sort((a, b) => athleteTotalPotential(b) - athleteTotalPotential(a))[0];
+      if (!pick) break;
+      state.selectedIds.push(pick.id);
     }
-    state.selectedIds = picks.map((a) => a.id);
+    state.battleOptions = [];
     renderBattleDraft(); showToast(t("battleFilled"));
   }
   function buildBattleTeams() {
     const shell = { id: "player", name: state.teamName, federation: state.federation, isPlayer: true };
     const playerTeam = { ...shell, roster: selectedAthletes().map((a) => cloneAthlete(a, shell)) };
     const selected = selectedBaseKeys();
-    const pool = battleDraftPool().filter((a) => !selected.has(a.baseKey));
+    const pool = shuffled(battleDraftPool().filter((a) => !selected.has(a.baseKey)));
     const wag = pool.filter((a) => a.gender === "WAG");
     const mag = pool.filter((a) => a.gender === "MAG");
     const teams = [playerTeam];
@@ -1941,11 +2008,13 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
       for (let j = 0; j < BATTLE_CONFIG.rosterSize; j++) {
         const source = j % 2 === 0 ? wag : mag;
         const fallback = j % 2 === 0 ? mag : wag;
-        const pick = source[(i * 5 + j * 11) % source.length] || fallback[(i * 7 + j * 13) % fallback.length] || pool[(i + j) % pool.length];
+        const pick = randomItem(source.filter((a) => !roster.some((p) => p.baseKey === a.baseKey)))
+          || randomItem(fallback.filter((a) => !roster.some((p) => p.baseKey === a.baseKey)))
+          || randomItem(pool.filter((a) => !roster.some((p) => p.baseKey === a.baseKey)));
         if (pick && !roster.some((a) => a.baseKey === pick.baseKey)) roster.push(pick);
       }
       while (roster.length < BATTLE_CONFIG.rosterSize) {
-        const pick = pool[(i * 17 + roster.length * 19) % pool.length];
+        const pick = randomItem(pool.filter((a) => !roster.some((p) => p.baseKey === a.baseKey)));
         if (!roster.some((a) => a.baseKey === pick.baseKey)) roster.push(pick); else break;
       }
       teams.push({ ...s, roster: roster.map((a) => cloneAthlete(a, s)) });
@@ -2002,12 +2071,12 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     const player = stage.rows.find((r) => r.team.isPlayer);
     const rows = player && !keep.some((r) => r.team.id === player.team.id) ? [...keep, player] : keep;
     return `<div class="table-wrap"><table><thead><tr><th>${t("rank")}</th><th>${t("team")}</th><th class="num">${t("battlePoints")}</th><th class="num">${t("battleRaw")}</th><th>${t("final")}</th></tr></thead><tbody>
-      ${rows.map((r) => `<tr class="${r.team.isPlayer ? "player-row" : ""}"><td class="rank">${r.rank}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub sub-fed">${flagHtml(r.team.federation)}${escapeHTML(r.team.federation)}</div></td><td class="score">${formatScore(r.points)}</td><td class="score">${formatScore(r.raw)}</td><td>${r.rank <= stage.advance ? '<span class="q-badge">Q</span>' : ""}</td></tr>`).join("")}
+      ${rows.map((r) => `<tr class="${r.team.isPlayer ? "player-row" : ""}"><td class="rank">${r.rank}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub">${stage.routineCount} ${t("routine")}</div></td><td class="score">${formatScore(r.points)}</td><td class="score">${formatScore(r.raw)}</td><td>${r.rank <= stage.advance ? '<span class="q-badge">Q</span>' : ""}</td></tr>`).join("")}
     </tbody></table></div>`;
   }
   function battleTopRoutines(stage) {
     return [...stage.routines].sort((a, b) => b.points - a.points).slice(0, 6).map((r) => `<div class="sess-row battle-routine-row ${r.team.isPlayer ? "sess-you" : ""}">
-      <span class="sess-name">${escapeHTML(r.athlete.name)}</span>${countryLabel(r.athlete.country)}<span class="battle-app-mini">${appTag(r.apparatus, "app-icon app-icon-xs")} ${r.apparatus.short}</span><span class="sess-score">${formatScore(r.points)}</span>
+      <span class="sess-name">${escapeHTML(r.athlete.name)}</span><span class="sub">${escapeHTML(countryName(r.athlete.country))}</span><span class="battle-app-mini">${appTag(r.apparatus, "app-icon app-icon-xs")} ${r.apparatus.short}</span><span class="sess-score">${formatScore(r.points)}</span>
     </div>`).join("");
   }
   function renderBattleResults() {
@@ -2027,7 +2096,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
           </div>
           <div class="grid gap-4 lg:grid-cols-[360px_1fr]">
             <aside class="panel p-4">
-              ${renderPodium(battle.stages[battle.stages.length - 1].rows.slice(0, 3).map((r) => ({ rank: r.rank, name: displayTeamName(r.team), sub: r.team.federation, score: r.points, player: r.team.isPlayer })))}
+              ${renderPodium(battle.stages[battle.stages.length - 1].rows.slice(0, 3).map((r) => ({ rank: r.rank, name: displayTeamName(r.team), sub: t("battleTeams"), score: r.points, player: r.team.isPlayer })))}
               <div class="mt-4 grid gap-2">
                 ${playerRows.map(({ stage, row }) => `<div class="soft-panel p-3"><div class="strong">${t(stage.titleKey)} · #${row.rank}</div><div class="sub">${escapeHTML(displayTeamName(row.team))} · ${formatScore(row.points)} ${t("battlePoints")}</div></div>`).join("")}
               </div>
@@ -2122,7 +2191,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
               <p class="kicker">${escapeHTML(competitionName())} · ${t("registeredTeam")}</p>
               <h1 class="mt-1 display text-3xl md:text-5xl">${escapeHTML(player.name)}</h1>
               <div class="mt-4 flex flex-wrap gap-2">
-                <span class="chip">${escapeHTML(player.federation)}</span>
+                <span class="chip">${escapeHTML(countryName(player.federation))}</span>
                 <span class="chip">${state.gender}</span>
                 ${apps().map((a) => `<span class="chip chip-app">${appTag(a, "app-icon app-icon-sm")}${a.short}</span>`).join("")}
                 <span class="chip">${t("seed")} ${state.seed}</span>
@@ -2225,7 +2294,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
   function renderQualTeamTable() {
     const rows = state.results.qual.teamResults;
     return `<div class="table-wrap"><table><thead><tr><th>${t("rank")}</th><th>${t("team")}</th>${apparatusHeaderCells()}<th class="num">${t("total")}</th><th class="ctr">${t("final")}</th></tr></thead><tbody>
-      ${rows.map((r, i) => `<tr class="${r.team.isPlayer ? "player-row" : ""} ${i < 8 ? "qrow" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub sub-fed">${flagHtml(r.team.federation)}${escapeHTML(r.team.federation)}</div></td>${apps().map((ap) => `<td class="score">${formatScore(r.appTotals[ap.id])}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td class="ctr">${i < 8 ? '<span class="q-badge">Q</span>' : ""}</td></tr>`).join("")}
+      ${rows.map((r, i) => `<tr class="${r.team.isPlayer ? "player-row" : ""} ${i < 8 ? "qrow" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub sub-fed">${teamFlagHtml(r.team)}${escapeHTML(countryName(r.team.federation))}</div></td>${apps().map((ap) => `<td class="score">${formatScore(r.appTotals[ap.id])}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td class="ctr">${i < 8 ? '<span class="q-badge">Q</span>' : ""}</td></tr>`).join("")}
     </tbody></table></div>`;
   }
   function renderQualAATable() {
@@ -2660,7 +2729,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
       d: s.d.toFixed(1), e: s.e.toFixed(3),
       prev: r.after ? r.after.name : ""
     };
-    const meta = `${r.team.federation} · ${appName(r.apparatus)} · ${formatScore(s.total)}`;
+    const meta = `${displayTeamName(r.team)} · ${appName(r.apparatus)} · ${formatScore(s.total)}`;
     const out = [];
 
     let kind = "steady";
@@ -2691,7 +2760,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     // virada na liderança
     const leaderNow = liveRankingData()[0];
     if (leaderNow && prevLeaderId && leaderNow.td.team.id !== prevLeaderId && leaderNow.td.team.id === r.teamId) {
-      out.push(boothComment("leadChange", { team: displayTeamName(r.team) }, { meta: `${r.team.federation} · ${formatScore(leaderNow.val)}`, top: true, you: r.team.isPlayer }));
+      out.push(boothComment("leadChange", { team: displayTeamName(r.team) }, { meta: `${displayTeamName(r.team)} · ${formatScore(leaderNow.val)}`, top: true, you: r.team.isPlayer }));
     }
 
     // parciais de pódio (com moderação, para não virar spam)
@@ -2735,18 +2804,18 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     const best = [...processed].sort((a, b) => b.score.total - a.score.total)[0];
     pushLiveComment(boothComment("skipBest", {
       name: best.athlete.name, app: appName(best.apparatus), score: formatScore(best.score.total), team: displayTeamName(best.team)
-    }, { meta: `${best.team.federation} · ${appName(best.apparatus)} · ${formatScore(best.score.total)}`, you: best.team.isPlayer, top: true }));
+    }, { meta: `${displayTeamName(best.team)} · ${appName(best.apparatus)} · ${formatScore(best.score.total)}`, you: best.team.isPlayer, top: true }));
     const playerBest = processed.filter((r) => r.team.isPlayer).sort((a, b) => b.score.total - a.score.total)[0];
     if (playerBest && playerBest !== best) {
       pushLiveComment(boothComment("skipPlayer", {
         name: playerBest.athlete.name, app: appName(playerBest.apparatus), score: formatScore(playerBest.score.total)
-      }, { meta: `${playerBest.team.federation} · ${appName(playerBest.apparatus)} · ${formatScore(playerBest.score.total)}`, you: true }));
+      }, { meta: `${displayTeamName(playerBest.team)} · ${appName(playerBest.apparatus)} · ${formatScore(playerBest.score.total)}`, you: true }));
     }
     const playerRank = liveRankingData().find((row) => row.td.team.isPlayer);
     if (playerRank && playerRank.rank <= 3 && playerRank.val > 0) {
       pushLiveComment(boothComment("playerPodium", {
         rank: ordinal(playerRank.rank), score: formatScore(playerRank.val)
-      }, { meta: `${state.federation} · ${formatScore(playerRank.val)}`, you: true, top: true }));
+      }, { meta: `${state.teamName} · ${formatScore(playerRank.val)}`, you: true, top: true }));
     }
   }
   function addFinalLiveCommentary() {
@@ -2757,13 +2826,13 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     const leader = ranking[0];
     if (leader) {
       pushLiveComment(boothComment("finalTop", { team: displayTeamName(leader.td.team), score: formatScore(leader.val) },
-        { meta: `${leader.td.team.federation} · ${formatScore(leader.val)}`, you: leader.td.team.isPlayer, top: true }));
+        { meta: `${displayTeamName(leader.td.team)} · ${formatScore(leader.val)}`, you: leader.td.team.isPlayer, top: true }));
     }
     const player = ranking.find((row) => row.td.team.isPlayer);
     if (player && (player.rank <= 3 || player !== leader)) {
       pushLiveComment(boothComment(player.rank <= 3 ? "finalPlayerPodium" : "finalPlayer", {
         rank: ordinal(player.rank), score: formatScore(player.val)
-      }, { meta: `${state.federation} · ${formatScore(player.val)}`, you: true, top: player.rank <= 3 }));
+      }, { meta: `${state.teamName} · ${formatScore(player.val)}`, you: true, top: player.rank <= 3 }));
     }
   }
   function advanceLive() {
@@ -2842,7 +2911,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
       return `<div class="stand-row ${o.td.team.isPlayer ? "stand-you" : ""} ${medalCls}">
         <span class="stand-rank">${o.rank}</span>
         <span class="stand-name">${escapeHTML(displayTeamName(o.td.team))}</span>
-        <span class="stand-fed">${flagHtml(o.td.team.federation)}${escapeHTML(o.td.team.federation)}</span>
+        <span class="stand-fed">${teamFlagHtml(o.td.team)}${escapeHTML(countryName(o.td.team.federation))}</span>
         <span class="stand-score">${o.val ? formatScore(o.val) : "—"}</span>
       </div>`;
     }).join("");
@@ -2905,7 +2974,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     if (!done.length) return `<p class="log-empty">—</p>`;
     // group by team: show counting logic (all 3 count in team final)
     return done.map((r) => `<div class="log-row ${r.team.isPlayer ? "log-you" : ""}">
-      <span class="log-fed">${escapeHTML(r.team.federation)}</span>
+      <span class="log-fed">${escapeHTML(countryName(r.team.federation))}</span>
       <span class="log-name">${escapeHTML(r.athlete.name)}</span>
       <span class="log-score">${formatScore(r.score.total)}</span>
     </div>`).join("");
@@ -3014,14 +3083,14 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
             <button class="btn btn-primary" data-act="aaFinal">${icon("arrow")} ${t("aaButton")}</button>
           </div></div>
         <div class="grid gap-4 lg:grid-cols-[420px_1fr]">
-          <div class="panel p-4">${renderPodium(results.slice(0, 3).map((r, i) => ({ rank: i + 1, name: displayTeamName(r.team), sub: r.team.federation, score: r.total, player: r.team.isPlayer })))}</div>
+          <div class="panel p-4">${renderPodium(results.slice(0, 3).map((r, i) => ({ rank: i + 1, name: displayTeamName(r.team), sub: countryName(r.team.federation), score: r.total, player: r.team.isPlayer })))}</div>
           <div class="panel p-4">${renderTeamFinalTable()}</div>
         </div>
       </div></section>`;
   }
   function renderTeamFinalTable() {
     return `<div class="table-wrap"><table><thead><tr><th>${t("rank")}</th><th>${t("team")}</th>${apparatusHeaderCells()}<th class="num">${t("total")}</th><th>${t("medal")}</th></tr></thead><tbody>
-      ${state.results.teamFinal.map((r, i) => `<tr class="${r.team.isPlayer ? "player-row" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub sub-fed">${flagHtml(r.team.federation)}${escapeHTML(r.team.federation)}</div></td>${apps().map((ap) => `<td class="score">${formatScore(r.appTotals[ap.id])}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td>${medalBadge(i)}</td></tr>`).join("")}
+      ${state.results.teamFinal.map((r, i) => `<tr class="${r.team.isPlayer ? "player-row" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub sub-fed">${teamFlagHtml(r.team)}${escapeHTML(countryName(r.team.federation))}</div></td>${apps().map((ap) => `<td class="score">${formatScore(r.appTotals[ap.id])}</td>`).join("")}<td class="score">${formatScore(r.total)}</td><td>${medalBadge(i)}</td></tr>`).join("")}
     </tbody></table></div>`;
   }
 
@@ -3046,7 +3115,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
             <button class="btn btn-primary" data-act="appFinals">${icon("arrow")} ${t("appFinalsButton")}</button>
           </div></div>
         <div class="grid gap-4 lg:grid-cols-[420px_1fr]">
-          <div class="panel p-4">${renderPodium(results.slice(0, 3).map((r, i) => ({ rank: i + 1, name: r.athlete.name, sub: `${r.athlete.country} · ${athleteTeamName(r.athlete)}`, score: r.total, player: r.athlete.isPlayerAthlete })))}</div>
+          <div class="panel p-4">${renderPodium(results.slice(0, 3).map((r, i) => ({ rank: i + 1, name: r.athlete.name, sub: `${countryName(r.athlete.country)} · ${athleteTeamName(r.athlete)}`, score: r.total, player: r.athlete.isPlayerAthlete })))}</div>
           <div class="panel p-4">${renderAAFinalTable()}</div>
         </div>
       </div></section>`;
@@ -3083,7 +3152,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     const rows = state.results.appFinals[ap.id];
     return `<section class="panel p-4">
       <div class="mb-4 flex items-center justify-between gap-3"><div class="flex items-center gap-2">${appTag(ap)}<h2 class="section-title">${appName(ap)}</h2></div><span class="chip">${t("final")}</span></div>
-      ${renderPodium(rows.slice(0, 3).map((r, i) => ({ rank: i + 1, name: r.athlete.name, sub: `${r.athlete.country} · ${athleteTeamName(r.athlete)}`, score: r.score.total, player: r.athlete.isPlayerAthlete })), true)}
+      ${renderPodium(rows.slice(0, 3).map((r, i) => ({ rank: i + 1, name: r.athlete.name, sub: `${countryName(r.athlete.country)} · ${athleteTeamName(r.athlete)}`, score: r.score.total, player: r.athlete.isPlayerAthlete })), true)}
       <div class="mt-4 table-wrap"><table class="min-w-[620px]"><thead><tr><th>${t("rank")}</th><th>${t("gymnast")}</th><th>${t("country")}</th><th class="num">D</th><th class="num">E</th><th class="num">${t("total")}</th><th>${t("routine")}</th><th>${t("medal")}</th></tr></thead><tbody>
         ${rows.map((r, i) => `<tr class="${r.athlete.isPlayerAthlete ? "player-row" : ""}"><td class="rank">${i + 1}</td><td><div class="strong">${escapeHTML(r.athlete.name)}</div><div class="sub">${escapeHTML(athleteTeamName(r.athlete))}</div></td><td>${countryLabel(r.athlete.country)}</td><td class="score">${r.score.d.toFixed(1)}</td><td class="score">${r.score.e.toFixed(3)}</td><td class="score">${formatScore(r.score.total)}</td><td><span class="note-pill sm ${r.score.note === "queda" ? "note-fall" : r.score.note === "erro" ? "note-error" : r.score.note === "cravada" ? "note-stick" : "note-clean"}">${escapeHTML(routineNote(r.score.note))}</span></td><td>${medalBadge(i)}</td></tr>`).join("")}
       </tbody></table></div>
@@ -3138,7 +3207,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
           <div class="mt-4 medal-haul"><span class="haul-label">${t("yourMedals")}</span><span class="haul-set"><span class="medal-badge medal-gold">${haul[0]}</span><span class="medal-badge medal-silver">${haul[1]}</span><span class="medal-badge medal-bronze">${haul[2]}</span></span></div>
           <div class="mt-5 tally-head"><span></span><span></span><span class="tally-h medal-h-g">${t("goldShort")}</span><span class="tally-h medal-h-s">${t("silverShort")}</span><span class="tally-h medal-h-b">${t("bronzeShort")}</span><span class="tally-h">${t("total")}</span></div>
           <div class="tally-list">
-            ${rows.map((r, i) => `<div class="tally-row ${i === 0 ? "tally-top" : ""} ${r.country === playerFed ? "tally-you" : ""}"><span class="tally-rank">${i + 1}</span><span class="tally-country">${flagHtml(r.country)}<span>${escapeHTML(r.country)}</span></span><span class="tally-num">${r.gold}</span><span class="tally-num">${r.silver}</span><span class="tally-num">${r.bronze}</span><span class="tally-num tally-total">${r.total}</span></div>`).join("")}
+            ${rows.map((r, i) => `<div class="tally-row ${i === 0 ? "tally-top" : ""} ${r.country === playerFed ? "tally-you" : ""}"><span class="tally-rank">${i + 1}</span><span class="tally-country">${r.country === playerFed && state.customFlag ? customFlagHtml() : flagHtml(r.country)}<span>${escapeHTML(countryName(r.country))}</span></span><span class="tally-num">${r.gold}</span><span class="tally-num">${r.silver}</span><span class="tally-num">${r.bronze}</span><span class="tally-num tally-total">${r.total}</span></div>`).join("")}
           </div>
           <div class="mt-5 grid gap-2"><button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button><button class="btn btn-secondary" data-act="backToApps">${icon("arrow")} ${t("backToApps")}</button></div>
         </div>
@@ -3162,6 +3231,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     clearDraft, rerollYear: rerollDraftYear, rerollTeam: rerollDraftTeam,
     addAthlete: (el) => addAthlete(el.dataset.id), removeAthlete: (el) => removeAthlete(el.dataset.id),
     battleAuto: autoFillBattleDraft, battleStart: runBattleRoyale, clearBattleDraft,
+    battleRerollOptions: () => { generateBattleOptions(); renderBattleDraft(); },
     addBattleAthlete: (el) => addBattleAthlete(el.dataset.id), removeBattleAthlete: (el) => removeBattleAthlete(el.dataset.id),
     runQuals: runQualifications, backToDraft: renderDraftBoard,
     qualTab: (el) => { state.qualTab = el.dataset.val; renderQualifications(); },
@@ -3170,7 +3240,9 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     liveSpeed: (el) => setLiveSpeed(Number(el.dataset.val)),
     seeTeamResults: seeTeamResultsFromLive, seeResultsBtn: seeTeamResultsFromLive,
     aaFinal: runAAFinal, appFinals: runAppFinals, summary: renderSummary,
-    newSeason: renderSetup, backToApps: renderAppFinals
+    newSeason: renderSetup, backToApps: renderAppFinals,
+    uploadFlag: () => document.getElementById("customFlagInput")?.click(),
+    clearFlag: () => { state.customFlag = ""; persistTeamIdentity(); renderSetup(); }
   };
   function onClick(e) {
     const el = e.target.closest("[data-act]");
@@ -3186,7 +3258,29 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     if (e.target?.id === "federationInput") {
       state.federation = (e.target.value || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
       e.target.value = state.federation;
+      state.customFlag = "";
       persistTeamIdentity();
+      renderSetup();
+    }
+  }
+  function onChange(e) {
+    if (e.target?.id === "federationInput") {
+      state.federation = (e.target.value || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
+      state.customFlag = "";
+      persistTeamIdentity();
+      renderSetup();
+    }
+    if (e.target?.id === "customFlagInput") {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      if (file.size > 650000) { showToast(t("flagTooLarge")); e.target.value = ""; return; }
+      const reader = new FileReader();
+      reader.onload = () => {
+        state.customFlag = String(reader.result || "");
+        persistTeamIdentity();
+        renderSetup();
+      };
+      reader.readAsDataURL(file);
     }
   }
   function updateDeviceProfile() {
@@ -3208,6 +3302,7 @@ M,Fusuke Maeda,JPN,2026,4.6,8.0,4.8,8.0,N/A,N/A,N/A,N/A,4.8,8.0,4.5,8.0,4.7,8.0,
     updateDeviceProfile();
     document.addEventListener("click", onClick);
     document.addEventListener("input", onInput);
+    document.addEventListener("change", onChange);
     window.addEventListener("resize", updateDeviceProfile, { passive: true });
     window.addEventListener("orientationchange", () => setTimeout(updateDeviceProfile, 120), { passive: true });
     const brand = document.getElementById("brandHome");
