@@ -193,6 +193,17 @@
     .sess-list { padding:8px; display:grid; gap:4px; }
     .sess-row { display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; }
     .battle-routine-row { grid-template-columns:minmax(0,1fr) auto auto auto; }
+    .mom-tag { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.03em; padding:1px 6px; border-radius:999px; vertical-align:middle; margin-left:4px; }
+    .mom-fire { background:rgba(240,90,60,.18); color:#f0603c; }
+    .mom-warm { background:rgba(245,196,81,.20); color:#c99a2e; }
+    .mom-shaken { background:rgba(91,141,239,.16); color:#5b8def; }
+    .mom-rattled { background:var(--surface-2); color:var(--muted); }
+    .ach-row { display:flex; gap:12px; align-items:center; padding:10px 12px; border-radius:12px; border:1px solid var(--line); }
+    .ach-row.unlocked { background:linear-gradient(90deg,rgba(245,196,81,.12),transparent); border-color:rgba(245,196,81,.35); }
+    .ach-row.locked { opacity:.55; }
+    .ach-ic { display:grid; place-items:center; width:38px; height:38px; border-radius:10px; background:var(--surface-2); color:var(--accent); flex:0 0 auto; }
+    .ach-row.unlocked .ach-ic { background:rgba(245,196,81,.18); color:#c99a2e; }
+    .strategy-segment button { font-size:13px; }
     .sess-row:hover { background:var(--surface-2); }
     .sess-you { background:var(--accent-soft); box-shadow:inset 3px 0 0 var(--accent); }
     .sess-you:hover { background:var(--accent-soft); }
@@ -1526,7 +1537,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     medal: '<circle cx="12" cy="15" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 9.5 6 3h4l2 4M15.5 9.5 18 3h-4l-2 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
     minus: '<path d="M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
     flag: '<path d="M5 21V4M5 4h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
-    list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+    list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    lock: '<rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    star: '<path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+    clock: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+    bolt: '<path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
   };
 
   /* Pictogramas dos aparelhos (traço, currentColor) */
@@ -1589,6 +1604,46 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
 
   const I18N = {
     "pt-BR": {
+      gameMode: "Modo de jogo",
+      careerTitle: "Carreira", careerKicker: "Seu histórico e conquistas", backToSetup: "Voltar", backToCareer: "Carreira",
+      resetCareer: "Zerar carreira", careerReset: "Carreira zerada.", careerComps: "Competições", achievements: "Conquistas",
+      bestBattle: "Melhor Battle", careerPlays: "vezes", bestFinish: "Melhor posição", byCompetition: "Por competição",
+      careerAthletes: "Seus atletas na carreira", careerRoutines: "Séries", careerAvg: "Média", careerBest: "Melhor nota",
+      careerEmpty: "Jogue uma competição para começar seu histórico.", h2hTitle: "Confrontos diretos", rival: "Rival",
+      h2hRecord: "V–D", h2hMeetings: "Duelos", h2hEmpty: "Nenhum confronto registrado ainda.",
+      achievementUnlocked: "Conquista desbloqueada",
+      exportCard: "Exportar card", cardSaved: "Card salvo como PNG!", cardError: "Não foi possível gerar o card.",
+      cardAspect: "Formato do card", cardAspect45: "4:5 feed", cardAspect916: "9:16 stories",
+      battleStrategy: "Estratégia de escalação", battleMode: "Modo Battle",
+      battleMode_royale: "Battle Royale", battleMode_onePerApp: "Um por aparelho", battleMode_showOff: "Show Off estratégico",
+      battleModeDesc_royale: "Battle clássico com cortes: classificatória, semifinal e final.",
+      battleModeDesc_onePerApp: "Escolha um atleta para cada aparelho obrigatório: assimétricas, trave, argolas, paralelas, barra fixa e cavalo.",
+      battleModeDesc_showOff: "Escolha um aparelho para cada atleta; nenhum aparelho pode repetir e vence quem chegar mais perto de 100 por rotina.",
+      battleAssignments: "Escalação de aparelhos", chooseAthlete: "Escolha atleta", chooseApparatus: "Escolha aparelho",
+      battleLineupReady: "Escalação pronta", battleLineupMissing: "Complete a escalação dos 6 aparelhos antes de iniciar.",
+      battleOnePerAppTitle: "Um por aparelho", battleShowOffTitle: "Show Off estratégico", battleRelative: "Pontos relativos ao melhor da prova",
+      strat_balanced: "Equilibrada", strat_specialists: "Especialistas", strat_aggressive: "Agressiva",
+      strat_balanced_desc: "Distribui as séries pelo melhor aparelho de cada atleta.",
+      strat_specialists_desc: "Concentra nos picos: cada atleta compete onde é mais forte, mesmo repetindo.",
+      strat_aggressive_desc: "Aposta na maior nota bruta possível — mais teto, mais risco.",
+      mom_onFire: "embalado", mom_warm: "aquecido", mom_shaken: "abalado", mom_rattled: "nervoso",
+      brBubble: "Corte cruel! {inTeam} passa com {inPts} e elimina {outTeam} por {outPts}. Fim de linha.",
+      brPlayerOut: "Sua equipe caiu no corte, em {rank}. A jornada termina aqui.",
+      brPlayerThrough: "Sua equipe sobrevive em {rank} e avança para o próximo estágio!",
+      brStageOpen: "{stage}: {teams} equipes entram, só {advance} sobrevivem.",
+      brCutLine: "Zona de eliminação", brAdvanceLine: "Classificada",
+      ach_firstGold_name: "Primeiro ouro", ach_firstGold_desc: "Conquiste sua primeira medalha de ouro.",
+      ach_cleanSweep_name: "Pódio completo", ach_cleanSweep_desc: "Ganhe ouro, prata e bronze na mesma competição.",
+      ach_teamGold_name: "Reis por equipe", ach_teamGold_desc: "Vença a final por equipes.",
+      ach_battleCrown_name: "Último em pé", ach_battleCrown_desc: "Vença um Battle Royale.",
+      ach_battleNoFall_name: "Sem tropeços", ach_battleNoFall_desc: "Vença um Battle Royale sem nenhuma queda.",
+      ach_bigScore15_name: "Nota histórica", ach_bigScore15_desc: "Registre uma nota de 15.0 ou mais.",
+      ach_monoNation_name: "Orgulho nacional", ach_monoNation_desc: "Vença com um time de um só país.",
+      ach_eraMix_name: "Máquina do tempo", ach_eraMix_desc: "Monte um time com 20+ anos entre o mais novo e o mais velho.",
+      ach_veteran10_name: "Veterano", ach_veteran10_desc: "Dispute 10 competições.",
+      ach_goldHoard_name: "Colecionador", ach_goldHoard_desc: "Acumule 15 ouros na carreira.",
+      ach_podiumStreak_name: "Constância", ach_podiumStreak_desc: "Pódio em 3 competições seguidas.",
+
       htmlLang: "pt-BR", appSubtitle: "Simulação Olímpica",
       footer: "Pontuação fantasy inspirada no sistema olímpico: classificatórias, final por equipes, individual geral e finais por aparelhos.",
       themeToggle: "Alternar tema", languageLabel: "Idioma",
@@ -1644,6 +1699,46 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       apparatusNames: { vt: "Salto", ub: "Barras Assimétricas", bb: "Trave", fx: "Solo", ph: "Cavalo com Alças", sr: "Argolas", pb: "Barras Paralelas", hb: "Barra Fixa" }
     },
     en: {
+      gameMode: "Game mode",
+      careerTitle: "Career", careerKicker: "Your history and achievements", backToSetup: "Back", backToCareer: "Career",
+      resetCareer: "Reset career", careerReset: "Career reset.", careerComps: "Competitions", achievements: "Achievements",
+      bestBattle: "Best Battle", careerPlays: "times", bestFinish: "Best finish", byCompetition: "By competition",
+      careerAthletes: "Your career athletes", careerRoutines: "Routines", careerAvg: "Average", careerBest: "Best score",
+      careerEmpty: "Play a competition to start your history.", h2hTitle: "Head-to-head", rival: "Rival",
+      h2hRecord: "W–L", h2hMeetings: "Meetings", h2hEmpty: "No matchups recorded yet.",
+      achievementUnlocked: "Achievement unlocked",
+      exportCard: "Export card", cardSaved: "Card saved as PNG!", cardError: "Could not generate the card.",
+      cardAspect: "Card format", cardAspect45: "4:5 feed", cardAspect916: "9:16 stories",
+      battleStrategy: "Lineup strategy", battleMode: "Battle mode",
+      battleMode_royale: "Battle Royale", battleMode_onePerApp: "One per apparatus", battleMode_showOff: "Strategic Show Off",
+      battleModeDesc_royale: "Classic battle with cuts: qualification, semi-final and final.",
+      battleModeDesc_onePerApp: "Choose one athlete for each required apparatus: uneven bars, beam, rings, parallel bars, high bar and pommel horse.",
+      battleModeDesc_showOff: "Assign one apparatus to each athlete; no apparatus can repeat and the closest routines to 100 win.",
+      battleAssignments: "Apparatus lineup", chooseAthlete: "Choose athlete", chooseApparatus: "Choose apparatus",
+      battleLineupReady: "Lineup ready", battleLineupMissing: "Complete the 6-apparatus lineup before starting.",
+      battleOnePerAppTitle: "One per apparatus", battleShowOffTitle: "Strategic Show Off", battleRelative: "Points relative to the best routine",
+      strat_balanced: "Balanced", strat_specialists: "Specialists", strat_aggressive: "Aggressive",
+      strat_balanced_desc: "Spreads routines across each athlete's best apparatus.",
+      strat_specialists_desc: "Leans on peaks: each athlete competes where strongest, even repeating.",
+      strat_aggressive_desc: "Chases the highest raw score — more ceiling, more risk.",
+      mom_onFire: "on fire", mom_warm: "warmed up", mom_shaken: "shaken", mom_rattled: "rattled",
+      brBubble: "Brutal cut! {inTeam} survives on {inPts} and knocks out {outTeam} at {outPts}. Done.",
+      brPlayerOut: "Your team fell on the bubble, {rank}. The run ends here.",
+      brPlayerThrough: "Your team survives {rank} and advances to the next stage!",
+      brStageOpen: "{stage}: {teams} teams enter, only {advance} survive.",
+      brCutLine: "Elimination zone", brAdvanceLine: "Qualified",
+      ach_firstGold_name: "First gold", ach_firstGold_desc: "Win your first gold medal.",
+      ach_cleanSweep_name: "Full podium", ach_cleanSweep_desc: "Win gold, silver and bronze in one competition.",
+      ach_teamGold_name: "Team kings", ach_teamGold_desc: "Win the team final.",
+      ach_battleCrown_name: "Last standing", ach_battleCrown_desc: "Win a Battle Royale.",
+      ach_battleNoFall_name: "No stumbles", ach_battleNoFall_desc: "Win a Battle Royale with zero falls.",
+      ach_bigScore15_name: "Historic score", ach_bigScore15_desc: "Post a score of 15.0 or higher.",
+      ach_monoNation_name: "National pride", ach_monoNation_desc: "Win with a single-country team.",
+      ach_eraMix_name: "Time machine", ach_eraMix_desc: "Build a team spanning 20+ years.",
+      ach_veteran10_name: "Veteran", ach_veteran10_desc: "Play 10 competitions.",
+      ach_goldHoard_name: "Collector", ach_goldHoard_desc: "Amass 15 career golds.",
+      ach_podiumStreak_name: "Consistency", ach_podiumStreak_desc: "Podium in 3 competitions in a row.",
+
       htmlLang: "en", appSubtitle: "Olympic Simulation",
       footer: "Fantasy scoring inspired by the Olympic format: qualifications, team final, all-around final, and apparatus finals.",
       themeToggle: "Toggle theme", languageLabel: "Language",
@@ -1698,6 +1793,46 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       apparatusNames: { vt: "Vault", ub: "Uneven Bars", bb: "Balance Beam", fx: "Floor Exercise", ph: "Pommel Horse", sr: "Still Rings", pb: "Parallel Bars", hb: "Horizontal Bar" }
     },
     es: {
+      gameMode: "Modo de juego",
+      careerTitle: "Carrera", careerKicker: "Tu historial y logros", backToSetup: "Volver", backToCareer: "Carrera",
+      resetCareer: "Reiniciar carrera", careerReset: "Carrera reiniciada.", careerComps: "Competencias", achievements: "Logros",
+      bestBattle: "Mejor Battle", careerPlays: "veces", bestFinish: "Mejor puesto", byCompetition: "Por competencia",
+      careerAthletes: "Tus atletas en la carrera", careerRoutines: "Rutinas", careerAvg: "Promedio", careerBest: "Mejor nota",
+      careerEmpty: "Juega una competencia para empezar tu historial.", h2hTitle: "Enfrentamientos", rival: "Rival",
+      h2hRecord: "V–D", h2hMeetings: "Duelos", h2hEmpty: "Aún no hay enfrentamientos registrados.",
+      achievementUnlocked: "Logro desbloqueado",
+      exportCard: "Exportar card", cardSaved: "¡Card guardado como PNG!", cardError: "No se pudo generar el card.",
+      cardAspect: "Formato del card", cardAspect45: "4:5 feed", cardAspect916: "9:16 stories",
+      battleStrategy: "Estrategia de alineación", battleMode: "Modo Battle",
+      battleMode_royale: "Battle Royale", battleMode_onePerApp: "Uno por aparato", battleMode_showOff: "Show Off estratégico",
+      battleModeDesc_royale: "Battle clásico con cortes: clasificatoria, semifinal y final.",
+      battleModeDesc_onePerApp: "Elige un atleta para cada aparato obligatorio: asimétricas, viga, anillas, paralelas, barra fija y arzones.",
+      battleModeDesc_showOff: "Asigna un aparato a cada atleta; ningún aparato se repite y ganan las rutinas más cercanas a 100.",
+      battleAssignments: "Alineación de aparatos", chooseAthlete: "Elige atleta", chooseApparatus: "Elige aparato",
+      battleLineupReady: "Alineación lista", battleLineupMissing: "Completa la alineación de 6 aparatos antes de empezar.",
+      battleOnePerAppTitle: "Uno por aparato", battleShowOffTitle: "Show Off estratégico", battleRelative: "Puntos relativos a la mejor rutina",
+      strat_balanced: "Equilibrada", strat_specialists: "Especialistas", strat_aggressive: "Agresiva",
+      strat_balanced_desc: "Reparte las rutinas por el mejor aparato de cada atleta.",
+      strat_specialists_desc: "Apuesta a los picos: cada atleta compite donde es más fuerte, aun repitiendo.",
+      strat_aggressive_desc: "Busca la mayor nota bruta posible — más techo, más riesgo.",
+      mom_onFire: "encendido", mom_warm: "en ritmo", mom_shaken: "sacudido", mom_rattled: "nervioso",
+      brBubble: "¡Corte cruel! {inTeam} pasa con {inPts} y elimina a {outTeam} por {outPts}. Se acabó.",
+      brPlayerOut: "Tu equipo cayó en el corte, {rank}. El camino termina aquí.",
+      brPlayerThrough: "¡Tu equipo sobrevive en {rank} y avanza a la siguiente etapa!",
+      brStageOpen: "{stage}: entran {teams} equipos, solo {advance} sobreviven.",
+      brCutLine: "Zona de eliminación", brAdvanceLine: "Clasificada",
+      ach_firstGold_name: "Primer oro", ach_firstGold_desc: "Gana tu primera medalla de oro.",
+      ach_cleanSweep_name: "Podio completo", ach_cleanSweep_desc: "Gana oro, plata y bronce en una competencia.",
+      ach_teamGold_name: "Reyes por equipo", ach_teamGold_desc: "Gana la final por equipos.",
+      ach_battleCrown_name: "Último en pie", ach_battleCrown_desc: "Gana un Battle Royale.",
+      ach_battleNoFall_name: "Sin tropiezos", ach_battleNoFall_desc: "Gana un Battle Royale sin caídas.",
+      ach_bigScore15_name: "Nota histórica", ach_bigScore15_desc: "Registra una nota de 15.0 o más.",
+      ach_monoNation_name: "Orgullo nacional", ach_monoNation_desc: "Gana con un equipo de un solo país.",
+      ach_eraMix_name: "Máquina del tiempo", ach_eraMix_desc: "Arma un equipo con 20+ años de diferencia.",
+      ach_veteran10_name: "Veterano", ach_veteran10_desc: "Disputa 10 competencias.",
+      ach_goldHoard_name: "Coleccionista", ach_goldHoard_desc: "Acumula 15 oros en la carrera.",
+      ach_podiumStreak_name: "Constancia", ach_podiumStreak_desc: "Podio en 3 competencias seguidas.",
+
       htmlLang: "es", appSubtitle: "Simulación Olímpica",
       footer: "Puntuación fantasy inspirada en el formato olímpico: clasificatorias, final por equipos, final general individual y finales por aparatos.",
       themeToggle: "Cambiar tema", languageLabel: "Idioma",
@@ -1753,11 +1888,18 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     }
   };
 
+  const CARD_ASPECTS = {
+    "4:5": { w: 1080, h: 1350, labelKey: "cardAspect45" },
+    "9:16": { w: 1080, h: 1920, labelKey: "cardAspect916" }
+  };
+  const BATTLE_MODES = ["royale", "onePerApp", "showOff"];
+  const BATTLE_ONE_PER_APP_IDS = ["ub", "bb", "sr", "pb", "hb", "ph"];
+
   const state = {
     lang: getInitialLanguage(), gender: "WAG", competition: getInitialCompetition(), teamName: getInitialTeamName(), federation: getInitialFederation(),
     phase: "setup", view: "setup", selectedIds: [], draftRound: 1, draftDraw: null,
     draftRerolls: { year: false, team: false }, draftOptions: [],
-    battleOptions: [], customFlag: getInitialCustomFlag(),
+    battleOptions: [], battleMode: "royale", battleAssignments: {}, customFlag: getInitialCustomFlag(), cardAspect: getInitialCardAspect(),
     qualTab: "teams", seed: Date.now(), rng: Math.random, teams: [], results: {}, live: null
   };
   const BATTLE_CONFIG = {
@@ -2172,6 +2314,10 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     showToast.timer = setTimeout(() => toast.classList.remove("show"), 2200);
   }
   function hideToast() { const toast = document.getElementById("toast"); if (toast) toast.classList.remove("show"); clearTimeout(showToast.timer); }
+  function getInitialCardAspect() {
+    const saved = localStorage.getItem("gym-royale-card-aspect");
+    return CARD_ASPECTS[saved] ? saved : "4:5";
+  }
   function getInitialTheme() { const s = localStorage.getItem("gym-royale-theme"); if (s) return s; return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
   function applyTheme(theme) {
     document.documentElement.dataset.theme = theme; localStorage.setItem("gym-royale-theme", theme);
@@ -2285,7 +2431,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
 
   function renderSetup() {
     state.view = "setup"; setPhase("setup", `${icon("trophy")} ${t("phaseSetup")}`);
-    state.results = {}; state.teams = []; state.live = null;
+    state.results = {}; state.teams = []; state.live = null; state._recordedSummary = false;
     const battle = isBattleMode();
     const displayApps = battle ? [...new Map([...APPARATUS.WAG, ...APPARATUS.MAG].map((a) => [a.id, a])).values()] : apps();
     app.innerHTML = `
@@ -2333,6 +2479,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
             <div class="mt-6 flex flex-col gap-3 md:flex-row md:items-center">
               <button class="btn btn-primary" data-act="startDraft">${icon("arrow")} ${battle ? t("battleDraftTitle") : t("openDraft")}</button>
               <button class="btn btn-secondary" data-act="quickStart">${icon("play")} ${battle ? t("battleAuto") : t("autoDraft")}</button>
+              <button class="btn btn-secondary" data-act="openCareer">${icon("trophy")} ${t("careerTitle")}</button>
             </div>
           </div>
           <div class="grid gap-4">
@@ -2562,6 +2709,161 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     state.battleOptions = (state.battleOptions || []).filter((a) => !selected.has(a.baseKey));
     if (!state.battleOptions.length) generateBattleOptions();
   }
+  function battleMode() { return BATTLE_MODES.includes(state.battleMode) ? state.battleMode : "royale"; }
+  function setBattleMode(mode) {
+    if (!BATTLE_MODES.includes(mode)) return;
+    state.battleMode = mode;
+    state.battleAssignments = {};
+    renderBattleDraft();
+  }
+  function battleModeLabel(mode = battleMode()) { return t("battleMode_" + mode); }
+  function battleModeDescription(mode = battleMode()) { return t("battleModeDesc_" + mode); }
+  function battleFormatLabel(mode = battleMode()) { return mode === "royale" ? t("battleFormat") : t("battleRelative"); }
+  function battleAppById(id) {
+    return [...APPARATUS.WAG, ...APPARATUS.MAG].find((ap) => ap.id === id) || APPARATUS.WAG[0];
+  }
+  function appForAthlete(a, appId) { return athleteApps(a).find((ap) => ap.id === appId) || null; }
+  function athleteCanDoApp(a, appId) { return Boolean(appForAthlete(a, appId)); }
+  function battleAssignments() {
+    if (!state.battleAssignments || typeof state.battleAssignments !== "object") state.battleAssignments = {};
+    return state.battleAssignments;
+  }
+  function pruneBattleAssignments() {
+    const assignments = battleAssignments();
+    const selected = new Set(state.selectedIds);
+    Object.keys(assignments).forEach((key) => {
+      if (key.startsWith("app:") && assignments[key] && !selected.has(assignments[key])) delete assignments[key];
+      if (key.startsWith("ath:") && !selected.has(key.slice(4))) delete assignments[key];
+    });
+  }
+  function bestEligibleAthleteForApp(athletes, appId) {
+    return [...athletes].filter((a) => athleteCanDoApp(a, appId)).sort((a, b) => appPotential(b, appId) - appPotential(a, appId))[0] || null;
+  }
+  function recommendShowOffAssignments(selected) {
+    const existing = battleAssignments();
+    const next = {};
+    const usedApps = new Set();
+    selected.forEach((athlete) => {
+      const appId = existing[`ath:${athlete.id}`];
+      if (appId && athleteCanDoApp(athlete, appId) && !usedApps.has(appId)) {
+        next[`ath:${athlete.id}`] = appId;
+        usedApps.add(appId);
+      }
+    });
+    const candidates = [];
+    selected.forEach((athlete) => athleteApps(athlete).forEach((ap) => {
+      candidates.push({ athlete, appId: ap.id, potential: appPotential(athlete, ap.id) });
+    }));
+    candidates.sort((a, b) => b.potential - a.potential);
+    selected.forEach((athlete) => {
+      if (next[`ath:${athlete.id}`]) return;
+      const pick = candidates.find((c) => c.athlete.id === athlete.id && !usedApps.has(c.appId));
+      if (pick) {
+        next[`ath:${athlete.id}`] = pick.appId;
+        usedApps.add(pick.appId);
+      }
+    });
+    return next;
+  }
+  function ensureBattleAssignments(selected = selectedAthletes()) {
+    const mode = battleMode();
+    const assignments = battleAssignments();
+    if (mode === "onePerApp") {
+      BATTLE_ONE_PER_APP_IDS.forEach((appId) => {
+        const current = selected.find((a) => a.id === assignments[`app:${appId}`] && athleteCanDoApp(a, appId));
+        if (!current) {
+          const pick = bestEligibleAthleteForApp(selected, appId);
+          if (pick) assignments[`app:${appId}`] = pick.id;
+          else delete assignments[`app:${appId}`];
+        }
+      });
+    } else if (mode === "showOff") {
+      state.battleAssignments = { ...assignments, ...recommendShowOffAssignments(selected) };
+    }
+  }
+  function battleLineupStatus(mode = battleMode(), selected = selectedAthletes()) {
+    if (mode === "royale") return { valid: true, missing: [] };
+    if (selected.length !== BATTLE_CONFIG.rosterSize) return { valid: false, missing: ["roster"] };
+    const assignments = battleAssignments();
+    if (mode === "onePerApp") {
+      const missing = BATTLE_ONE_PER_APP_IDS.filter((appId) => {
+        const id = assignments[`app:${appId}`];
+        const athlete = selected.find((a) => a.id === id);
+        return !athlete || !athleteCanDoApp(athlete, appId);
+      });
+      return { valid: missing.length === 0, missing };
+    }
+    if (mode === "showOff") {
+      const used = new Set();
+      const missing = [];
+      selected.forEach((athlete) => {
+        const appId = assignments[`ath:${athlete.id}`];
+        if (!appId || !athleteCanDoApp(athlete, appId) || used.has(appId)) missing.push(athlete.id);
+        else used.add(appId);
+      });
+      return { valid: missing.length === 0 && used.size === BATTLE_CONFIG.rosterSize, missing };
+    }
+    return { valid: false, missing: [] };
+  }
+  function battleModeControls() {
+    return `<div class="mt-4">
+      <span class="field-label mb-2 block">${t("battleMode")}</span>
+      <div class="segment strategy-segment">
+        ${BATTLE_MODES.map((mode) => `<button class="${battleMode() === mode ? "active" : ""}" data-act="battleMode" data-val="${mode}" title="${battleModeDescription(mode)}">${battleModeLabel(mode)}</button>`).join("")}
+      </div>
+      <p class="hint mt-2">${battleModeDescription()}</p>
+    </div>`;
+  }
+  function battleLineupEditor(selected) {
+    if (selected.length !== BATTLE_CONFIG.rosterSize || battleMode() === "royale") return "";
+    ensureBattleAssignments(selected);
+    const assignments = battleAssignments();
+    const status = battleLineupStatus(battleMode(), selected);
+    const statusText = status.valid ? t("battleLineupReady") : t("battleLineupMissing");
+    if (battleMode() === "onePerApp") {
+      return `<div class="mt-4 soft-panel p-3">
+        <div class="mb-3 flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+          <h3 class="section-title">${t("battleAssignments")}</h3><span class="chip">${statusText}</span>
+        </div>
+        <div class="grid gap-3 md:grid-cols-2">
+          ${BATTLE_ONE_PER_APP_IDS.map((appId) => {
+            const ap = battleAppById(appId);
+            const eligible = selected.filter((a) => athleteCanDoApp(a, appId)).sort((a, b) => appPotential(b, appId) - appPotential(a, appId));
+            return `<label class="field"><span class="field-label">${appTag(ap, "app-icon app-icon-xs")} ${appName(ap)}</span>
+              <select class="input battle-assignment-select" data-battle-assign="onePerApp" data-app="${appId}">
+                <option value="">${t("chooseAthlete")}</option>
+                ${eligible.map((a) => `<option value="${a.id}" ${assignments[`app:${appId}`] === a.id ? "selected" : ""}>${escapeHTML(a.name)} · ${formatScore(appPotential(a, appId))}</option>`).join("")}
+              </select></label>`;
+          }).join("")}
+        </div>
+      </div>`;
+    }
+    const usedByOther = (athleteId, appId) => selected.some((a) => a.id !== athleteId && assignments[`ath:${a.id}`] === appId);
+    return `<div class="mt-4 soft-panel p-3">
+      <div class="mb-3 flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+        <h3 class="section-title">${t("battleAssignments")}</h3><span class="chip">${statusText}</span>
+      </div>
+      <div class="grid gap-3 md:grid-cols-2">
+        ${selected.map((athlete) => {
+          const current = assignments[`ath:${athlete.id}`] || "";
+          return `<label class="field"><span class="field-label">${escapeHTML(athlete.name)}</span>
+            <select class="input battle-assignment-select" data-battle-assign="showOff" data-athlete="${athlete.id}">
+              <option value="">${t("chooseApparatus")}</option>
+              ${athleteApps(athlete).map((ap) => {
+                const disabled = usedByOther(athlete.id, ap.id) ? "disabled" : "";
+                return `<option value="${ap.id}" ${current === ap.id ? "selected" : ""} ${disabled}>${appName(ap)} · ${formatScore(appPotential(athlete, ap.id))}</option>`;
+              }).join("")}
+            </select></label>`;
+        }).join("")}
+      </div>
+    </div>`;
+  }
+  function updateBattleAssignment(el) {
+    const assignments = battleAssignments();
+    if (el.dataset.battleAssign === "onePerApp") assignments[`app:${el.dataset.app}`] = el.value;
+    if (el.dataset.battleAssign === "showOff") assignments[`ath:${el.dataset.athlete}`] = el.value;
+    renderBattleDraft();
+  }
   function battleRosterSlot(a) {
     const best = athleteBestApp(a);
     return `<div class="card roster-card p-3">
@@ -2585,6 +2887,10 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     state.view = "battleDraft"; setPhase("draft", `${icon("live")} ${t("battleDraftTitle")}`);
     const selected = selectedAthletes();
     const complete = selected.length === BATTLE_CONFIG.rosterSize;
+    const mode = battleMode();
+    if (complete && mode !== "royale") ensureBattleAssignments(selected);
+    const lineupStatus = battleLineupStatus(mode, selected);
+    const canStart = complete && lineupStatus.valid;
     ensureBattleOptions();
     const pool = state.battleOptions || [];
     app.innerHTML = `
@@ -2593,13 +2899,21 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
           <div class="panel p-4 md:p-5">
             ${progress("draft")}
             <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div><p class="kicker">${escapeHTML(competitionName())} · ${t("battleFormat")}</p><h1 class="mt-1 display text-2xl md:text-4xl">${t("battleDraftTitle")}</h1><p class="mt-2 hint">${t("battlePickInstruction")}</p></div>
+              <div><p class="kicker">${escapeHTML(competitionName())} · ${battleFormatLabel(mode)}</p><h1 class="mt-1 display text-2xl md:text-4xl">${battleModeLabel(mode)}</h1><p class="mt-2 hint">${t("battlePickInstruction")}</p></div>
               <div class="flex gap-2">
                 <button class="btn btn-secondary" data-act="battleAuto">${icon("plus")} ${t("battleAuto")}</button>
-                <button class="btn btn-primary" data-act="battleLiveStart" ${complete ? "" : "disabled"}>${icon("live")} ${t("watchBattleLive")}</button>
-                <button class="btn btn-secondary" data-act="battleStart" ${complete ? "" : "disabled"}>${icon("play")} ${t("quickResult")}</button>
+                <button class="btn btn-primary" data-act="battleLiveStart" ${canStart ? "" : "disabled"}>${icon("live")} ${t("watchBattleLive")}</button>
+                <button class="btn btn-secondary" data-act="battleStart" ${canStart ? "" : "disabled"}>${icon("play")} ${t("quickResult")}</button>
               </div>
             </div>
+            ${battleModeControls()}
+            ${mode === "royale" ? `<div class="mt-4">
+              <span class="field-label mb-2 block">${t("battleStrategy")}</span>
+              <div class="segment strategy-segment">
+                ${BATTLE_STRATEGIES.map((s) => `<button class="${battleStrategy() === s ? "active" : ""}" data-act="battleStrategy" data-val="${s}" title="${t("strat_" + s + "_desc")}">${t("strat_" + s)}</button>`).join("")}
+              </div>
+              <p class="hint mt-2">${t("strat_" + battleStrategy() + "_desc")}</p>
+            </div>` : ""}
           </div>
           <div class="grid gap-4 lg:grid-cols-[360px_1fr]">
             <aside class="panel p-4">
@@ -2615,9 +2929,10 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
             <section class="panel p-4">
               <div class="mb-4 grid gap-3 md:grid-cols-3">
                 <div class="metric"><div class="metric-num">${BATTLE_CONFIG.teamCount}</div><div class="metric-cap">${t("battleTeams")}</div></div>
-                <div class="metric"><div class="metric-num">12 → 4 → 1</div><div class="metric-cap">${t("battleQualified")}</div></div>
-                <div class="metric"><div class="metric-num">100</div><div class="metric-cap">${t("battlePercentile")}</div></div>
+                <div class="metric"><div class="metric-num">${mode === "royale" ? "12 → 4 → 1" : "6"}</div><div class="metric-cap">${mode === "royale" ? t("battleQualified") : t("routine")}</div></div>
+                <div class="metric"><div class="metric-num">100</div><div class="metric-cap">${mode === "royale" ? t("battlePercentile") : t("battleRelative")}</div></div>
               </div>
+              ${battleLineupEditor(selected)}
               <div class="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <div>
                   <h2 class="section-title">${t("battlePool")}</h2>
@@ -2638,12 +2953,13 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     if (!athlete || selectedBaseKeys().has(athlete.baseKey)) return;
     if (state.selectedIds.length >= BATTLE_CONFIG.rosterSize) { showToast(t("chooseBattleSix")); return; }
     state.selectedIds.push(id);
+    pruneBattleAssignments();
     if (state.selectedIds.length < BATTLE_CONFIG.rosterSize) generateBattleOptions();
     else state.battleOptions = [];
     renderBattleDraft();
   }
-  function removeBattleAthlete(id) { state.selectedIds = state.selectedIds.filter((x) => x !== id); generateBattleOptions(); renderBattleDraft(); }
-  function clearBattleDraft() { state.selectedIds = []; generateBattleOptions(); renderBattleDraft(); }
+  function removeBattleAthlete(id) { state.selectedIds = state.selectedIds.filter((x) => x !== id); pruneBattleAssignments(); generateBattleOptions(); renderBattleDraft(); }
+  function clearBattleDraft() { state.selectedIds = []; state.battleAssignments = {}; generateBattleOptions(); renderBattleDraft(); }
   function autoFillBattleDraft() {
     state.selectedIds = [];
     state.battleOptions = [];
@@ -2655,6 +2971,8 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       state.selectedIds.push(pick.id);
     }
     state.battleOptions = [];
+    state.battleAssignments = {};
+    ensureBattleAssignments(selectedAthletes());
     renderBattleDraft(); showToast(t("battleFilled"));
   }
   function buildBattleTeams() {
@@ -2684,22 +3002,130 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     }
     return teams;
   }
-  function chooseBattleLineup(team, routineCount) {
+  function chooseBattleLineup(team, routineCount, momentum) {
     const candidates = [];
     team.roster.forEach((athlete) => athleteApps(athlete).forEach((ap) => {
-      candidates.push({ athlete, apparatus: ap, potential: appPotential(athlete, ap.id) + state.rng() * 0.18 });
+      const mom = momentum ? (momentum[athlete.baseKey] || 0) : 0;
+      candidates.push({ athlete, apparatus: ap, base: appPotential(athlete, ap.id), mom });
     }));
-    return candidates.sort((a, b) => b.potential - a.potential).slice(0, routineCount);
+    const strat = team.isPlayer ? battleStrategy() : "balanced";
+    candidates.forEach((c) => {
+      let score = c.base + state.rng() * 0.18 + c.mom * 0.05;
+      if (strat === "specialists") {
+        // premia forte quem tem um pico muito alto num aparelho (especialistas)
+        const peak = Math.max(...athleteApps(c.athlete).map((ap) => appPotential(c.athlete, ap.id)));
+        score += (c.base >= peak - 0.05 ? 0.6 : -0.25);
+      } else if (strat === "aggressive") {
+        // aposta na maior nota bruta possível, ignorando consistência
+        score += (c.base - 12) * 0.35;
+      }
+      c.potential = score;
+    });
+    // limita a no máximo 2 séries por atleta para forçar uso do elenco
+    const used = {};
+    const picks = [];
+    candidates.sort((a, b) => b.potential - a.potential);
+    for (const c of candidates) {
+      if (picks.length >= routineCount) break;
+      const n = used[c.athlete.baseKey] || 0;
+      const cap = strat === "specialists" ? 3 : 2;
+      if (n >= cap) continue;
+      used[c.athlete.baseKey] = n + 1;
+      picks.push(c);
+    }
+    while (picks.length < routineCount && candidates.length) picks.push(candidates[picks.length % candidates.length]);
+    return picks.slice(0, routineCount);
   }
-  function simulateBattleStage(config, teams) {
+  function findBattleTeamAthlete(team, originalId) {
+    return team.roster.find((a) => a.baseId === originalId || a.id === originalId) || null;
+  }
+  function bestBattleEntryForApp(team, appId, usedAthletes = new Set()) {
+    const primary = team.roster.filter((a) => athleteCanDoApp(a, appId) && !usedAthletes.has(a.baseKey));
+    const fallback = team.roster.filter((a) => athleteCanDoApp(a, appId));
+    const pick = [...(primary.length ? primary : fallback)].sort((a, b) => appPotential(b, appId) - appPotential(a, appId))[0];
+    return pick ? { athlete: pick, apparatus: appForAthlete(pick, appId) || battleAppById(appId) } : null;
+  }
+  function chooseOnePerAppLineup(team) {
+    const assignments = battleAssignments();
+    const used = new Set();
+    return BATTLE_ONE_PER_APP_IDS.map((appId) => {
+      let athlete = null;
+      if (team.isPlayer) {
+        athlete = findBattleTeamAthlete(team, assignments[`app:${appId}`]);
+        if (athlete && !athleteCanDoApp(athlete, appId)) athlete = null;
+      }
+      const entry = athlete
+        ? { athlete, apparatus: appForAthlete(athlete, appId) || battleAppById(appId) }
+        : bestBattleEntryForApp(team, appId, used);
+      if (entry) used.add(entry.athlete.baseKey);
+      return entry;
+    }).filter(Boolean);
+  }
+  function greedyShowOffLineup(team) {
+    const athletes = [...team.roster].sort((a, b) => athleteApps(a).length - athleteApps(b).length || athleteTotalPotential(b) - athleteTotalPotential(a));
+    let best = { picks: [], total: -Infinity };
+    function walk(index, usedApps, picks, total) {
+      if (picks.length + (athletes.length - index) < best.picks.length) return;
+      if (index >= athletes.length) {
+        if (picks.length > best.picks.length || (picks.length === best.picks.length && total > best.total)) {
+          best = { picks: [...picks], total };
+        }
+        return;
+      }
+      const athlete = athletes[index];
+      const options = athleteApps(athlete)
+        .filter((ap) => !usedApps.has(ap.id))
+        .sort((a, b) => appPotential(athlete, b.id) - appPotential(athlete, a.id));
+      if (!options.length) {
+        walk(index + 1, usedApps, picks, total);
+        return;
+      }
+      options.forEach((ap) => {
+        usedApps.add(ap.id);
+        picks.push({ athlete, apparatus: ap });
+        walk(index + 1, usedApps, picks, total + appPotential(athlete, ap.id));
+        picks.pop();
+        usedApps.delete(ap.id);
+      });
+    }
+    walk(0, new Set(), [], 0);
+    return best.picks;
+  }
+  function chooseShowOffLineup(team) {
+    if (!team.isPlayer) return greedyShowOffLineup(team);
+    const assignments = battleAssignments();
+    const usedApps = new Set();
+    const picks = [];
+    team.roster.forEach((athlete) => {
+      const appId = assignments[`ath:${athlete.baseId}`] || assignments[`ath:${athlete.id}`];
+      const ap = appId ? appForAthlete(athlete, appId) : null;
+      if (ap && !usedApps.has(ap.id)) {
+        usedApps.add(ap.id);
+        picks.push({ athlete, apparatus: ap });
+      }
+    });
+    return picks.length === BATTLE_CONFIG.rosterSize ? picks : greedyShowOffLineup(team);
+  }
+  function assignRelativeBattlePoints(routines) {
+    [...new Set(routines.map((r) => r.apparatus.id))].forEach((appId) => {
+      const group = routines.filter((r) => r.apparatus.id === appId);
+      const top = Math.max(...group.map((r) => r.raw), 0.001);
+      group.forEach((r) => { r.points = round3((r.raw / top) * 100); });
+    });
+  }
+  function simulateBattleStage(config, teams, momentum) {
     const dayForms = sessionDayForms(teams.flatMap((tm) => tm.roster));
     const routines = [];
     teams.forEach((team) => {
-      chooseBattleLineup(team, config.routines).forEach((entry, idx) => {
-        const score = simulateRoutine(entry.athlete, entry.apparatus, { dayForm: dayForms[entry.athlete.id], pressure: config.pressure + idx * 0.015 });
-        routines.push({ teamId: team.id, team, athlete: entry.athlete, apparatus: entry.apparatus, score, raw: score.total, points: 0 });
+      chooseBattleLineup(team, config.routines, momentum).forEach((entry, idx) => {
+        const pressure = config.pressure + idx * 0.015 + (momentum ? momentumPressureBonus(momentum, entry.athlete) : 0);
+        const score = simulateRoutine(entry.athlete, entry.apparatus, { dayForm: dayForms[entry.athlete.id], pressure: Math.max(0, pressure) });
+        const mom = momentum ? (momentum[entry.athlete.baseKey] || 0) : 0;
+        routines.push({ teamId: team.id, team, athlete: entry.athlete, apparatus: entry.apparatus, score, raw: score.total, points: 0, momentum: mom });
       });
     });
+    // atualiza momentum depois do estágio
+    if (momentum) routines.forEach((r) => updateBattleMomentum(momentum, r));
     [...new Set(routines.map((r) => r.apparatus.id))].forEach((appId) => {
       const group = routines.filter((r) => r.apparatus.id === appId).sort((a, b) => b.raw - a.raw);
       group.forEach((r, index) => { r.points = group.length === 1 ? 100 : round3(100 * (group.length - 1 - index) / (group.length - 1)); });
@@ -2715,63 +3141,116 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     }).sort((a, b) => b.points - a.points).map((row, index) => ({ ...row, rank: index + 1 }));
     return { ...config, routineCount: config.routines, rows, routines };
   }
-  function runBattleRoyale() {
-    if (state.selectedIds.length !== BATTLE_CONFIG.rosterSize) { showToast(t("chooseBattleSix")); return; }
-    state.seed = Date.now() % 1000000000; state.rng = mulberry32(state.seed);
+  function simulateBattleShowcase(mode) {
     const teams = buildBattleTeams();
+    const dayForms = sessionDayForms(teams.flatMap((tm) => tm.roster));
+    const routines = [];
+    teams.forEach((team) => {
+      const lineup = mode === "onePerApp" ? chooseOnePerAppLineup(team) : chooseShowOffLineup(team);
+      lineup.slice(0, BATTLE_CONFIG.rosterSize).forEach((entry, idx) => {
+        const pressure = 0.16 + idx * 0.018;
+        const score = simulateRoutine(entry.athlete, entry.apparatus, { dayForm: dayForms[entry.athlete.id], pressure });
+        routines.push({ teamId: team.id, team, athlete: entry.athlete, apparatus: entry.apparatus, score, raw: score.total, points: 0, momentum: 0 });
+      });
+    });
+    assignRelativeBattlePoints(routines);
+    const rows = teams.map((team) => {
+      const teamRoutines = routines.filter((r) => r.teamId === team.id);
+      return {
+        team,
+        routines: teamRoutines,
+        points: round3(teamRoutines.reduce((s, r) => s + r.points, 0)),
+        raw: round3(teamRoutines.reduce((s, r) => s + r.raw, 0))
+      };
+    }).sort((a, b) => b.points - a.points || b.raw - a.raw).map((row, index) => ({ ...row, rank: index + 1 }));
+    const stage = {
+      key: mode,
+      titleKey: mode === "onePerApp" ? "battleOnePerAppTitle" : "battleShowOffTitle",
+      routines: BATTLE_CONFIG.rosterSize,
+      routineCount: BATTLE_CONFIG.rosterSize,
+      advance: 1,
+      rows,
+      routines,
+      relative: true,
+      playerRow: rows.find((r) => r.team.isPlayer) || null
+    };
+    return { teams, stages: [stage], champion: rows[0], seed: state.seed, battleMode: mode };
+  }
+  function simulateBattleBracket() {
+    const teams = buildBattleTeams();
+    const momentum = {};
     const stages = [];
     let alive = teams;
     BATTLE_CONFIG.stages.forEach((config) => {
-      const stage = simulateBattleStage(config, alive);
+      const stage = simulateBattleStage(config, alive, momentum);
+      const survivors = stage.rows.slice(0, config.advance);
+      const eliminated = stage.rows.slice(config.advance);
+      // "bolha": último a passar e primeiro a cair
+      stage.bubbleIn = survivors[survivors.length - 1] || null;
+      stage.bubbleOut = eliminated[0] || null;
+      stage.playerRow = stage.rows.find((r) => r.team.isPlayer) || null;
+      stage.playerEliminated = stage.playerRow ? stage.playerRow.rank > config.advance : true;
       stages.push(stage);
-      alive = stage.rows.slice(0, config.advance).map((r) => r.team);
+      alive = survivors.map((r) => r.team);
     });
-    state.results = { battle: { stages, champion: stages[stages.length - 1].rows[0], seed: state.seed } };
+    return { teams, stages, champion: stages[stages.length - 1].rows[0], seed: state.seed, battleMode: "royale" };
+  }
+  function runBattleRoyale() {
+    if (state.selectedIds.length !== BATTLE_CONFIG.rosterSize) { showToast(t("chooseBattleSix")); return; }
+    const mode = battleMode();
+    ensureBattleAssignments(selectedAthletes());
+    if (!battleLineupStatus(mode, selectedAthletes()).valid) { showToast(t("battleLineupMissing")); return; }
+    state.seed = Date.now() % 1000000000; state.rng = mulberry32(state.seed);
+    const bracket = mode === "royale" ? simulateBattleBracket() : simulateBattleShowcase(mode);
+    state.results = { battle: bracket };
+    recordCompetitionResult(buildBattleRunData());
     renderBattleResults();
   }
   function runLiveBattleRoyale() {
     if (state.selectedIds.length !== BATTLE_CONFIG.rosterSize) { showToast(t("chooseBattleSix")); return; }
+    const mode = battleMode();
+    ensureBattleAssignments(selectedAthletes());
+    if (!battleLineupStatus(mode, selectedAthletes()).valid) { showToast(t("battleLineupMissing")); return; }
     state.seed = Date.now() % 1000000000; state.rng = mulberry32(state.seed);
-    const teams = buildBattleTeams();
-    const stages = [];
-    let alive = teams;
-    BATTLE_CONFIG.stages.forEach((config) => {
-      const stage = simulateBattleStage(config, alive);
-      stages.push(stage);
-      alive = stage.rows.slice(0, config.advance).map((r) => r.team);
-    });
+    const bracket = mode === "royale" ? simulateBattleBracket() : simulateBattleShowcase(mode);
+    const stages = bracket.stages;
     const stageTeamData = stages.map((stage) => stage.rows.map((row) => ({ team: row.team, total: row.points, raw: row.raw })));
     const rotations = stages.map((stage, index) => ({
       apparatus: stage.routines[0]?.apparatus || [...APPARATUS.WAG, ...APPARATUS.MAG][0],
-      title: t(stage.titleKey), index,
+      title: t(stage.titleKey), index, stageRef: stage,
       routines: stage.routines.map((r) => ({ ...r, teamId: r.team.id, liveValue: r.points }))
     }));
     startLiveSession({
       mode: "battleRoyale", titleKey: "liveBattleTitle", phaseKey: "team", progressKey: "team",
       scoreMode: "sum", hideFlags: true, resetRunningEachRotation: true,
       teamData: stageTeamData[0], stageTeamData, rotations,
-      battleResult: { stages, champion: stages[stages.length - 1].rows[0], seed: state.seed }
+      battleResult: bracket
     });
   }
   function commitBattleFromLive() {
     state.results = { battle: state.live.battleResult };
+    recordCompetitionResult(buildBattleRunData());
   }
   function battleStageTable(stage) {
     const keep = stage.rows.slice(0, Math.min(16, stage.rows.length));
     const player = stage.rows.find((r) => r.team.isPlayer);
     const rows = player && !keep.some((r) => r.team.id === player.team.id) ? [...keep, player] : keep;
-    return `<div class="table-wrap"><table><thead><tr><th>${t("rank")}</th><th>${t("team")}</th><th class="num">${t("battlePoints")}</th><th class="num">${t("battleRaw")}</th><th>${t("final")}</th></tr></thead><tbody>
+    return `<div class="table-wrap"><table><thead><tr><th>${t("rank")}</th><th>${t("team")}</th><th class="num">${stage.relative ? t("battleRelative") : t("battlePoints")}</th><th class="num">${t("battleRaw")}</th><th>${t("final")}</th></tr></thead><tbody>
       ${rows.map((r) => `<tr class="${r.team.isPlayer ? "player-row" : ""}"><td class="rank">${r.rank}</td><td><div class="strong">${escapeHTML(displayTeamName(r.team))}</div><div class="sub">${stage.routineCount} ${t("routine")}</div></td><td class="score">${formatScore(r.points)}</td><td class="score">${formatScore(r.raw)}</td><td>${r.rank <= stage.advance ? '<span class="q-badge">Q</span>' : ""}</td></tr>`).join("")}
     </tbody></table></div>`;
   }
   function battleTopRoutines(stage) {
-    return [...stage.routines].sort((a, b) => b.points - a.points).slice(0, 6).map((r) => `<div class="sess-row battle-routine-row ${r.team.isPlayer ? "sess-you" : ""}">
-      <span class="sess-name">${escapeHTML(r.athlete.name)}</span><span class="sub">${escapeHTML(countryName(r.athlete.country))}</span><span class="battle-app-mini">${appTag(r.apparatus, "app-icon app-icon-xs")} ${r.apparatus.short}</span><span class="sess-score">${formatScore(r.points)}</span>
-    </div>`).join("");
+    return [...stage.routines].sort((a, b) => b.points - a.points).slice(0, 6).map((r) => {
+      const tag = momentumTag(r.momentum || 0);
+      return `<div class="sess-row battle-routine-row ${r.team.isPlayer ? "sess-you" : ""}">
+      <span class="sess-name">${escapeHTML(r.athlete.name)}${tag ? ` <span class="mom-tag ${tag.cls}">${t("mom_" + tag.key)}</span>` : ""}</span><span class="sub">${escapeHTML(countryName(r.athlete.country))}</span><span class="battle-app-mini">${appTag(r.apparatus, "app-icon app-icon-xs")} ${r.apparatus.short}</span><span class="sess-score">${formatScore(r.points)}</span>
+    </div>`;
+    }).join("");
   }
   function renderBattleResults() {
     state.view = "battle"; setPhase("team", `${icon("live")} ${t("battleDraftTitle")}`);
     const battle = state.results.battle;
+    const mode = battle.battleMode || "royale";
     const champion = battle.champion;
     const playerRows = battle.stages.map((stage) => ({ stage, row: stage.rows.find((r) => r.team.isPlayer) })).filter((item) => item.row);
     app.innerHTML = `
@@ -2780,9 +3259,14 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
           <div class="panel p-4 md:p-5">
             ${progress("team")}
             <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div><p class="kicker">${t("battlePercentile")} · ${t("battleFormat")}</p><h1 class="mt-1 display text-2xl md:text-4xl">${t("battleChampion")}: ${escapeHTML(displayTeamName(champion.team))}</h1></div>
-              <button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button>
+              <div><p class="kicker">${battleModeLabel(mode)} · ${battleFormatLabel(mode)}</p><h1 class="mt-1 display text-2xl md:text-4xl">${t("battleChampion")}: ${escapeHTML(displayTeamName(champion.team))}</h1></div>
+              <div class="flex gap-2">
+                <button class="btn btn-secondary" data-act="exportBattleCard">${icon("flag")} ${t("exportCard")}</button>
+                <button class="btn btn-secondary" data-act="openCareer">${icon("trophy")} ${t("careerTitle")}</button>
+                <button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button>
+              </div>
             </div>
+            <div class="mt-4 max-w-md">${cardAspectControls()}</div>
           </div>
           <div class="grid gap-4 lg:grid-cols-[360px_1fr]">
             <aside class="panel p-4">
@@ -3658,10 +4142,34 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const L = state.live;
     const rot = L.rotations[L.rotIndex];
     const rotLabel = rot.title || appName(rot.apparatus);
+    // Battle Royale: drama de eliminação do estágio anterior + aposta do estágio atual
+    if (L.mode === "battleRoyale") {
+      const prevStage = L.rotIndex > 0 ? L.rotations[L.rotIndex - 1].stageRef : null;
+      if (prevStage) {
+        if (prevStage.bubbleOut && prevStage.bubbleIn) {
+          pushLiveComment(directBoothComment(t("brBubble", {
+            inTeam: displayTeamName(prevStage.bubbleIn.team), inPts: formatScore(prevStage.bubbleIn.points),
+            outTeam: displayTeamName(prevStage.bubbleOut.team), outPts: formatScore(prevStage.bubbleOut.points)
+          }), { kind: "fall", meta: t("brCutLine"), top: true }));
+        }
+        if (prevStage.playerEliminated) {
+          pushLiveComment(directBoothComment(t("brPlayerOut", { rank: ordinal(prevStage.playerRow ? prevStage.playerRow.rank : 99) }), { kind: "fall", meta: t("brCutLine"), you: true, top: true }));
+        } else if (prevStage.playerRow) {
+          pushLiveComment(directBoothComment(t("brPlayerThrough", { rank: ordinal(prevStage.playerRow.rank) }), { kind: "stick", meta: t("brAdvanceLine"), you: true, top: true }));
+        }
+      }
+      const stage = rot.stageRef;
+      if (stage) {
+        pushLiveComment(directBoothComment(t("brStageOpen", {
+          stage: rotLabel, teams: stage.rows.length, advance: stage.advance
+        }), { kind: "steady", meta: `${stage.rows.length} → ${stage.advance}`, top: true }));
+      }
+      renderLive && 0;
+    }
     pushLiveComment(boothComment("rotationIntro", { rot: L.rotIndex + 1, app: rotLabel }, { meta: `${t("rotation")} ${L.rotIndex + 1}/${L.rotations.length}` }));
     const apparatusStory = APPARATUS_STORIES[rot.apparatus?.id]?.[state.lang] || APPARATUS_STORIES[rot.apparatus?.id]?.["pt-BR"];
     const storyKey = `apparatus-${rot.apparatus?.id}`;
-    if (apparatusStory && !(L.storyUsed || {})[storyKey]) {
+    if (L.mode !== "battleRoyale" && apparatusStory && !(L.storyUsed || {})[storyKey]) {
       L.storyUsed = L.storyUsed || {};
       L.storyUsed[storyKey] = true;
       pushLiveComment(directBoothComment(apparatusStory, { kind: "steady", meta: rotLabel, top: true }));
@@ -4138,6 +4646,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function renderSummary() {
     state.view = "summary"; setPhase("apps", `${icon("trophy")} ${t("phaseMedals")}`);
+    if (!state._recordedSummary) { try { recordCompetitionResult(buildClassicRunData()); } catch (_) {} state._recordedSummary = true; }
     const medals = collectMedals();
     const tally = {};
     medals.forEach((m) => {
@@ -4172,7 +4681,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
           <div class="tally-list">
             ${rows.map((r, i) => { const tot = (r.gold + r.silver + r.bronze) || 1; const flag = r.country === playerFed && state.customFlag ? customFlagHtml() : flagHtml(r.country); return `<div class="tally-row ${i === 0 ? "tally-top" : ""} ${r.country === playerFed ? "tally-you" : ""}"><span class="tally-rank">${i + 1}</span><span class="tally-country"><span class="tally-cty-name">${flag}<span>${escapeHTML(countryName(r.country))}</span></span><span class="tally-bar"><span class="tbar-g" style="width:${(r.gold / tot * 100).toFixed(1)}%"></span><span class="tbar-s" style="width:${(r.silver / tot * 100).toFixed(1)}%"></span><span class="tbar-b" style="width:${(r.bronze / tot * 100).toFixed(1)}%"></span></span></span><span class="tally-num">${r.gold}</span><span class="tally-num">${r.silver}</span><span class="tally-num">${r.bronze}</span><span class="tally-num tally-total">${r.total}</span></div>`; }).join("")}
           </div>
-          <div class="mt-5 grid gap-2"><button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button><button class="btn btn-secondary" data-act="backToApps">${icon("arrow")} ${t("backToApps")}</button></div>
+          <div class="mt-5 grid gap-2">${cardAspectControls()}<button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button><div class="grid grid-cols-2 gap-2"><button class="btn btn-secondary" data-act="exportSummaryCard">${icon("flag")} ${t("exportCard")}</button><button class="btn btn-secondary" data-act="openCareer">${icon("trophy")} ${t("careerTitle")}</button></div><button class="btn btn-secondary" data-act="backToApps">${icon("arrow")} ${t("backToApps")}</button></div>
         </div>
         <div class="grid content-start gap-4 md:grid-cols-2">
           ${sessions.map((s) => `<section class="panel sess-card">
@@ -4193,6 +4702,466 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
 
   /* ---------- event delegation ---------- */
+  /* ================= CARREIRA · PERSISTÊNCIA (localStorage) ================= */
+  const CAREER_KEY = "gym-royale-career-v1";
+  const CAREER_VERSION = 1;
+  function blankCareer() {
+    return {
+      version: CAREER_VERSION,
+      created: Date.now(),
+      runs: 0,
+      totals: { gold: 0, silver: 0, bronze: 0, competitions: 0 },
+      best: { teamScore: 0, aaScore: 0, appScore: 0, battleRank: null, battlePoints: 0 },
+      byCompetition: {},        // key -> { plays, gold, silver, bronze, bestFinish }
+      headToHead: {},           // rivalKey -> { name, wins, losses, meetings, lastResult }
+      athletes: {},             // baseKey -> { name, country, apps: {id:{n,sum,best}}, comps, medals, falls, sticks, bestTotal }
+      achievements: {},         // id -> unlockedTimestamp
+      log: []                   // últimas competições (máx 30)
+    };
+  }
+  function loadCareer() {
+    try {
+      const raw = localStorage.getItem(CAREER_KEY);
+      if (!raw) return blankCareer();
+      const parsed = JSON.parse(raw);
+      if (!parsed || parsed.version !== CAREER_VERSION) return blankCareer();
+      return { ...blankCareer(), ...parsed };
+    } catch (_) { return blankCareer(); }
+  }
+  function saveCareer(c) {
+    try { localStorage.setItem(CAREER_KEY, JSON.stringify(c)); } catch (_) { /* quota */ }
+  }
+  function resetCareer() { saveCareer(blankCareer()); showToast(t("careerReset")); renderCareer(); }
+
+  /* ---------- catálogo de conquistas ---------- */
+  const ACHIEVEMENTS = [
+    { id: "firstGold", icon: "trophy", test: (r) => r.playerGold >= 1 },
+    { id: "cleanSweep", icon: "medal", test: (r) => r.playerGold >= 1 && r.playerSilver >= 1 && r.playerBronze >= 1 },
+    { id: "teamGold", icon: "users", test: (r) => r.mode === "classic" && r.teamFinishPlayer === 1 },
+    { id: "battleCrown", icon: "bolt", test: (r) => r.mode === "battle" && r.battleRank === 1 },
+    { id: "battleNoFall", icon: "bolt", test: (r) => r.mode === "battle" && r.battleRank === 1 && r.playerFalls === 0 },
+    { id: "bigScore15", icon: "star", test: (r) => r.playerBestTotal >= 15.0 },
+    { id: "monoNation", icon: "flag", test: (r) => r.playerSingleCountry && (r.teamFinishPlayer === 1 || r.battleRank === 1) },
+    { id: "eraMix", icon: "clock", test: (r) => r.playerEraSpread >= 20 },
+    { id: "veteran10", icon: "trophy", test: (_r, c) => c.totals.competitions >= 10 },
+    { id: "goldHoard", icon: "medal", test: (_r, c) => c.totals.gold >= 15 },
+    { id: "podiumStreak", icon: "star", test: (_r, c) => (c._streak || 0) >= 3 }
+  ];
+
+  function recordCompetitionResult(runData) {
+    const c = loadCareer();
+    c.runs += 1;
+    c.totals.competitions += 1;
+    c.totals.gold += runData.playerGold;
+    c.totals.silver += runData.playerSilver;
+    c.totals.bronze += runData.playerBronze;
+
+    // por competição
+    const compKey = runData.competitionKey;
+    const cc = c.byCompetition[compKey] || { plays: 0, gold: 0, silver: 0, bronze: 0, bestFinish: null };
+    cc.plays += 1; cc.gold += runData.playerGold; cc.silver += runData.playerSilver; cc.bronze += runData.playerBronze;
+    const finish = runData.mode === "battle" ? runData.battleRank : runData.teamFinishPlayer;
+    if (finish != null && (cc.bestFinish == null || finish < cc.bestFinish)) cc.bestFinish = finish;
+    c.byCompetition[compKey] = cc;
+
+    // melhores marcas
+    if (runData.teamScorePlayer > c.best.teamScore) c.best.teamScore = runData.teamScorePlayer;
+    if (runData.aaScorePlayer > c.best.aaScore) c.best.aaScore = runData.aaScorePlayer;
+    if (runData.appScorePlayer > c.best.appScore) c.best.appScore = runData.appScorePlayer;
+    if (runData.mode === "battle") {
+      if (c.best.battleRank == null || runData.battleRank < c.best.battleRank) c.best.battleRank = runData.battleRank;
+      if (runData.battlePointsPlayer > c.best.battlePoints) c.best.battlePoints = runData.battlePointsPlayer;
+    }
+
+    // head-to-head vs rivais (só clássico, onde há federações persistentes)
+    (runData.h2h || []).forEach((m) => {
+      const h = c.headToHead[m.key] || { name: m.name, wins: 0, losses: 0, meetings: 0, lastResult: "" };
+      h.name = m.name; h.meetings += 1;
+      if (m.playerWon) h.wins += 1; else h.losses += 1;
+      h.lastResult = m.playerWon ? "W" : "L";
+      c.headToHead[m.key] = h;
+    });
+
+    // estatísticas de carreira dos atletas do jogador
+    (runData.athleteStats || []).forEach((s) => {
+      const a = c.athletes[s.baseKey] || { name: s.name, country: s.country, apps: {}, comps: 0, medals: 0, falls: 0, sticks: 0, bestTotal: 0 };
+      a.name = s.name; a.country = s.country; a.comps += 1;
+      a.medals += s.medals || 0; a.falls += s.falls || 0; a.sticks += s.sticks || 0;
+      if (s.bestTotal > a.bestTotal) a.bestTotal = s.bestTotal;
+      Object.keys(s.apps || {}).forEach((id) => {
+        const ap = a.apps[id] || { n: 0, sum: 0, best: 0 };
+        ap.n += s.apps[id].n; ap.sum += s.apps[id].sum;
+        if (s.apps[id].best > ap.best) ap.best = s.apps[id].best;
+        a.apps[id] = ap;
+      });
+      c.athletes[s.baseKey] = a;
+    });
+
+    // streak de pódio (para conquista)
+    const onPodium = (finish != null && finish <= 3);
+    c._streak = onPodium ? (c._streak || 0) + 1 : 0;
+
+    // conquistas
+    const newly = [];
+    ACHIEVEMENTS.forEach((ach) => {
+      if (c.achievements[ach.id]) return;
+      let ok = false;
+      try { ok = ach.test(runData, c); } catch (_) { ok = false; }
+      if (ok) { c.achievements[ach.id] = Date.now(); newly.push(ach); }
+    });
+
+    // log
+    c.log.unshift({
+      ts: Date.now(), mode: runData.mode, competition: compKey,
+      finish, gold: runData.playerGold, silver: runData.playerSilver, bronze: runData.playerBronze,
+      teamName: runData.teamName
+    });
+    c.log = c.log.slice(0, 30);
+
+    saveCareer(c);
+    if (newly.length) setTimeout(() => showAchievementToast(newly), 400);
+    return { career: c, newly };
+  }
+
+  function showAchievementToast(list) {
+    const names = list.map((a) => t("ach_" + a.id + "_name")).join(" · ");
+    showToast(`${icon("trophy")} ${t("achievementUnlocked")}: ${names}`);
+  }
+
+  /* ---------- coleta de dados do jogador ao fim de uma competição clássica ---------- */
+  function buildClassicRunData() {
+    const medals = collectMedals();
+    const player = state.teams.find((tm) => tm.isPlayer);
+    const playerFed = state.federation;
+    const yours = medals.filter((m) => m.player);
+    const g = yours.filter((m) => m.rank === 1).length;
+    const s = yours.filter((m) => m.rank === 2).length;
+    const b = yours.filter((m) => m.rank === 3).length;
+
+    const teamRes = state.results.teamFinal || [];
+    const teamFinishPlayer = (() => { const i = teamRes.findIndex((r) => r.team.isPlayer); return i >= 0 ? i + 1 : null; })();
+    const teamScorePlayer = (() => { const r = teamRes.find((x) => x.team.isPlayer); return r ? r.total : 0; })();
+
+    const aaRes = state.results.aaFinal || [];
+    const aaScorePlayer = aaRes.filter((r) => r.athlete.isPlayerAthlete).reduce((m, r) => Math.max(m, r.total), 0);
+    let appScorePlayer = 0;
+    if (state.results.appFinals) apps().forEach((ap) => state.results.appFinals[ap.id].forEach((r) => { if (r.athlete.isPlayerAthlete) appScorePlayer = Math.max(appScorePlayer, r.score.total); }));
+
+    // head-to-head: usa a classificatória (sempre inclui o jogador); refina com a final se houver
+    const h2h = [];
+    const qualRes = (state.results.qual && state.results.qual.teamResults) || [];
+    const qualPlayerIdx = qualRes.findIndex((r) => r.team.isPlayer);
+    if (qualPlayerIdx >= 0) qualRes.forEach((r, idx) => {
+      if (r.team.isPlayer) return;
+      h2h.push({ key: `fed:${r.team.federation}:${displayTeamName(r.team)}`, name: displayTeamName(r.team), playerWon: idx > qualPlayerIdx });
+    });
+    else if (teamFinishPlayer != null) teamRes.forEach((r, idx) => {
+      if (r.team.isPlayer) return;
+      h2h.push({ key: `fed:${r.team.federation}:${displayTeamName(r.team)}`, name: displayTeamName(r.team), playerWon: (idx + 1) > teamFinishPlayer });
+    });
+
+    // stats por atleta do jogador
+    const roster = player ? player.roster : [];
+    const athleteStats = roster.map((ath) => {
+      const apps2 = {}; let falls = 0, sticks = 0, bestTotal = 0, mcount = 0;
+      const collect = (score, appId) => {
+        if (!score) return;
+        apps2[appId] = apps2[appId] || { n: 0, sum: 0, best: 0 };
+        apps2[appId].n += 1; apps2[appId].sum += score.total;
+        if (score.total > apps2[appId].best) apps2[appId].best = score.total;
+        if (score.total > bestTotal) bestTotal = score.total;
+        if (score.note === "queda") falls += 1;
+        if (score.note === "cravada") sticks += 1;
+      };
+      // qualification scores (sempre disponíveis para o time do jogador)
+      if (ath.qualScores) Object.keys(ath.qualScores).forEach((appId) => collect(ath.qualScores[appId], appId));
+      // team final lineups
+      const tr = teamRes.find((x) => x.team.isPlayer);
+      if (tr && tr.lineups) Object.keys(tr.lineups).forEach((appId) => tr.lineups[appId].forEach((e) => { if (e.athlete.baseKey === ath.baseKey) collect(e.score, appId); }));
+      // medals count for this athlete
+      medals.forEach((m) => { if (m.player && m.owner === ath.name) mcount += 1; });
+      return { baseKey: ath.baseKey, name: ath.name, country: ath.country, apps: apps2, falls, sticks, bestTotal, medals: mcount };
+    });
+
+    const years = roster.map((a) => a.year).filter(Boolean);
+    const eraSpread = years.length ? Math.max(...years) - Math.min(...years) : 0;
+    const countries = new Set(roster.map((a) => a.country));
+
+    return {
+      mode: "classic", competitionKey: state.competition, teamName: state.teamName,
+      playerGold: g, playerSilver: s, playerBronze: b,
+      teamFinishPlayer, teamScorePlayer, aaScorePlayer, appScorePlayer,
+      battleRank: null, battlePointsPlayer: 0,
+      playerBestTotal: Math.max(teamScorePlayer ? 0 : 0, aaScorePlayer, appScorePlayer, ...athleteStats.map((s2) => s2.bestTotal), 0),
+      playerFalls: athleteStats.reduce((n, s2) => n + s2.falls, 0),
+      playerSingleCountry: countries.size === 1,
+      playerEraSpread: eraSpread,
+      h2h, athleteStats
+    };
+  }
+
+  /* ---------- coleta de dados do jogador ao fim de um Battle Royale ---------- */
+  function buildBattleRunData() {
+    const battle = state.results.battle;
+    const stages = battle.stages;
+    const finalStage = stages[stages.length - 1];
+    const playerFinalRow = finalStage.rows.find((r) => r.team.isPlayer);
+    // rank global do jogador: se sobreviveu à final usa o rank da final; senão o rank no estágio em que caiu
+    let battleRank = null, eliminatedAt = null;
+    for (let i = 0; i < stages.length; i++) {
+      const row = stages[i].rows.find((r) => r.team.isPlayer);
+      if (!row) break;
+      battleRank = row.rank;
+      if (row.rank > stages[i].advance) { eliminatedAt = i; break; }
+      if (i === stages.length - 1) eliminatedAt = null;
+    }
+    const isChampion = battle.champion.team.isPlayer;
+    const g = isChampion ? 1 : 0;
+
+    // stats dos atletas do jogador ao longo dos estágios
+    const statMap = {};
+    let playerFalls = 0, bestTotal = 0, battlePointsPlayer = 0;
+    stages.forEach((stage) => {
+      const prow = stage.rows.find((r) => r.team.isPlayer);
+      if (prow) battlePointsPlayer = Math.max(battlePointsPlayer, prow.points);
+      stage.routines.filter((r) => r.team.isPlayer).forEach((r) => {
+        const bk = r.athlete.baseKey;
+        statMap[bk] = statMap[bk] || { baseKey: bk, name: r.athlete.name, country: r.athlete.country, apps: {}, falls: 0, sticks: 0, bestTotal: 0, medals: isChampion ? 1 : 0 };
+        const ap = statMap[bk].apps[r.apparatus.id] || { n: 0, sum: 0, best: 0 };
+        ap.n += 1; ap.sum += r.score.total; if (r.score.total > ap.best) ap.best = r.score.total;
+        statMap[bk].apps[r.apparatus.id] = ap;
+        if (r.score.note === "queda") { statMap[bk].falls += 1; playerFalls += 1; }
+        if (r.score.note === "cravada") statMap[bk].sticks += 1;
+        if (r.score.total > statMap[bk].bestTotal) statMap[bk].bestTotal = r.score.total;
+        if (r.score.total > bestTotal) bestTotal = r.score.total;
+      });
+    });
+    const athleteStats = Object.values(statMap);
+    const player = state.teams && state.teams.find ? null : null; // teams não persistem no battle; usa roster selecionado
+    const roster = selectedAthletes();
+    const years = roster.map((a) => a.year).filter(Boolean);
+    const eraSpread = years.length ? Math.max(...years) - Math.min(...years) : 0;
+    const countries = new Set(roster.map((a) => a.country));
+
+    return {
+      mode: "battle", competitionKey: "battleRoyale", teamName: state.teamName,
+      playerGold: g, playerSilver: 0, playerBronze: 0,
+      teamFinishPlayer: null, teamScorePlayer: 0, aaScorePlayer: 0, appScorePlayer: 0,
+      battleRank, battlePointsPlayer,
+      playerBestTotal: bestTotal, playerFalls,
+      playerSingleCountry: countries.size === 1,
+      playerEraSpread: eraSpread,
+      h2h: [], athleteStats
+    };
+  }
+
+  /* ================= CARD EXPORTÁVEL (PNG) ================= */
+  function cardAspect() { return CARD_ASPECTS[state.cardAspect] ? state.cardAspect : "4:5"; }
+  function cardSize(aspect = cardAspect()) { return CARD_ASPECTS[aspect] || CARD_ASPECTS["4:5"]; }
+  function setCardAspect(value) {
+    if (!CARD_ASPECTS[value]) return;
+    state.cardAspect = value;
+    localStorage.setItem("gym-royale-card-aspect", value);
+    renderCurrentView();
+  }
+  function cardAspectControls() {
+    const current = cardAspect();
+    return `<div>
+      <span class="field-label mb-2 block">${t("cardAspect")}</span>
+      <div class="segment strategy-segment">
+        ${Object.entries(CARD_ASPECTS).map(([key, cfg]) => `<button class="${current === key ? "active" : ""}" data-act="cardAspect" data-val="${key}">${t(cfg.labelKey)}</button>`).join("")}
+      </div>
+    </div>`;
+  }
+  function svgCardMarkup(opts) {
+    // Card autocontido, sem fontes externas, pronto para rasterizar em PNG.
+    const { w: W, h: H } = cardSize(opts.aspect || cardAspect());
+    const bg = "#0e1116", panel = "#151a22", gold = "#f5c451", accent = "#5b8def", text = "#f4f6fb", muted = "#9aa4b2";
+    const rows = (opts.rows || []).slice(0, 3);
+    const medalColors = ["#f5c451", "#c9d1dc", "#d89a63"];
+    const podium = rows.map((r, i) => {
+      const y = (H > 1500 ? 660 : 560) + i * (H > 1500 ? 190 : 150);
+      return `
+        <g transform="translate(90 ${y})">
+          <circle cx="34" cy="34" r="34" fill="${medalColors[i]}"/>
+          <text x="34" y="46" font-family="Georgia,serif" font-size="34" font-weight="700" fill="#0e1116" text-anchor="middle">${i + 1}</text>
+          <text x="96" y="30" font-family="Georgia,serif" font-size="38" font-weight="700" fill="${text}">${escapeXml(r.name).slice(0, 26)}</text>
+          <text x="96" y="66" font-family="Arial,sans-serif" font-size="24" fill="${muted}">${escapeXml(r.sub || "").slice(0, 40)}</text>
+          <text x="${W - 90}" y="52" font-family="Georgia,serif" font-size="46" font-weight="700" fill="${i === 0 ? gold : text}" text-anchor="end">${escapeXml(r.score)}</text>
+        </g>`;
+    }).join("");
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+      <rect width="${W}" height="${H}" fill="${bg}"/>
+      <rect x="40" y="40" width="${W - 80}" height="${H - 80}" rx="34" fill="${panel}" stroke="#232a34" stroke-width="2"/>
+      <rect x="40" y="40" width="${W - 80}" height="150" rx="34" fill="${accent}" opacity="0.14"/>
+      <text x="90" y="130" font-family="Arial,sans-serif" font-size="26" letter-spacing="4" fill="${accent}" font-weight="700">${escapeXml(opts.kicker).toUpperCase()}</text>
+      <text x="90" y="250" font-family="Georgia,serif" font-size="66" font-weight="700" fill="${text}">${escapeXml(opts.title).slice(0, 22)}</text>
+      <text x="90" y="320" font-family="Arial,sans-serif" font-size="30" fill="${muted}">${escapeXml(opts.subtitle || "").slice(0, 48)}</text>
+      <line x1="90" y1="380" x2="${W - 90}" y2="380" stroke="#232a34" stroke-width="2"/>
+      <text x="90" y="470" font-family="Arial,sans-serif" font-size="30" fill="${gold}" font-weight="700">${escapeXml(opts.sectionLabel)}</text>
+      ${podium}
+      ${opts.statLine ? `<text x="90" y="${H - 180}" font-family="Arial,sans-serif" font-size="28" fill="${text}">${escapeXml(opts.statLine)}</text>` : ""}
+      <text x="90" y="${H - 90}" font-family="Georgia,serif" font-size="30" font-weight="700" fill="${text}">GymGames</text>
+      <text x="${W - 90}" y="${H - 90}" font-family="Arial,sans-serif" font-size="24" fill="${muted}" text-anchor="end">${escapeXml(opts.footer || "")}</text>
+    </svg>`;
+  }
+  function escapeXml(s) { return String(s == null ? "" : s).replace(/[<>&"']/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&apos;" }[c])); }
+
+  function downloadCardFromSvg(svg, filename, aspect = cardAspect()) {
+    const scale = 2;
+    const { w: W, h: H } = cardSize(aspect);
+    const img = new Image();
+    const blob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = W * scale; canvas.height = H * scale;
+      const ctx = canvas.getContext("2d");
+      ctx.scale(scale, scale);
+      ctx.drawImage(img, 0, 0, W, H);
+      URL.revokeObjectURL(url);
+      canvas.toBlob((png) => {
+        if (!png) { showToast(t("cardError")); return; }
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(png);
+        a.download = filename;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        showToast(t("cardSaved"));
+      }, "image/png");
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); showToast(t("cardError")); };
+    img.src = url;
+  }
+  function exportSummaryCard() {
+    const aspect = cardAspect();
+    const medals = collectMedals();
+    const tally = {};
+    medals.forEach((m) => { tally[m.country] = tally[m.country] || { country: m.country, gold: 0 }; if (m.rank === 1) tally[m.country].gold += 1; });
+    const leader = Object.values(tally).sort((a, b) => b.gold - a.gold)[0];
+    const yours = medals.filter((m) => m.player);
+    const g = yours.filter((m) => m.rank === 1).length, s = yours.filter((m) => m.rank === 2).length, b = yours.filter((m) => m.rank === 3).length;
+    const teamRes = (state.results.teamFinal || []).slice(0, 3);
+    const rows = teamRes.length ? teamRes.map((r) => ({ name: displayTeamName(r.team), sub: countryName(r.team.federation), score: formatScore(r.total) }))
+      : (state.results.aaFinal || []).slice(0, 3).map((r) => ({ name: r.athlete.name, sub: countryName(r.athlete.country), score: formatScore(r.total) }));
+    const svg = svgCardMarkup({
+      kicker: competitionName(), title: t("medalTable"), subtitle: `${state.teamName} · ${countryName(state.federation)}`,
+      sectionLabel: teamRes.length ? t("phaseTeam").toUpperCase() : "ALL-AROUND",
+      rows, statLine: `${t("yourMedals")}: ${g}🥇 ${s}🥈 ${b}🥉`,
+      footer: leader ? `${t("goldShort")}: ${countryName(leader.country)}` : "",
+      aspect
+    });
+    downloadCardFromSvg(svg, `gymgames-${state.competition}-${aspect.replace(":", "x")}-${Date.now()}.png`, aspect);
+  }
+  function exportBattleCard() {
+    const aspect = cardAspect();
+    const battle = state.results.battle;
+    const mode = battle.battleMode || "royale";
+    const finalRows = battle.stages[battle.stages.length - 1].rows.slice(0, 3);
+    const rows = finalRows.map((r) => ({ name: displayTeamName(r.team), sub: `${formatScore(r.points)} ${t("battlePoints")}`, score: String(r.rank) }));
+    const svg = svgCardMarkup({
+      kicker: battleFormatLabel(mode), title: t("battleChampion"), subtitle: displayTeamName(battle.champion.team),
+      sectionLabel: t(battle.stages[battle.stages.length - 1].titleKey).toUpperCase(), rows,
+      statLine: `${t("battleTeams")}: ${BATTLE_CONFIG.teamCount} → 1`,
+      footer: mode === "royale" ? "64 → 12 → 4 → 1" : battleModeLabel(mode),
+      aspect
+    });
+    downloadCardFromSvg(svg, `gymgames-battle-${mode}-${aspect.replace(":", "x")}-${Date.now()}.png`, aspect);
+  }
+
+  /* ================= VIEW · CARREIRA ================= */
+  function renderCareer() {
+    state.view = "career"; setPhase("setup", `${icon("trophy")} ${t("careerTitle")}`);
+    const c = loadCareer();
+    const unlocked = ACHIEVEMENTS.filter((a) => c.achievements[a.id]);
+    const locked = ACHIEVEMENTS.filter((a) => !c.achievements[a.id]);
+    const topAthletes = Object.values(c.athletes)
+      .map((a) => { const totalN = Object.values(a.apps).reduce((n, x) => n + x.n, 0); const totalSum = Object.values(a.apps).reduce((n, x) => n + x.sum, 0); return { ...a, avg: totalN ? totalSum / totalN : 0, routines: totalN }; })
+      .sort((a, b) => b.medals - a.medals || b.bestTotal - a.bestTotal).slice(0, 12);
+    const rivals = Object.values(c.headToHead).sort((a, b) => b.meetings - a.meetings).slice(0, 10);
+    const comps = Object.keys(c.byCompetition);
+
+    app.innerHTML = `
+      <section class="screen"><div class="grid gap-4">
+        <div class="panel p-4 md:p-5">
+          ${progress("setup")}
+          <div class="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div><p class="kicker">${t("careerKicker")}</p><h1 class="mt-1 display text-2xl md:text-4xl">${t("careerTitle")}</h1></div>
+            <div class="flex gap-2">
+              <button class="btn btn-secondary" data-act="backToSetup">${icon("arrow")} ${t("backToSetup")}</button>
+              <button class="btn btn-danger" data-act="resetCareer">${icon("x")} ${t("resetCareer")}</button>
+            </div>
+          </div>
+          <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="metric"><div class="metric-num">${c.totals.competitions}</div><div class="metric-cap">${t("careerComps")}</div></div>
+            <div class="metric"><div class="metric-num">${c.totals.gold}</div><div class="metric-cap">${t("goldShort")}</div></div>
+            <div class="metric"><div class="metric-num">${unlocked.length}/${ACHIEVEMENTS.length}</div><div class="metric-cap">${t("achievements")}</div></div>
+            <div class="metric"><div class="metric-num">${c.best.battleRank ? "#" + c.best.battleRank : "—"}</div><div class="metric-cap">${t("bestBattle")}</div></div>
+          </div>
+        </div>
+
+        <div class="grid gap-4 lg:grid-cols-2">
+          <section class="panel p-4">
+            <h2 class="section-title mb-3">${icon("trophy")} ${t("achievements")}</h2>
+            <div class="grid gap-2">
+              ${unlocked.map((a) => `<div class="ach-row unlocked"><span class="ach-ic">${icon(a.icon)}</span><div><div class="strong">${t("ach_" + a.id + "_name")}</div><div class="sub">${t("ach_" + a.id + "_desc")}</div></div></div>`).join("")}
+              ${locked.map((a) => `<div class="ach-row locked"><span class="ach-ic">${icon("lock")}</span><div><div class="strong">${t("ach_" + a.id + "_name")}</div><div class="sub">${t("ach_" + a.id + "_desc")}</div></div></div>`).join("")}
+            </div>
+          </section>
+
+          <div class="grid gap-4 content-start">
+            <section class="panel p-4">
+              <h2 class="section-title mb-3">${icon("users")} ${t("h2hTitle")}</h2>
+              ${rivals.length ? `<div class="table-wrap"><table><thead><tr><th>${t("rival")}</th><th class="num">${t("h2hRecord")}</th><th class="num">${t("h2hMeetings")}</th></tr></thead><tbody>
+                ${rivals.map((r) => `<tr><td class="strong">${escapeHTML(r.name)}</td><td class="score">${r.wins}–${r.losses}</td><td class="score">${r.meetings}</td></tr>`).join("")}
+              </tbody></table></div>` : `<p class="hint">${t("h2hEmpty")}</p>`}
+            </section>
+            <section class="panel p-4">
+              <h2 class="section-title mb-3">${icon("flag")} ${t("byCompetition")}</h2>
+              ${comps.length ? `<div class="grid gap-2">${comps.map((k) => { const x = c.byCompetition[k]; return `<div class="soft-panel p-3 flex items-center justify-between gap-3"><div><div class="strong">${escapeHTML(competitionName(k))}</div><div class="sub">${x.plays} ${t("careerPlays")} · ${t("bestFinish")}: ${x.bestFinish ? "#" + x.bestFinish : "—"}</div></div><div class="sess-score">${x.gold}🥇 ${x.silver}🥈 ${x.bronze}🥉</div></div>`; }).join("")}</div>` : `<p class="hint">${t("careerEmpty")}</p>`}
+            </section>
+          </div>
+        </div>
+
+        <section class="panel p-4">
+          <h2 class="section-title mb-3">${icon("star")} ${t("careerAthletes")}</h2>
+          ${topAthletes.length ? `<div class="table-wrap"><table><thead><tr><th>${t("gymnast")}</th><th>${t("country")}</th><th class="num">${t("careerRoutines")}</th><th class="num">${t("careerAvg")}</th><th class="num">${t("careerBest")}</th><th class="num">${t("medal")}</th></tr></thead><tbody>
+            ${topAthletes.map((a) => `<tr><td class="strong">${escapeHTML(a.name)}</td><td>${countryLabel(a.country)}</td><td class="score">${a.routines}</td><td class="score">${a.avg ? a.avg.toFixed(3) : "—"}</td><td class="score">${a.bestTotal ? formatScore(a.bestTotal) : "—"}</td><td class="score">${a.medals}</td></tr>`).join("")}
+          </tbody></table></div>` : `<p class="hint">${t("careerEmpty")}</p>`}
+        </section>
+      </div></section>`;
+  }
+
+  /* ================= BATTLE ROYALE · MELHORIAS ================= */
+  // Estratégia de escalação do jogador (trade-off de especialização)
+  const BATTLE_STRATEGIES = ["balanced", "specialists", "aggressive"];
+  function battleStrategy() { return state.battleStrategy || "balanced"; }
+  function setBattleStrategy(s) { if (BATTLE_STRATEGIES.includes(s)) { state.battleStrategy = s; renderBattleDraft(); } }
+
+  // momentum individual acumulado entre estágios: cravadas geram "embalo", quedas "abalam"
+  function updateBattleMomentum(momentum, routine) {
+    const bk = routine.athlete.baseKey;
+    const cur = momentum[bk] || 0;
+    let delta = 0;
+    if (routine.score.note === "cravada") delta = +1;
+    else if (routine.score.note === "queda") delta = -2;
+    else if (routine.score.note === "erro") delta = -1;
+    else if (routine.score.total >= 14.0) delta = +0.5;
+    momentum[bk] = Math.max(-3, Math.min(3, cur * 0.6 + delta));
+  }
+  function momentumPressureBonus(momentum, athlete) {
+    const m = momentum[athlete.baseKey] || 0;
+    // embalo reduz pressão efetiva, abalo aumenta
+    return -m * 0.03;
+  }
+  function momentumTag(m) {
+    if (m >= 2) return { key: "onFire", cls: "mom-fire" };
+    if (m >= 1) return { key: "warm", cls: "mom-warm" };
+    if (m <= -2) return { key: "shaken", cls: "mom-shaken" };
+    if (m <= -1) return { key: "rattled", cls: "mom-rattled" };
+    return null;
+  }
+
   const ACTIONS = {
     gender: (el) => chooseGender(el.dataset.val),
     competition: (el) => chooseCompetition(el.dataset.val),
@@ -4210,6 +5179,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     seeTeamResults: seeResultsFromLive, seeResultsBtn: seeResultsFromLive,
     aaFinal: runAAFinal, appFinals: runAppFinals, liveAppFinals: runLiveAppFinals, summary: renderSummary,
     newSeason: renderSetup, backToApps: renderAppFinals,
+    battleStrategy: (el) => setBattleStrategy(el.dataset.val),
+    battleMode: (el) => setBattleMode(el.dataset.val),
+    cardAspect: (el) => setCardAspect(el.dataset.val),
+    openCareer: renderCareer, backToSetup: renderSetup, resetCareer,
+    exportSummaryCard: exportSummaryCard, exportBattleCard: exportBattleCard,
     uploadFlag: () => document.getElementById("customFlagInput")?.click(),
     clearFlag: () => { state.customFlag = ""; persistTeamIdentity(); renderSetup(); }
   };
@@ -4233,6 +5207,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     }
   }
   function onChange(e) {
+    const battleAssignment = e.target?.closest?.(".battle-assignment-select");
+    if (battleAssignment) {
+      updateBattleAssignment(battleAssignment);
+      return;
+    }
     if (e.target?.id === "federationInput") {
       state.federation = (e.target.value || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
       state.customFlag = "";
