@@ -506,8 +506,8 @@
     olympics: {
       names: { "pt-BR": "Jogos Olímpicos", en: "Olympic Games", es: "Juegos Olímpicos" },
       countries: {
-        WAG: ["USA", "BRA", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "CAN", "NED", "AUS", "BEL", "ROU", "PHI", "URS", "TCH", "EUN", "RUS"],
-        MAG: ["JPN", "CHN", "USA", "GBR", "BRA", "GER", "FRA", "ITA", "CAN", "UKR", "TUR", "KOR", "NED", "PHI", "URS", "EUN", "BLR", "RUS"]
+        WAG: ["USA", "BRA", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "CAN", "NED", "AUS", "BEL", "ROU", "PHI", "MEX", "ESP", "HUN", "SUI", "UZB", "KAZ", "TPE", "IND", "URS", "TCH", "EUN", "RUS"],
+        MAG: ["JPN", "CHN", "USA", "GBR", "BRA", "GER", "FRA", "ITA", "CAN", "UKR", "TUR", "KOR", "NED", "PHI", "ESP", "SUI", "UZB", "KAZ", "TPE", "IND", "GRE", "IRL", "ISR", "MEX", "URS", "EUN", "BLR", "RUS"]
       }
     },
     panamerican: {
@@ -1423,6 +1423,91 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     { tag: "asian-2008", tier: "historic", gender: "M", country: "CHN", year: 2008, names: ["Yang Wei", "Li Xiaopeng", "Chen Yibing", "Zou Kai", "Xiao Qin"] },
     { tag: "asian-2008", tier: "historic", gender: "F", country: "CHN", year: 2008, names: ["He Kexin", "Cheng Fei", "Yang Yilin", "Deng Linlin", "Jiang Yuyuan"] }
   ];
+  const ATHLETE_SUPPLEMENTAL_COVERAGE_PACKS = [
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "F", country: "MEX", year: 2024, names: ["Alexa Moreno", "Ahtziri Sandoval", "Natalia Escalera", "Paulina Campos", "Cassandra Loustalot"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "F", country: "ESP", year: 2024, names: ["Ana Perez", "Alba Petisco", "Laura Casabuena", "Laia Font", "Maia Llacer"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "F", country: "HUN", year: 2024, names: ["Zsofia Kovacs", "Bettina Lili Czifra", "Csenge Bacskay", "Greta Mayer", "Dorina Boeczoego"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "F", country: "SUI", year: 2024, names: ["Lena Bickel", "Anina Wildi", "Lilli Habisreutinger", "Chiara Giubellini", "Ilaria Kaeslin"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "F", country: "UZB", year: 2024, names: ["Oksana Chusovitina", "Dildora Aripova", "Anastasiya Serdyukova", "Nafisa Akhmedova", "Dilnoza Abdusalimova"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "F", country: "KAZ", year: 2024, names: ["Aida Bauyrzhanova", "Elizaveta Hubareva", "Kamila Karimbayeva", "Nariman Kurbanova", "Alina Adilkhanova"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "F", country: "TPE", year: 2024, names: ["Liao Yi-chun", "Ting Hua-tien", "Lai Pin-ju", "Mai Liu Hsiang-han", "Chen Pin-hsuan"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "M", country: "ESP", year: 2024, names: ["Nestor Abad", "Joel Plata", "Ray Zapata", "Nicolau Mir", "Thierno Diallo", "Alberto Tallon"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "M", country: "SUI", year: 2024, names: ["Noe Seifert", "Benjamin Gischard", "Eddy Yusof", "Taha Serhani", "Christian Baumann"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "M", country: "KAZ", year: 2024, names: ["Milad Karimi", "Nariman Kurbanov", "Dmitriy Patanin", "Ilyas Azizov", "Aibek Kalibek"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "M", country: "TPE", year: 2024, names: ["Tang Chia-Hung", "Lee Chih-Kai", "Hsiao Yu-Jan", "Chen Chih-Yu", "Tseng Wei-Sheng"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "M", country: "UZB", year: 2024, names: ["Abdulla Azimov", "Utkirbek Juraev", "Khabibullo Ergashev", "Abdulaziz Mirvaliev", "Sarvar Abulfaizov"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "M", country: "GRE", year: 2024, names: ["Eleftherios Petrounias", "Nikolaos Iliopoulos", "Antonios Tantalidis", "Konstantinos Konstantinidis", "Georgios Angonas"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "M", country: "IRL", year: 2024, names: ["Rhys McClenaghan", "Adam Steele", "Eamon Montgomery", "Daniel Fox", "Luke Carson"] },
+    { tag: "olympics-2024-extra", tier: "olympic", gender: "M", country: "ISR", year: 2024, names: ["Artem Dolgopyat", "Alexander Myakinin", "Andrey Medvedev", "Daniel Ginzburg", "Ron Pyatov"] },
+
+    { tag: "olympics-2020-extra", tier: "olympic", gender: "F", country: "BEL", year: 2021, names: ["Nina Derwael", "Maellyse Brassart", "Lisa Vaelen", "Jutta Verkest", "Noemie Louon"] },
+    { tag: "olympics-2020-extra", tier: "olympic", gender: "F", country: "NED", year: 2021, names: ["Sanne Wevers", "Naomi Visser", "Vera van Pol", "Eythora Thorsdottir", "Tisha Volleman"] },
+    { tag: "olympics-2020-extra", tier: "olympic", gender: "F", country: "CAN", year: 2021, names: ["Ellie Black", "Shallon Olsen", "Brooklyn Moors", "Ava Stewart", "Ana Padurariu"] },
+    { tag: "olympics-2020-extra", tier: "olympic", gender: "F", country: "MEX", year: 2021, names: ["Alexa Moreno", "Dafne Navarro", "Ahtziri Sandoval", "Paulina Campos", "Frida Esparza"] },
+    { tag: "olympics-2020-extra", tier: "olympic", gender: "M", country: "TUR", year: 2021, names: ["Ferhat Arican", "Ahmet Onder", "Ibrahim Colak", "Adem Asil", "Yunus Gundogdu"] },
+    { tag: "olympics-2020-extra", tier: "olympic", gender: "M", country: "GER", year: 2021, names: ["Lukas Dauser", "Andreas Toba", "Nils Dunkel", "Philipp Herder", "Marcel Nguyen"] },
+    { tag: "olympics-2020-extra", tier: "olympic", gender: "M", country: "SUI", year: 2021, names: ["Pablo Braegger", "Benjamin Gischard", "Christian Baumann", "Eddy Yusof", "Noe Seifert"] },
+    { tag: "olympics-2020-extra", tier: "olympic", gender: "M", country: "TPE", year: 2021, names: ["Lee Chih-Kai", "Tang Chia-Hung", "Hsiao Yu-Jan", "Lin Guan-yi", "You Hao-hsuan"] },
+
+    { tag: "olympics-2016-extra", tier: "olympic", gender: "F", country: "GER", year: 2016, names: ["Sophie Scheder", "Elisabeth Seitz", "Pauline Schaefer", "Tabea Alt", "Kim Bui"] },
+    { tag: "olympics-2016-extra", tier: "olympic", gender: "F", country: "NED", year: 2016, names: ["Sanne Wevers", "Eythora Thorsdottir", "Vera van Pol", "Celine van Gerner", "Lieke Wevers"] },
+    { tag: "olympics-2016-extra", tier: "olympic", gender: "F", country: "CAN", year: 2016, names: ["Ellie Black", "Shallon Olsen", "Isabela Onyshko", "Brittany Rogers", "Rose-Kaying Woo"] },
+    { tag: "olympics-2016-extra", tier: "olympic", gender: "M", country: "GER", year: 2016, names: ["Fabian Hambuechen", "Marcel Nguyen", "Andreas Toba", "Andreas Bretschneider", "Philipp Herder"] },
+    { tag: "olympics-2016-extra", tier: "olympic", gender: "M", country: "UKR", year: 2016, names: ["Oleg Verniaiev", "Igor Radivilov", "Petro Pakhniuk", "Maksym Semiankiv", "Andrii Sienichkin"] },
+    { tag: "olympics-2016-extra", tier: "olympic", gender: "M", country: "SUI", year: 2016, names: ["Pablo Braegger", "Christian Baumann", "Eddy Yusof", "Benjamin Gischard", "Oliver Hegi"] },
+
+    { tag: "olympics-2012-extra", tier: "olympic", gender: "F", country: "CHN", year: 2012, names: ["Deng Linlin", "Sui Lu", "Yao Jinnan", "He Kexin", "Huang Qiushuang"] },
+    { tag: "olympics-2012-extra", tier: "olympic", gender: "F", country: "GBR", year: 2012, names: ["Beth Tweddle", "Hannah Whelan", "Jennifer Pinches", "Imogen Cairns", "Rebecca Tunney"] },
+    { tag: "olympics-2012-extra", tier: "olympic", gender: "F", country: "CAN", year: 2012, names: ["Ellie Black", "Victoria Moors", "Brittany Rogers", "Dominique Pegg", "Kristina Vaculik"] },
+    { tag: "olympics-2012-extra", tier: "olympic", gender: "M", country: "UKR", year: 2012, names: ["Oleg Verniaiev", "Igor Radivilov", "Nikolai Kuksenkov", "Oleg Stepko", "Vitalii Nakonechnyi"] },
+    { tag: "olympics-2012-extra", tier: "olympic", gender: "M", country: "GER", year: 2012, names: ["Fabian Hambuechen", "Marcel Nguyen", "Philipp Boy", "Sebastian Krimmer", "Andreas Toba"] },
+    { tag: "olympics-2012-extra", tier: "olympic", gender: "M", country: "FRA", year: 2012, names: ["Hamilton Sabot", "Cyril Tommasone", "Thomas Bouhail", "Danny Rodrigues", "Arnaud Willig"] },
+
+    { tag: "pan-2023-extra", tier: "continental", gender: "M", country: "MEX", year: 2023, names: ["Fabián de Luna", "Rodrigo Gomez", "Alonso Perez", "Joseph Solis", "Daniel Corral"] },
+    { tag: "pan-2023-extra", tier: "continental", gender: "M", country: "CHI", year: 2023, names: ["Luciano Letelier", "Joaquin Alvarez", "Josue Armijo", "Joel Alvarez", "Tomas Gonzalez"] },
+    { tag: "pan-2023-extra", tier: "continental", gender: "M", country: "PUR", year: 2023, names: ["Nelson Guilbe", "Edward Gonzales", "Luis Rivera", "Alexander Rodriguez", "Angel Ramos"] },
+    { tag: "pan-2023-extra", tier: "continental", gender: "M", country: "PER", year: 2023, names: ["Edward Alarcon", "Jhonny Medina", "Adrian Navarro", "Renzo Maldonado", "Sebastian Flores"] },
+    { tag: "pan-2023-extra", tier: "continental", gender: "M", country: "VEN", year: 2023, names: ["Adickxon Trejo", "Jose Fuentes", "Joel Infante", "Rafael Rivas", "Carlos Briceño"] },
+    { tag: "pan-2023-extra", tier: "continental", gender: "F", country: "MEX", year: 2023, names: ["Alexa Moreno", "Natalia Escalera", "Ahtziri Sandoval", "Paulina Campos", "Cassandra Loustalot"] },
+    { tag: "pan-2023-extra", tier: "continental", gender: "F", country: "ARG", year: 2023, names: ["Mia Mainardi", "Meline Mesropian", "Emilia Acosta", "Dolores Carregal", "Constanza Galfranscoli", "Julieta Lucas"] },
+    { tag: "pan-2023-extra", tier: "continental", gender: "F", country: "PAN", year: 2023, names: ["Karla Navas", "Hillary Heron", "Karina Rojas", "Victoria Castro", "Mikaela Perez"] },
+    { tag: "pan-2023-extra", tier: "continental", gender: "F", country: "COL", year: 2023, names: ["Daira Lamadrid", "Ana Palacios", "Sofia Gomez", "Laura Rivera", "Manuela Velez"] },
+    { tag: "pan-2023-extra", tier: "continental", gender: "F", country: "CHI", year: 2023, names: ["Franchesca Santi", "Martina Castro", "Simona Castro", "Makarena Pinto", "Antonia Ramírez"] },
+
+    { tag: "pan-2019-extra", tier: "continental", gender: "M", country: "COL", year: 2019, names: ["Jossimar Calvo", "Andres Martinez", "Jorge Hugo Giraldo", "Carlos Calvo", "Camilo Vera"] },
+    { tag: "pan-2019-extra", tier: "continental", gender: "M", country: "ARG", year: 2019, names: ["Federico Molinari", "Nicolas Cordoba", "Santiago Mayol", "Daniel Villafañe", "Agustin Menendez"] },
+    { tag: "pan-2019-extra", tier: "continental", gender: "F", country: "CUB", year: 2019, names: ["Marcia Videaux", "Yesenia Ferrera", "Grettel Mendoza", "Annexis Moreno", "Liadagmis Povea"] },
+    { tag: "pan-2019-extra", tier: "continental", gender: "F", country: "MEX", year: 2019, names: ["Alexa Moreno", "Elsa Garcia", "Ahtziri Sandoval", "Frida Esparza", "Paulina Campos"] },
+    { tag: "pan-2015-extra", tier: "continental", gender: "F", country: "USA", year: 2015, names: ["Madison Desch", "Rachel Gowey", "Amelia Hundley", "Emily Schild", "Megan Skaggs"] },
+    { tag: "pan-2015-extra", tier: "continental", gender: "M", country: "BRA", year: 2015, names: ["Sergio Sasaki", "Arthur Nory", "Francisco Barretto", "Arthur Zanetti", "Diego Hypolito"] },
+    { tag: "pan-2011-extra", tier: "continental", gender: "F", country: "CAN", year: 2011, names: ["Kristina Vaculik", "Peng Peng Lee", "Victoria Moors", "Madeline Gardiner", "Brittany Rogers"] },
+    { tag: "pan-2011-extra", tier: "continental", gender: "M", country: "CAN", year: 2011, names: ["Hugh Smith", "Nathan Gafuik", "Ken Ikeda", "Jackson Payne", "Anderson Loran"] },
+    { tag: "pan-2007-extra", tier: "continental", gender: "M", country: "USA", year: 2007, names: ["David Durante", "Sean Golden", "Sho Nakamori", "Guillermo Alvarez", "Todd Thornton"] },
+    { tag: "pan-2007-extra", tier: "continental", gender: "F", country: "USA", year: 2007, names: ["Shawn Johnson", "Rebecca Bross", "Jana Bieger", "Ivana Hong", "Samantha Peszek"] },
+    { tag: "pan-2003-extra", tier: "continental", gender: "M", country: "CAN", year: 2003, names: ["Kyle Shewfelt", "Alexander Jeltkov", "Ken Ikeda", "Richard Ikeda", "David Kikuchi"] },
+    { tag: "pan-2003-extra", tier: "continental", gender: "M", country: "USA", year: 2003, names: ["Blaine Wilson", "Jason Gatson", "Guard Young", "Brett McClure", "Raj Bhavsar"] },
+
+    { tag: "asian-extra-2024", tier: "continental", gender: "F", country: "JPN", year: 2024, names: ["Rinon Muneta", "Mito Sumikama", "Yuri Okura", "Haruka Nakamura", "Mana Okamura"] },
+    { tag: "asian-extra-2024", tier: "continental", gender: "F", country: "KOR", year: 2024, names: ["Lim Sumin", "Hwang Seo-hyun", "An So-yun", "Yeo Seo-jeong", "Lee Yun-seo"] },
+    { tag: "asian-extra-2024", tier: "continental", gender: "F", country: "TPE", year: 2024, names: ["Liao Yi-chun", "Ting Hua-tien", "Lai Pin-ju", "Mai Liu Hsiang-han", "Chen Pin-hsuan"] },
+    { tag: "asian-extra-2024", tier: "continental", gender: "F", country: "HKG", year: 2024, names: ["Angel Wong", "Sze To Wai", "Chan Wing-yee", "Cheung Hoi-lam", "Wong Hiu-ying"] },
+    { tag: "asian-extra-2024", tier: "continental", gender: "F", country: "SGP", year: 2024, names: ["Nadine Joy Nathan", "Amanda Yap", "Kaeson Lim", "Tay Jia Hui", "Rae Gan"] },
+    { tag: "asian-extra-2024", tier: "continental", gender: "M", country: "IRI", year: 2024, names: ["Mahdi Ahmad Kohani", "Mahdi Olfati", "Saeedreza Keikha", "Mohammadreza Hamedanipour", "Hossein Derakhshan"] },
+    { tag: "asian-extra-2024", tier: "continental", gender: "M", country: "IND", year: 2024, names: ["Yogeshwar Singh", "Pranav Misra", "Siddharth Verma", "Rakesh Patra", "Gaurav Kumar"] },
+    { tag: "asian-extra-2024", tier: "continental", gender: "M", country: "HKG", year: 2024, names: ["Ng Kiu Chung", "Shek Wai Hung", "Chan Chun Fai", "Wong Hiu Ying", "Tang Chi Hang"] },
+    { tag: "asian-extra-2024", tier: "continental", gender: "M", country: "QAT", year: 2024, names: ["Ahmed Al Dayani", "Raslen Saoud", "Yousef Al Habsi", "Mohamed El Saharty", "Khaled Al Harbi"] },
+    { tag: "asian-extra-2023", tier: "continental", gender: "M", country: "PHI", year: 2023, names: ["Carlos Yulo", "John Ivan Cruz", "Juancho Besana", "Justine Ace De Leon", "Jan Gwynn Timbang"] },
+    { tag: "asian-extra-2023", tier: "continental", gender: "F", country: "PHI", year: 2023, names: ["Aleah Finnegan", "Emma Malabuyo", "Levi Ruivivar", "Kylee Kvamme", "Chiara Andrew"] },
+    { tag: "asian-extra-2022", tier: "continental", gender: "M", country: "KAZ", year: 2022, names: ["Milad Karimi", "Nariman Kurbanov", "Dmitriy Patanin", "Ilyas Azizov", "Aibek Kalibek"] },
+    { tag: "asian-extra-2022", tier: "continental", gender: "F", country: "KAZ", year: 2022, names: ["Aida Bauyrzhanova", "Elizaveta Hubareva", "Kamila Karimbayeva", "Alua Adilkhanova", "Diana Kazakevich"] },
+    { tag: "asian-extra-2018", tier: "continental", gender: "M", country: "JPN", year: 2018, names: ["Kakeru Tanigawa", "Wataru Tanigawa", "Kenzo Shirai", "Kazuma Kaya", "Ryohei Kato"] },
+    { tag: "asian-extra-2018", tier: "continental", gender: "F", country: "CHN", year: 2018, names: ["Liu Tingting", "Chen Yile", "Zhang Jin", "Luo Huan", "Li Qi"] },
+    { tag: "asian-extra-2014", tier: "continental", gender: "M", country: "KOR", year: 2014, names: ["Yang Hak-seon", "Kim Han-sol", "Park Min-soo", "Lee Sang-uk", "Shin Dong-hyun"] },
+    { tag: "asian-extra-2014", tier: "continental", gender: "F", country: "JPN", year: 2014, names: ["Mai Murakami", "Asuka Teramoto", "Natsumi Sasada", "Yuko Shintake", "Rie Tanaka"] },
+    { tag: "asian-extra-2011", tier: "continental", gender: "M", country: "CHN", year: 2011, names: ["Teng Haibin", "Feng Zhe", "Zhang Chenglong", "Chen Yibing", "Guo Weiyang"] },
+    { tag: "asian-extra-2011", tier: "continental", gender: "F", country: "CHN", year: 2011, names: ["Yao Jinnan", "Sui Lu", "Tan Sixin", "Huang Qiushuang", "Jiang Yuyuan"] }
+  ];
+  ATHLETE_COVERAGE_PACKS.push(...ATHLETE_SUPPLEMENTAL_COVERAGE_PACKS);
 
   const ICONS = {
     moon: '<path d="M21 15.2A8.6 8.6 0 0 1 8.8 3a9.4 9.4 0 1 0 12.2 12.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
