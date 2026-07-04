@@ -506,8 +506,8 @@
     olympics: {
       names: { "pt-BR": "Jogos Olímpicos", en: "Olympic Games", es: "Juegos Olímpicos" },
       countries: {
-        WAG: ["USA", "BRA", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "CAN", "NED", "AUS", "BEL", "ROU", "PHI"],
-        MAG: ["JPN", "CHN", "USA", "GBR", "BRA", "GER", "FRA", "ITA", "CAN", "UKR", "TUR", "KOR", "NED", "PHI"]
+        WAG: ["USA", "BRA", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "CAN", "NED", "AUS", "BEL", "ROU", "PHI", "URS", "TCH", "EUN", "RUS"],
+        MAG: ["JPN", "CHN", "USA", "GBR", "BRA", "GER", "FRA", "ITA", "CAN", "UKR", "TUR", "KOR", "NED", "PHI", "URS", "EUN", "BLR", "RUS"]
       }
     },
     panamerican: {
@@ -520,15 +520,15 @@
     battleRoyale: {
       names: { "pt-BR": "Battle Royale livre", en: "Free Battle Royale", es: "Battle Royale libre" },
       countries: {
-        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "HAI", "BAR", "DOM", "BOL", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "NED", "AUS", "BEL", "ROU", "PHI", "KOR", "UZB", "KAZ", "TPE", "IND"],
-        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "DOM", "BOL", "JPN", "CHN", "GBR", "GER", "FRA", "ITA", "UKR", "TUR", "KOR", "NED", "PHI", "UZB", "KAZ", "TPE", "IND"]
+        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "HAI", "BAR", "DOM", "BOL", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "NED", "AUS", "BEL", "ROU", "PHI", "KOR", "UZB", "KAZ", "TPE", "IND", "URS", "TCH", "EUN", "RUS"],
+        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "DOM", "BOL", "JPN", "CHN", "GBR", "GER", "FRA", "ITA", "UKR", "TUR", "KOR", "NED", "PHI", "UZB", "KAZ", "TPE", "IND", "URS", "EUN", "BLR", "RUS"]
       }
     },
     european: {
       names: { "pt-BR": "Campeonato Europeu de Ginástica Artística", en: "European Artistic Gymnastics Championships", es: "Campeonato Europeo de Gimnasia Artística" },
       countries: {
-        WAG: ["GBR", "ITA", "FRA", "GER", "NED", "BEL", "ROU", "HUN", "SUI", "ESP", "UKR"],
-        MAG: ["GBR", "ITA", "FRA", "GER", "NED", "UKR", "TUR", "SUI", "ESP", "HUN", "ROU"]
+        WAG: ["GBR", "ITA", "FRA", "GER", "NED", "BEL", "ROU", "HUN", "SUI", "ESP", "UKR", "URS", "TCH", "EUN", "RUS"],
+        MAG: ["GBR", "ITA", "FRA", "GER", "NED", "UKR", "TUR", "SUI", "ESP", "HUN", "ROU", "URS", "EUN", "BLR", "RUS"]
       }
     },
     asian: {
@@ -1194,6 +1194,97 @@ M,Asher Hong,USA,2024,6,9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/
 M,Frederick Richard,USA,2024,5.2,8.966,5.8,7.4,N/A,N/A,N/A,N/A,5.4,7.333,5.5,8.1,5.9,8.266,6.5,8.2,0.886
 M,Frederick Richard,USA,2026,N/A,N/A,6.2,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,6.5,8.4,0.82`;
 
+  const ATHLETE_RECENT_ROSTER_CSV = `F,Olga Korbut,URS,1972,4.8,9.7,4.9,9.8,5,9.9,5,9.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.87
+F,Larisa Latynina,URS,1956,4.6,9.8,4.8,9.8,4.8,9.8,4.8,9.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.89
+F,Vera Caslavska,TCH,1968,4.9,9.8,5,9.8,4.9,9.7,5,9.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Mary Lou Retton,USA,1984,5,9.9,5,9.8,5,9.7,5,9.7,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Daniela Silivas,ROU,1988,5,9.85,5,9.9,5,9.95,5,9.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.89
+F,Elena Shushunova,URS,1988,5,9.85,5,9.85,5,9.85,5,9.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Ludmilla Tourischeva,URS,1972,4.9,9.8,4.9,9.8,4.9,9.8,4.9,9.8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.88
+F,Nadia Comaneci,ROU,1980,5,9.85,5,9.85,5,9.9,5,9.85,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.89
+F,Jade Barbosa,BRA,2024,5,8.9,5.2,8.1,5.1,7.8,5,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Luiza Abel,BRA,2024,4.4,8.6,4.9,8.1,4.7,7.9,4.8,8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Gabriela Barbosa,BRA,2024,4.6,8.55,4.9,8,4.6,7.85,4.8,7.95,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.8
+F,Andreza Lima,BRA,2024,4.6,8.5,5,8.2,4.8,8,5,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Carolyne Pedro,BRA,2024,4.6,8.45,4.9,8.05,4.7,7.85,5,8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Hellen Silva,BRA,2024,4.4,8.4,4.8,8,4.6,7.7,4.9,7.95,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.8
+F,Josiany Calixto,BRA,2024,4.4,8.35,4.8,7.95,4.6,7.75,4.9,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.8
+F,Sophia Weisberg,USA,2024,4.8,8.6,5.1,8.2,5,8,5.2,8.1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Addy Fulcher,USA,2024,4.8,8.55,5,8.15,5,7.95,5.1,8.05,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Gabrielle Hardie,USA,2024,4.6,8.6,5,8.2,5.1,8.05,5,8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Camie Westerman,USA,2024,4.6,8.5,5,8.1,5,7.95,5,8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Ally Damelio,USA,2024,4.6,8.45,4.9,8,5,7.9,4.9,7.95,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Denelle Pedrick,CAN,2024,4.8,8.6,5.1,8.1,5,7.8,5.1,8,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Tegan Shaver,CAN,2024,4.8,8.5,5,8.05,4.9,7.9,5,7.95,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.82
+F,Emma Spence,CAN,2024,4.8,8.55,5.1,8.15,5,7.9,5.2,8.05,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.83
+F,Sydney Turner,CAN,2024,4.6,8.45,5,8,4.9,7.8,5,7.95,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.81
+F,Ana Palacios,COL,2024,4.4,8.35,4.8,7.9,4.6,7.75,4.8,7.9,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.8
+M,Nikolai Andrianov,URS,1976,5,9.8,5,9.8,N/A,N/A,N/A,N/A,5,9.8,5,9.8,5,9.8,5,9.8,0.89
+M,Sawao Kato,JPN,1972,5,9.8,5,9.85,N/A,N/A,N/A,N/A,5,9.8,5,9.75,5,9.85,5,9.75,0.89
+M,Alexander Dityatin,URS,1980,5,9.8,5,9.8,N/A,N/A,N/A,N/A,5,9.8,5,9.8,5,9.8,5,9.8,0.89
+M,Li Ning,CHN,1984,5,9.75,5,9.85,N/A,N/A,N/A,N/A,5,9.8,5,9.85,5,9.8,5,9.85,0.88
+M,Peter Vidmar,USA,1984,5,9.75,5,9.8,N/A,N/A,N/A,N/A,5,9.75,5,9.7,5,9.85,5,9.75,0.88
+M,Mitsuo Tsukahara,JPN,1976,5,9.8,5,9.8,N/A,N/A,N/A,N/A,5,9.75,5,9.7,5,9.75,5,9.9,0.88
+M,Bart Conner,USA,1984,5,9.75,5,9.75,N/A,N/A,N/A,N/A,5,9.7,5,9.65,5,9.9,5,9.75,0.87
+M,Yuri Korolev,URS,1987,5,9.8,5,9.8,N/A,N/A,N/A,N/A,5,9.8,5,9.8,5,9.75,5,9.75,0.88
+M,Yuri Guimaraes,BRA,2023,5.2,9.1,5.7,8.5,N/A,N/A,N/A,N/A,4.8,7.166,4.7,8.1,5.2,8.566,5.1,8.5,0.84
+M,Arthur Nory,BRA,2023,5.2,9.433,5.3,8.766,N/A,N/A,N/A,N/A,4.7,7.566,4.5,8.033,5.1,8.533,5.5,8.6,0.86
+M,Bernardo Miranda,BRA,2023,N/A,N/A,4.7,7.766,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,5.6,8.533,5.6,8.566,0.82
+M,Patrick Sampaio,BRA,2023,4.8,8.166,N/A,N/A,N/A,N/A,N/A,N/A,4.6,8.066,4.5,8.166,N/A,N/A,N/A,N/A,0.82
+M,Diogo Soares,BRA,2023,5.2,9.066,5.4,8.5,N/A,N/A,N/A,N/A,5.8,7.1,4.9,8.133,5.6,8.5,5.5,8.533,0.86
+M,Yuri Guimaraes,BRA,2024,5.2,8.9,5.6,8.4,N/A,N/A,N/A,N/A,4.9,7.7,4.8,8.05,5.2,8.3,5.2,8.35,0.84
+M,Vitaliy Guimaraes,BRA,2025,5.2,8.7,5.3,8.35,N/A,N/A,N/A,N/A,4.8,7.9,4.8,8.05,5.2,8.2,5.2,8.2,0.83
+M,Lucas Bitencourt,BRA,2024,5.2,8.9,5.5,8.3,N/A,N/A,N/A,N/A,4.8,8,4.6,8.2,5.2,8.2,5.4,8.3,0.84
+M,Tomas Florencio,BRA,2024,5.2,8.75,5.3,8.25,N/A,N/A,N/A,N/A,5,7.85,4.8,8.1,5.2,8.15,5.2,8.1,0.82
+M,Caio Souza,BRA,2024,5.6,9,5.6,8.35,N/A,N/A,N/A,N/A,5.6,8.1,5.6,8.3,5.8,8.2,5.5,8.25,0.85
+M,Gabriel Faria,BRA,2024,5,8.65,5.2,8.25,N/A,N/A,N/A,N/A,4.8,7.85,4.6,8.05,5.1,8.1,5,8.05,0.81
+M,Bernardo Actos,BRA,2024,5,8.7,5.2,8.2,N/A,N/A,N/A,N/A,4.8,7.9,4.7,8.05,5.5,8.25,5.5,8.2,0.82
+M,Cameron Bock,USA,2023,5.2,9.333,5.4,8.066,N/A,N/A,N/A,N/A,5.4,8.366,5.3,8.3,5.4,8.033,5.5,8.3,0.84
+M,Stephen Nedoroscik,USA,2023,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,6.2,7.433,N/A,N/A,N/A,N/A,N/A,N/A,0.84
+M,Curran Phillips,USA,2023,N/A,N/A,5.2,8,N/A,N/A,N/A,N/A,N/A,N/A,4.7,8,6.8,7.666,5.2,8.2,0.82
+M,Colt Walker,USA,2023,5.2,9.3,5.2,8.333,N/A,N/A,N/A,N/A,4.7,7.3,5,8.633,6,8.366,5.3,8.366,0.84
+M,Donnell Whittenburg,USA,2023,5.6,8.466,6.4,7.833,N/A,N/A,N/A,N/A,5,7.4,5.8,8.633,5.8,8.033,5.5,7.866,0.84
+M,Brody Malone,USA,2024,5.2,9,5.6,8.2,N/A,N/A,N/A,N/A,5,8.1,5.2,8.2,5.7,8.3,6.3,8.5,0.86
+M,Paul Juda,USA,2024,5.2,9.1,5.5,8.5,N/A,N/A,N/A,N/A,5,8.2,4.9,8.4,5.5,8.4,5.7,8.3,0.87
+M,Stephen Nedoroscik,USA,2024,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,6.4,8.466,N/A,N/A,N/A,N/A,N/A,N/A,0.86
+M,Ian Gunther,USA,2024,5.2,8.3,4.8,7.75,N/A,N/A,N/A,N/A,N/A,N/A,4.8,8.7,5.2,8.45,5.1,8.25,0.82
+M,Yul Moldauer,USA,2024,5.2,9.05,5.5,8.45,N/A,N/A,N/A,N/A,5.2,8.05,5.3,8.3,5.7,8.3,5.3,8.2,0.86
+M,Nile Wilson,GBR,2016,5.2,8.8,5.8,8.5,N/A,N/A,N/A,N/A,5.5,8.2,5.3,8.4,6,8.6,6.8,8.666,0.86
+M,Kristian Thomas,GBR,2016,5.6,9.05,6.1,8.35,N/A,N/A,N/A,N/A,5,8.1,5,8.25,5.6,8.35,5.7,8.2,0.84
+M,Louis Smith,GBR,2016,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,6.9,8.6,N/A,N/A,N/A,N/A,N/A,N/A,0.85
+M,Brinn Bevan,GBR,2016,5.2,8.8,5.4,8.3,N/A,N/A,N/A,N/A,5.2,8.1,5.1,8.2,5.6,8.35,5.4,8.25,0.84
+M,Max Whitlock,GBR,2016,5.6,9,6.8,8.833,N/A,N/A,N/A,N/A,7.2,8.766,5.2,8.2,5.5,8.2,5.6,8.15,0.87
+M,Joe Fraser,GBR,2024,5.2,8.85,5.6,8.35,N/A,N/A,N/A,N/A,5.8,8.15,5.3,8.35,6.2,8.4,5.4,8.2,0.86
+M,James Hall,GBR,2024,5.2,8.85,5.5,8.3,N/A,N/A,N/A,N/A,5.2,8.1,5.1,8.25,5.7,8.3,5.4,8.2,0.85
+M,Harry Hepworth,GBR,2024,5.6,9.05,6,8.4,N/A,N/A,N/A,N/A,N/A,N/A,5.3,8.55,5.2,8.2,N/A,N/A,0.84
+M,Luke Whitehouse,GBR,2024,5.2,8.8,6.2,8.35,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,5.2,8.15,5.3,8.1,0.83
+M,Courtney Tulloch,GBR,2024,5.2,8.75,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,6.2,8.5,N/A,N/A,N/A,N/A,0.83
+M,Giarnni Regini-Moran,GBR,2024,5.6,8.95,6.1,8.3,N/A,N/A,N/A,N/A,5,7.9,5.4,8.25,5.6,8.2,5.2,8.05,0.84
+M,Felix Dolci,CAN,2023,5.2,9.1,6,8.266,N/A,N/A,N/A,N/A,4.7,7.3,5,8.8,5.2,8.2,5.1,7.666,0.84
+M,Rene Cournoyer,CAN,2023,5.2,8.9,5.4,8.2,N/A,N/A,N/A,N/A,5.1,7.9,5,8.25,5.4,8.25,5.2,8.1,0.84
+M,William Emard,CAN,2023,5.2,8.9,5.5,8.25,N/A,N/A,N/A,N/A,4.8,7.8,5.8,8.5,5.3,8.15,5,8,0.83
+M,Zachary Clay,CAN,2023,5,8.75,5.2,8.1,N/A,N/A,N/A,N/A,5.5,8.1,4.8,8.15,5.2,8.2,5,7.95,0.83
+M,Jayson Rampersad,CAN,2023,5.6,8.85,5.8,8.25,N/A,N/A,N/A,N/A,N/A,N/A,4.8,8.1,5.2,8.05,5.1,7.95,0.82
+M,Kristopher Bohorquez,COL,2024,5.2,8.8,5.4,8.2,N/A,N/A,N/A,N/A,4.7,7.8,4.8,8.1,5.3,8.15,5.2,8.05,0.82
+M,Jordan Castro,COL,2024,5.2,8.75,5.3,8.15,N/A,N/A,N/A,N/A,4.6,7.75,4.8,8.05,5.2,8.1,5.1,8,0.81
+M,Dilan Jimenez,COL,2024,5,8.7,5.3,8.1,N/A,N/A,N/A,N/A,4.7,7.7,4.8,8,5.1,8,5.1,7.95,0.81
+M,Andres Martinez,COL,2024,5,8.65,5.2,8.05,N/A,N/A,N/A,N/A,4.8,7.75,4.8,8,5.2,8.05,5.1,7.95,0.81
+M,Jose Martinez,COL,2024,5,8.6,5.1,8,N/A,N/A,N/A,N/A,4.7,7.7,4.8,7.95,5.1,8,5,7.9,0.8
+M,Camilo Vera,COL,2024,5.2,8.8,5.5,8.2,N/A,N/A,N/A,N/A,5,7.9,4.8,8.1,5.4,8.15,5.2,8.1,0.83
+M,Jorman Alvarez,COL,2024,5,8.65,5.2,8.05,N/A,N/A,N/A,N/A,4.8,7.75,4.7,7.95,5.1,8,5.1,7.9,0.8
+M,Santiago Agostinelli,ARG,2024,5.2,8.75,5.3,8.1,N/A,N/A,N/A,N/A,4.8,7.9,4.8,8.05,5.2,8.1,5.1,8,0.82
+M,Luca Alfieri,ARG,2024,5,8.65,5.2,8.05,N/A,N/A,N/A,N/A,4.8,7.75,4.7,7.95,5.1,8,5,7.95,0.8
+M,Julian Jato,ARG,2024,5,8.6,5.2,8,N/A,N/A,N/A,N/A,4.7,7.7,4.7,7.9,5.1,7.95,5,7.9,0.8
+M,Santiago Mayol,ARG,2024,5.2,8.8,5.3,8.15,N/A,N/A,N/A,N/A,4.9,7.9,4.8,8.05,5.2,8.1,5.2,8.05,0.82
+M,Daniel Villafane,ARG,2024,5.2,8.85,5.4,8.25,N/A,N/A,N/A,N/A,5,8,4.9,8.1,5.3,8.2,5.2,8.1,0.83
+M,Juancho Miguel Besana,PHI,2024,5.2,8.7,5.4,8.4,N/A,N/A,N/A,N/A,4.8,7.8,4.8,8.05,5.2,8.1,5.1,8,0.82
+M,John Ivan Cruz,PHI,2024,5,8.65,5.2,8.1,N/A,N/A,N/A,N/A,4.7,7.75,4.7,7.95,5.1,8,5,7.9,0.8
+M,Jan Gwynn Timbang,PHI,2024,5,8.6,5.2,8,N/A,N/A,N/A,N/A,4.6,7.7,4.7,7.9,5.1,7.95,5,7.85,0.8
+M,Justine Ace De Leon,PHI,2024,5,8.55,5.1,8,N/A,N/A,N/A,N/A,4.6,7.65,4.7,7.9,5,7.9,5,7.85,0.79
+M,Manrique Larduet,CUB,2016,5.6,8.9,6,8.4,N/A,N/A,N/A,N/A,5.6,8.1,5.8,8.4,6.4,8.4,6,8.3,0.85
+M,Randy Leru,CUB,2023,5.2,8.75,5.4,8.15,N/A,N/A,N/A,N/A,5,7.85,4.8,8.05,5.3,8.1,5.4,8.2,0.82
+M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,8,0.81`;
+
   const ICONS = {
     moon: '<path d="M21 15.2A8.6 8.6 0 0 1 8.8 3a9.4 9.4 0 1 0 12.2 12.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
     sun: '<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
@@ -1454,7 +1545,7 @@ M,Frederick Richard,USA,2026,N/A,N/A,6.2,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
     ]
   };
 
-  const ATHLETES = dedupeAthletes(parseAthletes(`${ATHLETE_CSV}\n${ATHLETE_SEASON_CSV}\n${ATHLETE_HISTORIC_CSV}\n${ATHLETE_REGIONAL_CSV}\n${ATHLETE_PANAM_CSV}\n${ATHLETE_Y2026_CSV}\n${ATHLETE_EXPANDED_CSV}`));
+  const ATHLETES = dedupeAthletes(parseAthletes(`${ATHLETE_CSV}\n${ATHLETE_SEASON_CSV}\n${ATHLETE_HISTORIC_CSV}\n${ATHLETE_REGIONAL_CSV}\n${ATHLETE_PANAM_CSV}\n${ATHLETE_Y2026_CSV}\n${ATHLETE_EXPANDED_CSV}\n${ATHLETE_RECENT_ROSTER_CSV}`));
   let app;
 
   /* ---------- helpers ---------- */
@@ -1566,13 +1657,18 @@ M,Frederick Richard,USA,2026,N/A,N/A,6.2,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
       headers.forEach((h, i) => { row[h] = cells[i]; });
       const gender = row.Genero === "F" ? "WAG" : "MAG";
       const name = canonicalAthleteName(row.Nome);
+      const consistency = Number(row.Consistency || 0.82);
       const stats = {};
-      APPARATUS[gender].forEach((a) => { stats[a.id] = { d: toNumber(row[`${a.key}_D`]), e: toNumber(row[`${a.key}_E`]) }; });
+      APPARATUS[gender].forEach((a) => {
+        const d = toNumber(row[`${a.key}_D`]);
+        const e = toNumber(row[`${a.key}_E`]);
+        stats[a.id] = { d, e, dMin: d, dMax: d, eMin: e, eMax: e, eSamples: hasScore(e) ? 1 : 0 };
+      });
       return {
         id: `${gender}-${slug(name)}-${row.Pais}-${row.Ano}-${index}`,
         baseKey: `${gender}-${slug(name)}-${row.Pais}`,
         gender, name, country: row.Pais, year: Number(row.Ano),
-        consistency: Number(row.Consistency || 0.82), stats
+        consistency, stats
       };
     });
   }
@@ -1593,32 +1689,97 @@ M,Frederick Richard,USA,2026,N/A,N/A,6.2,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
       "diego hypolito": "Diego Hypolito",
       "daniele hypolito": "Daniele Hypolito",
       "tomas gonzalez": "Tomas Gonzalez",
-      "fabian hambuchen": "Fabian Hambuechen"
+      "fabian hambuchen": "Fabian Hambuechen",
+      "vitaly guimaraes": "Vitaliy Guimaraes",
+      "vitaliy guimaraes": "Vitaliy Guimaraes",
+      "bernardo miranda actos": "Bernardo Miranda",
+      "bernardo actos": "Bernardo Miranda",
+      "juancho miguel besana": "Juancho Besana"
     };
     const key = slug(name).replaceAll("-", " ");
     return aliases[key] || String(name).replace("ă", "a");
+  }
+  function cloneStat(s = {}) {
+    return {
+      d: hasScore(s.d) ? s.d : null,
+      e: hasScore(s.e) ? s.e : null,
+      dMin: hasScore(s.dMin) ? s.dMin : (hasScore(s.d) ? s.d : null),
+      dMax: hasScore(s.dMax) ? s.dMax : (hasScore(s.d) ? s.d : null),
+      eMin: hasScore(s.eMin) ? s.eMin : (hasScore(s.e) ? s.e : null),
+      eMax: hasScore(s.eMax) ? s.eMax : (hasScore(s.e) ? s.e : null),
+      eSamples: Number(s.eSamples || (hasScore(s.e) ? 1 : 0))
+    };
+  }
+  function mergeStat(prev = {}, next = {}) {
+    const merged = cloneStat(prev);
+    const n = cloneStat(next);
+    if (hasScore(n.d)) {
+      merged.dMin = hasScore(merged.dMin) ? Math.min(merged.dMin, n.d) : n.d;
+      merged.dMax = hasScore(merged.dMax) ? Math.max(merged.dMax, n.d) : n.d;
+      merged.d = merged.dMax;
+    }
+    if (hasScore(n.e)) {
+      merged.eMin = hasScore(merged.eMin) ? Math.min(merged.eMin, n.e) : n.e;
+      merged.eMax = hasScore(merged.eMax) ? Math.max(merged.eMax, n.e) : n.e;
+      merged.eSamples += Math.max(1, n.eSamples || 1);
+      merged.e = executionMidpoint(merged);
+    }
+    return merged;
+  }
+  function finalizeStatRange(stat, consistency = 0.82) {
+    const s = cloneStat(stat);
+    if (!hasScore(s.e)) return s;
+    if (!hasScore(s.eMin) || !hasScore(s.eMax) || s.eMin === s.eMax || s.eSamples <= 1) {
+      const spread = Math.max(0.14, Math.min(0.46, 0.36 - (consistency - 0.80) * 0.55));
+      s.eMin = round3(Math.max(0, s.e - spread));
+      s.eMax = round3(Math.min(10, s.e + spread * 0.55));
+    }
+    s.e = executionMidpoint(s);
+    if (hasScore(s.dMax)) s.d = s.dMax;
+    return s;
   }
   function dedupeAthletes(rows) {
     const bySeason = new Map();
     rows.forEach((a) => {
       const key = `${a.baseKey}-${a.year}`;
       if (!bySeason.has(key)) {
-        bySeason.set(key, { ...a, stats: Object.fromEntries(Object.entries(a.stats).map(([id, s]) => [id, { ...s }])) });
+        bySeason.set(key, { ...a, stats: Object.fromEntries(Object.entries(a.stats).map(([id, s]) => [id, cloneStat(s)])) });
         return;
       }
       const current = bySeason.get(key);
       athleteApps(a).forEach((ap) => {
         const next = a.stats[ap.id];
         const prev = current.stats[ap.id];
-        const nextTotal = (next.d || 0) + (next.e || 0);
-        const prevTotal = (prev.d || 0) + (prev.e || 0);
-        if (nextTotal > prevTotal) current.stats[ap.id] = { ...next };
+        current.stats[ap.id] = mergeStat(prev, next);
       });
       current.consistency = Math.max(current.consistency || 0.82, a.consistency || 0.82);
     });
-    return [...bySeason.values()].map((a, index) => ({ ...a, id: `${a.gender}-${slug(a.name)}-${a.country}-${a.year}-${index}` }));
+    return [...bySeason.values()].map((a, index) => ({
+      ...a,
+      id: `${a.gender}-${slug(a.name)}-${a.country}-${a.year}-${index}`,
+      stats: Object.fromEntries(Object.entries(a.stats).map(([id, s]) => [id, finalizeStatRange(s, a.consistency)]))
+    }));
   }
   function toNumber(v) { if (!v || v === "N/A") return null; return Number(v); }
+  function hasScore(v) { return Number.isFinite(v); }
+  function scoreValue(v) { return hasScore(v) ? v : 0; }
+  function executionMidpoint(stat = {}) {
+    if (hasScore(stat.eMin) && hasScore(stat.eMax)) return round3((stat.eMin + stat.eMax) / 2);
+    return hasScore(stat.e) ? stat.e : 0;
+  }
+  function sampledExecutionBase(stat = {}, rng = Math.random) {
+    const min = hasScore(stat.eMin) ? stat.eMin : (hasScore(stat.e) ? stat.e : 0);
+    const max = hasScore(stat.eMax) ? stat.eMax : (hasScore(stat.e) ? stat.e : min);
+    return round3(min + (Math.max(0, max - min) * rng()));
+  }
+  function formatStatNumber(v, decimals = 1) { return hasScore(v) ? Number(v).toFixed(decimals) : "N/A"; }
+  function formatExecutionRange(stat = {}) {
+    if (!hasScore(stat.e)) return "N/A";
+    if (hasScore(stat.eMin) && hasScore(stat.eMax) && Math.abs(stat.eMax - stat.eMin) >= 0.08) {
+      return `${stat.eMin.toFixed(1)}-${stat.eMax.toFixed(1)}`;
+    }
+    return stat.e.toFixed(1);
+  }
   function slug(v) { return String(v).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
   function round3(v) { return Math.round((v + Number.EPSILON) * 1000) / 1000; }
   function round1(v) { return Math.round((v + Number.EPSILON) * 10) / 10; }
@@ -1653,9 +1814,10 @@ M,Frederick Richard,USA,2026,N/A,N/A,6.2,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
       return pool.length >= 5;
     });
   }
-  function totalPotential(a) { return round3(apps().reduce((s, ap) => s + a.stats[ap.id].d + a.stats[ap.id].e, 0)); }
-  function athleteTotalPotential(a) { return round3(athleteApps(a).reduce((s, ap) => s + a.stats[ap.id].d + a.stats[ap.id].e, 0)); }
-  function appPotential(a, id) { return round3(a.stats[id].d + a.stats[id].e); }
+  function statPotential(stat = {}) { return round3(scoreValue(stat.d) + executionMidpoint(stat)); }
+  function totalPotential(a) { return round3(apps().reduce((s, ap) => s + statPotential(a.stats[ap.id]), 0)); }
+  function athleteTotalPotential(a) { return round3(athleteApps(a).reduce((s, ap) => s + statPotential(a.stats[ap.id]), 0)); }
+  function appPotential(a, id) { return statPotential(a.stats[id]); }
   function bestApp(a) { return [...apps()].sort((x, y) => appPotential(a, y.id) - appPotential(a, x.id))[0]; }
   function athleteBestApp(a) { return [...athleteApps(a)].sort((x, y) => appPotential(a, y.id) - appPotential(a, x.id))[0]; }
   function formatScore(s) { return Number(s).toFixed(3); }
@@ -1755,9 +1917,9 @@ M,Frederick Richard,USA,2026,N/A,N/A,6.2,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
     return apps().map((a) => {
       const s = athlete.stats[a.id];
       return `<div class="metric metric-app">
-          <div class="metric-top">${appTag(a)}<span class="score">${(s.d + s.e).toFixed(1)}</span></div>
+          <div class="metric-top">${appTag(a)}<span class="score">${appPotential(athlete, a.id).toFixed(1)}</span></div>
           <div class="metric-cap">${appName(a)}</div>
-          <div class="metric-sub">D ${s.d.toFixed(1)} · E ${s.e.toFixed(1)}</div>
+          <div class="metric-sub">D ${formatStatNumber(s.d)} · E ${formatExecutionRange(s)}</div>
         </div>`;
     }).join("");
   }
@@ -1769,8 +1931,9 @@ M,Frederick Richard,USA,2026,N/A,N/A,6.2,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
     const dayForm = ctx.dayForm || 0;
     const pressure = Math.max(0, Math.min(0.6, ctx.pressure || 0));
     const stat = athlete.stats[apparatus.id];
-    const D = stat.d;
-    const typicalDed = Math.max(0.2, round1(10 - stat.e)); // typical execution deductions
+    const D = scoreValue(stat.d);
+    const baseExecution = sampledExecutionBase(stat, rng);
+    const typicalDed = Math.max(0.2, round1(10 - baseExecution)); // typical execution deductions
     // Curva em sino: variações extremas ficam raras. Pressão empurra levemente para pior;
     // atletas consistentes ("clutch") sofrem menos com ela.
     const clutch = 1 - (athlete.consistency - 0.7) * 1.6; // ~1.0 média, <1 para os mais consistentes
@@ -1821,7 +1984,7 @@ M,Frederick Richard,USA,2026,N/A,N/A,6.2,8.4,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
     const total = round3(D + E - neutralDed);
     // sort deductions: majors first, then by value desc
     deductions.sort((a, b) => (b.code === "fall" ? 1 : 0) - (a.code === "fall" ? 1 : 0) || b.value - a.value);
-    return { d: D, e: E, total, note, deductions, neutral, execDed, neutralDed };
+    return { d: D, e: E, baseExecution, total, note, deductions, neutral, execDed, neutralDed };
   }
   // Back-compat alias
   function simulateRoutine(athlete, apparatus, ctx = {}) { return buildRoutine(athlete, apparatus, state.rng, ctx); }
