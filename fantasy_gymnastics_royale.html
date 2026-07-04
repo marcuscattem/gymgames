@@ -520,8 +520,8 @@
     battleRoyale: {
       names: { "pt-BR": "Battle Royale livre", en: "Free Battle Royale", es: "Battle Royale libre" },
       countries: {
-        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "HAI", "BAR", "DOM", "BOL", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "NED", "AUS", "BEL", "ROU", "PHI", "KOR", "UZB", "KAZ", "TPE", "IND", "URS", "TCH", "EUN", "RUS"],
-        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "DOM", "BOL", "JPN", "CHN", "GBR", "GER", "FRA", "ITA", "UKR", "TUR", "KOR", "NED", "PHI", "UZB", "KAZ", "TPE", "IND", "URS", "EUN", "BLR", "RUS"]
+        WAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "HAI", "BAR", "DOM", "BOL", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "NED", "AUS", "BEL", "ROU", "PHI", "KOR", "UZB", "KAZ", "TPE", "IND", "INA", "SRI", "HKG", "THA", "VIE", "QAT", "KGZ", "URS", "TCH", "EUN", "RUS"],
+        MAG: ["USA", "BRA", "CAN", "COL", "ARG", "CUB", "MEX", "CHI", "PAN", "GUA", "PUR", "PER", "VEN", "JAM", "ECU", "CRC", "ESA", "DOM", "BOL", "JPN", "CHN", "GBR", "GER", "FRA", "ITA", "UKR", "TUR", "KOR", "NED", "PHI", "UZB", "KAZ", "TPE", "IND", "INA", "SRI", "HKG", "THA", "VIE", "QAT", "KGZ", "URS", "EUN", "BLR", "RUS"]
       }
     },
     european: {
@@ -534,8 +534,8 @@
     asian: {
       names: { "pt-BR": "Campeonato Asiático de Ginástica Artística", en: "Asian Artistic Gymnastics Championships", es: "Campeonato Asiático de Gimnasia Artística" },
       countries: {
-        WAG: ["CHN", "JPN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND", "PRK", "MAS", "SGP"],
-        MAG: ["JPN", "CHN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND", "IRI"]
+        WAG: ["CHN", "JPN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND", "INA", "SRI", "HKG", "THA", "VIE", "QAT", "KGZ", "PRK", "MAS", "SGP"],
+        MAG: ["JPN", "CHN", "KOR", "PHI", "UZB", "KAZ", "TPE", "IND", "INA", "SRI", "HKG", "THA", "VIE", "QAT", "KGZ", "IRI"]
       }
     },
   };
@@ -1285,6 +1285,145 @@ M,Manrique Larduet,CUB,2016,5.6,8.9,6,8.4,N/A,N/A,N/A,N/A,5.6,8.1,5.8,8.4,6.4,8.
 M,Randy Leru,CUB,2023,5.2,8.75,5.4,8.15,N/A,N/A,N/A,N/A,5,7.85,4.8,8.05,5.3,8.1,5.4,8.2,0.82
 M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,8,0.81`;
 
+  const ATHLETE_COVERAGE_PACKS = [
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "USA", year: 2024, names: ["Simone Biles", "Sunisa Lee", "Jordan Chiles", "Jade Carey", "Hezly Rivera", "Joscelyn Roberson", "Leanne Wong"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "ITA", year: 2024, names: ["Alice D'Amato", "Manila Esposito", "Angela Andreoli", "Elisa Iorio", "Giorgia Villa", "Asia D'Amato"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "BRA", year: 2024, names: ["Rebeca Andrade", "Flavia Saraiva", "Jade Barbosa", "Julia Soares", "Lorrane Oliveira"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "CHN", year: 2024, names: ["Qiu Qiyuan", "Zhou Yaqin", "Ou Yushan", "Zhang Yihan", "Luo Huan", "Huang Zhuofan"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "GBR", year: 2024, names: ["Alice Kinsella", "Georgia-Mae Fenton", "Becky Downie", "Ruby Evans", "Abigail Martin", "Ondine Achampong"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "JPN", year: 2024, names: ["Shoko Miyata", "Haruka Nakamura", "Rina Kishi", "Kohane Ushioku", "Mana Okamura", "Hazuki Watanabe"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "CAN", year: 2024, names: ["Ellie Black", "Aurelie Tran", "Shallon Olsen", "Ava Stewart", "Cassie Lee", "Emma Spence"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "FRA", year: 2024, names: ["Melanie De Jesus Dos Santos", "Marine Boyer", "Coline Devillard", "Morgane Osyssek", "Lorette Charpy", "Djenna Laroui"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "ROU", year: 2024, names: ["Sabrina Voinea", "Ana Barbosu", "Amalia Ghigoarta", "Lilia Cosman", "Andreea Preda", "Maria Ceplinschi"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "NED", year: 2024, names: ["Naomi Visser", "Sanna Veerman", "Vera van Pol", "Sanne Wevers", "Tisha Volleman"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "AUS", year: 2024, names: ["Georgia Godwin", "Ruby Pass", "Kate McDonald", "Emily Whitehead", "Breanna Scott"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "F", country: "BEL", year: 2024, names: ["Nina Derwael", "Maellyse Brassart", "Lisa Vaelen", "Jutta Verkest", "Stacy Bertrand"] },
+
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "JPN", year: 2024, names: ["Daiki Hashimoto", "Shinnosuke Oka", "Kazuma Kaya", "Takaaki Sugino", "Wataru Tanigawa", "Kakeru Tanigawa"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "CHN", year: 2024, names: ["Zhang Boheng", "Xiao Ruoteng", "Zou Jingyuan", "Liu Yang", "Su Weide", "Sun Wei"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "USA", year: 2024, names: ["Frederick Richard", "Brody Malone", "Paul Juda", "Asher Hong", "Stephen Nedoroscik", "Shane Wiskus", "Khoi Young", "Ian Gunther", "Yul Moldauer"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "GBR", year: 2024, names: ["Jake Jarman", "Joe Fraser", "James Hall", "Harry Hepworth", "Luke Whitehouse", "Courtney Tulloch", "Giarnni Regini-Moran"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "UKR", year: 2024, names: ["Ilia Kovtun", "Oleg Verniaiev", "Igor Radivilov", "Nazar Chepurnyi", "Radomyr Stelmakh", "Petro Pakhniuk"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "ITA", year: 2024, names: ["Yumin Abbadini", "Mario Macchiati", "Nicola Bartolini", "Lorenzo Minh Casali", "Carlo Macchini"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "CAN", year: 2024, names: ["Felix Dolci", "Rene Cournoyer", "William Emard", "Zachary Clay", "Jayson Rampersad"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "GER", year: 2024, names: ["Lukas Dauser", "Nils Dunkel", "Andreas Toba", "Pascal Brendel", "Timo Eder"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "TUR", year: 2024, names: ["Adem Asil", "Ferhat Arican", "Ahmet Onder", "Ibrahim Colak", "Yunus Gundogdu"] },
+    { tag: "olympics-2024", tier: "olympic", gender: "M", country: "NED", year: 2024, names: ["Casimir Schmidt", "Frank Rijken", "Loran de Munck", "Jermain Grunberg", "Jesse Moore"] },
+
+    { tag: "olympics-2020", tier: "olympic", gender: "F", country: "RUS", year: 2021, names: ["Angelina Melnikova", "Vladislava Urazova", "Viktoria Listunova", "Lilia Akhaimova", "Anastasia Ilyankova"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "F", country: "USA", year: 2021, names: ["Simone Biles", "Sunisa Lee", "Jordan Chiles", "Grace McCallum", "Jade Carey", "MyKayla Skinner"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "F", country: "GBR", year: 2021, names: ["Jessica Gadirova", "Jennifer Gadirova", "Alice Kinsella", "Amelie Morgan", "Becky Downie"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "F", country: "CHN", year: 2021, names: ["Guan Chenchen", "Tang Xijing", "Lu Yufei", "Zhang Jin", "Fan Yilin", "Ou Yushan"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "F", country: "JPN", year: 2021, names: ["Mai Murakami", "Hitomi Hatakeda", "Yuna Hiraiwa", "Aiko Sugihara", "Nagi Kajita"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "F", country: "ITA", year: 2021, names: ["Vanessa Ferrari", "Alice D'Amato", "Asia D'Amato", "Martina Maggio", "Giorgia Villa"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "F", country: "BRA", year: 2021, names: ["Rebeca Andrade", "Flavia Saraiva", "Lorrane Oliveira", "Jade Barbosa", "Carolyne Pedro"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "M", country: "RUS", year: 2021, names: ["Nikita Nagornyy", "Artur Dalaloyan", "David Belyavskiy", "Denis Ablyazin", "Ivan Stretovich"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "M", country: "JPN", year: 2021, names: ["Daiki Hashimoto", "Kazuma Kaya", "Takeru Kitazono", "Wataru Tanigawa", "Kohei Uchimura"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "M", country: "CHN", year: 2021, names: ["Xiao Ruoteng", "Sun Wei", "Zou Jingyuan", "Liu Yang", "Lin Chaopan"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "M", country: "GBR", year: 2021, names: ["Joe Fraser", "James Hall", "Max Whitlock", "Giarnni Regini-Moran", "Dominick Cunningham"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "M", country: "USA", year: 2021, names: ["Sam Mikulak", "Yul Moldauer", "Brody Malone", "Shane Wiskus", "Alec Yoder"] },
+    { tag: "olympics-2020", tier: "olympic", gender: "M", country: "BRA", year: 2021, names: ["Diogo Soares", "Caio Souza", "Arthur Nory", "Arthur Zanetti", "Francisco Barretto"] },
+
+    { tag: "olympics-2016", tier: "olympic", gender: "F", country: "USA", year: 2016, names: ["Simone Biles", "Aly Raisman", "Gabby Douglas", "Laurie Hernandez", "Madison Kocian", "MyKayla Skinner"] },
+    { tag: "olympics-2016", tier: "olympic", gender: "F", country: "RUS", year: 2016, names: ["Aliya Mustafina", "Angelina Melnikova", "Maria Paseka", "Daria Spiridonova", "Seda Tutkhalyan"] },
+    { tag: "olympics-2016", tier: "olympic", gender: "F", country: "CHN", year: 2016, names: ["Shang Chunsong", "Fan Yilin", "Wang Yan", "Mao Yi", "Tan Jiaxin"] },
+    { tag: "olympics-2016", tier: "olympic", gender: "F", country: "BRA", year: 2016, names: ["Flavia Saraiva", "Rebeca Andrade", "Jade Barbosa", "Daniele Hypolito", "Lorrane Oliveira"] },
+    { tag: "olympics-2016", tier: "olympic", gender: "F", country: "GBR", year: 2016, names: ["Ellie Downie", "Becky Downie", "Claudia Fragapane", "Amy Tinkler", "Ruby Harrold"] },
+    { tag: "olympics-2016", tier: "olympic", gender: "M", country: "JPN", year: 2016, names: ["Kohei Uchimura", "Kenzo Shirai", "Ryohei Kato", "Yusuke Tanaka", "Koji Yamamuro"] },
+    { tag: "olympics-2016", tier: "olympic", gender: "M", country: "RUS", year: 2016, names: ["Nikita Nagornyy", "David Belyavskiy", "Nikolai Kuksenkov", "Denis Ablyazin", "Ivan Stretovich"] },
+    { tag: "olympics-2016", tier: "olympic", gender: "M", country: "CHN", year: 2016, names: ["Deng Shudi", "You Hao", "Lin Chaopan", "Liu Yang", "Zhang Chenglong"] },
+    { tag: "olympics-2016", tier: "olympic", gender: "M", country: "BRA", year: 2016, names: ["Sergio Sasaki", "Arthur Nory", "Diego Hypolito", "Arthur Zanetti", "Francisco Barretto", "Caio Souza"] },
+
+    { tag: "olympics-2012", tier: "olympic", gender: "F", country: "USA", year: 2012, names: ["Gabby Douglas", "Aly Raisman", "McKayla Maroney", "Kyla Ross", "Jordyn Wieber", "Elizabeth Price"] },
+    { tag: "olympics-2012", tier: "olympic", gender: "F", country: "RUS", year: 2012, names: ["Viktoria Komova", "Aliya Mustafina", "Maria Paseka", "Anastasia Grishina", "Ksenia Afanasyeva"] },
+    { tag: "olympics-2012", tier: "olympic", gender: "F", country: "ROU", year: 2012, names: ["Larisa Iordache", "Catalina Ponor", "Sandra Izbasa", "Diana Bulimar", "Diana Chelaru"] },
+    { tag: "olympics-2012", tier: "olympic", gender: "M", country: "CHN", year: 2012, names: ["Zou Kai", "Chen Yibing", "Feng Zhe", "Guo Weiyang", "Zhang Chenglong"] },
+    { tag: "olympics-2012", tier: "olympic", gender: "M", country: "JPN", year: 2012, names: ["Kohei Uchimura", "Ryohei Kato", "Kazuhito Tanaka", "Yusuke Tanaka", "Koji Yamamuro"] },
+    { tag: "olympics-2012", tier: "olympic", gender: "M", country: "GBR", year: 2012, names: ["Max Whitlock", "Louis Smith", "Sam Oldham", "Kristian Thomas", "Daniel Purvis"] },
+    { tag: "olympics-2012", tier: "olympic", gender: "M", country: "USA", year: 2012, names: ["Danell Leyva", "John Orozco", "Jonathan Horton", "Sam Mikulak", "Jake Dalton"] },
+
+    { tag: "olympics-2008", tier: "historic", gender: "F", country: "CHN", year: 2008, names: ["He Kexin", "Cheng Fei", "Yang Yilin", "Deng Linlin", "Jiang Yuyuan", "Li Shanshan"] },
+    { tag: "olympics-2008", tier: "historic", gender: "F", country: "USA", year: 2008, names: ["Nastia Liukin", "Shawn Johnson", "Alicia Sacramone", "Chellsie Memmel", "Samantha Peszek", "Bridget Sloan"] },
+    { tag: "olympics-2008", tier: "historic", gender: "F", country: "ROU", year: 2008, names: ["Sandra Izbasa", "Steliana Nistor", "Catalina Ponor", "Gabriela Dragoi", "Andreea Grigore"] },
+    { tag: "olympics-2008", tier: "historic", gender: "M", country: "CHN", year: 2008, names: ["Yang Wei", "Li Xiaopeng", "Chen Yibing", "Zou Kai", "Xiao Qin", "Huang Xu"] },
+    { tag: "olympics-2008", tier: "historic", gender: "M", country: "JPN", year: 2008, names: ["Kohei Uchimura", "Hiroyuki Tomita", "Takehiro Kashima", "Takuya Nakase", "Makoto Okiguchi"] },
+    { tag: "olympics-2008", tier: "historic", gender: "M", country: "USA", year: 2008, names: ["Jonathan Horton", "Raj Bhavsar", "Justin Spring", "Kevin Tan", "Alexander Artemev", "Joseph Hagerty"] },
+
+    { tag: "olympics-2004", tier: "historic", gender: "F", country: "USA", year: 2004, names: ["Carly Patterson", "Courtney Kupets", "Terin Humphrey", "Courtney McCool", "Mohini Bhardwaj", "Annia Hatch"] },
+    { tag: "olympics-2004", tier: "historic", gender: "F", country: "ROU", year: 2004, names: ["Catalina Ponor", "Monica Rosu", "Oana Ban", "Daniela Sofronie", "Silvia Stroescu", "Alexandra Eremia"] },
+    { tag: "olympics-2004", tier: "historic", gender: "F", country: "RUS", year: 2004, names: ["Svetlana Khorkina", "Anna Pavlova", "Elena Zamolodchikova", "Ludmilla Ezhova", "Maria Kryuchkova"] },
+    { tag: "olympics-2004", tier: "historic", gender: "M", country: "JPN", year: 2004, names: ["Hiroyuki Tomita", "Takehiro Kashima", "Isao Yoneda", "Hisashi Mizutori", "Naoya Tsukahara"] },
+    { tag: "olympics-2004", tier: "historic", gender: "M", country: "USA", year: 2004, names: ["Paul Hamm", "Morgan Hamm", "Brett McClure", "Blaine Wilson", "Jason Gatson", "Guard Young"] },
+    { tag: "olympics-2004", tier: "historic", gender: "M", country: "ROU", year: 2004, names: ["Marian Dragulescu", "Marius Urzica", "Dan Potra", "Ioan Suciu", "Razvan Selariu"] },
+
+    { tag: "olympics-2000", tier: "historic", gender: "F", country: "ROU", year: 2000, names: ["Andreea Raducan", "Simona Amanar", "Maria Olaru", "Loredana Boboc", "Andreea Isarescu", "Claudia Presacan"] },
+    { tag: "olympics-2000", tier: "historic", gender: "F", country: "RUS", year: 2000, names: ["Svetlana Khorkina", "Elena Zamolodchikova", "Ekaterina Lobaznyuk", "Elena Produnova", "Anna Chepeleva"] },
+    { tag: "olympics-2000", tier: "historic", gender: "M", country: "CHN", year: 2000, names: ["Li Xiaopeng", "Yang Wei", "Xing Aowei", "Huang Xu", "Xiao Junfeng", "Zheng Lihui"] },
+    { tag: "olympics-2000", tier: "historic", gender: "M", country: "RUS", year: 2000, names: ["Alexei Nemov", "Nikolai Kryukov", "Evgeny Podgorny", "Dmitri Vasilenko", "Maxim Alenichev"] },
+    { tag: "olympics-1996", tier: "historic", gender: "F", country: "USA", year: 1996, names: ["Shannon Miller", "Dominique Dawes", "Dominique Moceanu", "Kerri Strug", "Amy Chow", "Amanda Borden", "Jaycie Phelps"] },
+    { tag: "olympics-1996", tier: "historic", gender: "F", country: "UKR", year: 1996, names: ["Lilia Podkopayeva", "Olga Teslenko", "Viktoria Karpenko", "Inga Shkarupa", "Nataliya Kalinina"] },
+    { tag: "olympics-1992", tier: "historic", gender: "F", country: "EUN", year: 1992, names: ["Tatiana Gutsu", "Svetlana Boginskaya", "Oksana Chusovitina", "Rozalia Galiyeva", "Elena Grudneva"] },
+    { tag: "olympics-1988", tier: "historic", gender: "F", country: "URS", year: 1988, names: ["Elena Shushunova", "Svetlana Boginskaya", "Natalia Laschenova", "Svetlana Baitova", "Olga Strazheva"] },
+    { tag: "olympics-1988", tier: "historic", gender: "M", country: "URS", year: 1988, names: ["Vladimir Artemov", "Valeri Liukin", "Dmitri Bilozerchev", "Vladimir Gogoladze", "Sergei Kharkov"] },
+
+    { tag: "pan-2023", tier: "continental", gender: "F", country: "USA", year: 2023, names: ["Jordan Chiles", "Kayla DiCello", "Kaliya Lincoln", "Zoe Miller", "Tiana Sumanasekera"] },
+    { tag: "pan-2023", tier: "continental", gender: "F", country: "BRA", year: 2023, names: ["Rebeca Andrade", "Flavia Saraiva", "Jade Barbosa", "Julia Soares", "Lorrane Oliveira"] },
+    { tag: "pan-2023", tier: "continental", gender: "M", country: "USA", year: 2023, names: ["Cameron Bock", "Stephen Nedoroscik", "Curran Phillips", "Colt Walker", "Donnell Whittenburg"] },
+    { tag: "pan-2023", tier: "continental", gender: "M", country: "CAN", year: 2023, names: ["Zachary Clay", "Rene Cournoyer", "Felix Dolci", "William Emard", "Jayson Rampersad"] },
+    { tag: "pan-2019", tier: "continental", gender: "F", country: "USA", year: 2019, names: ["Riley McCusker", "Kara Eaker", "Leanne Wong", "Aleah Finnegan", "Morgan Hurd"] },
+    { tag: "pan-2019", tier: "continental", gender: "F", country: "BRA", year: 2019, names: ["Flavia Saraiva", "Jade Barbosa", "Thais Fidelis", "Lorrane Oliveira", "Carolyne Pedro"] },
+    { tag: "pan-2019", tier: "continental", gender: "M", country: "USA", year: 2019, names: ["Robert Neff", "Cameron Bock", "Stephen Nedoroscik", "Shane Wiskus", "Genki Suzuki"] },
+    { tag: "pan-2019", tier: "continental", gender: "M", country: "BRA", year: 2019, names: ["Arthur Nory", "Francisco Barretto", "Caio Souza", "Arthur Zanetti", "Luis Porto"] },
+    { tag: "pan-2015", tier: "continental", gender: "M", country: "CUB", year: 2015, names: ["Manrique Larduet", "Randy Leru", "Ernesto Vila", "Alejandro de la Cruz", "Diorges Escobar"] },
+    { tag: "pan-2015", tier: "continental", gender: "M", country: "USA", year: 2015, names: ["Sam Mikulak", "Donnell Whittenburg", "Marvin Kimble", "Paul Ruggeri", "Cameron Bock"] },
+    { tag: "pan-2015", tier: "continental", gender: "F", country: "CAN", year: 2015, names: ["Ellie Black", "Isabela Onyshko", "Victoria Moors", "Madison Copiak", "Rose-Kaying Woo"] },
+    { tag: "pan-2011", tier: "continental", gender: "M", country: "USA", year: 2011, names: ["John Orozco", "Danell Leyva", "Steven Legendre", "Brandon Wynn", "Paul Ruggeri"] },
+    { tag: "pan-2011", tier: "continental", gender: "M", country: "BRA", year: 2011, names: ["Sergio Sasaki", "Diego Hypolito", "Arthur Zanetti", "Petrix Barbosa", "Francisco Barretto"] },
+    { tag: "pan-2011", tier: "continental", gender: "F", country: "USA", year: 2011, names: ["Bridget Sloan", "Shawn Johnson", "Brandie Jay", "Grace McLaughlin", "Jessie DeZiel"] },
+    { tag: "pan-2007", tier: "continental", gender: "F", country: "BRA", year: 2007, names: ["Jade Barbosa", "Daiane dos Santos", "Daniele Hypolito", "Laís Souza", "Ethiene Franco"] },
+    { tag: "pan-2007", tier: "continental", gender: "M", country: "BRA", year: 2007, names: ["Diego Hypolito", "Mosiah Rodrigues", "Danilo Nogueira", "Arthur Zanetti", "Sergio Sasaki"] },
+    { tag: "pan-2003", tier: "continental", gender: "F", country: "USA", year: 2003, names: ["Chellsie Memmel", "Terin Humphrey", "Courtney McCool", "Tasha Schwikert", "Samantha Sheehan"] },
+    { tag: "pan-2003", tier: "continental", gender: "F", country: "BRA", year: 2003, names: ["Daiane dos Santos", "Daniele Hypolito", "Camila Comin", "Ana Paula Rodrigues", "Laís Souza"] },
+    { tag: "pan-1999", tier: "historic", gender: "M", country: "USA", year: 1999, names: ["Blaine Wilson", "Sean Townsend", "Stephen McCain", "Jay Thornton", "John Roethlisberger"] },
+    { tag: "pan-1995", tier: "historic", gender: "F", country: "USA", year: 1995, names: ["Dominique Dawes", "Shannon Miller", "Amanda Borden", "Jaycie Phelps", "Kristy Powell"] },
+    { tag: "pan-1991", tier: "historic", gender: "F", country: "CUB", year: 1991, names: ["Lourdes Medina", "Yamilka Pina", "Annexis Moreno", "Liset Castillo", "Liuver Gomez"] },
+    { tag: "pan-1987", tier: "historic", gender: "M", country: "USA", year: 1987, names: ["Scott Johnson", "Tim Daggett", "Charles Lakes", "Brian Ginsberg", "Lance Ringnald"] },
+
+    { tag: "asian-2024", tier: "continental", gender: "M", country: "PHI", year: 2024, names: ["Carlos Yulo", "John Ivan Cruz", "Juancho Besana", "Jan Gwynn Timbang", "Justine Ace De Leon"] },
+    { tag: "asian-2024", tier: "continental", gender: "M", country: "KAZ", year: 2024, names: ["Milad Karimi", "Dmitriy Patanin", "Nariman Kurbanov", "Ilyas Azizov", "Aibek Kalibek"] },
+    { tag: "asian-2024", tier: "continental", gender: "M", country: "UZB", year: 2024, names: ["Abdulla Azimov", "Utkirbek Juraev", "Khabibullo Ergashev", "Abdulaziz Mirvaliev", "Sarvar Abulfaizov"] },
+    { tag: "asian-2024", tier: "continental", gender: "M", country: "CHN", year: 2024, names: ["Yin Dehang", "Tian Hao", "Yang Yanzhi", "Hong Yanming", "Yang Lanbin"] },
+    { tag: "asian-2024", tier: "continental", gender: "F", country: "CHN", year: 2024, names: ["Hu Jiafei", "Qin Xinyi", "Jin Xiaoxuan", "Li Rongjinyi", "Chu Yiming"] },
+    { tag: "asian-2024", tier: "continental", gender: "F", country: "PHI", year: 2024, names: ["Emma Malabuyo", "Levi Ruivivar", "Aleah Finnegan", "Kylee Kvamme", "Chiara Andrew"] },
+    { tag: "asian-2024", tier: "continental", gender: "F", country: "IND", year: 2024, names: ["Dipa Karmakar", "Pranati Nayak", "Pranati Das", "Ruthuja Nataraj", "Aruna Reddy"] },
+    { tag: "asian-2024", tier: "continental", gender: "F", country: "PRK", year: 2024, names: ["Kim Son-hyang", "Jo Kyong-byol", "Han Hyo-gum", "An So-yun", "Hwang Seo-hyun"] },
+    { tag: "asian-2023", tier: "continental", gender: "M", country: "JPN", year: 2023, names: ["Shinnosuke Oka", "Takeru Kitazono", "Fumiya Sasaki", "Koki Maeda", "Kakeru Tanigawa"] },
+    { tag: "asian-2023", tier: "continental", gender: "M", country: "KOR", year: 2023, names: ["Ryu Sung-hyun", "Kim Han-sol", "Lee Jun-ho", "Shin Jea-hwan", "Kim Jae-ho"] },
+    { tag: "asian-2023", tier: "continental", gender: "F", country: "CHN", year: 2023, names: ["Qiu Qiyuan", "Zhang Qingying", "Wei Xiaoyuan", "Luo Huan", "Duan Yushan"] },
+    { tag: "asian-2023", tier: "continental", gender: "F", country: "KOR", year: 2023, names: ["Shin Sol-yi", "Lee Yun-seo", "Yeo Seo-jeong", "Lim Sumin", "Eom Dohyun"] },
+    { tag: "asian-2023", tier: "continental", gender: "F", country: "INA", year: 2023, names: ["Rifda Irfanaluthfi", "Yunita Saraswati", "Azahra Dwi Putri", "Tazsa Aqila", "Nabila Evandestiera"] },
+    { tag: "asian-2022", tier: "continental", gender: "M", country: "CHN", year: 2022, names: ["Shi Cong", "Yang Jiaxing", "Lan Xingyu", "Zhang Boheng", "Sun Wei"] },
+    { tag: "asian-2022", tier: "continental", gender: "M", country: "TPE", year: 2022, names: ["Tang Chia-Hung", "Lee Chih-Kai", "Hsiao Yu-Jan", "Chen Chih-Yu", "Tseng Wei-Sheng"] },
+    { tag: "asian-2022", tier: "continental", gender: "F", country: "CHN", year: 2022, names: ["Zhang Jin", "Tang Xijing", "Wei Xiaoyuan", "Luo Rui", "Ou Yushan"] },
+    { tag: "asian-2022", tier: "continental", gender: "F", country: "JPN", year: 2022, names: ["Shoko Miyata", "Chiharu Yamada", "Kokoro Fukasawa", "Ayaka Sakaguchi", "Urara Ashikawa"] },
+    { tag: "asian-2019", tier: "continental", gender: "M", country: "CHN", year: 2019, names: ["Xiao Ruoteng", "Sun Wei", "Lan Xingyu", "Deng Shudi", "Lin Chaopan"] },
+    { tag: "asian-2019", tier: "continental", gender: "M", country: "JPN", year: 2019, names: ["Kazuma Kaya", "Kakeru Tanigawa", "Wataru Tanigawa", "Kenzo Shirai", "Kohei Uchimura"] },
+    { tag: "asian-2019", tier: "continental", gender: "F", country: "CHN", year: 2019, names: ["Liu Tingting", "Chen Yile", "Tang Xijing", "Li Shijia", "Qi Qi"] },
+    { tag: "asian-2019", tier: "continental", gender: "F", country: "JPN", year: 2019, names: ["Hitomi Hatakeda", "Mai Murakami", "Aiko Sugihara", "Asuka Teramoto", "Yuna Hiraiwa"] },
+    { tag: "asian-2017", tier: "continental", gender: "M", country: "CHN", year: 2017, names: ["Lin Chaopan", "Deng Shudi", "You Hao", "Liu Yang", "Zou Jingyuan"] },
+    { tag: "asian-2017", tier: "continental", gender: "F", country: "CHN", year: 2017, names: ["Luo Huan", "Liu Tingting", "Fan Yilin", "Wang Yan", "Chen Yile"] },
+    { tag: "asian-2015", tier: "continental", gender: "M", country: "JPN", year: 2015, names: ["Kohei Uchimura", "Ryohei Kato", "Kenzo Shirai", "Yusuke Tanaka", "Kazuhito Tanaka"] },
+    { tag: "asian-2015", tier: "continental", gender: "F", country: "CHN", year: 2015, names: ["Shang Chunsong", "Wang Yan", "Fan Yilin", "Mao Yi", "Tan Jiaxin"] },
+    { tag: "asian-2013", tier: "continental", gender: "M", country: "JPN", year: 2013, names: ["Kohei Uchimura", "Ryohei Kato", "Kenzo Shirai", "Yusuke Saito", "Kazuhito Tanaka"] },
+    { tag: "asian-2013", tier: "continental", gender: "F", country: "JPN", year: 2013, names: ["Mai Murakami", "Asuka Teramoto", "Natsumi Sasada", "Yuko Shintake", "Rie Tanaka"] },
+    { tag: "asian-2012", tier: "continental", gender: "M", country: "CHN", year: 2012, names: ["Zou Kai", "Chen Yibing", "Feng Zhe", "Zhang Chenglong", "Guo Weiyang"] },
+    { tag: "asian-2012", tier: "continental", gender: "F", country: "CHN", year: 2012, names: ["Yao Jinnan", "Deng Linlin", "Huang Qiushuang", "He Kexin", "Sui Lu"] },
+    { tag: "asian-2010", tier: "continental", gender: "M", country: "KOR", year: 2010, names: ["Yang Hak-seon", "Kim Soo-myun", "Yoo Won-chul", "Kim Ji-hoon", "Kim Seung-il"] },
+    { tag: "asian-2010", tier: "continental", gender: "F", country: "KOR", year: 2010, names: ["Jo Hyun-joo", "Park Ji-yeon", "Heo Seon-mi", "Lee Eun-ju", "Yoon Na-rae"] },
+    { tag: "asian-2008", tier: "historic", gender: "M", country: "CHN", year: 2008, names: ["Yang Wei", "Li Xiaopeng", "Chen Yibing", "Zou Kai", "Xiao Qin"] },
+    { tag: "asian-2008", tier: "historic", gender: "F", country: "CHN", year: 2008, names: ["He Kexin", "Cheng Fei", "Yang Yilin", "Deng Linlin", "Jiang Yuyuan"] }
+  ];
+
   const ICONS = {
     moon: '<path d="M21 15.2A8.6 8.6 0 0 1 8.8 3a9.4 9.4 0 1 0 12.2 12.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
     sun: '<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
@@ -1545,7 +1684,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     ]
   };
 
-  const ATHLETES = dedupeAthletes(parseAthletes(`${ATHLETE_CSV}\n${ATHLETE_SEASON_CSV}\n${ATHLETE_HISTORIC_CSV}\n${ATHLETE_REGIONAL_CSV}\n${ATHLETE_PANAM_CSV}\n${ATHLETE_Y2026_CSV}\n${ATHLETE_EXPANDED_CSV}\n${ATHLETE_RECENT_ROSTER_CSV}`));
+  const ATHLETES = dedupeAthletes(parseAthletes(`${ATHLETE_CSV}\n${ATHLETE_SEASON_CSV}\n${ATHLETE_HISTORIC_CSV}\n${ATHLETE_REGIONAL_CSV}\n${ATHLETE_PANAM_CSV}\n${ATHLETE_Y2026_CSV}\n${ATHLETE_EXPANDED_CSV}\n${ATHLETE_RECENT_ROSTER_CSV}\n${generatedCoverageCsv()}`));
   let app;
 
   /* ---------- helpers ---------- */
@@ -1648,6 +1787,50 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function escapeHTML(v) {
     return String(v).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
   }
+  function generatedCoverageCsv() {
+    const seen = new Set();
+    return ATHLETE_COVERAGE_PACKS.flatMap((pack, packIndex) => pack.names.map((name, nameIndex) => {
+      const key = `${pack.gender}-${slug(name)}-${pack.country}-${pack.year}`;
+      if (seen.has(key)) return "";
+      seen.add(key);
+      return coverageCsvLine(pack, name, nameIndex, packIndex);
+    })).filter(Boolean).join("\n");
+  }
+  function coverageCsvLine(pack, name, nameIndex, packIndex) {
+    const power = coveragePower(pack.tier, nameIndex, pack.year);
+    const consistency = coverageNumber(Math.max(0.78, Math.min(0.90, 0.795 + power * 0.11 - nameIndex * 0.004)), 3);
+    const shift = ((packIndex % 5) - 2) * 0.035;
+    if (pack.gender === "F") {
+      const old = pack.year < 2006;
+      const vt = coverageScore(old ? 4.8 : 4.4, old ? 8.65 : 7.85, power, shift + 0.03, 0.78, 0.58);
+      const fx = coverageScore(old ? 4.8 : 4.7, old ? 8.70 : 7.75, power, shift, 0.92, 0.66);
+      const ub = coverageScore(old ? 4.8 : 4.6, old ? 8.68 : 7.70, power, shift - 0.02, 1.05, 0.70);
+      const bb = coverageScore(old ? 4.8 : 4.6, old ? 8.62 : 7.65, power, shift - 0.04, 1.00, 0.66);
+      return ["F", name, pack.country, pack.year, vt.d, vt.e, fx.d, fx.e, ub.d, ub.e, bb.d, bb.e, "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", consistency].join(",");
+    }
+    const old = pack.year < 2006;
+    const vt = coverageScore(old ? 4.9 : 5.0, old ? 8.55 : 7.78, power, shift + 0.03, 0.55, 0.60);
+    const fx = coverageScore(old ? 4.9 : 5.1, old ? 8.55 : 7.62, power, shift + 0.01, 0.90, 0.66);
+    const ph = coverageScore(old ? 4.9 : 4.8, old ? 8.50 : 7.48, power, shift - 0.05, 1.10, 0.70);
+    const sr = coverageScore(old ? 4.9 : 4.8, old ? 8.50 : 7.55, power, shift - 0.02, 1.00, 0.66);
+    const pb = coverageScore(old ? 4.9 : 5.0, old ? 8.55 : 7.60, power, shift, 1.10, 0.68);
+    const hb = coverageScore(old ? 4.9 : 5.0, old ? 8.52 : 7.55, power, shift - 0.02, 1.12, 0.66);
+    return ["M", name, pack.country, pack.year, vt.d, vt.e, fx.d, fx.e, "N/A", "N/A", "N/A", "N/A", ph.d, ph.e, sr.d, sr.e, pb.d, pb.e, hb.d, hb.e, consistency].join(",");
+  }
+  function coveragePower(tier, nameIndex, year) {
+    const base = { olympic: 0.70, continental: 0.52, historic: 0.64 }[tier] ?? 0.46;
+    const era = year < 2006 ? 0.08 : (year < 2013 ? 0.03 : 0);
+    return Math.max(0.28, Math.min(0.94, base + era + Math.max(0, 0.18 - nameIndex * 0.035)));
+  }
+  function coverageScore(dBase, eBase, power, shift, dScale, eScale) {
+    return {
+      d: coverageNumber(dBase + power * dScale + shift * 0.45, 1),
+      e: coverageNumber(Math.max(6.9, Math.min(9.7, eBase + power * eScale + shift)), 3)
+    };
+  }
+  function coverageNumber(value, decimals = 1) {
+    return Number(value.toFixed(decimals)).toString();
+  }
   function parseAthletes(csv) {
     const lines = csv.trim().split(/\n+/);
     const headers = lines.shift().split(",");
@@ -1694,7 +1877,9 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       "vitaliy guimaraes": "Vitaliy Guimaraes",
       "bernardo miranda actos": "Bernardo Miranda",
       "bernardo actos": "Bernardo Miranda",
-      "juancho miguel besana": "Juancho Besana"
+      "juancho miguel besana": "Juancho Besana",
+      "francisco barreto": "Francisco Barretto",
+      "francisco barreto junior": "Francisco Barretto"
     };
     const key = slug(name).replaceAll("-", " ");
     return aliases[key] || String(name).replace("ă", "a");
@@ -1831,11 +2016,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${countryName(a.federation)}`; }
   function apparatusById(id) { return apps().find((a) => a.id === id); }
   const COUNTRY_NAMES = {
-    "pt-BR": { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japão", GBR: "Grã-Bretanha", ITA: "Itália", FRA: "França", GER: "Alemanha", CAN: "Canadá", NED: "Holanda", AUS: "Austrália", BEL: "Bélgica", UKR: "Ucrânia", TUR: "Turquia", KOR: "Coreia do Sul", ROU: "Romênia", PHI: "Filipinas", COL: "Colômbia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Porto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungria", SUI: "Suíça", ESP: "Espanha", UZB: "Uzbequistão", KAZ: "Cazaquistão", TPE: "Taiwan", IND: "Índia", ALG: "Argélia", AUT: "Áustria", GRE: "Grécia", IRL: "Irlanda", ISR: "Israel", RUS: "Rússia", BLR: "Belarus", URS: "União Soviética", EUN: "Equipe Unificada", TCH: "Tchecoslováquia", DOM: "República Dominicana", ECU: "Equador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolívia", PRK: "Coreia do Norte", MAS: "Malásia", SGP: "Singapura", IRI: "Irã", FAN: "Fantasy" },
-    en: { USA: "United States", BRA: "Brazil", CHN: "China", JPN: "Japan", GBR: "Great Britain", ITA: "Italy", FRA: "France", GER: "Germany", CAN: "Canada", NED: "Netherlands", AUS: "Australia", BEL: "Belgium", UKR: "Ukraine", TUR: "Turkey", KOR: "South Korea", ROU: "Romania", PHI: "Philippines", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "Mexico", CHI: "Chile", PAN: "Panama", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungary", SUI: "Switzerland", ESP: "Spain", UZB: "Uzbekistan", KAZ: "Kazakhstan", TPE: "Taiwan", IND: "India", ALG: "Algeria", AUT: "Austria", GRE: "Greece", IRL: "Ireland", ISR: "Israel", RUS: "Russia", BLR: "Belarus", URS: "Soviet Union", EUN: "Unified Team", TCH: "Czechoslovakia", DOM: "Dominican Republic", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolivia", PRK: "North Korea", MAS: "Malaysia", SGP: "Singapore", IRI: "Iran", FAN: "Fantasy" },
-    es: { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japón", GBR: "Gran Bretaña", ITA: "Italia", FRA: "Francia", GER: "Alemania", CAN: "Canadá", NED: "Países Bajos", AUS: "Australia", BEL: "Bélgica", UKR: "Ucrania", TUR: "Turquía", KOR: "Corea del Sur", ROU: "Rumania", PHI: "Filipinas", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Perú", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungría", SUI: "Suiza", ESP: "España", UZB: "Uzbekistán", KAZ: "Kazajistán", TPE: "Taiwán", IND: "India", ALG: "Argelia", AUT: "Austria", GRE: "Grecia", IRL: "Irlanda", ISR: "Israel", RUS: "Rusia", BLR: "Bielorrusia", URS: "Unión Soviética", EUN: "Equipo Unificado", TCH: "Checoslovaquia", DOM: "República Dominicana", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haití", BAR: "Barbados", BOL: "Bolivia", PRK: "Corea del Norte", MAS: "Malasia", SGP: "Singapur", IRI: "Irán", FAN: "Fantasy" }
+    "pt-BR": { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japão", GBR: "Grã-Bretanha", ITA: "Itália", FRA: "França", GER: "Alemanha", CAN: "Canadá", NED: "Holanda", AUS: "Austrália", BEL: "Bélgica", UKR: "Ucrânia", TUR: "Turquia", KOR: "Coreia do Sul", ROU: "Romênia", PHI: "Filipinas", COL: "Colômbia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Porto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungria", SUI: "Suíça", ESP: "Espanha", UZB: "Uzbequistão", KAZ: "Cazaquistão", TPE: "Taiwan", IND: "Índia", INA: "Indonésia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Tailândia", VIE: "Vietnã", QAT: "Catar", KGZ: "Quirguistão", ALG: "Argélia", AUT: "Áustria", GRE: "Grécia", IRL: "Irlanda", ISR: "Israel", RUS: "Rússia", BLR: "Belarus", URS: "União Soviética", EUN: "Equipe Unificada", TCH: "Tchecoslováquia", DOM: "República Dominicana", ECU: "Equador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolívia", PRK: "Coreia do Norte", MAS: "Malásia", SGP: "Singapura", IRI: "Irã", FAN: "Fantasy" },
+    en: { USA: "United States", BRA: "Brazil", CHN: "China", JPN: "Japan", GBR: "Great Britain", ITA: "Italy", FRA: "France", GER: "Germany", CAN: "Canada", NED: "Netherlands", AUS: "Australia", BEL: "Belgium", UKR: "Ukraine", TUR: "Turkey", KOR: "South Korea", ROU: "Romania", PHI: "Philippines", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "Mexico", CHI: "Chile", PAN: "Panama", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungary", SUI: "Switzerland", ESP: "Spain", UZB: "Uzbekistan", KAZ: "Kazakhstan", TPE: "Taiwan", IND: "India", INA: "Indonesia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Thailand", VIE: "Vietnam", QAT: "Qatar", KGZ: "Kyrgyzstan", ALG: "Algeria", AUT: "Austria", GRE: "Greece", IRL: "Ireland", ISR: "Israel", RUS: "Russia", BLR: "Belarus", URS: "Soviet Union", EUN: "Unified Team", TCH: "Czechoslovakia", DOM: "Dominican Republic", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolivia", PRK: "North Korea", MAS: "Malaysia", SGP: "Singapore", IRI: "Iran", FAN: "Fantasy" },
+    es: { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japón", GBR: "Gran Bretaña", ITA: "Italia", FRA: "Francia", GER: "Alemania", CAN: "Canadá", NED: "Países Bajos", AUS: "Australia", BEL: "Bélgica", UKR: "Ucrania", TUR: "Turquía", KOR: "Corea del Sur", ROU: "Rumania", PHI: "Filipinas", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Perú", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungría", SUI: "Suiza", ESP: "España", UZB: "Uzbekistán", KAZ: "Kazajistán", TPE: "Taiwán", IND: "India", INA: "Indonesia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Tailandia", VIE: "Vietnam", QAT: "Catar", KGZ: "Kirguistán", ALG: "Argelia", AUT: "Austria", GRE: "Grecia", IRL: "Irlanda", ISR: "Israel", RUS: "Rusia", BLR: "Bielorrusia", URS: "Unión Soviética", EUN: "Equipo Unificado", TCH: "Checoslovaquia", DOM: "República Dominicana", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haití", BAR: "Barbados", BOL: "Bolivia", PRK: "Corea del Norte", MAS: "Malasia", SGP: "Singapur", IRI: "Irán", FAN: "Fantasy" }
   };
-  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru", BLR: "by", DOM: "do", ECU: "ec", CRC: "cr", ESA: "sv", HAI: "ht", BAR: "bb", BOL: "bo", PRK: "kp", MAS: "my", SGP: "sg", IRI: "ir" };
+  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", INA: "id", SRI: "lk", HKG: "hk", THA: "th", VIE: "vn", QAT: "qa", KGZ: "kg", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru", BLR: "by", DOM: "do", ECU: "ec", CRC: "cr", ESA: "sv", HAI: "ht", BAR: "bb", BOL: "bo", PRK: "kp", MAS: "my", SGP: "sg", IRI: "ir" };
   // Bandeiras históricas/especiais desenhadas em SVG (não existem no flagcdn)
   const HISTORIC_FLAGS = {
     URS: `<svg viewBox="0 0 60 40" preserveAspectRatio="none"><rect width="60" height="40" fill="#C8102E"/><g fill="#FFD21A"><path d="M13 5 14.2 8.4 17.8 8.5 14.9 10.6 15.9 14 13 12 10.1 14 11.1 10.6 8.2 8.5 11.8 8.4Z"/><path d="M9 29C3.5 25.5 3.5 18.5 10.5 16.5 6.8 19.2 7.4 23.6 12.6 24.4L11.2 27.2C8 26.6 7.6 27.8 9 29Z"/><g transform="rotate(42 15 22)"><rect x="13.6" y="16" width="2.8" height="12" rx="1"/><rect x="10.5" y="14" width="9" height="4.4" rx="1.2"/></g></g></svg>`,
