@@ -377,6 +377,33 @@
     .toast { position:fixed; left:50%; bottom:20px; z-index:100; transform:translateX(-50%) translateY(120%); opacity:0; transition:transform .2s ease, opacity .2s ease; background:var(--text); color:var(--bg); border-radius:10px; padding:11px 16px; font-weight:800; box-shadow:var(--shadow); max-width:min(420px,calc(100vw - 24px)); text-align:center; }
     .toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
 
+    /* achievement toasts */
+    .ach-wrap { position:fixed; z-index:120; top:calc(14px + env(safe-area-inset-top)); right:14px; display:flex; flex-direction:column; gap:10px; width:min(340px,calc(100vw - 28px)); pointer-events:none; }
+    .ach-card { pointer-events:auto; display:flex; align-items:center; gap:13px; padding:13px 15px; border-radius:14px; background:linear-gradient(140deg,color-mix(in srgb,var(--gold) 22%,var(--surface)),var(--surface) 62%); border:1px solid color-mix(in srgb,var(--gold) 55%,var(--line)); box-shadow:0 16px 40px rgba(58,47,28,.24); transform:translateX(120%); opacity:0; transition:transform .4s cubic-bezier(.2,.9,.3,1.2), opacity .3s ease; }
+    .ach-card.show { transform:none; opacity:1; }
+    .ach-card.hide { transform:translateX(120%); opacity:0; }
+    .ach-medal { flex:0 0 44px; width:44px; height:44px; border-radius:50%; display:grid; place-items:center; color:#3a2f0a; background:radial-gradient(circle at 34% 30%,#ffe9a8,var(--gold) 62%,#b8860b); box-shadow:inset 0 0 0 2px rgba(255,255,255,.45), 0 2px 8px rgba(160,120,0,.35); animation:ach-pop .5s ease-out both; }
+    .ach-medal svg { width:23px; height:23px; }
+    @keyframes ach-pop { 0%{transform:scale(.3) rotate(-18deg);} 60%{transform:scale(1.12) rotate(6deg);} 100%{transform:none;} }
+    .ach-body { min-width:0; display:flex; flex-direction:column; gap:2px; }
+    .ach-kicker { font-size:10.5px; font-weight:900; letter-spacing:.13em; text-transform:uppercase; color:color-mix(in srgb,var(--gold) 72%,var(--text)); }
+    .ach-name { font-family:var(--disp); font-weight:800; font-size:17px; line-height:1.08; color:var(--text); overflow-wrap:anywhere; }
+    .ach-desc { font-size:12px; font-weight:600; color:var(--muted); overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+    @media (max-width:560px) {
+      .ach-wrap { left:50%; right:auto; transform:translateX(-50%); top:auto; bottom:calc(14px + env(safe-area-inset-bottom)); width:min(360px,calc(100vw - 20px)); }
+      .ach-card { transform:translateY(140%); }
+      .ach-card.hide { transform:translateY(140%); }
+    }
+    @media (prefers-reduced-motion:reduce) { .ach-card,.ach-medal { transition:opacity .2s ease; animation:none; } }
+
+    /* split: sidebar + main que passa a duas colunas já no zoom intermediário (tablet / notebook), não só em telas grandes */
+    .split { grid-template-columns:minmax(0,1fr); }
+    .split-r { grid-template-columns:minmax(0,1fr); }
+    @media (min-width:760px) {
+      .split { grid-template-columns:minmax(0,var(--side,380px)) minmax(0,1fr); align-items:start; }
+      .split-r { grid-template-columns:minmax(0,1fr) minmax(0,var(--side,340px)); align-items:start; }
+    }
+
     @media (min-width:980px) {
       .competition-segment { grid-template-columns:repeat(3,minmax(0,1fr)); }
     }
@@ -489,6 +516,7 @@
   </footer>
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="achWrap" class="ach-wrap" role="status" aria-live="polite"></div>
   <script>
 /* GymGames — engine v2
    Novidades: pictogramas de aparelhos, design refinado e MÓDULO AO VIVO
@@ -2447,7 +2475,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
 
   function renderSetup() {
     state.view = "setup"; setPhase("setup", `${icon("trophy")} ${t("phaseSetup")}`);
-    state.results = {}; state.teams = []; state.live = null; state._recordedSummary = false;
+    state.results = {}; state.teams = []; state.live = null; state._recordedSummary = false; state._recordedBattle = false;
     const battle = isBattleMode();
     const displayApps = battle ? [...new Map([...APPARATUS.WAG, ...APPARATUS.MAG].map((a) => [a.id, a])).values()] : apps();
     app.innerHTML = `
@@ -3219,7 +3247,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     state.seed = Date.now() % 1000000000; state.rng = mulberry32(state.seed);
     const bracket = mode === "royale" ? simulateBattleBracket() : simulateBattleShowcase(mode);
     state.results = { battle: bracket };
-    recordCompetitionResult(buildBattleRunData());
+    if (!state._recordedBattle) { try { recordCompetitionResult(buildBattleRunData()); } catch (_) {} state._recordedBattle = true; }
     renderBattleResults();
   }
   function runLiveBattleRoyale() {
@@ -3245,7 +3273,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function commitBattleFromLive() {
     state.results = { battle: state.live.battleResult };
-    recordCompetitionResult(buildBattleRunData());
+    if (!state._recordedBattle) { try { recordCompetitionResult(buildBattleRunData()); } catch (_) {} state._recordedBattle = true; }
   }
   function battleStageTable(stage) {
     const keep = stage.rows.slice(0, Math.min(16, stage.rows.length));
@@ -3284,7 +3312,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
             </div>
             <div class="mt-4 max-w-md">${cardAspectControls()}</div>
           </div>
-          <div class="grid gap-4 lg:grid-cols-[360px_1fr]">
+          <div class="grid gap-4 split" style="--side:360px">
             <aside class="panel p-4">
               ${renderPodium(battle.stages[battle.stages.length - 1].rows.slice(0, 3).map((r) => ({ rank: r.rank, name: displayTeamName(r.team), sub: t("battleTeams"), score: r.points, player: r.team.isPlayer })))}
               <div class="mt-4 grid gap-2">
@@ -3376,7 +3404,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       <section class="screen">
         <div class="panel p-4 md:p-6">
           ${progress("quals")}
-          <div class="mt-6 grid gap-5 lg:grid-cols-[1fr_340px]">
+          <div class="mt-6 grid gap-5 split-r" style="--side:340px">
             <div>
               <p class="kicker">${escapeHTML(competitionName())} · ${t("registeredTeam")}</p>
               <h1 class="mt-1 display text-3xl md:text-5xl">${escapeHTML(player.name)}</h1>
@@ -3495,7 +3523,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     </tbody></table></div>`;
   }
   function renderQualAppTables() {
-    return `<div class="grid gap-4 lg:grid-cols-2">
+    return `<div class="grid gap-4 md:grid-cols-2">
       ${apps().map((ap) => {
         const ids = new Set(state.results.qual.appFinalists[ap.id].map((a) => a.id));
         return `<div class="soft-panel p-3"><div class="mb-3 flex items-center gap-2">${appTag(ap)}<h3 class="section-title">${appName(ap)}</h3></div>
@@ -4418,7 +4446,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
               ${progress(state.live.progressKey || "live")}
               <div class="mt-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between" id="liveHeader"></div>
             </div>
-            <div class="grid gap-4 lg:grid-cols-[1fr_340px]">
+            <div class="grid gap-4 split-r" style="--side:340px">
               <div class="grid gap-4">
                 <div id="commentaryTickerMount"></div>
                 <div class="panel spot-panel p-4 md:p-5" id="spotMount"></div>
@@ -4509,7 +4537,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
             <div><p class="kicker">${t("teamFinalKicker")}</p><h1 class="mt-1 display text-2xl md:text-4xl">${t("teamPodium")}</h1></div>
             <button class="btn btn-primary" data-act="aaFinal">${icon("arrow")} ${t("aaButton")}</button>
           </div></div>
-        <div class="grid gap-4 lg:grid-cols-[420px_1fr]">
+        <div class="grid gap-4 split" style="--side:420px">
           <div class="panel p-4">${renderPodium(results.slice(0, 3).map((r, i) => ({ rank: i + 1, name: displayTeamName(r.team), sub: countryName(r.team.federation), score: r.total, player: r.team.isPlayer, flag: podiumFlag(r.team.federation, r.team.isPlayer ? state.customFlag : "") })))}</div>
           <div class="panel p-4">${renderTeamFinalTable()}</div>
         </div>
@@ -4544,7 +4572,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
               <button class="btn btn-secondary" data-act="appFinals">${icon("arrow")} ${t("quickResult")}</button>
             </div>
           </div></div>
-        <div class="grid gap-4 lg:grid-cols-[420px_1fr]">
+        <div class="grid gap-4 split" style="--side:420px">
           <div class="panel p-4">${renderPodium(results.slice(0, 3).map((r, i) => ({ rank: i + 1, name: r.athlete.name, sub: `${countryName(r.athlete.country)} · ${athleteTeamName(r.athlete)}`, score: r.total, player: r.athlete.isPlayerAthlete, flag: podiumFlag(r.athlete.country, r.athlete.isPlayerAthlete ? state.customFlag : "") })))}</div>
           <div class="panel p-4">${renderAAFinalTable()}</div>
         </div>
@@ -4610,7 +4638,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
             <div><p class="kicker">${t("appFinalsKicker")}</p><h1 class="mt-1 display text-2xl md:text-4xl">${t("appFinalsTitle")}</h1></div>
             <button class="btn btn-primary" data-act="summary">${icon("trophy")} ${t("medalTable")}</button>
           </div></div>
-        <div class="grid gap-4 ${state.gender === "MAG" ? "xl:grid-cols-2" : "lg:grid-cols-2"}">${apps().map((ap) => renderAppFinalPanel(ap)).join("")}</div>
+        <div class="grid gap-4 ${state.gender === "MAG" ? "lg:grid-cols-2" : "md:grid-cols-2"}">${apps().map((ap) => renderAppFinalPanel(ap)).join("")}</div>
       </div></section>`;
   }
   function renderAppFinalPanel(ap) {
@@ -4681,7 +4709,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     if (state.results.aaFinal) sessions.push({ title: t("aaButton"), iconHtml: icon("trophy"), items: medals.filter((m) => m.typeKey === "individualEvent") });
     if (state.results.appFinals) apps().forEach((ap) => sessions.push({ title: appName(ap), iconHtml: appIconSvg(ap.id, 17), items: medals.filter((m) => m.appId === ap.id) }));
     app.innerHTML = `
-      <section class="screen"><div class="grid gap-4 lg:grid-cols-[380px_1fr]">
+      <section class="screen"><div class="grid gap-4 split" style="--side:380px">
         <div class="panel p-4 md:p-5">${progress("apps")}
           <div class="mt-5"><p class="kicker">${t("competitionEnded")}</p><h1 class="mt-1 display text-3xl md:text-4xl">${t("medalTable")}</h1></div>
           <div class="mt-4 medal-haul"><span class="haul-label">${t("yourMedals")}</span><span class="haul-set"><span class="medal-badge medal-gold">${haul[0]}</span><span class="medal-badge medal-silver">${haul[1]}</span><span class="medal-badge medal-bronze">${haul[2]}</span></span></div>
@@ -4840,8 +4868,27 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
 
   function showAchievementToast(list) {
-    const names = list.map((a) => t("ach_" + a.id + "_name")).join(" · ");
-    showToast(`${icon("trophy")} ${t("achievementUnlocked")}: ${names}`);
+    const wrap = document.getElementById("achWrap");
+    if (!wrap || !list || !list.length) return;
+    list.forEach((a, i) => {
+      setTimeout(() => {
+        const card = document.createElement("div");
+        card.className = "ach-card";
+        card.innerHTML = `
+          <span class="ach-medal">${icon(a.icon || "trophy")}</span>
+          <span class="ach-body">
+            <span class="ach-kicker">${escapeHTML(t("achievementUnlocked"))}</span>
+            <span class="ach-name">${escapeHTML(t("ach_" + a.id + "_name"))}</span>
+            <span class="ach-desc">${escapeHTML(t("ach_" + a.id + "_desc"))}</span>
+          </span>`;
+        wrap.appendChild(card);
+        requestAnimationFrame(() => requestAnimationFrame(() => card.classList.add("show")));
+        setTimeout(() => {
+          card.classList.remove("show"); card.classList.add("hide");
+          setTimeout(() => card.remove(), 500);
+        }, 4200);
+      }, i * 650);
+    });
   }
 
   /* ---------- coleta de dados do jogador ao fim de uma competição clássica ---------- */
@@ -4992,33 +5039,84 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function svgCardMarkup(opts) {
     // Card autocontido, sem fontes externas, pronto para rasterizar em PNG.
     const { w: W, h: H } = cardSize(opts.aspect || cardAspect());
-    const bg = "#0e1116", panel = "#151a22", gold = "#f5c451", accent = "#5b8def", text = "#f4f6fb", muted = "#9aa4b2";
+    const M = 44, CX = 96, RX = W - 96, INX = 76, INW = W - 152;
+    const bg = "#0b0e13", panel = "#141a24", panel2 = "#1b2330", bg2 = "#10151d";
+    const gold = "#f5c451", accent = "#5b8def", accent2 = "#37c9b8", text = "#f4f6fb", muted = "#93a0b2", line = "#28313f";
+    const medalColors = ["#f5c451", "#cdd6e2", "#e0a066"];
+    const medalDark = ["#8a6410", "#68717e", "#7d4f24"];
     const rows = (opts.rows || []).slice(0, 3);
-    const medalColors = ["#f5c451", "#c9d1dc", "#d89a63"];
+
+    const footerY = H - 92;
+    const hasMedals = opts.medals && (opts.medals.g + opts.medals.s + opts.medals.b) >= 0 && opts.medalLabel;
+    const haulTop = 420;
+    const haulBottom = hasMedals ? 636 : 372;
+    const podLabelY = haulBottom + 60;
+    const listTop = podLabelY + 34;
+    const listBottom = footerY - (opts.statLine ? 118 : 58);
+    const step = Math.max(138, Math.min(206, (listBottom - listTop) / Math.max(1, rows.length)));
+    const rowH = step - 16;
+
+    // haul de medalhas
+    const medalCards = hasMedals ? (() => {
+      const G = 22, cw = (INW - 2 * G) / 3, vals = [opts.medals.g, opts.medals.s, opts.medals.b];
+      const capKeys = ["goldShort", "silverShort", "bronzeShort"];
+      return vals.map((v, i) => {
+        const x = INX + i * (cw + G), cy = haulTop + 108;
+        return `
+          <rect x="${x}" y="${haulTop}" width="${cw}" height="176" rx="24" fill="${panel2}" stroke="${line}" stroke-width="2"/>
+          <circle cx="${x + cw / 2}" cy="${haulTop + 62}" r="30" fill="${medalColors[i]}"/>
+          <circle cx="${x + cw / 2}" cy="${haulTop + 62}" r="30" fill="none" stroke="${medalDark[i]}" stroke-width="3" opacity="0.5"/>
+          <text x="${x + cw / 2}" y="${haulTop + 74}" font-family="Georgia,serif" font-size="26" font-weight="700" fill="${medalDark[i]}" text-anchor="middle">${i + 1}</text>
+          <text x="${x + cw / 2}" y="${cy + 40}" font-family="Georgia,serif" font-size="58" font-weight="700" fill="${text}" text-anchor="middle">${v}</text>
+          <text x="${x + cw / 2}" y="${haulTop + 168}" font-family="Arial,sans-serif" font-size="19" letter-spacing="1.5" fill="${muted}" text-anchor="middle">${escapeXml(String(t(capKeys[i]))).toUpperCase()}</text>`;
+      }).join("");
+    })() : "";
+
     const podium = rows.map((r, i) => {
-      const y = (H > 1500 ? 660 : 560) + i * (H > 1500 ? 190 : 150);
+      const y = listTop + i * step, cyc = y + rowH / 2;
+      const isTop = i === 0;
       return `
-        <g transform="translate(90 ${y})">
-          <circle cx="34" cy="34" r="34" fill="${medalColors[i]}"/>
-          <text x="34" y="46" font-family="Georgia,serif" font-size="34" font-weight="700" fill="#0e1116" text-anchor="middle">${i + 1}</text>
-          <text x="96" y="30" font-family="Georgia,serif" font-size="38" font-weight="700" fill="${text}">${escapeXml(r.name).slice(0, 26)}</text>
-          <text x="96" y="66" font-family="Arial,sans-serif" font-size="24" fill="${muted}">${escapeXml(r.sub || "").slice(0, 40)}</text>
-          <text x="${W - 90}" y="52" font-family="Georgia,serif" font-size="46" font-weight="700" fill="${i === 0 ? gold : text}" text-anchor="end">${escapeXml(r.score)}</text>
-        </g>`;
+        <rect x="${INX}" y="${y}" width="${INW}" height="${rowH}" rx="22" fill="${isTop ? "#20293a" : panel2}" stroke="${isTop ? "rgba(245,196,81,.5)" : line}" stroke-width="2"/>
+        <circle cx="${INX + 54}" cy="${cyc}" r="34" fill="${medalColors[i]}"/>
+        <circle cx="${INX + 54}" cy="${cyc}" r="34" fill="none" stroke="${medalDark[i]}" stroke-width="3" opacity="0.5"/>
+        <text x="${INX + 54}" y="${cyc + 13}" font-family="Georgia,serif" font-size="34" font-weight="700" fill="${medalDark[i]}" text-anchor="middle">${i + 1}</text>
+        <text x="${INX + 110}" y="${cyc - 6}" font-family="Georgia,serif" font-size="37" font-weight="700" fill="${text}">${escapeXml(r.name).slice(0, 24)}</text>
+        <text x="${INX + 110}" y="${cyc + 30}" font-family="Arial,sans-serif" font-size="23" fill="${muted}">${escapeXml(r.sub || "").slice(0, 38)}</text>
+        <text x="${RX - 24}" y="${cyc + 16}" font-family="Georgia,serif" font-size="46" font-weight="700" fill="${isTop ? gold : text}" text-anchor="end">${escapeXml(r.score)}</text>`;
     }).join("");
+
+    const ringR = 190;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-      <rect width="${W}" height="${H}" fill="${bg}"/>
-      <rect x="40" y="40" width="${W - 80}" height="${H - 80}" rx="34" fill="${panel}" stroke="#232a34" stroke-width="2"/>
-      <rect x="40" y="40" width="${W - 80}" height="150" rx="34" fill="${accent}" opacity="0.14"/>
-      <text x="90" y="130" font-family="Arial,sans-serif" font-size="26" letter-spacing="4" fill="${accent}" font-weight="700">${escapeXml(opts.kicker).toUpperCase()}</text>
-      <text x="90" y="250" font-family="Georgia,serif" font-size="66" font-weight="700" fill="${text}">${escapeXml(opts.title).slice(0, 22)}</text>
-      <text x="90" y="320" font-family="Arial,sans-serif" font-size="30" fill="${muted}">${escapeXml(opts.subtitle || "").slice(0, 48)}</text>
-      <line x1="90" y1="380" x2="${W - 90}" y2="380" stroke="#232a34" stroke-width="2"/>
-      <text x="90" y="470" font-family="Arial,sans-serif" font-size="30" fill="${gold}" font-weight="700">${escapeXml(opts.sectionLabel)}</text>
+      <defs>
+        <linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${bg2}"/><stop offset="1" stop-color="${bg}"/></linearGradient>
+        <radialGradient id="cglow" cx="0.82" cy="0.06" r="0.7"><stop offset="0" stop-color="${accent}" stop-opacity="0.32"/><stop offset="1" stop-color="${accent}" stop-opacity="0"/></radialGradient>
+        <linearGradient id="chead" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${accent}" stop-opacity="0.18"/><stop offset="1" stop-color="${accent2}" stop-opacity="0.05"/></linearGradient>
+      </defs>
+      <rect width="${W}" height="${H}" fill="url(#cbg)"/>
+      <rect x="${M}" y="${M}" width="${W - 2 * M}" height="${H - 2 * M}" rx="40" fill="${panel}" stroke="#232c39" stroke-width="2"/>
+      <clipPath id="cclip"><rect x="${M}" y="${M}" width="${W - 2 * M}" height="${H - 2 * M}" rx="40"/></clipPath>
+      <g clip-path="url(#cclip)">
+        <rect x="${M}" y="${M}" width="${W - 2 * M}" height="330" fill="url(#chead)"/>
+        <rect width="${W}" height="${H}" fill="url(#cglow)"/>
+        <circle cx="${W - 120}" cy="${H - 40}" r="${ringR}" fill="none" stroke="${accent}" stroke-width="2" opacity="0.10"/>
+        <circle cx="${W - 120 - ringR * 1.05}" cy="${H - 40}" r="${ringR}" fill="none" stroke="${gold}" stroke-width="2" opacity="0.10"/>
+      </g>
+      <g transform="translate(${RX - 30} ${M + 74})">
+        <circle cx="0" cy="0" r="30" fill="none" stroke="${accent2}" stroke-width="3"/>
+        <circle cx="-34" cy="0" r="30" fill="none" stroke="${gold}" stroke-width="3"/>
+      </g>
+      <text x="${CX}" y="${M + 92}" font-family="Arial,sans-serif" font-size="24" letter-spacing="4" fill="${accent2}" font-weight="700">${escapeXml(opts.kicker).toUpperCase().slice(0, 30)}</text>
+      <text x="${CX}" y="${M + 180}" font-family="Georgia,serif" font-size="66" font-weight="700" fill="${text}">${escapeXml(opts.title).slice(0, 22)}</text>
+      <text x="${CX}" y="${M + 238}" font-family="Arial,sans-serif" font-size="28" fill="${muted}">${escapeXml(opts.subtitle || "").slice(0, 46)}</text>
+      <line x1="${CX}" y1="${M + 300}" x2="${RX}" y2="${M + 300}" stroke="${line}" stroke-width="2"/>
+      ${hasMedals ? `<text x="${CX}" y="${haulTop - 26}" font-family="Arial,sans-serif" font-size="26" letter-spacing="2" fill="${gold}" font-weight="700">${escapeXml(opts.medalLabel).toUpperCase()}</text>` : ""}
+      ${medalCards}
+      <text x="${CX}" y="${podLabelY}" font-family="Arial,sans-serif" font-size="26" letter-spacing="2" fill="${accent}" font-weight="700">${escapeXml(opts.sectionLabel).toUpperCase()}</text>
       ${podium}
-      ${opts.statLine ? `<text x="90" y="${H - 180}" font-family="Arial,sans-serif" font-size="28" fill="${text}">${escapeXml(opts.statLine)}</text>` : ""}
-      <text x="90" y="${H - 90}" font-family="Georgia,serif" font-size="30" font-weight="700" fill="${text}">GymGames</text>
-      <text x="${W - 90}" y="${H - 90}" font-family="Arial,sans-serif" font-size="24" fill="${muted}" text-anchor="end">${escapeXml(opts.footer || "")}</text>
+      ${opts.statLine ? `<text x="${CX}" y="${footerY - 62}" font-family="Arial,sans-serif" font-size="27" fill="${text}" font-weight="700">${escapeXml(opts.statLine)}</text>` : ""}
+      <line x1="${CX}" y1="${footerY - 34}" x2="${RX}" y2="${footerY - 34}" stroke="${line}" stroke-width="2"/>
+      <text x="${CX}" y="${footerY + 8}" font-family="Georgia,serif" font-size="30" font-weight="700" fill="${text}">GymGames</text>
+      <text x="${RX}" y="${footerY + 8}" font-family="Arial,sans-serif" font-size="23" fill="${muted}" text-anchor="end">${escapeXml(opts.footer || "")}</text>
     </svg>`;
   }
   function escapeXml(s) { return String(s == null ? "" : s).replace(/[<>&"']/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&apos;" }[c])); }
@@ -5062,9 +5160,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       : (state.results.aaFinal || []).slice(0, 3).map((r) => ({ name: r.athlete.name, sub: countryName(r.athlete.country), score: formatScore(r.total) }));
     const svg = svgCardMarkup({
       kicker: competitionName(), title: t("medalTable"), subtitle: `${state.teamName} · ${countryName(state.federation)}`,
-      sectionLabel: teamRes.length ? t("phaseTeam").toUpperCase() : "ALL-AROUND",
-      rows, statLine: `${t("yourMedals")}: ${g}🥇 ${s}🥈 ${b}🥉`,
-      footer: leader ? `${t("goldShort")}: ${countryName(leader.country)}` : "",
+      sectionLabel: teamRes.length ? t("phaseTeam") : "ALL-AROUND",
+      medalLabel: t("yourMedals"), medals: { g, s, b },
+      rows,
+      statLine: leader ? `${({ "pt-BR": "Líder do quadro", en: "Table leader", es: "Líder del medallero" })[state.lang] || "Líder"}: ${countryName(leader.country)}` : "",
+      footer: "gymgames · simulação olímpica",
       aspect
     });
     downloadCardFromSvg(svg, `gymgames-${state.competition}-${aspect.replace(":", "x")}-${Date.now()}.png`, aspect);
@@ -5077,7 +5177,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const rows = finalRows.map((r) => ({ name: displayTeamName(r.team), sub: `${formatScore(r.points)} ${t("battlePoints")}`, score: String(r.rank) }));
     const svg = svgCardMarkup({
       kicker: battleFormatLabel(mode), title: t("battleChampion"), subtitle: displayTeamName(battle.champion.team),
-      sectionLabel: t(battle.stages[battle.stages.length - 1].titleKey).toUpperCase(), rows,
+      sectionLabel: t(battle.stages[battle.stages.length - 1].titleKey), rows,
       statLine: `${t("battleTeams")}: ${BATTLE_CONFIG.teamCount} → 1`,
       footer: mode === "royale" ? "64 → 12 → 4 → 1" : battleModeLabel(mode),
       aspect
@@ -5116,7 +5216,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
           </div>
         </div>
 
-        <div class="grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 md:grid-cols-2">
           <section class="panel p-4">
             <h2 class="section-title mb-3">${icon("trophy")} ${t("achievements")}</h2>
             <div class="grid gap-2">
