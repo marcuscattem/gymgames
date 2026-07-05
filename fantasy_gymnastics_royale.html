@@ -284,6 +284,12 @@
     .ded-major { background:color-mix(in srgb,var(--bad) 8%,transparent); } .ded-major .ded-lab svg { color:var(--bad); } .ded-major .ded-lab { font-weight:800; }
     .ded-neutral .ded-val { color:var(--accent-2); } .ded-neutral .ded-lab svg { color:var(--accent-2); }
     .ded-empty { margin:0; padding:16px 14px; display:flex; align-items:center; gap:9px; font-weight:700; color:var(--good); } .ded-empty svg { width:18px; height:18px; }
+    .judge-panel { border-top:1px solid var(--line); padding:10px 12px 12px; display:grid; gap:8px; background:var(--surface); }
+    .judge-row { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; font-size:12.5px; font-weight:800; color:var(--muted); }
+    .judge-scores { display:flex; flex-wrap:wrap; gap:5px; }
+    .judge-chip { min-width:48px; padding:4px 7px; border:1px solid var(--line); border-radius:999px; background:var(--surface-2); text-align:center; font-family:var(--disp); font-variant-numeric:tabular-nums; color:var(--text); }
+    .judge-chip.drop { opacity:.52; text-decoration:line-through; }
+    .judge-avg { font-family:var(--disp); font-variant-numeric:tabular-nums; color:var(--accent); }
 
     .stand-panel { align-self:start; position:sticky; top:78px; }
     .stand-list { display:grid; gap:5px; }
@@ -545,8 +551,8 @@
     olympics: {
       names: { "pt-BR": "Jogos Olímpicos", en: "Olympic Games", es: "Juegos Olímpicos" },
       countries: {
-        WAG: ["USA", "BRA", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "CAN", "NED", "AUS", "BEL", "ROU", "PHI", "MEX", "ESP", "HUN", "SUI", "UZB", "KAZ", "TPE", "IND", "URS", "TCH", "EUN", "RUS"],
-        MAG: ["JPN", "CHN", "USA", "GBR", "BRA", "GER", "FRA", "ITA", "CAN", "UKR", "TUR", "KOR", "NED", "PHI", "ESP", "SUI", "UZB", "KAZ", "TPE", "IND", "GRE", "IRL", "ISR", "MEX", "URS", "EUN", "BLR", "RUS"]
+        WAG: ["USA", "BRA", "CHN", "JPN", "GBR", "ITA", "FRA", "GER", "CAN", "NED", "AUS", "BEL", "ROU", "PHI", "MEX", "ESP", "HUN", "SUI", "UZB", "KAZ", "TPE", "IND", "ALG", "COL", "KOR", "SLO", "PAN", "URS", "TCH", "EUN", "RUS"],
+        MAG: ["JPN", "CHN", "USA", "GBR", "BRA", "GER", "FRA", "ITA", "CAN", "UKR", "TUR", "KOR", "NED", "PHI", "ESP", "SUI", "UZB", "KAZ", "TPE", "IND", "GRE", "IRL", "ISR", "MEX", "ARM", "BEL", "COL", "EGY", "AZE", "URS", "EUN", "BLR", "RUS"]
       }
     },
     panamerican: {
@@ -1546,7 +1552,102 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     { tag: "asian-extra-2011", tier: "continental", gender: "M", country: "CHN", year: 2011, names: ["Teng Haibin", "Feng Zhe", "Zhang Chenglong", "Chen Yibing", "Guo Weiyang"] },
     { tag: "asian-extra-2011", tier: "continental", gender: "F", country: "CHN", year: 2011, names: ["Yao Jinnan", "Sui Lu", "Tan Sixin", "Huang Qiushuang", "Jiang Yuyuan"] }
   ];
-  ATHLETE_COVERAGE_PACKS.push(...ATHLETE_SUPPLEMENTAL_COVERAGE_PACKS);
+  const ATHLETE_2000_OFFICIAL_EXPANSION_PACKS = [
+    { tag: "worlds-2023-wag", tier: "olympic", gender: "F", country: "USA", year: 2023, names: ["Shilese Jones", "Skye Blakely", "Leanne Wong", "Joscelyn Roberson", "Zoe Miller", "Kaliya Lincoln"] },
+    { tag: "worlds-2023-wag", tier: "olympic", gender: "F", country: "BRA", year: 2023, names: ["Rebeca Andrade", "Flavia Saraiva", "Jade Barbosa", "Julia Soares", "Lorrane Oliveira", "Carolayne Pedro"] },
+    { tag: "worlds-2023-wag", tier: "olympic", gender: "F", country: "FRA", year: 2023, names: ["Melanie De Jesus Dos Santos", "Marine Boyer", "Coline Devillard", "Morgane Osyssek", "Lorette Charpy", "Djenna Laroui"] },
+    { tag: "worlds-2023-wag", tier: "olympic", gender: "F", country: "CHN", year: 2023, names: ["Qiu Qiyuan", "Zhou Yaqin", "Ou Yushan", "Zhang Qingying", "Huang Zhuofan", "Luo Huan"] },
+    { tag: "worlds-2023-wag", tier: "olympic", gender: "F", country: "GBR", year: 2023, names: ["Jessica Gadirova", "Ondine Achampong", "Alice Kinsella", "Georgia-Mae Fenton", "Ruby Evans", "Jennifer Gadirova"] },
+    { tag: "worlds-2023-wag", tier: "olympic", gender: "F", country: "CAN", year: 2023, names: ["Ellie Black", "Aurelie Tran", "Shallon Olsen", "Ava Stewart", "Cassie Lee", "Sydney Turner"] },
+    { tag: "worlds-2023-wag", tier: "continental", gender: "F", country: "NED", year: 2023, names: ["Naomi Visser", "Sanna Veerman", "Vera van Pol", "Tisha Volleman", "Eythora Thorsdottir"] },
+    { tag: "worlds-2023-wag", tier: "continental", gender: "F", country: "GER", year: 2023, names: ["Elisabeth Seitz", "Sarah Voss", "Pauline Schaefer-Betz", "Karina Schoenmaier", "Marlene Gotthardt"] },
+    { tag: "worlds-2023-mag", tier: "olympic", gender: "M", country: "USA", year: 2023, names: ["Frederick Richard", "Khoi Young", "Yul Moldauer", "Asher Hong", "Paul Juda", "Colt Walker", "Ian Gunther", "Riley Loos"] },
+    { tag: "worlds-2023-mag", tier: "olympic", gender: "M", country: "JPN", year: 2023, names: ["Daiki Hashimoto", "Kazuma Kaya", "Kakeru Tanigawa", "Wataru Tanigawa", "Kenta Chiba", "Takaaki Sugino"] },
+    { tag: "worlds-2023-mag", tier: "olympic", gender: "M", country: "CHN", year: 2023, names: ["Zhang Boheng", "Xiao Ruoteng", "Sun Wei", "Lin Chaopan", "You Hao", "Liu Yang"] },
+    { tag: "worlds-2023-mag", tier: "olympic", gender: "M", country: "GBR", year: 2023, names: ["Jake Jarman", "Joe Fraser", "James Hall", "Harry Hepworth", "Courtney Tulloch", "Luke Whitehouse"] },
+    { tag: "worlds-2023-mag", tier: "olympic", gender: "M", country: "UKR", year: 2023, names: ["Illia Kovtun", "Oleg Verniaiev", "Igor Radivilov", "Nazar Chepurnyi", "Radomyr Stelmakh", "Petro Pakhniuk"] },
+    { tag: "worlds-2023-mag", tier: "continental", gender: "M", country: "CAN", year: 2023, names: ["Felix Dolci", "Rene Cournoyer", "William Emard", "Zachary Clay", "Jayson Rampersad", "Samuel Zakutney"] },
+
+    { tag: "olympics-2020-extra-2", tier: "olympic", gender: "F", country: "FRA", year: 2021, names: ["Melanie De Jesus Dos Santos", "Marine Boyer", "Carolann Heduit", "Aline Friess", "Claire Pontlevoy"] },
+    { tag: "olympics-2020-extra-2", tier: "olympic", gender: "F", country: "GER", year: 2021, names: ["Elisabeth Seitz", "Kim Bui", "Pauline Schaefer-Betz", "Sarah Voss", "Emelie Petz"] },
+    { tag: "olympics-2020-extra-2", tier: "olympic", gender: "F", country: "ESP", year: 2021, names: ["Roxana Popa", "Cintia Rodriguez", "Alba Petisco", "Marina Gonzalez", "Laura Bechdeju"] },
+    { tag: "olympics-2020-extra-2", tier: "olympic", gender: "M", country: "ESP", year: 2021, names: ["Nestor Abad", "Joel Plata", "Ray Zapata", "Thierno Diallo", "Nicolau Mir"] },
+    { tag: "olympics-2020-extra-2", tier: "continental", gender: "M", country: "KOR", year: 2021, names: ["Yang Hak-seon", "Kim Han-sol", "Shin Jea-hwan", "Lee Junho", "Ryu Sung-hyun"] },
+
+    { tag: "olympics-2016-extra-2", tier: "olympic", gender: "F", country: "ITA", year: 2016, names: ["Vanessa Ferrari", "Erika Fasana", "Carlotta Ferlito", "Martina Rizzelli", "Lara Mori"] },
+    { tag: "olympics-2016-extra-2", tier: "olympic", gender: "F", country: "FRA", year: 2016, names: ["Marine Boyer", "Marine Brevet", "Louise Vanhille", "Loan His", "Oréane Lechenault"] },
+    { tag: "olympics-2016-extra-2", tier: "olympic", gender: "F", country: "BEL", year: 2016, names: ["Nina Derwael", "Gaelle Mys", "Rune Hermans", "Senna Deriks", "Laura Waem"] },
+    { tag: "olympics-2016-extra-2", tier: "olympic", gender: "F", country: "JPN", year: 2016, names: ["Mai Murakami", "Asuka Teramoto", "Aiko Sugihara", "Yuki Uchiyama", "Sae Miyakawa"] },
+    { tag: "olympics-2016-extra-2", tier: "olympic", gender: "M", country: "USA", year: 2016, names: ["Sam Mikulak", "Chris Brooks", "Jake Dalton", "Alex Naddour", "John Orozco", "Donnell Whittenburg"] },
+    { tag: "olympics-2016-extra-2", tier: "olympic", gender: "M", country: "KOR", year: 2016, names: ["Yang Hak-seon", "Kim Han-sol", "Park Min-soo", "Lee Sang-uk", "Shin Dong-hyun"] },
+
+    { tag: "olympics-2012-extra-2", tier: "historic", gender: "F", country: "ITA", year: 2012, names: ["Vanessa Ferrari", "Carlotta Ferlito", "Erika Fasana", "Giorgia Campana", "Elisabetta Preziosa"] },
+    { tag: "olympics-2012-extra-2", tier: "historic", gender: "F", country: "FRA", year: 2012, names: ["Youna Dufournet", "Anne Kuhm", "Marine Brevet", "Mira Boumejmajen", "Aurelie Malaussena"] },
+    { tag: "olympics-2012-extra-2", tier: "historic", gender: "F", country: "BRA", year: 2012, names: ["Daniele Hypolito", "Jade Barbosa", "Adrian Gomes", "Bruna Leal", "Daiane dos Santos"] },
+    { tag: "olympics-2012-extra-2", tier: "historic", gender: "M", country: "BRA", year: 2012, names: ["Arthur Zanetti", "Diego Hypolito", "Sergio Sasaki", "Francisco Barretto", "Petrix Barbosa"] },
+    { tag: "olympics-2012-extra-2", tier: "historic", gender: "M", country: "KOR", year: 2012, names: ["Yang Hak-seon", "Kim Soo-myun", "Kim Ji-hoon", "Kim Seung-il", "Lee Sang-uk"] },
+
+    { tag: "olympics-2008-extra-2", tier: "historic", gender: "F", country: "RUS", year: 2008, names: ["Ksenia Semenova", "Anna Pavlova", "Ekaterina Kramarenko", "Svetlana Klyukina", "Yulia Lozhechko"] },
+    { tag: "olympics-2008-extra-2", tier: "historic", gender: "F", country: "GBR", year: 2008, names: ["Beth Tweddle", "Rebecca Downie", "Hannah Whelan", "Imogen Cairns", "Marissa King"] },
+    { tag: "olympics-2008-extra-2", tier: "historic", gender: "F", country: "BRA", year: 2008, names: ["Jade Barbosa", "Daiane dos Santos", "Daniele Hypolito", "Lais Souza", "Ana Claudia Silva"] },
+    { tag: "olympics-2008-extra-2", tier: "historic", gender: "F", country: "ITA", year: 2008, names: ["Vanessa Ferrari", "Carlotta Giovannini", "Lia Parolari", "Francesca Benolli", "Monica Bergamelli"] },
+    { tag: "olympics-2008-extra-2", tier: "historic", gender: "M", country: "GER", year: 2008, names: ["Fabian Hambuechen", "Philipp Boy", "Eugen Spiridonov", "Robert Juckel", "Marcel Nguyen"] },
+    { tag: "olympics-2008-extra-2", tier: "historic", gender: "M", country: "KOR", year: 2008, names: ["Yoo Won-chul", "Yang Tae-young", "Kim Ji-hoon", "Kim Dae-eun", "Kim Soo-myun"] },
+
+    { tag: "olympics-2004-extra-2", tier: "historic", gender: "F", country: "CHN", year: 2004, names: ["Zhang Nan", "Fan Ye", "Cheng Fei", "Li Ya", "Pang Panpan"] },
+    { tag: "olympics-2004-extra-2", tier: "historic", gender: "F", country: "UKR", year: 2004, names: ["Alina Kozich", "Irina Yarotska", "Olga Shcherbatykh", "Iryna Krasnianska", "Viktoria Karpenko"] },
+    { tag: "olympics-2004-extra-2", tier: "historic", gender: "F", country: "BRA", year: 2004, names: ["Daiane dos Santos", "Daniele Hypolito", "Camila Comin", "Ana Paula Rodrigues", "Lais Souza"] },
+    { tag: "olympics-2004-extra-2", tier: "historic", gender: "M", country: "CHN", year: 2004, names: ["Yang Wei", "Li Xiaopeng", "Xiao Qin", "Huang Xu", "Teng Haibin"] },
+    { tag: "olympics-2004-extra-2", tier: "historic", gender: "M", country: "UKR", year: 2004, names: ["Valeriy Goncharov", "Roman Zozulya", "Oleksandr Beresch", "Igor Korobchinsky", "Ruslan Mezentsev"] },
+
+    { tag: "olympics-2000-extra-2", tier: "historic", gender: "F", country: "USA", year: 2000, names: ["Elise Ray", "Amy Chow", "Kristen Maloney", "Jamie Dantzscher", "Dominique Dawes", "Morgan White"] },
+    { tag: "olympics-2000-extra-2", tier: "historic", gender: "F", country: "CHN", year: 2000, names: ["Liu Xuan", "Kui Yuanyuan", "Ling Jie", "Yang Yun", "Dong Fangxiao", "Huang Mandan"] },
+    { tag: "olympics-2000-extra-2", tier: "historic", gender: "F", country: "UKR", year: 2000, names: ["Viktoria Karpenko", "Olga Roschupkina", "Olena Kvasha", "Inga Shkarupa", "Olga Teslenko"] },
+    { tag: "olympics-2000-extra-2", tier: "historic", gender: "M", country: "UKR", year: 2000, names: ["Oleksandr Beresch", "Valeriy Goncharov", "Roman Zozulya", "Ruslan Mezentsev", "Oleksandr Svitlychnyi"] },
+    { tag: "olympics-2000-extra-2", tier: "historic", gender: "M", country: "BLR", year: 2000, names: ["Ivan Ivankov", "Dmitry Kasperovich", "Vitaly Rudnitsky", "Alexei Sinkevich", "Nikolai Kryukov"] },
+    { tag: "olympics-2000-extra-2", tier: "historic", gender: "M", country: "ESP", year: 2000, names: ["Gervasio Deferr", "Jesus Carballo", "Rafael Martinez", "Victor Cano", "Jose Luis Fernandez"] },
+
+    { tag: "pan-modern-extra", tier: "continental", gender: "F", country: "BRA", year: 2023, names: ["Sophia Weisberg", "Thais Fidelis", "Laura Casabuena", "Andreza Lima", "Luisa Maia"] },
+    { tag: "pan-modern-extra", tier: "continental", gender: "M", country: "BRA", year: 2023, names: ["Yuri Guimaraes", "Diogo Speranza", "Patrick Sampaio", "Lucas Bitencourt", "Bernardo Miranda"] },
+    { tag: "pan-modern-extra", tier: "continental", gender: "M", country: "COL", year: 2023, names: ["Camilo Vera", "Jossimar Calvo", "Andres Martinez", "Jorge Hugo Giraldo", "Carlos Calvo"] },
+    { tag: "pan-modern-extra", tier: "continental", gender: "F", country: "CUB", year: 2023, names: ["Marcia Videaux", "Grettel Mendoza", "Yesenia Ferrera", "Liadagmis Povea", "Annexis Moreno"] },
+
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "F", country: "ALG", year: 2024, names: ["Kaylia Nemour"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "F", country: "PHI", year: 2024, names: ["Aleah Finnegan", "Emma Malabuyo", "Levi Jung-Ruivivar"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "F", country: "MEX", year: 2024, names: ["Alexa Moreno", "Ahtziri Sandoval", "Natalia Escalera"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "F", country: "GER", year: 2024, names: ["Sarah Voss", "Helen Kevric", "Pauline Schaefer-Betz"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "F", country: "HUN", year: 2024, names: ["Zsofia Kovacs", "Bettina Lili Czifra", "Csenge Bacskay"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "F", country: "KOR", year: 2024, names: ["Yeo Seojeong", "Lee Yunseo", "Shin Solyi"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "F", country: "COL", year: 2024, names: ["Luisa Blanco"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "F", country: "SLO", year: 2024, names: ["Lucija Hribar", "Tjasa Kysselef", "Teja Belak"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "F", country: "PAN", year: 2024, names: ["Hillary Heron", "Karla Navas"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "ARM", year: 2024, names: ["Artur Davtyan", "Vahagn Davtyan", "Gagik Khachikyan"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "GRE", year: 2024, names: ["Eleftherios Petrounias", "Nikos Iliopoulos"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "IRL", year: 2024, names: ["Rhys McClenaghan", "Adam Steele"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "ISR", year: 2024, names: ["Artem Dolgopyat", "Alexander Myakinin"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "KAZ", year: 2024, names: ["Milad Karimi", "Nariman Kurbanov", "Dmitriy Patanin"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "PHI", year: 2024, names: ["Carlos Yulo", "Juancho Miguel Besana", "Justine Ace de Leon"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "COL", year: 2024, names: ["Angel Barajas", "Jossimar Calvo", "Camilo Vera"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "MEX", year: 2024, names: ["Fabian de Luna", "Kevin Cerda", "Isaac Nunez"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "BEL", year: 2024, names: ["Luka Van Den Keybus", "Noah Kuavita", "Maxime Gentges"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "EGY", year: 2024, names: ["Omar Mohamed", "Ali Zahran", "Ahmed Elmaraghy"] },
+    { tag: "olympics-2024-individuals", tier: "olympic", gender: "M", country: "AZE", year: 2024, names: ["Nikita Simonov", "Ivan Tikhonov"] },
+
+    { tag: "pan-2023-deep-roster", tier: "continental", gender: "F", country: "ARG", year: 2023, names: ["Abigail Magistrati", "Martina Dominici", "Mia Mainardi", "Rocio Saucedo", "Sofia Bobadilla"] },
+    { tag: "pan-2023-deep-roster", tier: "continental", gender: "F", country: "COL", year: 2023, names: ["Luisa Blanco", "Mara Colombo", "Caterin Escobar", "Ginna Escobar", "Angelica Arenas"] },
+    { tag: "pan-2023-deep-roster", tier: "continental", gender: "F", country: "MEX", year: 2023, names: ["Alexa Moreno", "Ahtziri Sandoval", "Natalia Escalera", "Cassandra Loustalot", "Paulina Campos"] },
+    { tag: "pan-2023-deep-roster", tier: "continental", gender: "M", country: "ARG", year: 2023, names: ["Daniel Villafane", "Federico Molinari", "Santiago Mayol", "Luca Alfieri", "Francisco Vazquez"] },
+    { tag: "pan-2023-deep-roster", tier: "continental", gender: "M", country: "MEX", year: 2023, names: ["Fabian de Luna", "Kevin Cerda", "Isaac Nunez", "Cesar Gracia", "Rodrigo Gomez"] },
+    { tag: "pan-2023-deep-roster", tier: "continental", gender: "M", country: "CUB", year: 2023, names: ["Randy Leru", "Erick Lopez", "Yordan Santa Cruz", "Reinier Casanova", "Manrique Larduet"] },
+
+    { tag: "asian-2023-deep-roster", tier: "continental", gender: "F", country: "KOR", year: 2023, names: ["Yeo Seojeong", "Lee Yunseo", "Shin Solyi", "Eom Dohyun", "Lee Dayeong"] },
+    { tag: "asian-2023-deep-roster", tier: "continental", gender: "F", country: "KAZ", year: 2023, names: ["Aida Bauyrzhanova", "Karina Adilzhanova", "Alina Adilkhanova", "Milana Minakovskaya"] },
+    { tag: "asian-2023-deep-roster", tier: "continental", gender: "F", country: "TPE", year: 2023, names: ["Ting Hua-Tien", "Lai Pin-Ju", "Wu Pei-Yi", "Chen Szu-Yu"] },
+    { tag: "asian-2023-deep-roster", tier: "continental", gender: "M", country: "KOR", year: 2023, names: ["Kim Han-sol", "Shin Jea-hwan", "Lee Junho", "Ryu Sung-hyun", "Kim Jae-ho"] },
+    { tag: "asian-2023-deep-roster", tier: "continental", gender: "M", country: "KAZ", year: 2023, names: ["Milad Karimi", "Nariman Kurbanov", "Dmitriy Patanin", "Ilyas Azizov"] },
+    { tag: "asian-2023-deep-roster", tier: "continental", gender: "M", country: "TPE", year: 2023, names: ["Tang Chia-Hung", "Lee Chih-Kai", "Hsiao Yu-Jan", "Yu Chao-Wei"] }
+  ];
+  ATHLETE_COVERAGE_PACKS.push(...ATHLETE_SUPPLEMENTAL_COVERAGE_PACKS, ...ATHLETE_2000_OFFICIAL_EXPANSION_PACKS);
 
   const ICONS = {
     moon: '<path d="M21 15.2A8.6 8.6 0 0 1 8.8 3a9.4 9.4 0 1 0 12.2 12.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
@@ -1565,6 +1666,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     medal: '<circle cx="12" cy="15" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 9.5 6 3h4l2 4M15.5 9.5 18 3h-4l-2 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
     minus: '<path d="M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
     flag: '<path d="M5 21V4M5 4h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+    share: '<path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M12 16V4M7 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
     list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
     lock: '<rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
     star: '<path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
@@ -1640,7 +1742,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       careerEmpty: "Jogue uma competição para começar seu histórico.", h2hTitle: "Confrontos diretos", rival: "Rival",
       h2hRecord: "V–D", h2hMeetings: "Duelos", h2hEmpty: "Nenhum confronto registrado ainda.",
       achievementUnlocked: "Conquista desbloqueada",
-      exportCard: "Exportar card", cardSaved: "Card salvo como PNG!", cardError: "Não foi possível gerar o card.",
+      exportCard: "Exportar card", shareInstagram: "Compartilhar no Instagram", cardSaved: "Card salvo como PNG!", cardError: "Não foi possível gerar o card.", shareFallback: "PNG gerado. Abra o Instagram e publique o arquivo baixado.",
       cardAspect: "Formato do card", cardAspect45: "4:5 feed", cardAspect916: "9:16 stories",
       battleStrategy: "Estratégia de escalação", battleMode: "Modo Battle",
       battleMode_royale: "Battle Royale", battleMode_onePerApp: "Um por aparelho", battleMode_showOff: "Show Off estratégico",
@@ -1719,6 +1821,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       liveTitle: "Final por equipes · Ao vivo", liveQualsTitle: "Classificatórias · Ao vivo", liveAppsTitle: "Finais por aparelhos · Ao vivo", liveBattleTitle: "Battle Royale · Ao vivo", quickResult: "Resultado rápido",
       rotation: "Rotação", nowPerforming: "Agora na plataforma", onApparatus: "no aparelho",
       difficulty: "Dificuldade", execution: "Execução", deductions: "Deduções", neutral: "Deduções neutras",
+      judges: "Juízes", judgeAverage: "Média", vaultAttempt: "Salto",
       startVal: "Nota de partida", noDeductions: "Sem deduções aplicadas", liveStandings: "Disputa ao vivo",
       rotationLog: "Rotinas da rotação", play: "Reproduzir", pause: "Pausar", nextRoutine: "Próxima rotina",
       skipRotation: "Pular rotação", skipToEnd: "Ir ao resultado", speed: "Velocidade", counts: "conta", dropped: "descartada",
@@ -1735,7 +1838,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       careerEmpty: "Play a competition to start your history.", h2hTitle: "Head-to-head", rival: "Rival",
       h2hRecord: "W–L", h2hMeetings: "Meetings", h2hEmpty: "No matchups recorded yet.",
       achievementUnlocked: "Achievement unlocked",
-      exportCard: "Export card", cardSaved: "Card saved as PNG!", cardError: "Could not generate the card.",
+      exportCard: "Export card", shareInstagram: "Share to Instagram", cardSaved: "Card saved as PNG!", cardError: "Could not generate the card.", shareFallback: "PNG created. Open Instagram and post the downloaded file.",
       cardAspect: "Card format", cardAspect45: "4:5 feed", cardAspect916: "9:16 stories",
       battleStrategy: "Lineup strategy", battleMode: "Battle mode",
       battleMode_royale: "Battle Royale", battleMode_onePerApp: "One per apparatus", battleMode_showOff: "Strategic Show Off",
@@ -1813,6 +1916,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       liveTitle: "Team final · Live", liveQualsTitle: "Qualifications · Live", liveAppsTitle: "Apparatus finals · Live", liveBattleTitle: "Battle Royale · Live", quickResult: "Quick result",
       rotation: "Rotation", nowPerforming: "Now performing", onApparatus: "on",
       difficulty: "Difficulty", execution: "Execution", deductions: "Deductions", neutral: "Neutral deductions",
+      judges: "Judges", judgeAverage: "Average", vaultAttempt: "Vault",
       startVal: "Start value", noDeductions: "No deductions applied", liveStandings: "Live standings",
       rotationLog: "Rotation routines", play: "Play", pause: "Pause", nextRoutine: "Next routine",
       skipRotation: "Skip rotation", skipToEnd: "Skip to result", speed: "Speed", counts: "counts", dropped: "dropped",
@@ -1829,7 +1933,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       careerEmpty: "Juega una competencia para empezar tu historial.", h2hTitle: "Enfrentamientos", rival: "Rival",
       h2hRecord: "V–D", h2hMeetings: "Duelos", h2hEmpty: "Aún no hay enfrentamientos registrados.",
       achievementUnlocked: "Logro desbloqueado",
-      exportCard: "Exportar card", cardSaved: "¡Card guardado como PNG!", cardError: "No se pudo generar el card.",
+      exportCard: "Exportar card", shareInstagram: "Compartir en Instagram", cardSaved: "¡Card guardado como PNG!", cardError: "No se pudo generar el card.", shareFallback: "PNG generado. Abre Instagram y publica el archivo descargado.",
       cardAspect: "Formato del card", cardAspect45: "4:5 feed", cardAspect916: "9:16 stories",
       battleStrategy: "Estrategia de alineación", battleMode: "Modo Battle",
       battleMode_royale: "Battle Royale", battleMode_onePerApp: "Uno por aparato", battleMode_showOff: "Show Off estratégico",
@@ -1907,6 +2011,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       liveTitle: "Final por equipos · En vivo", liveQualsTitle: "Clasificatorias · En vivo", liveAppsTitle: "Finales por aparatos · En vivo", liveBattleTitle: "Battle Royale · En vivo", quickResult: "Resultado rápido",
       rotation: "Rotación", nowPerforming: "En la plataforma", onApparatus: "en",
       difficulty: "Dificultad", execution: "Ejecución", deductions: "Deducciones", neutral: "Deducciones neutras",
+      judges: "Jueces", judgeAverage: "Media", vaultAttempt: "Salto",
       startVal: "Nota de partida", noDeductions: "Sin deducciones aplicadas", liveStandings: "Disputa en vivo",
       rotationLog: "Rutinas de la rotación", play: "Reproducir", pause: "Pausar", nextRoutine: "Próxima rutina",
       skipRotation: "Saltar rotación", skipToEnd: "Ir al resultado", speed: "Velocidad", counts: "cuenta", dropped: "descartada",
@@ -1920,6 +2025,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     "4:5": { w: 1080, h: 1350, labelKey: "cardAspect45" },
     "9:16": { w: 1080, h: 1920, labelKey: "cardAspect916" }
   };
+  const FIXED_CARD_ASPECT = "9:16";
   const BATTLE_MODES = ["royale", "onePerApp", "showOff"];
   const BATTLE_ONE_PER_APP_IDS = ["ub", "bb", "sr", "pb", "hb", "ph"];
 
@@ -1927,7 +2033,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     lang: getInitialLanguage(), gender: "WAG", competition: getInitialCompetition(), teamName: getInitialTeamName(), federation: getInitialFederation(),
     phase: "setup", view: "setup", selectedIds: [], draftRound: 1, draftDraw: null,
     draftRerolls: { year: false, team: false }, draftOptions: [],
-    battleOptions: [], battleMode: "royale", battleAssignments: {}, customFlag: getInitialCustomFlag(), cardAspect: getInitialCardAspect(),
+    battleOptions: [], battleMode: "royale", battleAssignments: {}, customFlag: getInitialCustomFlag(), cardAspect: FIXED_CARD_ASPECT,
     qualTab: "teams", seed: Date.now(), rng: Math.random, teams: [], results: {}, live: null
   };
   const BATTLE_CONFIG = {
@@ -2128,8 +2234,8 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       "daniele hypolito": "Daniele Hypolito",
       "tomas gonzalez": "Tomas Gonzalez",
       "fabian hambuchen": "Fabian Hambuechen",
-      "vitaly guimaraes": "Vitaliy Guimaraes",
-      "vitaliy guimaraes": "Vitaliy Guimaraes",
+      "vitaly guimaraes": "Vitaly Guimaraes",
+      "vitaliy guimaraes": "Vitaly Guimaraes",
       "bernardo miranda actos": "Bernardo Miranda",
       "bernardo actos": "Bernardo Miranda",
       "juancho miguel besana": "Juancho Besana",
@@ -2246,6 +2352,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function athleteApps(a) { return APPARATUS[a.gender] || APPARATUS.WAG; }
   function athleteById(id) { return ATHLETES.find((a) => a.id === id); }
   function selectedAthletes() { return state.selectedIds.map(athleteById).filter(Boolean); }
+  function selectedIdSet() { return new Set(state.selectedIds); }
   function selectedBaseKeys() { return new Set(selectedAthletes().map((a) => a.baseKey)); }
   function competitionTeamCountries() {
     const gender = state.gender;
@@ -2271,11 +2378,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${countryName(a.federation)}`; }
   function apparatusById(id) { return apps().find((a) => a.id === id); }
   const COUNTRY_NAMES = {
-    "pt-BR": { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japão", GBR: "Grã-Bretanha", ITA: "Itália", FRA: "França", GER: "Alemanha", CAN: "Canadá", NED: "Países Baixos", AUS: "Austrália", BEL: "Bélgica", UKR: "Ucrânia", TUR: "Turquia", KOR: "Coreia do Sul", ROU: "Romênia", PHI: "Filipinas", COL: "Colômbia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Porto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungria", SUI: "Suíça", ESP: "Espanha", UZB: "Uzbequistão", KAZ: "Cazaquistão", TPE: "Taipé Chinês", IND: "Índia", INA: "Indonésia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Tailândia", VIE: "Vietnã", QAT: "Catar", KGZ: "Quirguistão", ALG: "Argélia", AUT: "Áustria", GRE: "Grécia", IRL: "Irlanda", ISR: "Israel", RUS: "Rússia", BLR: "Bielorrússia", URS: "União Soviética", EUN: "Equipe Unificada", TCH: "Tchecoslováquia", DOM: "República Dominicana", ECU: "Equador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolívia", PRK: "Coreia do Norte", MAS: "Malásia", SGP: "Singapura", IRI: "Irã", FAN: "Fantasy" },
-    en: { USA: "United States", BRA: "Brazil", CHN: "China", JPN: "Japan", GBR: "Great Britain", ITA: "Italy", FRA: "France", GER: "Germany", CAN: "Canada", NED: "Netherlands", AUS: "Australia", BEL: "Belgium", UKR: "Ukraine", TUR: "Turkey", KOR: "South Korea", ROU: "Romania", PHI: "Philippines", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "Mexico", CHI: "Chile", PAN: "Panama", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungary", SUI: "Switzerland", ESP: "Spain", UZB: "Uzbekistan", KAZ: "Kazakhstan", TPE: "Chinese Taipei", IND: "India", INA: "Indonesia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Thailand", VIE: "Vietnam", QAT: "Qatar", KGZ: "Kyrgyzstan", ALG: "Algeria", AUT: "Austria", GRE: "Greece", IRL: "Ireland", ISR: "Israel", RUS: "Russia", BLR: "Belarus", URS: "Soviet Union", EUN: "Unified Team", TCH: "Czechoslovakia", DOM: "Dominican Republic", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolivia", PRK: "North Korea", MAS: "Malaysia", SGP: "Singapore", IRI: "Iran", FAN: "Fantasy" },
-    es: { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japón", GBR: "Gran Bretaña", ITA: "Italia", FRA: "Francia", GER: "Alemania", CAN: "Canadá", NED: "Países Bajos", AUS: "Australia", BEL: "Bélgica", UKR: "Ucrania", TUR: "Turquía", KOR: "Corea del Sur", ROU: "Rumania", PHI: "Filipinas", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Perú", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungría", SUI: "Suiza", ESP: "España", UZB: "Uzbekistán", KAZ: "Kazajistán", TPE: "Taipéi Chino", IND: "India", INA: "Indonesia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Tailandia", VIE: "Vietnam", QAT: "Catar", KGZ: "Kirguistán", ALG: "Argelia", AUT: "Austria", GRE: "Grecia", IRL: "Irlanda", ISR: "Israel", RUS: "Rusia", BLR: "Bielorrusia", URS: "Unión Soviética", EUN: "Equipo Unificado", TCH: "Checoslovaquia", DOM: "República Dominicana", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haití", BAR: "Barbados", BOL: "Bolivia", PRK: "Corea del Norte", MAS: "Malasia", SGP: "Singapur", IRI: "Irán", FAN: "Fantasy" }
+    "pt-BR": { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japão", GBR: "Grã-Bretanha", ITA: "Itália", FRA: "França", GER: "Alemanha", CAN: "Canadá", NED: "Países Baixos", AUS: "Austrália", BEL: "Bélgica", UKR: "Ucrânia", TUR: "Turquia", KOR: "Coreia do Sul", ROU: "Romênia", PHI: "Filipinas", COL: "Colômbia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Porto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungria", SUI: "Suíça", ESP: "Espanha", UZB: "Uzbequistão", KAZ: "Cazaquistão", TPE: "Taipé Chinês", IND: "Índia", INA: "Indonésia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Tailândia", VIE: "Vietnã", QAT: "Catar", KGZ: "Quirguistão", ALG: "Argélia", AUT: "Áustria", GRE: "Grécia", IRL: "Irlanda", ISR: "Israel", ARM: "Armênia", SLO: "Eslovênia", EGY: "Egito", AZE: "Azerbaijão", RUS: "Rússia", BLR: "Bielorrússia", URS: "União Soviética", EUN: "Equipe Unificada", TCH: "Tchecoslováquia", DOM: "República Dominicana", ECU: "Equador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolívia", PRK: "Coreia do Norte", MAS: "Malásia", SGP: "Singapura", IRI: "Irã", FAN: "Fantasy" },
+    en: { USA: "United States", BRA: "Brazil", CHN: "China", JPN: "Japan", GBR: "Great Britain", ITA: "Italy", FRA: "France", GER: "Germany", CAN: "Canada", NED: "Netherlands", AUS: "Australia", BEL: "Belgium", UKR: "Ukraine", TUR: "Turkey", KOR: "South Korea", ROU: "Romania", PHI: "Philippines", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "Mexico", CHI: "Chile", PAN: "Panama", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungary", SUI: "Switzerland", ESP: "Spain", UZB: "Uzbekistan", KAZ: "Kazakhstan", TPE: "Chinese Taipei", IND: "India", INA: "Indonesia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Thailand", VIE: "Vietnam", QAT: "Qatar", KGZ: "Kyrgyzstan", ALG: "Algeria", AUT: "Austria", GRE: "Greece", IRL: "Ireland", ISR: "Israel", ARM: "Armenia", SLO: "Slovenia", EGY: "Egypt", AZE: "Azerbaijan", RUS: "Russia", BLR: "Belarus", URS: "Soviet Union", EUN: "Unified Team", TCH: "Czechoslovakia", DOM: "Dominican Republic", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolivia", PRK: "North Korea", MAS: "Malaysia", SGP: "Singapore", IRI: "Iran", FAN: "Fantasy" },
+    es: { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japón", GBR: "Gran Bretaña", ITA: "Italia", FRA: "Francia", GER: "Alemania", CAN: "Canadá", NED: "Países Bajos", AUS: "Australia", BEL: "Bélgica", UKR: "Ucrania", TUR: "Turquía", KOR: "Corea del Sur", ROU: "Rumania", PHI: "Filipinas", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Perú", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungría", SUI: "Suiza", ESP: "España", UZB: "Uzbekistán", KAZ: "Kazajistán", TPE: "Taipéi Chino", IND: "India", INA: "Indonesia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Tailandia", VIE: "Vietnam", QAT: "Catar", KGZ: "Kirguistán", ALG: "Argelia", AUT: "Austria", GRE: "Grecia", IRL: "Irlanda", ISR: "Israel", ARM: "Armenia", SLO: "Eslovenia", EGY: "Egipto", AZE: "Azerbaiyán", RUS: "Rusia", BLR: "Bielorrusia", URS: "Unión Soviética", EUN: "Equipo Unificado", TCH: "Checoslovaquia", DOM: "República Dominicana", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haití", BAR: "Barbados", BOL: "Bolivia", PRK: "Corea del Norte", MAS: "Malasia", SGP: "Singapur", IRI: "Irán", FAN: "Fantasy" }
   };
-  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", INA: "id", SRI: "lk", HKG: "hk", THA: "th", VIE: "vn", QAT: "qa", KGZ: "kg", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", RUS: "ru", BLR: "by", DOM: "do", ECU: "ec", CRC: "cr", ESA: "sv", HAI: "ht", BAR: "bb", BOL: "bo", PRK: "kp", MAS: "my", SGP: "sg", IRI: "ir" };
+  const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", INA: "id", SRI: "lk", HKG: "hk", THA: "th", VIE: "vn", QAT: "qa", KGZ: "kg", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", ARM: "am", SLO: "si", EGY: "eg", AZE: "az", RUS: "ru", BLR: "by", DOM: "do", ECU: "ec", CRC: "cr", ESA: "sv", HAI: "ht", BAR: "bb", BOL: "bo", PRK: "kp", MAS: "my", SGP: "sg", IRI: "ir" };
   const COUNTRY_NAME_OVERRIDES = {
     "pt-BR": { GBR: "Grã-Bretanha", TPE: "Taipé Chinês", URS: "União Soviética", EUN: "Equipe Unificada", TCH: "Tchecoslováquia", FAN: "Fantasy" },
     en: { GBR: "Great Britain", TPE: "Chinese Taipei", URS: "Soviet Union", EUN: "Unified Team", TCH: "Czechoslovakia", FAN: "Fantasy" },
@@ -2359,8 +2466,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function hideToast() { const toast = document.getElementById("toast"); if (toast) toast.classList.remove("show"); clearTimeout(showToast.timer); }
   function getInitialCardAspect() {
-    const saved = localStorage.getItem("gym-royale-card-aspect");
-    return CARD_ASPECTS[saved] ? saved : "4:5";
+    return FIXED_CARD_ASPECT;
   }
   function getInitialTheme() { const s = localStorage.getItem("gym-royale-theme"); if (s) return s; return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
   function applyTheme(theme) {
@@ -2387,6 +2493,20 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   /* ---------- scoring model with itemized deductions ---------- */
   // ctx.dayForm: forma do dia da sessão (negativo = dia bom); ctx.pressure: 0 a ~0.5
   // (finais, última rotação, entrar logo depois de uma queda da equipe...)
+  function judgePanelExecution(execDed, athlete, pressure, rng) {
+    const center = Math.max(4.0, Math.min(10.0, 10 - execDed));
+    const wobble = 0.055 + (1 - (athlete.consistency || 0.82)) * 0.12 + pressure * 0.035;
+    const scores = Array.from({ length: 5 }, () => round1(Math.max(4.0, Math.min(10.0, center + gauss(rng) * wobble))));
+    const sorted = [...scores].sort((a, b) => a - b);
+    const counting = sorted.slice(1, -1);
+    return {
+      scores,
+      droppedLow: sorted[0],
+      droppedHigh: sorted[sorted.length - 1],
+      counting,
+      average: round3(counting.reduce((s, v) => s + v, 0) / counting.length)
+    };
+  }
   function buildRoutine(athlete, apparatus, rng, ctx = {}) {
     const dayForm = ctx.dayForm || 0;
     const pressure = Math.max(0, Math.min(0.6, ctx.pressure || 0));
@@ -2438,16 +2558,39 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     if ((apparatus.id === "fx" || apparatus.id === "bb") && rng() < 0.06) neutral.push({ code: "nd_time", value: 0.1 });
 
     const execDed = round1(deductions.reduce((s, d) => s + d.value, 0));
-    let E = round1(Math.max(0, 10 - execDed));
-    E = Math.max(4.0, Math.min(10.0, E));
+    const judgePanel = judgePanelExecution(execDed, athlete, pressure, rng);
+    const E = judgePanel.average;
     const neutralDed = round1(neutral.reduce((s, d) => s + d.value, 0));
     const total = round3(D + E - neutralDed);
     // sort deductions: majors first, then by value desc
     deductions.sort((a, b) => (b.code === "fall" ? 1 : 0) - (a.code === "fall" ? 1 : 0) || b.value - a.value);
-    return { d: D, e: E, baseExecution, total, note, deductions, neutral, execDed, neutralDed };
+    return { d: D, e: E, baseExecution, total, note, deductions, neutral, execDed, neutralDed, judgePanel };
   }
   // Back-compat alias
   function simulateRoutine(athlete, apparatus, ctx = {}) { return buildRoutine(athlete, apparatus, state.rng, ctx); }
+  function routineNotePriority(note) {
+    return ({ queda: 4, erro: 3, linha: 2, limpa: 1, cravada: 0 })[note] ?? 1;
+  }
+  function averageRoutineScores(scores) {
+    const avg = (key) => round3(scores.reduce((s, sc) => s + scoreValue(sc[key]), 0) / scores.length);
+    const note = [...scores].sort((a, b) => routineNotePriority(b.note) - routineNotePriority(a.note))[0]?.note || "limpa";
+    return {
+      d: avg("d"), e: avg("e"), baseExecution: avg("baseExecution"), total: avg("total"),
+      note,
+      deductions: scores.flatMap((sc, i) => sc.deductions.map((d) => ({ ...d, vault: i + 1 }))),
+      neutral: scores.flatMap((sc, i) => sc.neutral.map((d) => ({ ...d, vault: i + 1 }))),
+      execDed: avg("execDed"), neutralDed: avg("neutralDed"),
+      judgePanel: { attempts: scores.map((sc) => sc.judgePanel) },
+      attempts: scores,
+      isAverage: true
+    };
+  }
+  function competitionScore(athlete, apparatus, ctx = {}) {
+    if (apparatus.id !== "vt" || !ctx.twoVaults) return simulateRoutine(athlete, apparatus, ctx);
+    const first = buildRoutine(athlete, apparatus, state.rng, ctx);
+    const second = buildRoutine(athlete, apparatus, state.rng, { ...ctx, pressure: Math.min(0.6, (ctx.pressure || 0) + 0.035) });
+    return averageRoutineScores([first, second]);
+  }
 
   /* ---------- SETUP ---------- */
   function arenaArt() {
@@ -2573,14 +2716,14 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function draftPool(country, year, options = {}) {
     const includeSelected = Boolean(options.includeSelected);
-    const selected = selectedBaseKeys();
+    const selected = selectedIdSet();
     return ATHLETES
       .filter((a) => (
         a.gender === state.gender
         && isCountryEligible(a.country)
         && a.country === country
         && a.year === year
-        && (includeSelected || !selected.has(a.baseKey))
+        && (includeSelected || !selected.has(a.id))
       ))
       .sort((a, b) => totalPotential(b) - totalPotential(a));
   }
@@ -2738,19 +2881,19 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
 
   /* ---------- BATTLE ROYALE LIVRE ---------- */
   function battleDraftPool() {
-    return uniqueBestSeasons(ATHLETES, athleteTotalPotential).sort((a, b) => athleteTotalPotential(b) - athleteTotalPotential(a));
+    return [...ATHLETES].sort((a, b) => athleteTotalPotential(b) - athleteTotalPotential(a));
   }
   function generateBattleOptions() {
-    const selected = selectedBaseKeys();
-    state.battleOptions = shuffled(battleDraftPool().filter((a) => !selected.has(a.baseKey))).slice(0, 5);
+    const selected = selectedIdSet();
+    state.battleOptions = shuffled(battleDraftPool().filter((a) => !selected.has(a.id))).slice(0, 5);
   }
   function ensureBattleOptions() {
     if (state.selectedIds.length >= BATTLE_CONFIG.rosterSize) {
       state.battleOptions = [];
       return;
     }
-    const selected = selectedBaseKeys();
-    state.battleOptions = (state.battleOptions || []).filter((a) => !selected.has(a.baseKey));
+    const selected = selectedIdSet();
+    state.battleOptions = (state.battleOptions || []).filter((a) => !selected.has(a.id));
     if (!state.battleOptions.length) generateBattleOptions();
   }
   function battleMode() { return BATTLE_MODES.includes(state.battleMode) ? state.battleMode : "royale"; }
@@ -2918,7 +3061,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function battleOptionRow(a) {
     const best = athleteBestApp(a);
-    const isSelected = selectedBaseKeys().has(a.baseKey);
+    const isSelected = selectedIdSet().has(a.id);
     return `<tr class="${isSelected ? "player-row" : ""}">
       <td><div class="strong">${escapeHTML(a.name)}</div><div class="sub">${a.gender} · ${a.year}</div></td>
       <td>${countryLabel(a.country)}</td>
@@ -2994,7 +3137,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function addBattleAthlete(id) {
     const athlete = athleteById(id);
-    if (!athlete || selectedBaseKeys().has(athlete.baseKey)) return;
+    if (!athlete || selectedIdSet().has(athlete.id)) return;
     if (state.selectedIds.length >= BATTLE_CONFIG.rosterSize) { showToast(t("chooseBattleSix")); return; }
     state.selectedIds.push(id);
     pruneBattleAssignments();
@@ -3022,8 +3165,8 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function buildBattleTeams() {
     const shell = { id: "player", name: state.teamName, federation: state.federation, isPlayer: true };
     const playerTeam = { ...shell, roster: selectedAthletes().map((a) => cloneAthlete(a, shell)) };
-    const selected = selectedBaseKeys();
-    const pool = shuffled(battleDraftPool().filter((a) => !selected.has(a.baseKey)));
+    const selected = selectedIdSet();
+    const pool = shuffled(battleDraftPool().filter((a) => !selected.has(a.id)));
     const wag = pool.filter((a) => a.gender === "WAG");
     const mag = pool.filter((a) => a.gender === "MAG");
     const teams = [playerTeam];
@@ -3163,7 +3306,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     teams.forEach((team) => {
       chooseBattleLineup(team, config.routines, momentum).forEach((entry, idx) => {
         const pressure = config.pressure + idx * 0.015 + (momentum ? momentumPressureBonus(momentum, entry.athlete) : 0);
-        const score = simulateRoutine(entry.athlete, entry.apparatus, { dayForm: dayForms[entry.athlete.id], pressure: Math.max(0, pressure) });
+        const score = competitionScore(entry.athlete, entry.apparatus, { dayForm: dayForms[entry.athlete.id], pressure: Math.max(0, pressure), twoVaults: entry.apparatus.id === "vt" });
         const mom = momentum ? (momentum[entry.athlete.baseKey] || 0) : 0;
         routines.push({ teamId: team.id, team, athlete: entry.athlete, apparatus: entry.apparatus, score, raw: score.total, points: 0, momentum: mom });
       });
@@ -3193,7 +3336,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       const lineup = mode === "onePerApp" ? chooseOnePerAppLineup(team) : chooseShowOffLineup(team);
       lineup.slice(0, BATTLE_CONFIG.rosterSize).forEach((entry, idx) => {
         const pressure = 0.16 + idx * 0.018;
-        const score = simulateRoutine(entry.athlete, entry.apparatus, { dayForm: dayForms[entry.athlete.id], pressure });
+        const score = competitionScore(entry.athlete, entry.apparatus, { dayForm: dayForms[entry.athlete.id], pressure, twoVaults: entry.apparatus.id === "vt" });
         routines.push({ teamId: team.id, team, athlete: entry.athlete, apparatus: entry.apparatus, score, raw: score.total, points: 0, momentum: 0 });
       });
     });
@@ -3306,6 +3449,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
               <div><p class="kicker">${battleModeLabel(mode)} · ${battleFormatLabel(mode)}</p><h1 class="mt-1 display text-2xl md:text-4xl">${t("battleChampion")}: ${escapeHTML(displayTeamName(champion.team))}</h1></div>
               <div class="flex gap-2">
                 <button class="btn btn-secondary" data-act="exportBattleCard">${icon("flag")} ${t("exportCard")}</button>
+                <button class="btn btn-secondary" data-act="shareBattleCard">${icon("share")} ${t("shareInstagram")}</button>
                 <button class="btn btn-secondary" data-act="openCareer">${icon("trophy")} ${t("careerTitle")}</button>
                 <button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button>
               </div>
@@ -3332,7 +3476,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function draftOptionCard(a) {
     const best = bestApp(a);
-    const isSelected = selectedBaseKeys().has(a.baseKey);
+    const isSelected = selectedIdSet().has(a.id);
     return `<article class="card draft-card p-4">
       <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
         <div><h3 class="display text-xl">${escapeHTML(a.name)}</h3>
@@ -3349,7 +3493,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function addAthlete(id) {
     const athlete = athleteById(id);
-    if (!athlete || selectedBaseKeys().has(athlete.baseKey)) return;
+    if (!athlete || selectedIdSet().has(athlete.id)) return;
     if (state.selectedIds.length >= 5) { showToast(t("teamFull")); return; }
     state.selectedIds.push(id);
     if (state.selectedIds.length < 5) { state.draftRound = state.selectedIds.length + 1; generateDraftRound(); }
@@ -3360,8 +3504,8 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function autoFillDraft() {
     while (state.selectedIds.length < 5) {
       if (!state.draftOptions.length) generateDraftRound();
-      const selected = selectedBaseKeys();
-      const pick = [...state.draftOptions].filter((a) => !selected.has(a.baseKey)).sort((a, b) => totalPotential(b) - totalPotential(a))[0];
+      const selected = selectedIdSet();
+      const pick = [...state.draftOptions].filter((a) => !selected.has(a.id)).sort((a, b) => totalPotential(b) - totalPotential(a))[0];
       if (!pick) break;
       state.selectedIds.push(pick.id);
       if (state.selectedIds.length < 5) { state.draftRound = state.selectedIds.length + 1; generateDraftRound(); }
@@ -3442,7 +3586,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       const appTotals = {}; let total = 0;
       team.roster.forEach((a) => {
         a.qualScores = {}; a.qualAA = 0;
-        apps().forEach((ap) => { const sc = simulateRoutine(a, ap, { dayForm: dayForms[a.id] }); a.qualScores[ap.id] = sc; a.qualAA += sc.total; });
+        apps().forEach((ap) => { const sc = competitionScore(a, ap, { dayForm: dayForms[a.id], twoVaults: ap.id === "vt" }); a.qualScores[ap.id] = sc; a.qualAA += sc.total; });
         a.qualAA = round3(a.qualAA); allAthletes.push(a);
       });
       apps().forEach((ap) => {
@@ -3541,7 +3685,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       const routines = [];
       state.teams.forEach((team) => {
         team.roster.forEach((athlete, sub) => {
-          const score = buildRoutine(athlete, ap, state.rng, { dayForm: dayForms[athlete.id], pressure: 0.04 + rIndex * 0.01 });
+          const score = competitionScore(athlete, ap, { dayForm: dayForms[athlete.id], pressure: 0.04 + rIndex * 0.01, twoVaults: ap.id === "vt" });
           routines.push({ teamId: team.id, team, athlete, apparatus: ap, score, sub });
         });
       });
@@ -3701,7 +3845,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     if (L.scoreMode === "top3ByApp") recalculateLiveRunning();
     else L.running[r.teamId] = round3((L.running[r.teamId] || 0) + liveValue(r));
   }
-  function liveSpeedMs() { const s = state.live.speed; return s === 2 ? 650 : s === 0.5 ? 2200 : 1250; }
+  function liveSpeedMs() { const s = state.live.speed; return s === 2 ? 650 : s === 0.5 ? 2200 : s === 0.25 ? 4200 : 1250; }
   function scheduleLiveTick(delay) {
     clearTimeout(state.live.timer);
     if (!state.live.playing || state.live.done) return;
@@ -4344,6 +4488,30 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     score.deductions.forEach((d) => rows.push({ label: faultLabel(d.code), value: d.value, major: d.code === "fall" || d.code === "majorbreak" }));
     return rows;
   }
+  function judgeDropIndexes(panel) {
+    const scores = panel?.scores || [];
+    if (scores.length < 3) return new Set();
+    const low = scores.indexOf(panel.droppedLow);
+    let high = scores.lastIndexOf(panel.droppedHigh);
+    if (high === low) high = scores.findIndex((_, i) => i !== low);
+    return new Set([low, high].filter((i) => i >= 0));
+  }
+  function judgeScoreChips(panel) {
+    const drops = judgeDropIndexes(panel);
+    return (panel?.scores || []).map((score, i) => `<span class="judge-chip ${drops.has(i) ? "drop" : ""}">J${i + 1} ${Number(score).toFixed(1)}</span>`).join("");
+  }
+  function judgePanelMarkup(score) {
+    const attempts = score?.judgePanel?.attempts;
+    const panels = Array.isArray(attempts) ? attempts : (score?.judgePanel ? [score.judgePanel] : []);
+    if (!panels.length) return "";
+    return `<div class="judge-panel">
+      ${panels.map((panel, i) => `<div class="judge-row">
+        <span>${panels.length > 1 ? `${t("vaultAttempt")} ${i + 1}` : t("judges")} · ${t("judgeAverage")} <span class="judge-avg">${Number(panel.average).toFixed(3)}</span></span>
+        <span class="judge-scores">${judgeScoreChips(panel)}</span>
+      </div>`).join("")}
+      ${panels.length > 1 ? `<div class="judge-row"><span>${t("execution")} ${t("judgeAverage")}</span><span class="judge-avg">${score.e.toFixed(3)}</span></div>` : ""}
+    </div>`;
+  }
   function liveStandingsRows() {
     const L = state.live;
     const order = liveRankingData();
@@ -4392,6 +4560,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
         ${dl.length || s.neutral.length ? `<ul class="ded-list">${dl.map((d) => `<li class="${d.major ? "ded-major" : ""}"><span class="ded-lab">${icon("minus")} ${escapeHTML(d.label)}</span><span class="ded-val">−${d.value.toFixed(1)}</span></li>`).join("")}
           ${s.neutral.map((d) => `<li class="ded-neutral"><span class="ded-lab">${icon("flag")} ${escapeHTML(faultLabel(d.code))}</span><span class="ded-val">−${d.value.toFixed(1)}</span></li>`).join("")}</ul>`
           : `<p class="ded-empty">${icon("check")} ${t("noDeductions")}</p>`}
+        ${judgePanelMarkup(s)}
       </div>
     </div>`;
   }
@@ -4487,7 +4656,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
           <button class="btn btn-secondary" data-act="liveSkipRot">${icon("arrow")} ${t("skipRotation")}</button>
           <button class="btn btn-secondary" data-act="liveSkipEnd">${t("skipToEnd")}</button>
           <div class="speed-seg" role="group" aria-label="${t("speed")}">
-            ${[0.5, 1, 2].map((v) => `<button class="${L.speed === v ? "active" : ""}" data-act="liveSpeed" data-val="${v}">${v}×</button>`).join("")}
+            ${[0.25, 0.5, 1, 2].map((v) => `<button class="${L.speed === v ? "active" : ""}" data-act="liveSpeed" data-val="${v}">${v}×</button>`).join("")}
           </div>`}
       </div>`;
   }
@@ -4591,7 +4760,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const appFinalAthletes = [...new Set(apps().flatMap((ap) => state.results.qual.appFinalists[ap.id]))];
     const dayForms = sessionDayForms(appFinalAthletes);
     // Final por aparelho: uma série só, pressão máxima — desempate FIG pela nota E
-    apps().forEach((ap) => { finals[ap.id] = state.results.qual.appFinalists[ap.id].map((a) => ({ athlete: a, score: simulateRoutine(a, ap, { dayForm: dayForms[a.id], pressure: 0.22 }) })).sort((x, y) => y.score.total - x.score.total || y.score.e - x.score.e); });
+    apps().forEach((ap) => { finals[ap.id] = state.results.qual.appFinalists[ap.id].map((a) => ({ athlete: a, score: competitionScore(a, ap, { dayForm: dayForms[a.id], pressure: 0.22, twoVaults: ap.id === "vt" }) })).sort((x, y) => y.score.total - x.score.total || y.score.e - x.score.e); });
     state.results.appFinals = finals; renderAppFinals();
   }
   function buildAppFinalsLiveData() {
@@ -4605,7 +4774,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
           isPlayer: athlete.isPlayerAthlete, entity: "athlete"
         };
         teamData.push({ team, athlete, apparatusId: ap.id, appTotals: {}, total: 0 });
-        const score = buildRoutine(athlete, ap, state.rng, { dayForm: dayForms[athlete.id], pressure: 0.22 });
+        const score = competitionScore(athlete, ap, { dayForm: dayForms[athlete.id], pressure: 0.22, twoVaults: ap.id === "vt" });
         return { teamId: team.id, team, athlete, apparatus: ap, score, sub };
       });
       return { apparatus: ap, index: rIndex, routines };
@@ -4725,7 +4894,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
           <div class="tally-list">
             ${rows.map((r, i) => { const tot = (r.gold + r.silver + r.bronze) || 1; const flag = r.country === playerFed && state.customFlag ? customFlagHtml() : flagHtml(r.country); return `<div class="tally-row ${i === 0 ? "tally-top" : ""} ${r.country === playerFed ? "tally-you" : ""}"><span class="tally-rank">${i + 1}</span><span class="tally-country"><span class="tally-cty-name">${flag}<span>${escapeHTML(countryName(r.country))}</span></span><span class="tally-bar"><span class="tbar-g" style="width:${(r.gold / tot * 100).toFixed(1)}%"></span><span class="tbar-s" style="width:${(r.silver / tot * 100).toFixed(1)}%"></span><span class="tbar-b" style="width:${(r.bronze / tot * 100).toFixed(1)}%"></span></span></span><span class="tally-num">${r.gold}</span><span class="tally-num">${r.silver}</span><span class="tally-num">${r.bronze}</span><span class="tally-num tally-total">${r.total}</span></div>`; }).join("")}
           </div>
-          <div class="mt-5 grid gap-2">${cardAspectControls()}<button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button><div class="grid grid-cols-2 gap-2"><button class="btn btn-secondary" data-act="exportSummaryCard">${icon("flag")} ${t("exportCard")}</button><button class="btn btn-secondary" data-act="openCareer">${icon("trophy")} ${t("careerTitle")}</button></div><button class="btn btn-secondary" data-act="backToApps">${icon("arrow")} ${t("backToApps")}</button></div>
+          <div class="mt-5 grid gap-2">${cardAspectControls()}<button class="btn btn-primary" data-act="newSeason">${icon("rotate")} ${t("newSeason")}</button><div class="grid gap-2 sm:grid-cols-3"><button class="btn btn-secondary" data-act="exportSummaryCard">${icon("flag")} ${t("exportCard")}</button><button class="btn btn-secondary" data-act="shareSummaryCard">${icon("share")} ${t("shareInstagram")}</button><button class="btn btn-secondary" data-act="openCareer">${icon("trophy")} ${t("careerTitle")}</button></div><button class="btn btn-secondary" data-act="backToApps">${icon("arrow")} ${t("backToApps")}</button></div>
         </div>
         <div class="grid content-start gap-4 md:grid-cols-2">
           ${sessions.map((s) => `<section class="panel sess-card">
@@ -5019,22 +5188,13 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
 
   /* ================= CARD EXPORTÁVEL (PNG) ================= */
-  function cardAspect() { return CARD_ASPECTS[state.cardAspect] ? state.cardAspect : "4:5"; }
+  function cardAspect() { return FIXED_CARD_ASPECT; }
   function cardSize(aspect = cardAspect()) { return CARD_ASPECTS[aspect] || CARD_ASPECTS["4:5"]; }
   function setCardAspect(value) {
-    if (!CARD_ASPECTS[value]) return;
-    state.cardAspect = value;
-    localStorage.setItem("gym-royale-card-aspect", value);
-    renderCurrentView();
+    state.cardAspect = FIXED_CARD_ASPECT;
   }
   function cardAspectControls() {
-    const current = cardAspect();
-    return `<div>
-      <span class="field-label mb-2 block">${t("cardAspect")}</span>
-      <div class="segment strategy-segment">
-        ${Object.entries(CARD_ASPECTS).map(([key, cfg]) => `<button class="${current === key ? "active" : ""}" data-act="cardAspect" data-val="${key}">${t(cfg.labelKey)}</button>`).join("")}
-      </div>
-    </div>`;
+    return "";
   }
   function svgCardMarkup(opts) {
     // Card autocontido, sem fontes externas, pronto para rasterizar em PNG.
@@ -5121,33 +5281,57 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function escapeXml(s) { return String(s == null ? "" : s).replace(/[<>&"']/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&apos;" }[c])); }
 
-  function downloadCardFromSvg(svg, filename, aspect = cardAspect()) {
-    const scale = 2;
-    const { w: W, h: H } = cardSize(aspect);
-    const img = new Image();
-    const blob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = W * scale; canvas.height = H * scale;
-      const ctx = canvas.getContext("2d");
-      ctx.scale(scale, scale);
-      ctx.drawImage(img, 0, 0, W, H);
-      URL.revokeObjectURL(url);
-      canvas.toBlob((png) => {
-        if (!png) { showToast(t("cardError")); return; }
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(png);
-        a.download = filename;
-        document.body.appendChild(a); a.click(); a.remove();
-        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-        showToast(t("cardSaved"));
-      }, "image/png");
-    };
-    img.onerror = () => { URL.revokeObjectURL(url); showToast(t("cardError")); };
-    img.src = url;
+  function pngBlobFromSvg(svg, aspect = cardAspect()) {
+    return new Promise((resolve, reject) => {
+      const scale = 2;
+      const { w: W, h: H } = cardSize(aspect);
+      const img = new Image();
+      const blob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = W * scale; canvas.height = H * scale;
+        const ctx = canvas.getContext("2d");
+        ctx.scale(scale, scale);
+        ctx.drawImage(img, 0, 0, W, H);
+        URL.revokeObjectURL(url);
+        canvas.toBlob((png) => png ? resolve(png) : reject(new Error("png")), "image/png");
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("svg")); };
+      img.src = url;
+    });
   }
-  function exportSummaryCard() {
+  function downloadPngBlob(blob, filename) {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  }
+  async function downloadCardFromSvg(svg, filename, aspect = cardAspect()) {
+    try {
+      const png = await pngBlobFromSvg(svg, aspect);
+      downloadPngBlob(png, filename);
+      showToast(t("cardSaved"));
+    } catch (_) {
+      showToast(t("cardError"));
+    }
+  }
+  async function shareCardFromSvg(svg, filename, aspect = cardAspect()) {
+    try {
+      const png = await pngBlobFromSvg(svg, aspect);
+      const file = typeof File !== "undefined" ? new File([png], filename, { type: "image/png" }) : null;
+      if (file && navigator.share && (!navigator.canShare || navigator.canShare({ files: [file] }))) {
+        await navigator.share({ title: "GymGames", text: "GymGames", files: [file] });
+        return;
+      }
+      downloadPngBlob(png, filename);
+      showToast(t("shareFallback"));
+    } catch (_) {
+      showToast(t("cardError"));
+    }
+  }
+  function summaryCardPayload() {
     const aspect = cardAspect();
     const medals = collectMedals();
     const tally = {};
@@ -5167,9 +5351,17 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       footer: "gymgames · simulação olímpica",
       aspect
     });
-    downloadCardFromSvg(svg, `gymgames-${state.competition}-${aspect.replace(":", "x")}-${Date.now()}.png`, aspect);
+    return { svg, aspect, filename: `gymgames-${state.competition}-${aspect.replace(":", "x")}-${Date.now()}.png` };
   }
-  function exportBattleCard() {
+  function exportSummaryCard() {
+    const card = summaryCardPayload();
+    downloadCardFromSvg(card.svg, card.filename, card.aspect);
+  }
+  function shareSummaryCard() {
+    const card = summaryCardPayload();
+    shareCardFromSvg(card.svg, card.filename, card.aspect);
+  }
+  function battleCardPayload() {
     const aspect = cardAspect();
     const battle = state.results.battle;
     const mode = battle.battleMode || "royale";
@@ -5182,7 +5374,15 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       footer: mode === "royale" ? "64 → 12 → 4 → 1" : battleModeLabel(mode),
       aspect
     });
-    downloadCardFromSvg(svg, `gymgames-battle-${mode}-${aspect.replace(":", "x")}-${Date.now()}.png`, aspect);
+    return { svg, aspect, filename: `gymgames-battle-${mode}-${aspect.replace(":", "x")}-${Date.now()}.png` };
+  }
+  function exportBattleCard() {
+    const card = battleCardPayload();
+    downloadCardFromSvg(card.svg, card.filename, card.aspect);
+  }
+  function shareBattleCard() {
+    const card = battleCardPayload();
+    shareCardFromSvg(card.svg, card.filename, card.aspect);
   }
 
   /* ================= VIEW · CARREIRA ================= */
@@ -5300,6 +5500,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     cardAspect: (el) => setCardAspect(el.dataset.val),
     openCareer: renderCareer, backToSetup: renderSetup, resetCareer,
     exportSummaryCard: exportSummaryCard, exportBattleCard: exportBattleCard,
+    shareSummaryCard: shareSummaryCard, shareBattleCard: shareBattleCard,
     uploadFlag: () => document.getElementById("customFlagInput")?.click(),
     clearFlag: () => { state.customFlag = ""; persistTeamIdentity(); renderSetup(); }
   };
