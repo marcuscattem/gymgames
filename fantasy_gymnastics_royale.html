@@ -221,6 +221,16 @@
     .stand-fed { display:inline-flex; align-items:center; gap:5px; }
     .stand-fed .flag-img, .stand-fed .flag-custom { width:18px; height:13px; }
     .spot-meta .flag-img, .spot-meta .flag-custom { width:19px; height:14px; }
+    .mode-card { border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--surface-2); padding:12px 14px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+    .mode-copy { min-width:0; }
+    .mode-title { display:block; font-family:var(--disp); font-weight:900; font-size:16px; }
+    .mode-desc { display:block; margin-top:2px; color:var(--muted); font-size:12.5px; font-weight:700; line-height:1.3; }
+    .switch { position:relative; display:inline-flex; flex:0 0 auto; width:50px; height:30px; }
+    .switch input { position:absolute; opacity:0; inset:0; cursor:pointer; }
+    .switch-slider { position:absolute; inset:0; border:1px solid var(--line); border-radius:999px; background:var(--surface); transition:.2s ease; }
+    .switch-slider::before { content:""; position:absolute; width:22px; height:22px; left:3px; top:3px; border-radius:999px; background:var(--muted); transition:.2s ease; }
+    .switch input:checked + .switch-slider { background:var(--accent); border-color:var(--accent); }
+    .switch input:checked + .switch-slider::before { transform:translateX(20px); background:#fff; }
 
     /* progress */
     .progress { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:6px; }
@@ -1773,6 +1783,14 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       ach_veteran10_name: "Veterano", ach_veteran10_desc: "Dispute 10 competições.",
       ach_goldHoard_name: "Colecionador", ach_goldHoard_desc: "Acumule 15 ouros na carreira.",
       ach_podiumStreak_name: "Constância", ach_podiumStreak_desc: "Pódio em 3 competições seguidas.",
+      ach_hardModeGold_name: "Contra a elite", ach_hardModeGold_desc: "Vença a final por equipes com o modo difícil ligado.",
+      ach_hardModePodium_name: "Pódio hostil", ach_hardModePodium_desc: "Suba ao pódio por equipes no modo difícil.",
+      ach_noFallsClassic_name: "Competição limpa", ach_noFallsClassic_desc: "Termine uma competição tradicional com medalha e sem quedas registradas.",
+      ach_appGold_name: "Especialista de ouro", ach_appGold_desc: "Ganhe uma medalha de ouro em final por aparelho.",
+      ach_aaMedal_name: "Generalista", ach_aaMedal_desc: "Ganhe medalha no individual geral.",
+      ach_giantKiller_name: "Derrubou gigantes", ach_giantKiller_desc: "Supere 10 equipes adversárias em uma classificatória.",
+      ach_worldTour_name: "Volta ao mundo", ach_worldTour_desc: "Dispute Olimpíadas, Pan, Europeu e Asiático ao menos uma vez.",
+      ach_battleFinalist_name: "Entre os quatro", ach_battleFinalist_desc: "Chegue à final de um Battle Royale.",
 
       htmlLang: "pt-BR", appSubtitle: "Simulação Olímpica",
       footer: "Pontuação fantasy inspirada no sistema olímpico: classificatórias, final por equipes, individual geral e finais por aparelhos.",
@@ -1781,6 +1799,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       phaseTeam: "Final por equipes", phaseAA: "Individual geral", phaseApps: "Aparelhos", phaseMedals: "Medalhas", phaseLive: "Ao vivo",
       setupKicker: "Criar delegação", setupTitle: "Monte sua equipe e atravesse o ciclo olímpico.",
       teamName: "Nome da equipe", federation: "Bandeira", customFlag: "Bandeira personalizada", uploadFlag: "Enviar bandeira", clearFlag: "Remover bandeira", flagTooLarge: "Use uma imagem menor para salvar como bandeira.", modality: "Modalidade", competition: "Competição", female: "Feminina", male: "Masculina",
+      traditionalMode: "Modo tradicional", traditionalModeDesc: "Adversários vêm de equipes reais de um país e ano.", hardMode: "Modo difícil", hardModeDesc: "Liga adversários all-star por país, como na configuração anterior.",
       femaleGym: "ginástica feminina", maleGym: "ginástica masculina",
       athletesInDraft: "Atletas no draft", teamsInQuals: "Equipes na classificatória", apparatus: "Aparelhos",
       seasons: "Temporadas",
@@ -1869,6 +1888,14 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       ach_veteran10_name: "Veteran", ach_veteran10_desc: "Play 10 competitions.",
       ach_goldHoard_name: "Collector", ach_goldHoard_desc: "Amass 15 career golds.",
       ach_podiumStreak_name: "Consistency", ach_podiumStreak_desc: "Podium in 3 competitions in a row.",
+      ach_hardModeGold_name: "Against the elite", ach_hardModeGold_desc: "Win the team final with hard mode on.",
+      ach_hardModePodium_name: "Hostile podium", ach_hardModePodium_desc: "Reach the team podium in hard mode.",
+      ach_noFallsClassic_name: "Clean meet", ach_noFallsClassic_desc: "Finish a traditional competition with a medal and no recorded falls.",
+      ach_appGold_name: "Golden specialist", ach_appGold_desc: "Win gold in an apparatus final.",
+      ach_aaMedal_name: "All-arounder", ach_aaMedal_desc: "Win an all-around medal.",
+      ach_giantKiller_name: "Giant killer", ach_giantKiller_desc: "Beat 10 opposing teams in qualifications.",
+      ach_worldTour_name: "World tour", ach_worldTour_desc: "Play the Olympics, Pan Am, Europeans and Asian Championships at least once.",
+      ach_battleFinalist_name: "Final four", ach_battleFinalist_desc: "Reach a Battle Royale final.",
 
       htmlLang: "en", appSubtitle: "Olympic Simulation",
       footer: "Fantasy scoring inspired by the Olympic format: qualifications, team final, all-around final, and apparatus finals.",
@@ -1877,6 +1904,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       phaseTeam: "Team final", phaseAA: "All-around", phaseApps: "Apparatus", phaseMedals: "Medals", phaseLive: "Live",
       setupKicker: "Create delegation", setupTitle: "Build your team and go through the Olympic cycle.",
       teamName: "Team name", federation: "Flag", customFlag: "Custom flag", uploadFlag: "Upload flag", clearFlag: "Remove flag", flagTooLarge: "Use a smaller image to save it as a flag.", modality: "Discipline", competition: "Competition", female: "Women", male: "Men",
+      traditionalMode: "Traditional mode", traditionalModeDesc: "Opponents come from real country-year team rosters.", hardMode: "Hard mode", hardModeDesc: "Turns opponents into country all-star teams, like the previous setup.",
       femaleGym: "women's artistic gymnastics", maleGym: "men's artistic gymnastics",
       athletesInDraft: "Athletes in draft", teamsInQuals: "Teams in qualifications", apparatus: "Apparatus",
       seasons: "Seasons",
@@ -1964,6 +1992,14 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       ach_veteran10_name: "Veterano", ach_veteran10_desc: "Disputa 10 competencias.",
       ach_goldHoard_name: "Coleccionista", ach_goldHoard_desc: "Acumula 15 oros en la carrera.",
       ach_podiumStreak_name: "Constancia", ach_podiumStreak_desc: "Podio en 3 competencias seguidas.",
+      ach_hardModeGold_name: "Contra la élite", ach_hardModeGold_desc: "Gana la final por equipos con el modo difícil activado.",
+      ach_hardModePodium_name: "Podio hostil", ach_hardModePodium_desc: "Sube al podio por equipos en modo difícil.",
+      ach_noFallsClassic_name: "Competencia limpia", ach_noFallsClassic_desc: "Termina una competencia tradicional con medalla y sin caídas registradas.",
+      ach_appGold_name: "Especialista dorado", ach_appGold_desc: "Gana oro en una final por aparato.",
+      ach_aaMedal_name: "Generalista", ach_aaMedal_desc: "Gana una medalla en el concurso general.",
+      ach_giantKiller_name: "Cazagigantes", ach_giantKiller_desc: "Supera a 10 equipos rivales en clasificatorias.",
+      ach_worldTour_name: "Vuelta al mundo", ach_worldTour_desc: "Disputa Olímpicos, Panamericanos, Europeo y Asiático al menos una vez.",
+      ach_battleFinalist_name: "Entre los cuatro", ach_battleFinalist_desc: "Llega a la final de un Battle Royale.",
 
       htmlLang: "es", appSubtitle: "Simulación Olímpica",
       footer: "Puntuación fantasy inspirada en el formato olímpico: clasificatorias, final por equipos, final general individual y finales por aparatos.",
@@ -1972,6 +2008,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       phaseTeam: "Final por equipos", phaseAA: "General individual", phaseApps: "Aparatos", phaseMedals: "Medallas", phaseLive: "En vivo",
       setupKicker: "Crear delegación", setupTitle: "Forma tu equipo y atraviesa el ciclo olímpico.",
       teamName: "Nombre del equipo", federation: "Bandera", customFlag: "Bandera personalizada", uploadFlag: "Subir bandera", clearFlag: "Quitar bandera", flagTooLarge: "Usa una imagen más pequeña para guardarla como bandera.", modality: "Modalidad", competition: "Competición", female: "Femenina", male: "Masculina",
+      traditionalMode: "Modo tradicional", traditionalModeDesc: "Los rivales vienen de equipos reales de país y año.", hardMode: "Modo difícil", hardModeDesc: "Activa rivales all-star por país, como en la configuración anterior.",
       femaleGym: "gimnasia artística femenina", maleGym: "gimnasia artística masculina",
       athletesInDraft: "Atletas en el draft", teamsInQuals: "Equipos en clasificatoria", apparatus: "Aparatos",
       seasons: "Temporadas",
@@ -2028,9 +2065,10 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   const FIXED_CARD_ASPECT = "9:16";
   const BATTLE_MODES = ["royale", "onePerApp", "showOff"];
   const BATTLE_ONE_PER_APP_IDS = ["ub", "bb", "sr", "pb", "hb", "ph"];
+  const TRADITIONAL_TEAM_SIZE = 5;
 
   const state = {
-    lang: getInitialLanguage(), gender: "WAG", competition: getInitialCompetition(), teamName: getInitialTeamName(), federation: getInitialFederation(),
+    lang: getInitialLanguage(), gender: "WAG", competition: getInitialCompetition(), hardMode: getInitialHardMode(), teamName: getInitialTeamName(), federation: getInitialFederation(),
     phase: "setup", view: "setup", selectedIds: [], draftRound: 1, draftDraw: null,
     draftRerolls: { year: false, team: false }, draftOptions: [],
     battleOptions: [], battleMode: "royale", battleAssignments: {}, customFlag: getInitialCustomFlag(), cardAspect: FIXED_CARD_ASPECT,
@@ -2098,6 +2136,9 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function getInitialCompetition() {
     const saved = localStorage.getItem("gym-royale-competition");
     return COMPETITIONS[saved] ? saved : "olympics";
+  }
+  function getInitialHardMode() {
+    return localStorage.getItem("gym-royale-hard-mode") === "1";
   }
   function getInitialTeamName() {
     return (localStorage.getItem("gym-royale-team-name") || "Equipe Aurora").trim().slice(0, 34) || "Equipe Aurora";
@@ -2354,12 +2395,82 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function selectedAthletes() { return state.selectedIds.map(athleteById).filter(Boolean); }
   function selectedIdSet() { return new Set(state.selectedIds); }
   function selectedBaseKeys() { return new Set(selectedAthletes().map((a) => a.baseKey)); }
-  function competitionTeamCountries() {
-    const gender = state.gender;
-    return competitionCountries().filter((country) => {
-      const pool = uniqueBestSeasons(ATHLETES.filter((a) => a.gender === gender && a.country === country));
-      return pool.length >= 5;
+  function packDiscipline(pack) { return pack?.gender === "F" ? "WAG" : (pack?.gender === "M" ? "MAG" : pack?.gender); }
+  function packMatchesTraditionalCompetition(pack) {
+    if (isBattleMode() || !pack || packDiscipline(pack) !== state.gender || !isCountryEligible(pack.country)) return false;
+    const tag = String(pack.tag || "");
+    if (state.competition === "panamerican") return tag.startsWith("pan-");
+    if (state.competition === "asian") return tag.startsWith("asian-");
+    if (state.competition === "olympics") return tag.startsWith("olympics-");
+    if (state.competition === "european") return !tag.startsWith("pan-") && !tag.startsWith("asian-");
+    return true;
+  }
+  function athleteFromPackName(pack, name) {
+    const canonical = canonicalAthleteName(name);
+    const wanted = new Set([slug(name), slug(canonical)]);
+    return ATHLETES.find((a) => (
+      a.gender === packDiscipline(pack)
+      && a.country === pack.country
+      && a.year === pack.year
+      && wanted.has(slug(a.name))
+    )) || null;
+  }
+  function teamCandidateFromPack(pack, packIndex) {
+    if (!packMatchesTraditionalCompetition(pack)) return null;
+    const roster = [];
+    const seen = new Set();
+    for (const name of pack.names) {
+      const athlete = athleteFromPackName(pack, name);
+      if (!athlete || seen.has(athlete.baseKey)) continue;
+      roster.push(athlete);
+      seen.add(athlete.baseKey);
+      if (roster.length >= TRADITIONAL_TEAM_SIZE) break;
+    }
+    if (roster.length < TRADITIONAL_TEAM_SIZE) return null;
+    return {
+      country: pack.country,
+      year: pack.year,
+      tag: pack.tag,
+      packIndex,
+      roster,
+      potential: round3(roster.reduce((sum, athlete) => sum + totalPotential(athlete), 0))
+    };
+  }
+  function competitionHistoricalTeamCandidates() {
+    const seen = new Set();
+    return ATHLETE_COVERAGE_PACKS
+      .map(teamCandidateFromPack)
+      .filter(Boolean)
+      .filter((candidate) => {
+        const key = `${candidate.country}-${candidate.year}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .sort((a, b) => competitionCountries().indexOf(a.country) - competitionCountries().indexOf(b.country) || b.year - a.year || a.packIndex - b.packIndex);
+  }
+  function drawHistoricalOpponentTeams() {
+    const byCountry = new Map();
+    competitionHistoricalTeamCandidates().forEach((candidate) => {
+      if (!byCountry.has(candidate.country)) byCountry.set(candidate.country, []);
+      byCountry.get(candidate.country).push(candidate);
     });
+    return competitionCountries()
+      .map((country) => {
+        const candidates = byCountry.get(country) || [];
+        return candidates.length ? randomItem(candidates) : null;
+      })
+      .filter(Boolean);
+  }
+  function competitionHardTeamCountries() {
+    return competitionCountries().filter((country) => {
+      const pool = uniqueBestSeasons(ATHLETES.filter((a) => a.gender === state.gender && a.country === country));
+      return pool.length >= TRADITIONAL_TEAM_SIZE;
+    });
+  }
+  function competitionTeamCountries() {
+    if (state.hardMode && !isBattleMode()) return competitionHardTeamCountries();
+    return [...new Set(competitionHistoricalTeamCandidates().map((candidate) => candidate.country))];
   }
   function statPotential(stat = {}) { return round3(scoreValue(stat.d) + executionMidpoint(stat)); }
   function totalPotential(a) { return round3(apps().reduce((s, ap) => s + statPotential(a.stats[ap.id]), 0)); }
@@ -2373,9 +2484,10 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     if (team.isPlayer) return team.name;
     if (team.entity === "athlete") return team.name;
     if (team.federation === "BRL" || String(team.id || "").startsWith("battle-")) return team.name;
+    if (team.seasonYear) return `${t("team")} ${countryName(team.federation)} ${team.seasonYear}`;
     return `${t("team")} ${countryName(team.federation)}`;
   }
-  function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${countryName(a.federation)}`; }
+  function athleteTeamName(a) { return a.isPlayerAthlete ? a.teamName : `${t("team")} ${countryName(a.federation)}${a.teamYear ? " " + a.teamYear : ""}`; }
   function apparatusById(id) { return apps().find((a) => a.id === id); }
   const COUNTRY_NAMES = {
     "pt-BR": { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japão", GBR: "Grã-Bretanha", ITA: "Itália", FRA: "França", GER: "Alemanha", CAN: "Canadá", NED: "Países Baixos", AUS: "Austrália", BEL: "Bélgica", UKR: "Ucrânia", TUR: "Turquia", KOR: "Coreia do Sul", ROU: "Romênia", PHI: "Filipinas", COL: "Colômbia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Porto Rico", PER: "Peru", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungria", SUI: "Suíça", ESP: "Espanha", UZB: "Uzbequistão", KAZ: "Cazaquistão", TPE: "Taipé Chinês", IND: "Índia", INA: "Indonésia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Tailândia", VIE: "Vietnã", QAT: "Catar", KGZ: "Quirguistão", ALG: "Argélia", AUT: "Áustria", GRE: "Grécia", IRL: "Irlanda", ISR: "Israel", ARM: "Armênia", SLO: "Eslovênia", EGY: "Egito", AZE: "Azerbaijão", RUS: "Rússia", BLR: "Bielorrússia", URS: "União Soviética", EUN: "Equipe Unificada", TCH: "Tchecoslováquia", DOM: "República Dominicana", ECU: "Equador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haiti", BAR: "Barbados", BOL: "Bolívia", PRK: "Coreia do Norte", MAS: "Malásia", SGP: "Singapura", IRI: "Irã", FAN: "Fantasy" },
@@ -2658,6 +2770,10 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
                 ${Object.keys(COMPETITIONS).map((key) => `<button class="${state.competition === key ? "active" : ""}" data-act="competition" data-val="${key}">${escapeHTML(competitionName(key))}</button>`).join("")}
               </div>
             </div>
+            ${battle ? "" : `<div class="mode-card mt-4">
+              <span class="mode-copy"><span class="mode-title">${t("traditionalMode")}</span><span class="mode-desc">${state.hardMode ? t("hardModeDesc") : t("traditionalModeDesc")}</span></span>
+              <span class="grid justify-items-end gap-1"><span class="field-label">${t("hardMode")}</span><label class="switch" title="${t("hardMode")}"><input id="hardModeInput" type="checkbox" ${state.hardMode ? "checked" : ""}><span class="switch-slider"></span></label></span>
+            </div>`}
             <div class="mt-5 grid gap-3 md:grid-cols-3">
               <div class="metric"><div class="metric-num">${battle ? BATTLE_CONFIG.rosterSize : 5}</div><div class="metric-cap">${t("athletesInDraft")}</div></div>
               <div class="metric"><div class="metric-num">${battle ? BATTLE_CONFIG.teamCount : competitionTeamCountries().length + 1}</div><div class="metric-cap">${battle ? t("battleTeams") : t("teamsInQuals")}</div></div>
@@ -3514,7 +3630,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function cloneAthlete(a, team) {
     const stats = {}; Object.keys(a.stats).forEach((k) => { stats[k] = { ...a.stats[k] }; });
-    return { ...a, baseId: a.id, id: `${a.id}--${team.id}`, stats, teamId: team.id, teamName: team.name, federation: team.federation, isPlayerAthlete: team.isPlayer };
+    return { ...a, baseId: a.id, id: `${a.id}--${team.id}`, stats, teamId: team.id, teamName: team.name, federation: team.federation, teamYear: team.seasonYear || team.year || null, isPlayerAthlete: team.isPlayer };
   }
   function uniqueBestSeasons(pool, potentialFn = totalPotential) {
     const byPerson = new Map();
@@ -3523,20 +3639,29 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     });
     return [...byPerson.values()];
   }
-  function prepareTournament() {
-    if (state.selectedIds.length !== 5) { showToast(t("chooseFive")); return; }
-    const shell = { id: "player", name: state.teamName, federation: state.federation, isPlayer: true };
-    const playerTeam = { ...shell, roster: selectedAthletes().map((a) => cloneAthlete(a, shell)) };
+  function buildHardOpponentTeams() {
     const selected = selectedBaseKeys();
-    const aiTeams = competitionTeamCountries().map((country) => {
-      const s = { id: `team-${country}`, name: `${t("team")} ${country}`, federation: country, isPlayer: false };
+    return competitionHardTeamCountries().map((country) => {
+      const s = { id: `team-hard-${country}`, name: `${t("team")} ${countryName(country)}`, federation: country, hardMode: true, isPlayer: false };
       const pool = uniqueBestSeasons(ATHLETES.filter((a) => a.gender === state.gender && a.country === country));
       const roster = [...pool.filter((a) => !selected.has(a.baseKey)), ...pool.filter((a) => selected.has(a.baseKey))]
-        .sort((a, b) => totalPotential(b) - totalPotential(a)).slice(0, 5).map((a) => cloneAthlete(a, s));
+        .sort((a, b) => totalPotential(b) - totalPotential(a))
+        .slice(0, TRADITIONAL_TEAM_SIZE)
+        .map((a) => cloneAthlete(a, s));
       return { ...s, roster };
-    }).filter((tm) => tm.roster.length === 5);
-    state.teams = [playerTeam, ...aiTeams];
+    }).filter((tm) => tm.roster.length === TRADITIONAL_TEAM_SIZE);
+  }
+  function prepareTournament() {
+    if (state.selectedIds.length !== 5) { showToast(t("chooseFive")); return; }
     state.results = {}; state.seed = Date.now() % 1000000000; state.rng = mulberry32(state.seed);
+    const shell = { id: "player", name: state.teamName, federation: state.federation, isPlayer: true };
+    const playerTeam = { ...shell, roster: selectedAthletes().map((a) => cloneAthlete(a, shell)) };
+    const aiTeams = state.hardMode ? buildHardOpponentTeams() : drawHistoricalOpponentTeams().map((entry, index) => {
+      const s = { id: `team-${entry.country}-${entry.year}-${index}`, name: `${t("team")} ${countryName(entry.country)} ${entry.year}`, federation: entry.country, seasonYear: entry.year, sourceTag: entry.tag, isPlayer: false };
+      const roster = entry.roster.map((a) => cloneAthlete(a, s));
+      return { ...s, roster };
+    }).filter((tm) => tm.roster.length === TRADITIONAL_TEAM_SIZE);
+    state.teams = [playerTeam, ...aiTeams];
     renderTournamentHub();
   }
 
@@ -3863,6 +3988,14 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function strongestDeduction(score) {
     return [...score.deductions, ...score.neutral].sort((a, b) => b.value - a.value)[0] || null;
   }
+  function judgePanelSpread(score) {
+    const panels = score?.judgePanel?.attempts || (score?.judgePanel ? [score.judgePanel] : []);
+    return panels.reduce((maxSpread, panel) => {
+      const scores = panel?.scores || [];
+      if (!scores.length) return maxSpread;
+      return Math.max(maxSpread, Math.max(...scores) - Math.min(...scores));
+    }, 0);
+  }
   function ordinal(rank) {
     if (state.lang === "en") {
       const suffix = rank % 10 === 1 && rank % 100 !== 11 ? "st" : rank % 10 === 2 && rank % 100 !== 12 ? "nd" : rank % 10 === 3 && rank % 100 !== 13 ? "rd" : "th";
@@ -3882,6 +4015,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     opening: "pbp", rotationIntro: "pbp", lastRotation: "analyst",
     stick: "pbp", stickAnalysis: "analyst", fall: "pbp", fallAnalysis: "analyst", fallRecovery: "pbp",
     error: "pbp", clean: "pbp", steady: "analyst", line: "analyst",
+    judgeTight: "analyst", judgeSplit: "analyst",
     bigScore: "pbp", dayBest: "analyst", leadChange: "pbp",
     podium: "analyst", playerPodium: "pbp", skipBest: "analyst", skipPlayer: "analyst",
     finalTop: "pbp", finalPlayerPodium: "pbp", finalPlayer: "analyst"
@@ -4159,6 +4293,283 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       ]
     }
   };
+  const EXTRA_COMMENTARY = {
+    "pt-BR": {
+      opening: [
+        "Começa a sessão! Hoje a margem é pequena: quem controlar pouso e ritmo vai comprar briga por medalha.",
+        "Tudo pronto no ginásio. A classificatória pode parecer longa, mas cada décimo aqui decide final depois."
+      ],
+      rotationIntro: [
+        "Nova rotação, nova pressão: {app} costuma separar quem só sobrevive de quem realmente ataca a prova.",
+        "Rotação {rot} no ar. Agora o foco é {app}, e a ordem de apresentação pode pesar bastante."
+      ],
+      stick: [
+        "{name} fechou como se tivesse desenhado o pouso no treino. {score} e aplauso merecido para {team}.",
+        "Pouso travado, olhar para os árbitros e nada para negociar: {score} para {name}."
+      ],
+      stickAnalysis: [
+        "O detalhe está na aterrissagem sem reajuste: quando o centro de massa cai no lugar certo, a nota E respira.",
+        "Além da cravada, a série veio sem aquela perda progressiva de forma. É assim que a execução segura a nota."
+      ],
+      fall: [
+        "Problema sério para {name}. A queda em {app} não perdoa e o placar mostra {score}.",
+        "A série vinha em construção, mas a falha tirou tudo do eixo. {score} para {name}."
+      ],
+      fallAnalysis: [
+        "O painel não desconta só a queda: ele lê a preparação, a forma do elemento e a aterrissagem. Por isso a queda pesa em cascata.",
+        "Dá para ver onde começou: {fault}. Quando esse erro aparece cedo, o corpo chega atrasado no final do elemento."
+      ],
+      error: [
+        "{name} salvou a série, mas pagou caro no detalhe: {fault}, -{value}. A nota fica em {score}.",
+        "Foi uma rotina de sobrevivência. Conteúdo suficiente, execução mordida, {score} no placar."
+      ],
+      clean: [
+        "Série de competição grande: nada espalhafatoso, tudo sob controle. {score} para {name}.",
+        "{name} entrega rotina limpa e obriga as rivais a acertarem também. {score}."
+      ],
+      steady: [
+        "Boa leitura de prova: quando o aparelho ameaçou, {name} não insistiu no risco desnecessário. {score}.",
+        "O desconto existe, mas a série não descarrilou. {team} aceita esse {score} sem reclamar."
+      ],
+      line: [
+        "A dedução neutra entra fria, depois da soma. É um décimo que parece pequeno até a tabela fechar.",
+        "A linha cobrou. Em competição apertada, esse tipo de ND vira desempate invisível."
+      ],
+      judgeTight: [
+        "Painel bem alinhado: diferença de só {spread} entre os juízes. Isso costuma indicar leitura clara da execução.",
+        "Os árbitros viram praticamente a mesma série. Quando o painel converge assim, a nota fica difícil de contestar."
+      ],
+      judgeSplit: [
+        "Painel dividido, diferença de {spread}. Alguns juízes compraram a série, outros enxergaram mais quebra.",
+        "A execução deixou margem para interpretação: painel aberto em {spread}, e isso mostra como a série foi no limite."
+      ],
+      bigScore: [
+        "É daquelas notas que mudam a planilha inteira. {score} para {name}, e todo mundo recalcula a estratégia.",
+        "{score}! A rotina entra imediatamente na conversa das melhores do dia."
+      ],
+      dayBest: [
+        "Novo alvo no aparelho. Quem vier depois já sabe exatamente o número que precisa caçar: {score}.",
+        "Referência atualizada em {app}: {name} coloca {score} no topo provisório."
+      ],
+      leadChange: [
+        "A ponta troca de mãos no detalhe. {team} aproveita a brecha e assume.",
+        "Tem virada! {team} passou à frente porque somou décimos onde os outros perderam."
+      ],
+      podium: [
+        "{team} aparece em zona de medalha e, mais importante, com nota que parece sustentável.",
+        "Esse parcial coloca {team} no radar do pódio. Agora é administrar sem encolher."
+      ],
+      playerPodium: [
+        "Sua equipe entra no top 3 ao vivo. Agora o desafio é ficar lá quando vierem as séries pesadas.",
+        "Olha a sua equipe chegando na briga de medalha: {rank} com esse {score}."
+      ],
+      skipBest: [
+        "No trecho pulado, a série que segurou a narrativa foi {name}: {score} em {app}.",
+        "O melhor recorte do bloco veio de {name}, {score}; é nota que reorganiza a rotação."
+      ],
+      skipPlayer: [
+        "Da sua equipe, o ponto alto do bloco foi {name}. {score} em {app}, uma nota para guardar.",
+        "Seu melhor momento no trecho: {name}, {score} em {app}, mantendo a equipe viva."
+      ],
+      finalTop: [
+        "{team} fecha campeã porque somou sem desperdiçar. {score} no total e título merecido.",
+        "Fim de disputa: {team} no topo. A diferença veio nos detalhes que não aparecem no replay."
+      ],
+      finalPlayerPodium: [
+        "Sua equipe sai com medalha e argumento: {rank} lugar, {score}, e várias séries de respeito.",
+        "Pódio confirmado para a sua equipe. Foi construído no controle, não só no brilho."
+      ],
+      finalPlayer: [
+        "Sua equipe fecha em {rank}. Tem material para evoluir: a campanha mostrou onde buscar décimos.",
+        "{rank} lugar, {score}. A próxima tentativa já tem mapa: limpar execução e escolher melhor os riscos."
+      ]
+    },
+    en: {
+      opening: [
+        "The session is underway. Margins are thin today: landings and rhythm will decide medals.",
+        "Everything is set. Qualifications can feel long, but every tenth here shapes the finals."
+      ],
+      rotationIntro: [
+        "New rotation, new pressure: {app} separates teams that survive from teams that attack.",
+        "Rotation {rot} is live. The focus shifts to {app}, and lineup order can matter."
+      ],
+      stick: [
+        "{name} landed like that dismount was drawn in training. {score} for {team}.",
+        "Frozen landing, eyes to the judges, nothing to negotiate: {score} for {name}."
+      ],
+      stickAnalysis: [
+        "The key is the landing with no adjustment. When the center of mass drops right, the E score breathes.",
+        "Beyond the stick, the routine avoided that slow leak of form. That's how execution protects a score."
+      ],
+      fall: [
+        "Major trouble for {name}. A fall on {app} is unforgiving, and the board shows {score}.",
+        "The routine was building, but that mistake knocked it off axis. {score} for {name}."
+      ],
+      fallAnalysis: [
+        "The panel doesn't take only the fall: it reads the setup, the body shape, and the landing. That's why a fall cascades.",
+        "You can see where it started: {fault}. Once that shows early, the body arrives late to the finish."
+      ],
+      error: [
+        "{name} saved the routine, but paid for the detail: {fault}, -{value}. The score is {score}.",
+        "That was a survival routine: enough content, execution bitten, {score} on the board."
+      ],
+      clean: [
+        "Big-meet routine: nothing flashy, everything controlled. {score} for {name}.",
+        "{name} delivers clean work and makes the others hit too. {score}."
+      ],
+      steady: [
+        "Smart meet management: when the event threatened, {name} didn't chase unnecessary risk. {score}.",
+        "The deduction is there, but the routine never unraveled. {team} will take {score}."
+      ],
+      line: [
+        "The neutral deduction lands cold after the sum. One tenth feels small until the table closes.",
+        "The line took its bite. In a tight meet, that kind of ND becomes an invisible tiebreaker."
+      ],
+      judgeTight: [
+        "Very aligned panel: only {spread} across the judges. That's usually a clear read on execution.",
+        "The judges saw almost the same routine. When the panel converges, the score is hard to argue."
+      ],
+      judgeSplit: [
+        "Split panel, {spread} across the scores. Some judges bought it; others saw more breaks.",
+        "That execution left room for interpretation: a {spread} panel spread shows how close to the edge it was."
+      ],
+      bigScore: [
+        "That's the kind of number that changes the whole spreadsheet. {score} for {name}.",
+        "{score}! That routine jumps straight into the best-of-the-day conversation."
+      ],
+      dayBest: [
+        "New target on the event. Everyone coming after knows the number to chase: {score}.",
+        "Benchmark updated on {app}: {name} moves the top mark to {score}."
+      ],
+      leadChange: [
+        "The lead changes hands by details. {team} takes the opening and moves in front.",
+        "Lead change! {team} moves ahead by collecting tenths others gave away."
+      ],
+      podium: [
+        "{team} is in medal territory, and more importantly, the score looks sustainable.",
+        "That split puts {team} firmly in the podium picture. Now they have to hold nerve."
+      ],
+      playerPodium: [
+        "Your team moves into the live top three. Now the job is staying there when the heavy routines arrive.",
+        "Your team is right in the medal fight: {rank} after that {score}."
+      ],
+      skipBest: [
+        "In the skipped stretch, the routine that carried the story was {name}: {score} on {app}.",
+        "Best of that block came from {name}, {score}; a number that reshapes the rotation."
+      ],
+      skipPlayer: [
+        "For your team, the high point was {name}: {score} on {app}.",
+        "Your best moment in that stretch: {name}, {score} on {app}, keeping the team alive."
+      ],
+      finalTop: [
+        "{team} wins it by adding up without wasting tenths. {score} total and a deserved title.",
+        "Meet over: {team} on top. The difference came in details you don't always see on replay."
+      ],
+      finalPlayerPodium: [
+        "Your team leaves with a medal and a case: {rank}, {score}, and plenty of serious routines.",
+        "Podium confirmed for your team. Built on control, not just highlights."
+      ],
+      finalPlayer: [
+        "Your team finishes {rank}. There is a clear map forward: clean execution and sharper risk choices.",
+        "{rank}, {score}. The next run already has its homework."
+      ]
+    },
+    es: {
+      opening: [
+        "Comienza la sesión. Hoy el margen es mínimo: caídas y ritmo van a decidir medallas.",
+        "Todo listo. La clasificatoria parece larga, pero cada décima aquí dibuja las finales."
+      ],
+      rotationIntro: [
+        "Nueva rotación, nueva presión: {app} separa a quienes sobreviven de quienes atacan.",
+        "Rotación {rot} en vivo. El foco pasa a {app}, y el orden puede pesar."
+      ],
+      stick: [
+        "{name} aterrizó como si lo hubiera dibujado en el entrenamiento. {score} para {team}.",
+        "Caída congelada, mirada a los jueces y nada que negociar: {score} para {name}."
+      ],
+      stickAnalysis: [
+        "La clave es caer sin reajuste. Cuando el centro de masa llega al sitio correcto, la E respira.",
+        "Además de clavar, la rutina no fue perdiendo forma. Así se protege una nota de ejecución."
+      ],
+      fall: [
+        "Problema serio para {name}. Una caída en {app} no perdona, y el marcador muestra {score}.",
+        "La rutina venía creciendo, pero esa falla la sacó del eje. {score} para {name}."
+      ],
+      fallAnalysis: [
+        "El panel no descuenta solo la caída: lee preparación, forma y aterrizaje. Por eso el daño se acumula.",
+        "Se ve dónde empezó: {fault}. Cuando aparece temprano, el cuerpo llega tarde al final."
+      ],
+      error: [
+        "{name} salvó la rutina, pero pagó el detalle: {fault}, -{value}. La nota queda en {score}.",
+        "Fue una rutina de supervivencia: contenido suficiente, ejecución mordida, {score}."
+      ],
+      clean: [
+        "Rutina de competencia grande: nada exagerado, todo controlado. {score} para {name}.",
+        "{name} entrega limpio y obliga a las demás a acertar también. {score}."
+      ],
+      steady: [
+        "Buena lectura de competencia: cuando el aparato amenazó, {name} no persiguió riesgo innecesario. {score}.",
+        "El descuento existe, pero la rutina no se desarmó. {team} acepta ese {score}."
+      ],
+      line: [
+        "La deducción neutral entra fría después de la suma. Una décima parece pequeña hasta que cierra la tabla.",
+        "La línea cobró. En una competencia apretada, esa ND se vuelve desempate invisible."
+      ],
+      judgeTight: [
+        "Panel muy alineado: solo {spread} entre los jueces. Eso suele indicar una lectura clara de la ejecución.",
+        "Los jueces vieron casi la misma rutina. Cuando el panel converge, la nota es difícil de discutir."
+      ],
+      judgeSplit: [
+        "Panel dividido, diferencia de {spread}. Algunos jueces compraron la serie; otros vieron más cortes.",
+        "La ejecución dejó margen de interpretación: panel abierto en {spread}, señal de una rutina al límite."
+      ],
+      bigScore: [
+        "Es una nota que cambia toda la planilla. {score} para {name}.",
+        "¡{score}! Esa rutina entra directo en la conversación de las mejores del día."
+      ],
+      dayBest: [
+        "Nuevo objetivo en el aparato. Quienes vengan después ya saben qué número perseguir: {score}.",
+        "Referencia actualizada en {app}: {name} pone {score} arriba por ahora."
+      ],
+      leadChange: [
+        "La punta cambia por detalles. {team} aprovecha la brecha y pasa al frente.",
+        "¡Cambio de liderato! {team} avanza sumando décimas que otras regalaron."
+      ],
+      podium: [
+        "{team} está en zona de medalla y, más importante, con una nota sostenible.",
+        "Ese parcial mete a {team} en la foto del podio. Ahora toca sostener."
+      ],
+      playerPodium: [
+        "Tu equipo entra al top 3 en vivo. Ahora hay que quedarse ahí cuando lleguen las rutinas pesadas.",
+        "Tu equipo se mete en pelea de medalla: {rank} con ese {score}."
+      ],
+      skipBest: [
+        "En el tramo saltado, la rutina que sostuvo el relato fue {name}: {score} en {app}.",
+        "Lo mejor del bloque vino de {name}, {score}; una nota que reordena la rotación."
+      ],
+      skipPlayer: [
+        "De tu equipo, el punto alto fue {name}: {score} en {app}.",
+        "Tu mejor momento del tramo: {name}, {score} en {app}, manteniendo vivo al equipo."
+      ],
+      finalTop: [
+        "{team} gana porque sumó sin desperdiciar décimas. {score} total y título merecido.",
+        "Final cerrada: {team} arriba. La diferencia estuvo en detalles que no siempre salen en la repetición."
+      ],
+      finalPlayerPodium: [
+        "Tu equipo se va con medalla y argumento: {rank}, {score}, y muchas rutinas serias.",
+        "Podio confirmado para tu equipo. Construido con control, no solo con brillo."
+      ],
+      finalPlayer: [
+        "Tu equipo termina {rank}. Hay mapa para crecer: limpiar ejecución y elegir mejor los riesgos.",
+        "{rank}, {score}. La próxima partida ya tiene tarea marcada."
+      ]
+    }
+  };
+  Object.keys(EXTRA_COMMENTARY).forEach((lang) => {
+    Object.keys(EXTRA_COMMENTARY[lang]).forEach((kind) => {
+      COMMENTARY[lang][kind] = [...(COMMENTARY[lang][kind] || []), ...EXTRA_COMMENTARY[lang][kind]];
+    });
+  });
   const ATHLETE_STORIES = [
     { athlete: "Simone Biles", year: 2024, trigger: "Entrada", pt: "Atenção, lá vem ela! A maior de todos os tempos, Simone Biles, de volta ao topo após a superação em Tóquio.", en: "Here she comes: Simone Biles, the greatest ever, back at the summit after everything she overcame in Tokyo.", es: "¡Atención, ahí viene! Simone Biles, la más grande de todos los tiempos, de vuelta en la cima tras superar Tokio." },
     { athlete: "Simone Biles", year: "Todos", trigger: "Curiosidade", pt: "Você sabia? Simone Biles tem cinco elementos batizados com seu nome no código da FIG. É uma lenda viva.", en: "Did you know? Simone Biles has five skills named after her in the FIG Code. A living legend.", es: "¿Sabías? Simone Biles tiene cinco elementos con su nombre en el código FIG. Una leyenda viva." },
@@ -4261,6 +4672,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const L = state.live;
     const rank = liveTeamRank(r.teamId);
     const strongest = strongestDeduction(s);
+    const panelSpread = judgePanelSpread(s);
     const data = {
       name: r.athlete.name,
       team: displayTeamName(r.team),
@@ -4269,7 +4681,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       fault: strongest ? faultLabel(strongest.code) : t("noDeductions").toLowerCase(),
       value: strongest ? strongest.value.toFixed(1) : "0.0",
       rank: rank ? ordinal(rank.rank) : "",
-      d: s.d.toFixed(1), e: s.e.toFixed(3),
+      d: s.d.toFixed(1), e: s.e.toFixed(3), spread: panelSpread.toFixed(1),
       prev: r.after ? r.after.name : ""
     };
     const meta = `${displayTeamName(r.team)} · ${appName(r.apparatus)} · ${formatScore(s.total)}`;
@@ -4291,6 +4703,8 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     // segunda voz: leitura técnica nos momentos-chave
     if (kind === "stick") out.push(boothComment("stickAnalysis", data, { meta, you: r.team.isPlayer }));
     else if (kind === "fall") out.push(boothComment("fallAnalysis", data, { meta, you: r.team.isPlayer }));
+    else if (panelSpread >= 0.5 && s.total >= 12.8) out.push(boothComment("judgeSplit", data, { meta, you: r.team.isPlayer }));
+    else if (panelSpread <= 0.2 && s.e >= 8.4) out.push(boothComment("judgeTight", data, { meta, you: r.team.isPlayer }));
 
     // melhor nota do dia no aparelho
     L.bestByApp = L.bestByApp || {};
@@ -4958,7 +5372,15 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     { id: "eraMix", icon: "clock", test: (r) => r.playerEraSpread >= 20 },
     { id: "veteran10", icon: "trophy", test: (_r, c) => c.totals.competitions >= 10 },
     { id: "goldHoard", icon: "medal", test: (_r, c) => c.totals.gold >= 15 },
-    { id: "podiumStreak", icon: "star", test: (_r, c) => (c._streak || 0) >= 3 }
+    { id: "podiumStreak", icon: "star", test: (_r, c) => (c._streak || 0) >= 3 },
+    { id: "hardModeGold", icon: "bolt", test: (r) => r.mode === "classic" && r.traditionalHardMode && r.teamFinishPlayer === 1 },
+    { id: "hardModePodium", icon: "medal", test: (r) => r.mode === "classic" && r.traditionalHardMode && r.teamFinishPlayer != null && r.teamFinishPlayer <= 3 },
+    { id: "noFallsClassic", icon: "check", test: (r) => r.mode === "classic" && r.playerMedalTotal >= 1 && r.playerFalls === 0 },
+    { id: "appGold", icon: "star", test: (r) => r.mode === "classic" && r.playerAppGold >= 1 },
+    { id: "aaMedal", icon: "medal", test: (r) => r.mode === "classic" && r.playerAAMedal },
+    { id: "giantKiller", icon: "users", test: (r) => r.mode === "classic" && r.h2hWins >= 10 },
+    { id: "worldTour", icon: "flag", test: (_r, c) => ["olympics", "panamerican", "european", "asian"].every((key) => (c.byCompetition[key]?.plays || 0) > 0) },
+    { id: "battleFinalist", icon: "bolt", test: (r) => r.mode === "battle" && r.battleRank != null && r.battleRank <= 4 }
   ];
 
   function recordCompetitionResult(runData) {
@@ -5069,6 +5491,8 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const g = yours.filter((m) => m.rank === 1).length;
     const s = yours.filter((m) => m.rank === 2).length;
     const b = yours.filter((m) => m.rank === 3).length;
+    const playerAppGold = yours.filter((m) => m.typeKey === "apparatusEvent" && m.rank === 1).length;
+    const playerAAMedal = yours.some((m) => m.typeKey === "individualEvent" && m.rank <= 3);
 
     const teamRes = state.results.teamFinal || [];
     const teamFinishPlayer = (() => { const i = teamRes.findIndex((r) => r.team.isPlayer); return i >= 0 ? i + 1 : null; })();
@@ -5083,6 +5507,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const h2h = [];
     const qualRes = (state.results.qual && state.results.qual.teamResults) || [];
     const qualPlayerIdx = qualRes.findIndex((r) => r.team.isPlayer);
+    const qualFinishPlayer = qualPlayerIdx >= 0 ? qualPlayerIdx + 1 : null;
     if (qualPlayerIdx >= 0) qualRes.forEach((r, idx) => {
       if (r.team.isPlayer) return;
       h2h.push({ key: `fed:${r.team.federation}:${displayTeamName(r.team)}`, name: displayTeamName(r.team), playerWon: idx > qualPlayerIdx });
@@ -5110,6 +5535,10 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       // team final lineups
       const tr = teamRes.find((x) => x.team.isPlayer);
       if (tr && tr.lineups) Object.keys(tr.lineups).forEach((appId) => tr.lineups[appId].forEach((e) => { if (e.athlete.baseKey === ath.baseKey) collect(e.score, appId); }));
+      // all-around final
+      aaRes.filter((r) => r.athlete.baseKey === ath.baseKey).forEach((r) => apps().forEach((ap) => collect(r.scores[ap.id], ap.id)));
+      // apparatus finals
+      if (state.results.appFinals) apps().forEach((ap) => state.results.appFinals[ap.id].forEach((r) => { if (r.athlete.baseKey === ath.baseKey) collect(r.score, ap.id); }));
       // medals count for this athlete
       medals.forEach((m) => { if (m.player && m.owner === ath.name) mcount += 1; });
       return { baseKey: ath.baseKey, name: ath.name, country: ath.country, apps: apps2, falls, sticks, bestTotal, medals: mcount };
@@ -5121,8 +5550,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
 
     return {
       mode: "classic", competitionKey: state.competition, teamName: state.teamName,
+      traditionalHardMode: state.hardMode,
       playerGold: g, playerSilver: s, playerBronze: b,
+      playerMedalTotal: yours.length, playerAppGold, playerAAMedal,
       teamFinishPlayer, teamScorePlayer, aaScorePlayer, appScorePlayer,
+      qualFinishPlayer, h2hWins: h2h.filter((m) => m.playerWon).length,
       battleRank: null, battlePointsPlayer: 0,
       playerBestTotal: Math.max(teamScorePlayer ? 0 : 0, aaScorePlayer, appScorePlayer, ...athleteStats.map((s2) => s2.bestTotal), 0),
       playerFalls: athleteStats.reduce((n, s2) => n + s2.falls, 0),
@@ -5533,6 +5965,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       state.federation = (e.target.value || "FAN").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 3) || "FAN";
       state.customFlag = "";
       persistTeamIdentity();
+      renderSetup();
+    }
+    if (e.target?.id === "hardModeInput") {
+      state.hardMode = !!e.target.checked;
+      localStorage.setItem("gym-royale-hard-mode", state.hardMode ? "1" : "0");
       renderSetup();
     }
     if (e.target?.id === "customFlagInput") {
