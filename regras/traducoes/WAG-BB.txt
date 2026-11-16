@@ -1,0 +1,240 @@
+1.101|Salto com impulso de uma perna – na chegada deve mostrar a posição de arabesque (perna no mínimo na horizontal)
+1.102|Salto ladrão – impulso de uma perna – salto livre sobre a trave, uma perna após a outra, ao apoio dorsal – aproximação a 90° da trave; ou salto tesoura sobre a trave à posição sentada transversal sobre a coxa – aproximação diagonal
+1.103|Passagem lateral das pernas (flanco) ao apoio dorsal, também com ½ giro (180°)
+1.103|Salto com apoio das mãos, ¾ de giro (270°) em apoio à posição sentada transversal sobre a coxa
+1.105|Salto com apoio das mãos ao espacate lateral sentado ou à posição afastada (deve mostrar o espacate sem as mãos tocarem a trave como posição final; na posição afastada o tronco deve tocar a trave)
+1.105|Salto à posição de espacate transversal sentado – aproximação diagonal (com apoio das mãos)
+1.106|Da posição em pé lateral – passagem das pernas grupadas ou carpadas entre os braços ao apoio dorsal
+1.108|Estrela com flexão dos dois braços passando pelo apoio de peito, com descida
+1.108|Em pé ao lado da trave, salto ao apoio de peito com os dois braços flexionados
+1.111|Prancha com apoio em um ou dois braços flexionados (2 s), também com pernas em espacate transversal
+1.114|Salto à parada de mãos com pernas flexionadas ou estendidas – descida a posição final livre
+1.201|Salto espacate (180°)
+1.204|Salto com ½ giro (180°) ao apoio afastado livre, ou salto para trás passando pela posição afastada sobre a trave ao apoio facial, ou ao espacate lateral – aproximação a 90° da trave
+1.207|Salto ao rolamento para frente na ponta ou no meio da trave, à posição sentada ou agachada
+1.207|Salto ao apoio afastado livre na ponta da trave – balanço para trás e rolamento para frente à posição sentada ou agachada
+1.208|Salto com ½ giro (180°) sobre o ombro ao apoio de nuca, ½ giro (180°) ao apoio de peito
+1.210|Salto, força ou balanço à parada de mãos (2 s) – descida a posição final tocando a trave, também com ½ giro (180°) na parada de mãos
+1.211|Salto com quadril flexionado ao apoio facial livre acima da horizontal, no mínimo a 45° (prancha) (2 s) – descida a posição final livre
+1.213|Força à parada de mãos lateral, com flexão e extensão das pernas – salto com ¼ de giro (90°) à parada de mãos transversal – descida a posição final livre
+1.214|Estrela com um ou dois braços
+1.215|Reversão para frente com repulsão das mãos a partir do trampolim ao apoio dorsal – ou com ¼ de giro (90°) à posição sentada transversal sobre a coxa – aproximação a 90° da trave
+1.215|Estrela, segurando a trave, ao apoio facial – aproximação a 90° da trave
+1.302|Salto estendido com ½ giro (180°) na fase de voo à posição em pé
+1.303|Dois flairs com voo
+1.304|Salto carpado afastado para trás sobre a trave, a partir de rondada, seguido imediatamente de giro de quadril para trás – aproximação a 90° da trave
+1.305|Salto livre ao espacate transversal sentado, com impulso dos dois pés – aproximação diagonal
+1.305|Salto com troca de pernas ao espacate transversal sentado livre – aproximação diagonal (Dick)
+1.308|Salto com ½ giro (180°) sobre o ombro ao apoio de nuca, 1 ou 1½ giro (360°–540°) ao apoio de nuca
+1.309|Da posição em pé transversal, de frente para a ponta da trave – kipe de cabeça
+1.309|Da posição em pé transversal, de frente para a ponta da trave – salto à parada de mãos com ângulo de quadril (carpado) e reversão lenta para frente
+1.309|Da posição em pé transversal, de frente para a ponta da trave – salto à parada de mãos com ângulo de quadril (carpado) e reversão para frente com chegada alternada ou sobre os dois pés
+1.310|Salto, força ou balanço à parada de mãos transversal ou lateral com 1 a 1½ giro (360°–540°) – descida a posição final tocando a trave
+1.311|Salto com quadril estendido à prancha (2 s) (Shushunova)
+1.311|Salto, força ou balanço à parada de mãos – descida à prancha (2 s), também com ½ giro (180°) na parada de mãos
+1.311|Salto, força ou balanço à parada de mãos – descida ao apoio carpado livre com pernas unidas (2 s), também com ½ giro (180°) na parada de mãos
+1.311|Da parada de mãos (2 s), soltar uma mão com descida lateral ao apoio dorsal; também com ½ giro (180°) na parada de mãos (Li Yifang)
+1.312|Parada de mãos transversal com grande arco das costas, também carpada com uma perna na vertical e a outra flexionada (2 s) – descida a posição final livre
+1.312|Parada de mãos com pernas mantidas na horizontal (2 s) – prancha invertida em diferentes variações – descida a posição final livre
+1.313|Salto, força ou balanço à parada de mãos e transferência do peso à parada de mãos em um braço (2 s) – descida a posição final livre
+1.314|Salto com ¼ de giro (90°) e quadril estendido passando por parada de mãos momentânea em um braço, com imediato ¼ de giro (90°) e apoio do segundo braço à parada de mãos lateral – descida a posição final livre – aproximação a 90° da trave
+1.314|De costas para a trave, flic-flac sobre a trave à posição de vela, terminando em apoio facial (Beukes)
+1.314|De costas para a trave, flic-flac com ½ giro (180°) à posição de vela, terminando em apoio facial (segurando a trave por baixo com as duas mãos) (Soares)
+1.315|Reversão sem mãos para frente ao apoio dorsal – ou com ¼ de giro (90°) à posição sentada transversal sobre a coxa – aproximação a 90° da trave
+1.317|Rondada na ponta da trave – flic-flac passando pela parada de mãos, com descida à posição sentada afastada transversal
+1.401|Salto para frente com troca de pernas (balanço da perna livre a 45°) ao espacate transversal
+1.402|Salto com 1 giro (360°) na fase de voo à posição em pé – aproximação pela ponta ou em diagonal
+1.403|Três flairs com voo (Homma)
+1.403|Dois círculos de pernas unidas seguidos de flair (Baitova)
+1.405|Salto com troca de pernas e ½ giro (180°) afastando-se da trave ao espacate transversal sentado livre – aproximação diagonal (Dick)
+1.411|Salto, força ou balanço à parada de mãos – 1 giro (360°) na parada de mãos – descida à prancha (2 s), ou ao apoio carpado livre com pernas unidas (2 s)
+1.411|Salto, força ou balanço à parada de mãos – 1 giro (360°) na parada de mãos – soltar uma mão com descida lateral ao apoio dorsal
+1.412|Salto ou força à parada de mãos lateral – reversão lenta para frente à posição em pé lateral sobre as duas pernas (Phillips)
+1.413|Salto ou força em um braço à parada de mãos, descida a posição final livre; também salto, força ou balanço à parada de mãos – transferência do peso à parada de mãos lateral em um braço (2 s), descendo ao apoio afastado livre em um braço, também com ¼ de giro (90°) (Rankin)
+1.414|Rondada em frente à trave – salto com ½ pirueta (180°) até próximo da parada de mãos lateral – descida a posição livre (Gurova)
+1.416|Mortal para frente grupado à posição em pé – aproximação pela ponta da trave
+1.417|Rondada na ponta da trave – flic-flac passando pela parada de mãos – apoio em um ou dois braços – à posição em pé
+1.417|Rondada na ponta da trave – flic-flac com 1 pirueta (360°) e descida à posição sentada afastada transversal (Tsavdaridou)
+1.514|Rondada em frente à trave – flic-flac com 1 pirueta (360°) ao giro de quadril para trás (Zamolodchikova)
+1.516|Mortal para frente carpado à posição em pé – aproximação pela ponta da trave
+1.517|Rondada na ponta da trave – flic-flac com ¾ de pirueta (270°) à posição em pé
+1.518|Rondada na ponta da trave – mortal para trás grupado, carpado ou estendido com chegada alternada à posição em pé
+1.609|Rondada na ponta da trave – flic-flac com ½ giro (180°) e reversão lenta para frente (Dunn)
+1.615|Reversão sem mãos para frente à posição em pé transversal – aproximação pela ponta da trave, impulso dos dois pés
+1.616|Mortal para frente grupado com ½ pirueta (180°) (Wong Hiu Ying Angel)
+1.618|Rondada na ponta da trave – mortal para trás grupado com 1 pirueta (360°) à posição em pé (Garrison)
+1.618|Rondada na ponta da trave – mortal para trás estendido à posição em pé
+1.619|Salto para frente com ½ pirueta (180°) – mortal para trás carpado à posição em pé
+1.716|Rondada na ponta da trave – impulso para trás com ½ giro (180°) – mortal para frente grupado à posição em pé (Erceg)
+1.718|Rondada na ponta da trave – mortal para trás estendido com 1 pirueta (360°) à posição em pé
+2.101|Salto espacate para frente (afastamento das pernas de 180°)
+2.105|Salto para frente com troca de pernas à posição wolf (ângulo de quadril de 45°)
+2.107|Salto carpado a partir da posição transversal (pernas acima da horizontal)
+2.108|Sissone (afastamento das pernas de 180° na diagonal / 45° em relação ao solo), impulso dos dois pés, chegada em um pé
+2.108|Salto stag (afastamento das pernas de 180°, perna de trás estendida ou flexionada)
+2.110|Salto do gato (joelhos acima da horizontal alternadamente)
+2.110|Salto tesoura para frente (pernas acima da horizontal)
+2.112|Saltito ou salto wolf a partir da posição transversal (ângulo de quadril de 45°, joelhos unidos)
+2.202|Salto espacate com impulso dos dois pés (afastamento das pernas de 180°) a partir da posição transversal
+2.203|Salto carpado afastado (ambas as pernas acima da horizontal), ou salto em espacate lateral a partir da posição transversal
+2.204|Saltito fouetté com ½ giro (180°) com chegada em arabesque (perna livre acima da horizontal)
+2.206|Salto com ¼ de giro (90°) à posição carpada afastada (ambas as pernas acima da horizontal), com chegada em um ou dois pés
+2.207|Salto carpado com ½ giro (180°) a partir da posição transversal
+2.208|Sissone à posição de anel (pé de trás na altura da cabeça, corpo arqueado e cabeça para trás, afastamento das pernas de 180°) com chegada em um pé, ou salto stag em anel
+2.209|Saltito com ½ giro (180°), perna livre estendida à frente na horizontal durante todo o giro
+2.209|Salto ou saltito estendido com 1 giro (360°) a partir da posição transversal
+2.210|Salto do gato com ½ giro (180°)
+2.211|Saltito ou salto grupado com ½ giro (180°) a partir da posição transversal (ângulo de quadril e joelhos de 45°)
+2.212|Saltito ou salto wolf com ½ giro (180°) a partir da posição transversal
+2.301|Salto espacate para frente com ½ giro (180°)
+2.302|Salto espacate com impulso dos dois pés com ½ giro (180°) a partir da posição transversal
+2.303|Salto carpado afastado com ½ giro (180°) a partir da posição transversal
+2.305|Salto para frente com troca de pernas (balanço da perna livre a 45°) ao espacate transversal (afastamento de 180° após a troca de pernas) (switch leap)
+2.306|Salto para frente com troca de pernas e ¼ de giro (90°) ao espacate lateral (180°) ou à posição carpada afastada (Johnson)
+2.308|Salto com arco da parte superior das costas e cabeça para trás, com os pés na altura da cabeça / anel fechado (salto carneiro)
+2.310|Salto do gato com 1 giro (360°)
+2.311|Saltito ou salto grupado com 1 giro (360°) a partir da posição transversal
+2.402|Salto espacate com impulso dos dois pés com 1 giro (360°) a partir da posição transversal
+2.403|Salto carpado afastado com 1 giro (360°) a partir da posição transversal
+2.404|Saltito fouetté com troca de pernas ao espacate transversal (afastamento das pernas de 180°) (tour jeté)
+2.405|Switch leap (salto espacate com troca de pernas) com ½ giro (180°)
+2.407|Salto carpado com 1 giro (360°) a partir da posição transversal
+2.408|Salto espacate à posição de anel com impulso dos dois pés (afastamento das pernas de 180°), com chegada nos dois pés
+2.408|Salto espacate em anel com impulso de uma perna (afastamento das pernas de 180°)
+2.408|Salto ao espacate transversal ultrapassando 180°, com corpo arqueado e cabeça para trás (Yang Bo)
+2.409|Salto ou saltito estendido com 1½ giro (540°) a partir da posição transversal
+2.411|Saltito ou salto grupado com 1½ giro (540°) a partir da posição transversal
+2.412|Saltito ou salto wolf com 1 giro (360°) a partir da posição transversal
+2.502|#DROP
+2.503|#DROP
+2.504|Tour jeté com ½ giro (180°) adicional
+2.505|Switch leap (salto espacate com troca de pernas) à posição de anel (afastamento das pernas de 180°)
+2.506|Johnson com ½ giro (180°) adicional
+2.507|#DROP
+2.511|#DROP
+2.512|Saltito ou salto wolf com 1½ giro (540°) a partir da posição transversal
+3.101|1 giro (360°) sobre uma perna – perna livre em posição opcional abaixo da horizontal
+3.201|1½ giro (540°) sobre uma perna – perna livre em posição opcional abaixo da horizontal
+3.206|½ giro illusion (180°) passando pelo espacate em pé (afastamento das pernas de 180°), com ou sem breve toque de uma mão na trave
+3.207|1 giro (360°) em posição agachada sobre uma perna – perna livre estendida durante todo o giro
+3.208|1 giro ou 1½ giro (360° ou 540°) em decúbito ventral – apoio alternado das mãos permitido
+3.302|1 giro (360°) sobre uma perna em attitude atrás (coxa da perna livre na horizontal durante todo o giro)
+3.304|1 giro (360°) com o calcanhar da perna livre estendida à frente na horizontal durante todo o giro (a perna de apoio pode estar estendida ou flexionada)
+3.305|1 giro (360°) com a perna livre mantida no alto em espacate de 180° durante todo o giro
+3.307|1½ giro (540°) em posição agachada sobre uma perna – perna livre estendida durante todo o giro
+3.401|2 giros (720°) sobre uma perna – perna livre em posição opcional abaixo da horizontal
+3.402|1½ giro (540°) sobre uma perna em attitude atrás (coxa da perna livre na horizontal durante todo o giro)
+3.403|1 giro (360°) com a perna livre segura atrás com as duas mãos (Preziosa)
+3.404|1½ giro (540°) com o calcanhar da perna livre estendida à frente na horizontal durante todo o giro (a perna de apoio pode estar estendida ou flexionada)
+3.405|1½ giro (540°) com a perna livre mantida no alto em espacate de 180° durante todo o giro (Galante)
+3.406|1 giro illusion (360°) passando pelo espacate em pé (afastamento das pernas de 180°), com ou sem breve toque de uma mão na trave
+3.407|2 giros (720°) ou 2½ giros (900°) em posição agachada sobre uma perna – perna livre estendida durante todo o giro (Humphrey)
+3.408|1¼ de giro (450°) sobre as costas em posição de kipe (ângulo quadril-pernas fechado) (Li Li)
+3.501|3 giros (1080°) sobre uma perna – perna livre em posição opcional abaixo da horizontal (Okino)
+3.504|2 giros (720°) com o calcanhar da perna livre estendida à frente na horizontal durante todo o giro (a perna de apoio pode estar estendida ou flexionada) (Wevers)
+3.505|2 giros (720°) com a perna livre mantida no alto em espacate de 180° durante todo o giro (Sugihara)
+3.507|3 giros (1080°) em posição agachada sobre uma perna – perna livre estendida durante todo o giro (Mitchell)
+4.101|Da posição sentada sobre os joelhos, elevar-se com onda corporal passando pelo equilíbrio na ponta dos pés
+4.102|Espacate em pé para frente com apoio das mãos à frente da perna de apoio (afastamento das pernas de 180°) – avião em agulha (2 s); ou equilíbrio sobre uma perna com o pé da perna livre seguro à frente acima da cabeça (2 s)
+4.102|Avião para frente, perna de apoio estendida (afastamento das pernas de 180°) (2 s)
+4.103|Lançamento à parada de mãos lateral ou transversal (2 s), descida a posição final tocando a trave
+4.105|Rolamento para trás com apoio das mãos sobre a trave – chegada em um ou dois pés
+4.107|Estrela, também com apoio em um braço, ou estrela com fase de voo antes ou depois do apoio das mãos
+4.108|Reversão lenta para frente, com ou sem apoio alternado das mãos (Tinsica)
+4.108|Reversão lenta para frente e para trás (tic-toc)
+4.109|Reversão lenta para trás, com ou sem apoio alternado das mãos, também com descida à posição sentada transversal
+4.202|Apoio carpado livre com pernas unidas (2 s)
+4.203|Lançamento à parada de mãos transversal – rolamento para frente com ou sem apoio das mãos à posição sentada ou agachada
+4.204|Rolamento para frente sem apoio das mãos à posição sentada ou agachada
+4.204|Da posição sentada transversal, balanço para trás e rolamento de ombro para frente com extensão do quadril e apoio das mãos à posição sentada ou agachada
+4.206|Rolamento lateral, corpo grupado, afastado ou estendido passando pelo apoio de nuca, também com ½ giro (180°) sobre o ombro
+4.207|Rolamento lateral carpado afastado com apoio das mãos – posição final livre
+4.208|Reversão lenta para frente com apoio em um braço
+4.209|Reversão lenta para trás com apoio em um braço
+4.210|Da posição sentada com uma perna estendida – reversão lenta para trás (Valdez)
+4.210|Lançamento para trás pelo plano horizontal com apoio em um braço (Garrison)
+4.304|Rolamento de ombro livre para frente com extensão do quadril e sem apoio das mãos à posição sentada ou agachada
+4.305|Rolamento para trás à parada de mãos – descida a posição final tocando a trave
+4.306|Rolamento lateral com corpo estendido sem apoio das mãos
+4.307|Da posição sentada transversal ou do espacate lateral – rolamento lateral afastado ou estendido sem apoio das mãos – posição final livre
+4.308|Lançamento à parada de mãos transversal com ½ giro (180°) e reversão lenta para frente
+4.308|Reversão lenta para frente em posição lateral à posição em pé lateral
+4.309|Reversão lenta para trás com ½ giro (180°) e reversão lenta para frente
+4.309|Reversão lenta para trás em posição lateral à posição em pé lateral
+4.309|Reversão lenta para trás com passagem de uma perna entre os braços ao espacate transversal sentado
+4.310|Valdez com 1 giro (360°), descida a posição final tocando a trave
+5.201|Reversão para frente com voo, com chegada em um ou dois pés (mesmo elemento), também com apoio em um braço
+5.202|Flic-flac com chegada nos dois pés
+5.204|Flic-flac com chegada alternada (uma perna após a outra), também com apoio em um braço
+5.206|Flic-flac gainer, também com apoio em um braço
+5.207|Flic-flac ou flic-flac gainer – com fase de voo alta e descida à posição sentada afastada transversal
+5.208|Rondada
+5.301|Reversão para frente com troca de pernas na fase de voo
+5.302|Flic-flac com ½ pirueta (180°) à parada de mãos (2 s) – descida a posição final livre
+5.303|Flic-flac com ¼ de pirueta (90°) à parada de mãos (2 s) – descida a posição final livre
+5.304|Flic-flac com ½ pirueta (180°) depois do apoio das mãos
+5.306|Flic-flac gainer com ¼ de pirueta (90°) à parada de mãos (2 s) – descida a posição final livre (Kitti)
+5.307|Flic-flac ou flic-flac gainer – com flexão e extensão do quadril na fase de voo e descida à posição sentada afastada transversal (Rueda)
+5.310|Mortal para frente grupado, impulso de uma perna, com chegada em um ou dois pés (Liukin)
+5.312|Mortal para trás grupado, carpado ou estendido (chegada alternada)
+5.313|Mortal gainer para trás grupado, carpado ou estendido com chegada alternada
+5.401|Salto para trás (impulso de flic-flac) com ½ pirueta (180°) passando pela parada de mãos à reversão lenta para frente (Onodi), também com apoio em um braço, ou ao tic-toc
+5.402|Flic-flac a partir da posição lateral com ½ pirueta (180°) à parada de mãos lateral, descida a posição final livre (Kolesnikova)
+5.403|Flic-flac com ¾ de pirueta (270°) à parada de mãos lateral (2 s) – descida a posição final livre (Omelianchik)
+5.404|Flic-flac com no mínimo ¾ de pirueta (270°) antes do apoio das mãos (Kochetkova)
+5.405|Flic-flac com chegada alternada a partir da posição lateral (Tousek)
+5.405|Flic-flac a partir da posição lateral ao apoio facial ou com giro de quadril para trás
+5.406|Flic-flac gainer com no mínimo ¾ de pirueta (270°) antes do apoio das mãos (Khorkina)
+5.407|Flic-flac com 1 pirueta (360°) – descida à posição sentada afastada transversal (Rulfova)
+5.408|Estrela sem mãos – chegada em um ou dois pés, em posição transversal ou lateral, também com troca de pernas
+5.409|Reversão sem mãos para frente, com chegada em um ou dois pés
+5.410|Mortal para frente grupado à posição em pé transversal
+5.411|Mortal lateral grupado, impulso de uma perna, à posição em pé lateral
+5.501|Salto para trás (impulso de flic-flac) com ½ pirueta (180°) à reversão para frente com chegada nos dois pés (Worley)
+5.505|Flic-flac a partir da posição lateral com 1 pirueta (360°) ao giro de quadril para trás (Teza)
+5.508|Rondada sem mãos grupada ou carpada – impulso dos dois pés
+5.508|Estrela sem mãos em posição lateral (Colussi)
+5.510|Mortal para frente carpado à posição em pé transversal
+5.511|Mortal lateral grupado com ½ pirueta (180°), impulso de uma perna, à posição em pé lateral (Schaefer)
+5.512|Mortal para trás estendido com pernas unidas
+5.611|Mortal árabe grupado (impulso para trás com ½ pirueta [180°] e mortal para frente) (Lobaznyuk)
+5.612|Mortal para trás grupado com 1 pirueta (360°) (Shishova)
+5.613|Salto para frente com ½ pirueta (180°) – mortal para trás grupado
+5.613|Salto para frente com ½ pirueta (180°) – mortal para trás carpado (Produnova)
+5.712|Mortal para trás estendido com 1 pirueta (360°) (Shishova)
+6.101|Reversão sem mãos para frente com ½ pirueta (180°)
+6.102|Mortal para frente grupado ou carpado, também com ½ pirueta (180°)
+6.104|Mortal para trás grupado, carpado ou estendido, também com ½ pirueta (180°) (grupado ou estendido)
+6.106|Mortal gainer grupado, carpado ou estendido para o lado da trave, também com ½ pirueta (180°) (grupado ou estendido)
+6.201|Reversão sem mãos para frente com 1 pirueta (360°)
+6.201|Estrela sem mãos com ½ pirueta (180°)
+6.202|Mortal para frente estendido, também com ½ pirueta (180°)
+6.202|Mortal para frente grupado com 1 pirueta (360°)
+6.203|Salto para trás com ½ pirueta (180°) e mortal para frente grupado ou carpado (mortal árabe)
+6.204|Mortal para trás grupado ou estendido com 1 pirueta (360°)
+6.206|Mortal gainer grupado ou estendido com 1 pirueta (360°) para o lado da trave
+6.207|Mortal gainer grupado ou carpado na ponta da trave
+6.301|Reversão sem mãos para frente com 1½ pirueta (540°)
+6.302|Mortal para frente estendido com 1 pirueta (360°) ou 1½ pirueta (540°)
+6.303|Salto estendido para frente com 1 pirueta (360°) e mortal para frente grupado ou carpado
+6.304|Mortal para trás grupado ou estendido com 1½ pirueta (540°) (Domingues)
+6.304|Mortal para trás grupado ou estendido com 2 piruetas (720°) (Mordenti)
+6.306|Mortal gainer para trás grupado ou estendido com 1½ pirueta (540°) (Bohmerova) ou 2 piruetas (720°) para o lado da trave
+6.307|Mortal gainer estendido com pernas unidas na ponta da trave
+6.307|Mortal gainer grupado com 1 pirueta (360°) na ponta da trave (Kim)
+6.402|Mortal para frente estendido com 2 piruetas (720°) (Araujo)
+6.403|Salto estendido para frente com 1 pirueta (360°) e mortal para frente estendido
+6.404|Mortal para trás estendido com 2½ piruetas (900°)
+6.405|Duplo mortal para trás grupado
+6.406|Mortal gainer para trás estendido com 2½ piruetas (900°) para o lado da trave (Khorkina)
+6.407|Mortal gainer estendido com 1 pirueta (360°) na ponta da trave (Steingruber)
+6.407|Mortal gainer grupado com 1½ pirueta (540°) na ponta da trave (Olafsdottir)
+6.501|Estrela sem mãos seguida de mortal para trás grupado (Kim)
+6.505|Duplo mortal para trás carpado
+6.507|Mortal gainer estendido com 2 piruetas (720°) na ponta da trave (Jurkowska-Kowalska)
+6.602|Duplo mortal para frente grupado
+6.604|Mortal para trás estendido com 3 piruetas (1080°)
+6.606|Mortal gainer para trás estendido com 3 piruetas (1080°) para o lado da trave
+6.703|Duplo mortal árabe para frente grupado (Patterson)
+6.705|Duplo mortal para trás grupado ou carpado com 1 pirueta (360°)
+6.805|Duplo mortal para trás grupado com 2 piruetas (720°) (Biles)

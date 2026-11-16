@@ -1,0 +1,129 @@
+1.101|Salto espacate para frente (afastamento das pernas de 180°)
+1.103|Salto grupado com afastamento das pernas ao espacate transversal (180°) durante a fase de voo
+1.104|Salto para frente com ¼ de giro (90°) à posição carpada afastada (ambas as pernas acima da horizontal) ou ao espacate lateral, com chegada em um ou dois pés
+1.105|Salto para frente com troca de pernas à posição wolf
+1.106|Salto carpado (pernas acima da horizontal)
+1.107|Salto carpado afastado (ambas as pernas acima da horizontal), ou salto em espacate lateral (afastamento das pernas de 180°)
+1.108|Salto carpado afastado (ambas as pernas acima da horizontal), ou salto em espacate lateral, com chegada em apoio facial deitado, também com ½ giro (180°)
+1.108|Saltito com 1 giro (360°) à posição afastada e chegada em apoio facial deitado
+1.109|Salto espacate com impulso dos dois pés (afastamento das pernas de 180°)
+1.109|Salto stag (afastamento das pernas de 180°, perna de trás estendida ou flexionada)
+1.109|Salto stag com ½ giro (180°)
+1.109|Sissone (afastamento das pernas de 180° na diagonal / 45° em relação ao solo), impulso dos dois pés, chegada em um pé
+1.110|Saltito ou salto estendido com 1 giro (360°)
+1.111|Salto com troca alternada de pernas (joelhos acima da horizontal) (salto do gato)
+1.111|Salto tesoura para frente (pernas acima da horizontal)
+1.112|Saltito com ½ giro (180°) com chegada em arabesque, perna livre acima da horizontal (saltito fouetté)
+1.112|Saltito com ½ giro (180°), perna livre estendida à frente na horizontal durante todo o giro
+1.114|Saltito ou salto com uma perna flexionada e a outra estendida à frente acima da horizontal, com joelhos unidos (saltito ou salto wolf)
+1.201|Salto espacate com ½ giro (180°)
+1.202|Saltito fouetté com troca de pernas ao espacate transversal (afastamento das pernas de 180°), também à posição de anel (tour jeté)
+1.203|Borboleta para frente: tronco paralelo ao solo, levemente arqueado, pernas afastadas e pés acima da altura do quadril durante o voo
+1.203|Borboleta para trás: tronco paralelo ao solo, levemente arqueado, pernas afastadas e pés na altura do quadril ou ligeiramente abaixo durante o voo, também com chegada em apoio facial deitado
+1.204|Switch leap (salto espacate com troca de pernas) com ¼ de giro (90°) ao espacate lateral ou à posição carpada afastada (ambas as pernas acima da horizontal) (Johnson)
+1.205|Salto para frente com troca de pernas (balanço da perna livre a 45°) ao espacate transversal (afastamento de 180° após a troca de pernas) (switch leap)
+1.206|Salto com arco da parte superior das costas e cabeça para trás, com os pés quase tocando a cabeça (salto carneiro)
+1.207|Salto carpado afastado ou salto em espacate lateral com ½ giro (180°)
+1.207|Salto espacate com impulso dos dois pés com ½ giro (180°)
+1.208|Salto carpado afastado (ambas as pernas acima da horizontal), ou salto em espacate lateral, com 1 giro (360°) e chegada em apoio facial deitado
+1.208|Saltito com 1½ giro (540°) no plano horizontal e chegada em apoio facial deitado
+1.209|Sissone à posição de anel (pé de trás na altura da cabeça, corpo arqueado e cabeça para trás, afastamento das pernas de 180°), com chegada em um pé
+1.209|Salto stag em anel (pé de trás na altura da cabeça, corpo arqueado e cabeça para trás), com chegada nos dois pés
+1.209|Salto espacate à posição de anel com impulso dos dois pés (afastamento das pernas de 180°), com chegada nos dois pés
+1.209|Salto espacate à posição de anel com impulso dos dois pés com ½ giro (180°), com chegada nos dois pés
+1.211|Salto do gato com 1 giro (360°)
+1.212|Saltito com 1 giro (360°), perna livre estendida à frente na horizontal durante todo o giro
+1.213|Saltito ou salto grupado com 1 giro (360°)
+1.214|Saltito ou salto wolf com 1 giro (360°), também com chegada em apoio facial deitado
+1.301|Salto espacate com 1 giro (360°)
+1.302|Tour jeté com ½ giro (180°) adicional, com chegada em um ou dois pés, ou em espacate sentado (Produnova)
+1.302|Salto para frente, pela técnica do tour jeté, com ¾ de giro (270°) à posição carpada afastada e mais ¼ de giro (90°), com chegada em um ou dois pés (Csillag)
+1.304|Switch leap (salto espacate com troca de pernas) com ½ giro (180°) na fase de voo (Frolova)
+1.304|Johnson com ½ giro (180°) adicional
+1.305|Switch leap (salto espacate com troca de pernas) à posição de anel (afastamento das pernas de 180°)
+1.306|Salto carpado (pernas acima da horizontal) com 1 giro (360°), também com chegada em apoio facial deitado (Moerz)
+1.307|Salto carpado afastado ou salto em espacate lateral com 1 giro (360°) (Popa)
+1.307|Salto espacate com impulso dos dois pés com 1 giro (360°)
+1.309|Salto espacate em anel com impulso de uma perna (afastamento das pernas de 180°)
+1.309|Salto espacate à posição de anel com impulso dos dois pés com 1 giro (360°) (Jurkowska-Kowalska)
+1.310|Saltito ou salto estendido com 2 giros (720°)
+1.311|Salto do gato com 2 giros (720°)
+1.313|Saltito ou salto grupado com 2 giros (720°), também com chegada em apoio facial deitado
+1.402|Tour jeté com 1 giro (360°) adicional, com chegada em um ou dois pés (Gogean)
+1.404|Switch leap (salto espacate com troca de pernas) com 1 giro (360°) na fase de voo
+1.404|Johnson com 1 giro (360°) adicional (Bulimar)
+1.405|Switch leap (salto espacate com troca de pernas) à posição de anel com ½ giro (180°) (Sankova)
+1.407|Salto carpado afastado ou salto em espacate lateral com 1½ giro (540°)
+1.407|Salto espacate com impulso dos dois pés com 1½ giro (540°)
+1.409|Tour jeté à posição de anel com ½ giro (180°) adicional (Ferrari)
+1.409|Salto espacate em anel com impulso de uma perna com ½ giro (180°) (Ting)
+1.509|Salto espacate em anel com impulso de uma perna com 1 giro (360°) (Prat)
+1.514|Saltito ou salto wolf com 2 giros (720°)
+2.101|1 giro (360°) sobre uma perna – perna livre em posição opcional abaixo da horizontal
+2.201|2 giros (720°) sobre uma perna – perna livre em posição opcional abaixo da horizontal
+2.202|1 giro (360°) com o calcanhar da perna livre estendida à frente na horizontal durante todo o giro (a perna de apoio pode estar estendida ou flexionada)
+2.203|1 giro (360°) com a perna livre mantida no alto em espacate de 180° durante todo o giro
+2.204|1 giro (360°) em attitude atrás (coxa da perna livre na horizontal durante todo o giro)
+2.205|1 giro (360°) em avião para frente, com a perna livre acima da horizontal durante todo o giro
+2.206|1 giro illusion (360°) passando pelo espacate em pé, sem tocar o solo com a mão
+2.207|1 giro (360°) em posição agachada sobre uma perna – perna livre estendida durante todo o giro
+2.208|2 giros (720°) ou mais sobre as costas em posição de kipe (ângulo quadril-pernas fechado)
+2.301|3 giros (1080°) sobre uma perna – perna livre em posição opcional abaixo da horizontal
+2.307|2 giros (720°) começando com a perna livre na horizontal e descendo para completar o giro em posição wolf (Nguyen)
+2.402|2 giros (720°) com o calcanhar da perna livre estendida à frente na horizontal durante todo o giro (a perna de apoio pode estar estendida ou flexionada)
+2.403|2 giros (720°) com a perna livre mantida no alto em espacate de 180° durante todo o giro (Memmel)
+2.404|2 giros (720°) em attitude atrás (coxa da perna livre na horizontal durante todo o giro) (Semenova)
+2.404|2 giros (720°) com a perna livre segura com as duas mãos atrás/no alto durante todo o giro (Berar)
+2.407|2 giros (720°) em posição agachada sobre uma perna – perna livre estendida durante todo o giro (sem iniciar o giro com impulso das mãos no solo)
+2.501|4 giros (1440°) sobre uma perna – perna livre em posição opcional abaixo da horizontal (Gomez)
+2.503|3 giros (1080°) com a perna livre mantida no alto em espacate de 180° durante todo o giro (Mustafina)
+2.507|3 giros (1080°) em posição agachada sobre uma perna – perna livre estendida durante todo o giro (sem iniciar o giro com impulso das mãos no solo) (Mitchell)
+3.101|Salto, lançamento ou força à parada de mãos – movimento de retorno livre, também com ½ ou 1 giro (180° ou 360°) na parada de mãos
+3.102|Rolamento hecht (rolamento peixe)
+3.103|Rolamento para trás à parada de mãos com ½ ou 1 giro (180° ou 360°) na parada de mãos
+3.104|Reversão lenta para trás, a partir da posição em pé ou sentada com uma perna estendida, à parada de mãos com 1 giro (360°) na parada de mãos – movimento de retorno livre
+3.105|Reversão para frente com impulso de uma perna, ou flyspring para frente com impulso das duas pernas – com ou sem fase de hecht antes do apoio das mãos – chegada livre
+3.105|Salto para trás com ½ pirueta (180°) à reversão para frente – chegada livre
+3.106|Rondada
+3.107|Todas as variações de flic-flac e de flic-flac gainer, também com apoio de um braço
+3.107|Árabe (impulso para trás) com ¼ de pirueta (90°) – estrela sem mãos – continuando com ¼ de pirueta (90°) ao apoio facial deitado (Tsavdaridou)
+3.201|Salto, lançamento ou força à parada de mãos com 1½ ou 2 giros (540° ou 720°) na parada de mãos – movimento de retorno livre
+3.203|Rolamento para trás à parada de mãos com 1½ ou 2 giros (540° ou 720°) na parada de mãos
+3.207|Flic-flac com 1 pirueta (360°) antes do apoio das mãos
+3.305|Reversão para frente com 1 pirueta (360°) depois ou antes do apoio das mãos (Mostepanova)
+4.101|Mortal para frente grupado ou carpado
+4.103|Reversão sem mãos para frente
+4.104|Estrela sem mãos ou rondada sem mãos
+4.105|Com impulso para frente de uma ou duas pernas – mortal lateral grupado ou carpado
+4.201|Mortal para frente grupado com ½ ou 1 pirueta (180° ou 360°), também mortal para frente carpado com ½ pirueta (180°)
+4.202|Mortal para frente estendido, também com ½ pirueta (180°)
+4.205|Mortal árabe grupado ou carpado (impulso para trás com ½ pirueta [180°] e mortal para frente) – chegada livre
+4.302|Mortal para frente estendido com 1 ou 1½ pirueta (360° ou 540°)
+4.402|Mortal para frente estendido com 2 piruetas (720°) (Tarasevich)
+4.501|Duplo mortal para frente grupado (Podkopayeva)
+4.502|Mortal para frente estendido com 2½ piruetas (900°) (Cojocar)
+4.505|Duplo mortal árabe grupado (Andreasen/Jentsch)
+4.601|Duplo mortal para frente grupado com ½ pirueta (180°) (Podkopayeva)
+4.601|Duplo mortal para frente carpado (Dowell)
+4.602|Mortal para frente estendido com 3 piruetas (1080°) (Maldonado)
+4.605|Duplo mortal árabe carpado (Dos Santos)
+4.805|Duplo mortal árabe estendido (Dos Santos)
+5.101|Mortal para trás grupado, carpado ou estendido
+5.104|Mortal para trás tempo (whip)
+5.201|Mortal para trás estendido com ½ pirueta (180°), ou mortal para trás grupado ou estendido com 1 pirueta (360°)
+5.204|Mortal para trás tempo (whip) com ½ pirueta (180°)
+5.301|Mortal para trás estendido com 1½ ou 2 piruetas (540° ou 720°)
+5.304|Mortal para trás tempo (whip) com 1 pirueta (360°)
+5.401|Mortal para trás estendido com 2½ piruetas (900°)
+5.402|Duplo mortal para trás grupado (Kim)
+5.402|Duplo mortal para trás carpado
+5.501|Mortal para trás estendido com 3 piruetas (1080°)
+5.502|Duplo mortal para trás grupado ou carpado com 1 pirueta (360°) (qualquer técnica) (Mukhina) (Oliveira)
+5.601|Mortal para trás estendido com 3½ piruetas (1260°)
+5.602|Duplo mortal para trás grupado com 1½ pirueta (540°) (Heron)
+5.603|Duplo mortal para trás estendido
+5.703|Duplo mortal para trás estendido com ½ pirueta (180°) (Biles)
+5.802|Duplo mortal para trás grupado com 2 piruetas (720°) (Silivas)
+5.802|Duplo mortal para trás grupado com 3 piruetas (1080°) (Biles) – elemento 5.1002, valor J (1,00)
+5.803|Duplo mortal para trás estendido com 1 pirueta (360°) (Chusovitina/Touzhikova)
+5.903|Duplo mortal para trás estendido com 2 piruetas (720°) (Moors)

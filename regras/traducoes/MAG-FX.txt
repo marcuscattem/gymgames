@@ -1,0 +1,99 @@
+I.1|Da parada de mãos, descer ao esquadro ou ao esquadro afastado (2 s)
+I.2|Esquadro em V (2 s)
+I.3|Esquadro em V com as pernas na horizontal (2 s) (Manna)
+I.7|Da posição em pé, elevação em força suíça à parada de mãos (2 s)
+I.8|Elevação em força à parada de mãos com corpo carpado e braços estendidos, ou corpo estendido e braços flexionados, pernas unidas (2 s)
+I.9|Esquadro em V (2 s) e elevação em força à parada de mãos (2 s). Também com fase final afastada
+I.10|Manna (2 s) e elevação em força à parada de mãos (2 s). Também com fase final afastada
+I.13|Do decúbito ventral, balanceio à parada de mãos (2 s)
+I.14|Elevação em força a partir do espacate, do esquadro afastado ou do apoio facial (2 s)
+I.16|Do Manna (2 s), giro para trás (deslocamento) à parada de mãos (2 s)
+I.19|Parada de mãos (2 s)
+I.20|Elevação em força, descida ou balanço à parada de mãos japonesa (2 s)
+I.21|Do espacate, elevação em força à parada de mãos japonesa (2 s)
+I.25|Prancha com pernas afastadas (2 s)
+I.27|Prancha (2 s) / Maltesa (2 s)
+I.31|½ giro ou 1 giro na parada de mãos ou até a parada de mãos
+I.32|Da prancha afastada (2 s), elevação em força à parada de mãos (2 s)
+I.34|Da prancha (2 s), elevação em força à parada de mãos (2 s)
+I.34|Da maltesa (2 s), elevação em força à parada de mãos japonesa (2 s) (Alvariño)
+I.37|Do esquadro etc., giro para trás à posição em pé
+I.44|Rolamento Endo à parada de mãos (2 s)
+I.45|Rolamento Endo carpado à parada de mãos com pernas unidas (2 s)
+I.49|Reversão lenta para frente
+I.55|Espacate transversal ou lateral (parada obrigatória)
+I.61|Qualquer avião em pé (2 s)
+I.62|Qualquer avião em pé com afastamento de 180°, sem segurar com a mão (2 s)
+I.67|Salto para trás ao apoio facial
+I.68|Salto para trás carpando e estendendo, ou com 1 giro, ao apoio facial (Endo)
+I.73|Borboleta
+I.74|Borboleta com 1 pirueta para frente ou para trás (Tong Fei)
+I.75|Borboleta com 2 piruetas
+I.79|1 círculo ou flair
+I.80|Círculos ou flair à parada de mãos
+I.81|Flair ou círculo à parada de mãos, continuando em flair ou círculo (Gogoladze)
+I.82|Flair com salto e giro de 360° para trás passando pela parada de mãos e retorno ao flair (2 saltos)
+I.86|Descida da parada de mãos ao flair ou círculo
+I.91|Flair com ½ spindle
+I.92|Flair com 1 spindle (em 2 círculos)
+I.93|Flair com spindle de mais de 270° (em 2 círculos) diretamente à parada de mãos
+I.98|Flair com ½ spindle à parada de mãos
+I.100|Flair com spindle de mais de 270° (em 2 círculos) diretamente à parada de mãos, continuando em círculo ou flair
+I.103|Russo (wendeswing russo) com 360° ou 540°
+I.104|Russo (wendeswing russo) com 720° ou 900°
+I.105|Russo (wendeswing russo) com 1080° ou mais (Fedorchenko)
+I.109|Rolamento para trás passando pela parada de mãos com ½ giro
+I.110|Rolamento para trás com salto e 1 giro passando pela parada de mãos
+II.1|Reversão para frente ou flyspring
+II.4|Reversão seguida de mortal para frente grupado (Morandi)
+II.7|Rolamento peixe (mergulho)
+II.13|Mortal para frente grupado ou carpado, também com ½ pirueta
+II.14|Mortal para frente estendido, também com ½ pirueta
+II.16|Duplo mortal para frente grupado, também com ½ pirueta
+II.17|Duplo mortal para frente carpado, também com ½ pirueta
+II.36|Duplo mortal para frente grupado com 1 pirueta
+II.38|Mortal para frente grupado ou carpado ao apoio facial
+II.42|Duplo mortal para frente grupado com 1½ pirueta (Zapata)
+II.46|Salto para frente com ½ giro e duplo mortal para trás grupado (Deferr)
+II.48|Duplo mortal para frente carpado ou estendido com 1½ pirueta (Zapata 2)
+III.1|Mortal para trás grupado ou carpado
+III.2|Mortal para trás estendido ou mortal tempo para trás
+III.3|Duplo mortal para trás grupado
+III.4|Mortal para trás com 1 pirueta seguido de mortal para trás (Tsukahara)
+III.4|Salto árabe (para trás com ½ giro) e duplo mortal para frente grupado, também com ½ pirueta
+III.5|Duplo mortal para trás grupado com 2 piruetas, ou duplo mortal para trás grupado com 1½ pirueta, ou mortal para trás estendido com 1½ pirueta seguido de mortal para frente grupado [também Korosteljev]
+III.6|Duplo mortal para trás grupado com 3 piruetas (Ri Jong Song)
+III.7|Mortal para trás grupado ou carpado com ½ pirueta, ou árabe grupado ou carpado
+III.8|Mortal para trás estendido com ½ pirueta
+III.11|Salto árabe (para trás com ½ giro) e duplo mortal para frente carpado, também com ½ pirueta
+III.12|Duplo mortal para trás grupado com 2½ piruetas
+III.13|Flic-flac (reversão para trás)
+III.16|Duplo mortal para trás carpado
+III.18|Triplo mortal para trás grupado (Liukin)
+III.24|Triplo mortal para trás carpado (Nagornyy)
+III.29|Duplo mortal para trás afastado com 1 pirueta (Lou Yun)
+III.30|Duplo mortal para trás estendido com 2½ piruetas
+III.31|Salto para trás com ½ giro ao rolamento para frente
+III.35|Mortal para trás estendido com 1 pirueta seguido de mortal para trás carpado
+III.36|Mortal para trás estendido com 2 piruetas seguido de mortal para trás carpado (Kolyvanov)
+III.41|Duplo mortal para trás estendido, ou duplo mortal para trás estendido com ½ pirueta, ou salto árabe e duplo mortal para frente estendido (Tamayo)
+III.42|Duplo mortal para trás estendido com 1½ pirueta, ou salto árabe e duplo mortal para frente estendido com 1 pirueta [também Hypolito]
+III.42|#DROP
+III.48|Duplo mortal para trás estendido com 1 pirueta, ou salto árabe e duplo mortal para frente estendido com ½ pirueta [também Penev]
+III.54|Duplo mortal para trás estendido com 2 piruetas
+III.60|Duplo mortal para trás grupado com 3½ piruetas (Minami)
+III.66|Duplo mortal para trás estendido com 3 piruetas (Shirai 3)
+III.72|Duplo mortal para trás estendido com 3½ piruetas (Jarman)
+IV.2|Mortal para frente grupado com 1 pirueta, também com 1½ pirueta
+IV.3|Mortal para frente estendido com 1 pirueta, também com 1½ pirueta
+IV.4|Mortal para frente estendido com 2 piruetas
+IV.5|Mortal para frente estendido com 2½ piruetas
+IV.6|Mortal para frente estendido com 3 piruetas (Shirai 2)
+IV.8|Mortal para trás estendido com 1 pirueta
+IV.9|Mortal para trás estendido com 1½ ou 2 piruetas
+IV.10|Mortal para trás estendido com 2½ piruetas
+IV.11|Mortal para trás estendido com 3½ piruetas (González)
+IV.12|Mortal para frente estendido com 3½ piruetas (Goshima)
+IV.14|Mortal para trás grupado com 1½ pirueta
+IV.22|Mortal para trás estendido com 3 piruetas
+IV.24|Mortal para trás estendido com 4 piruetas (Shirai / Nguyen)

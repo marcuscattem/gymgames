@@ -1,0 +1,180 @@
+I.1|Subida de balanço para frente ao apoio
+I.2|Subida de balanço para frente e corte afastado para trás à parada de mãos
+I.3|Subida de balanço para frente e corte afastado para trás à suspensão (Muntean)
+I.5|Subida de balanço para frente com ½ giro à parada de mãos
+I.6|Subida de balanço para frente com Stützkehr de ¾ ou ¼ de giro à parada de mãos, seguido de kipe em um barrote
+I.7|Subida de balanço para frente com ¼ de giro à suspensão em 1 barrote
+I.8|Rolamento para trás com ½ giro a partir da suspensão braquial, ou subida de balanço para frente com salto Kato ao apoio (Watanabe)
+I.11|Subida de balanço para frente e Makuts ao apoio braquial
+I.12|Subida de balanço para frente e Makuts ao apoio (Tsolakidis 1)
+I.14|Rolamento para trás à parada de mãos com braços estendidos
+I.15|Lançamento para trás a partir do apoio braquial com ¼ de giro a um barrote (Kovtun)
+I.17|Subida de balanço para frente com 1 giro à parada de mãos (Richards)
+I.18|Subida de balanço para frente com 1½ giro à parada de mãos (Tsolakidis 2)
+I.20|Mortal para trás com corte afastado à suspensão braquial
+I.21|Rolamento para trás com corte afastado ao apoio
+I.24|Rolamento para trás com mortal para trás grupado à suspensão braquial (Dimitrenko)
+I.30|Rolamento para trás com mortal para trás carpado à suspensão braquial (Li Xiaopeng)
+I.34|Rolamento para trás grupado com ½ giro à suspensão braquial (Harada)
+I.35|Rolamento para trás grupado com ½ giro à suspensão (Dalton)
+I.38|Subida de balanço para trás à parada de mãos (ou com ½ giro)
+I.40|Subida de balanço para trás com salto e ½ giro à parada de mãos
+I.41|Subida de balanço para trás com salto e ¾ de giro à parada de mãos em 1 barrote
+I.44|Subida de balanço para trás com ½ giro e corte afastado para trás à suspensão braquial
+I.45|Subida de balanço para trás com ½ giro e corte afastado para trás ao apoio
+I.50|Subida de balanço para trás com ½ giro ao apoio
+I.51|Subida de balanço para trás e mortal e um quarto (5/4) para frente grupado à suspensão braquial (Yamawaki)
+I.52|Subida de balanço para trás e mortal para frente carpado ou estendido ao apoio
+I.54|Subida de balanço para trás e duplo mortal para frente grupado à suspensão braquial
+I.59|Subida de balanço para trás e mortal e um quarto (5/4) para frente afastado à suspensão braquial (Pakhniuk 1)
+I.60|Subida de balanço para trás e mortal e um quarto (5/4) para frente afastado à suspensão (Pakhniuk 2)
+I.61|Subida de balanço para trás e corte afastado ou passagem lateral das pernas ao apoio com braços flexionados
+I.62|Subida de balanço para trás e corte afastado ou passagem lateral das pernas ao apoio com braços estendidos
+II.1|Qualquer balanço à parada de mãos
+II.2|Balanço para frente com braços flexionados e salto com ½ giro ao apoio (Kato)
+II.3|Stützkehr para frente à parada de mãos (em 1 ou 2 barrotes)
+II.4|Stützkehr para frente à parada de mãos em 1 barrote (também com ¼ ou ¾ de giro adicional à parada de mãos) (Bilozerchev - Peters) (Dimic)
+II.7|Qualquer esquadro em 1 ou 2 barrotes (2 s)
+II.8|Qualquer elevação em força à parada de mãos com braços flexionados e corpo estendido, ou braços estendidos e corpo flexionado, em 1 ou 2 barrotes (2 s), também afastado
+II.9|¾ de Diamidov e ½ giro ao apoio braquial (Salazar)
+II.10|¾ de Diamidov e passagem dorsal à suspensão lateral em 1 barrote (De Freitas)
+II.13|Corte afastado para trás ao apoio
+II.14|Corte afastado para trás à parada de mãos
+II.15|Corte afastado para trás diretamente à suspensão (Babos)
+II.19|Corte afastado para frente ao apoio ou ao esquadro (2 s)
+II.27|Balanço para frente com 1 giro sobre um braço à parada de mãos (Diamidov)
+II.28|Diamidov com ¼ ou ½ giro à parada de mãos
+II.32|Balanço para frente com 1 giro à suspensão braquial (Carminucci)
+II.34|Balanço para frente com 1¼ de giro sobre um braço passando pela parada de mãos e Healy ao apoio braquial
+II.35|¾ de Diamidov e ¾ de Healy sobre a outra mão ao apoio (Makuts)
+II.36|Balanço para frente com 1¼ de giro sobre um braço passando pela parada de mãos e Healy ao apoio (Zonderland)
+II.38|Balanço para frente à parada de mãos, salto ao apoio (Carballo)
+II.39|Mortal para trás à parada de mãos, também em um barrote (Rumbutis)
+II.40|Mortal para trás com corte afastado ao apoio
+II.45|Mortal para trás com ½ pirueta à suspensão braquial (Toumilovich)
+II.46|Mortal para trás à parada de mãos em 1 barrote (ligado a elemento tipo Healy)
+II.47|Duplo mortal grupado à suspensão braquial (Morisue)
+II.48|Duplo mortal carpado à suspensão braquial (Huang Liping)
+II.52|Mortal e meio (3/2) para trás com ½ pirueta à suspensão braquial (Suarez)
+II.54|Duplo mortal para trás com ½ pirueta ao apoio braquial (Kuavita)
+II.56|Parada de mãos com ¼ de giro e queda para trás ao apoio com ¼ de giro
+II.57|Parada de mãos com ¾ de giro e queda para trás ao apoio com ¼ de giro (Brändström)
+II.62|Stützkehr para trás ao apoio
+II.63|Stützkehr para trás passando pela parada de mãos ao apoio (Novikov)
+II.69|Stützkehr para trás com corte afastado para trás ao apoio
+II.73|Healy à suspensão braquial (também a partir da parada de mãos em 1 barrote)
+II.74|Depois de um elemento de balanço (mínimo B) à parada de mãos em 1 barrote, Healy à suspensão braquial
+II.75|Healy ao apoio (também a partir da parada de mãos em 1 barrote) (Healy)
+II.76|Depois de um elemento de balanço (mínimo B) à parada de mãos em 1 barrote, Healy (360° ou mais) ao apoio (Bejenaru)
+II.80|Da parada de mãos em 1 barrote, ½ ou ¾ de giro para frente ou para trás na parada de mãos – elemento II.86
+II.81|Balanço para trás com salto e ½ giro à parada de mãos
+II.81|Balanço para trás com salto e ¼ de giro e ¾ de giro à parada de mãos em um barrote (direção inversa) (Patron 2) – elemento II.87
+II.82|Balanço para trás com salto e ¾ de giro à parada de mãos
+II.82|Balanço para trás com 1 giro, com salto de menos de ¾ de giro (ou 1 giro inverso à parada de mãos) (Patron) – elemento II.88
+II.83|Balanço para trás com salto e 1 giro à parada de mãos (Gatson 1)
+II.84|Gatson 1 com ¼ de giro à parada de mãos em 1 barrote e ¼ de giro à parada de mãos em 2 barrotes (Gatson 2)
+II.91|Qualquer parada de mãos com ½ giro (também mantida 2 s)
+II.92|Qualquer pirueta completa (1 giro) em parada de mãos nos 2 barrotes
+II.95|Mortal e um quarto (5/4) para frente afastado com ½ giro ao apoio braquial (Hall)
+II.99|Da parada de mãos, mortal para frente ao apoio; ou da parada de mãos com tomada rotacionada, inlocação ao apoio (Carballo 2)
+II.101|Mortal e um quarto (5/4) para frente afastado diretamente à suspensão (Lee Chul Hon/Sasaki)
+II.104|Mortal e um quarto (5/4) para frente grupado ou carpado à suspensão braquial
+II.105|Mortal para frente ao apoio
+II.106|Mortal e um quarto (5/4) para frente afastado à suspensão braquial
+II.107|Mortal e um quarto (5/4) para frente afastado ao apoio com braços flexionados
+II.111|Mortal para frente carpado à suspensão (Juarez 2)
+II.113|Duplo mortal para frente grupado à suspensão braquial
+II.114|Duplo mortal para frente carpado à suspensão braquial
+II.117|Mortal e um quarto (5/4) para frente estendido à suspensão braquial
+II.119|Mortal para frente com 1 pirueta à suspensão braquial (Urzica)
+III.3|Balanço para frente, corte afastado para trás e retomada com corpo estendido na horizontal ao apoio braquial com braços flexionados (Alsadi)
+III.4|Moy carpado com corte afastado para trás à parada de mãos (Tippelt)
+III.5|Balanço para frente, corte afastado para trás e retomada com corpo estendido na horizontal (Bhavsar)
+III.8|Moy carpado com corte afastado para trás e ½ giro à suspensão braquial (também com pernas unidas)
+III.9|Moy carpado com 1 giro à suspensão braquial (Nolet)
+III.10|Moy e mortal para frente grupado, carpado ou afastado à suspensão braquial (Giraldo)
+III.14|Moy ao apoio com pernas flexionadas (também sem largar a tomada)
+III.15|Moy ao apoio com pernas estendidas (também sem largar a tomada) (Moy)
+III.21|Giro gigante para trás à parada de mãos, ou com inlocação para frente (também com ¼ ou ½ giro e em um barrote) (Kenmotsu) (Wells)
+III.22|Giro gigante para trás à parada de mãos em um barrote (ligado a elemento tipo Healy) (Piasecky)
+III.29|Giro gigante para trás com Diamidov à parada de mãos, também em um barrote
+III.30|Giro gigante com Diamidov e ¼ ou ½ giro à parada de mãos
+III.38|Descida em balanço com mortal para trás estendido à suspensão
+III.39|Giro gigante para trás com ½ giro à suspensão braquial (Gushiken)
+III.40|Giro gigante para trás com ½ giro ao apoio (Marinitch)
+III.42|Giro gigante para trás com Diamidov à parada de mãos em um barrote (ligado a elemento tipo Healy)
+III.46|Giro gigante para trás com Makuts à suspensão braquial (Dauser)
+III.48|Giro gigante para trás com Makuts (Baumann)
+III.50|Giro gigante para trás com corte afastado à suspensão braquial
+III.52|Giro gigante para trás com corte afastado ao apoio ou ao apoio com braços flexionados (Korolev)
+III.53|Giro gigante para trás com ½ giro e corte afastado para trás ao apoio braquial (Sosa)
+III.59|Do giro gigante para trás, duplo mortal grupado à suspensão braquial (Belle)
+III.60|Belle carpado
+III.66|Belle com 1 pirueta
+III.69|Giro gigante para trás e mortal com ½ pirueta à suspensão na extremidade (Chartrand)
+III.70|Giro gigante para trás e mortal com ½ pirueta à suspensão braquial (Matsunaga)
+III.71|Giro gigante para trás e mortal com ½ pirueta à suspensão (Solis)
+III.72|Giro gigante para trás com ½ giro e mortal e meio (3/2) para frente à suspensão braquial (Tanaka)
+III.73|Kipe de deslize
+III.74|Kipe de deslize com ½ giro ao apoio
+III.75|Kipe de deslize para trás à parada de mãos
+III.77|Giro gigante para trás e mortal com ½ pirueta ao apoio (Torres)
+III.78|Giro gigante para trás com ½ giro e mortal e meio (3/2) para frente carpado à suspensão braquial (Esparza)
+III.80|Kipe de deslize e corte afastado para trás à parada de mãos em 1 ou 2 barrotes
+III.81|Kipe de deslize e corte afastado para trás à suspensão (Okubo)
+III.83|Giro gigante para trás e mortal estendido com ½ pirueta à suspensão braquial (Fokin)
+III.86|Kipe de deslize em um barrote passando pelo esquadro afastado à parada de mãos
+III.87|Kipe de deslize passando pelo esquadro carpado à parada de mãos
+III.88|Kipe de deslize passando pelo esquadro carpado à parada de mãos e salto com ¾ de giro ou mais
+III.92|Kipe de deslize passando pelo esquadro em V e salto com ½ giro à suspensão no outro barrote (Li Donghua)
+III.97|Impulso por baixo (cast) à suspensão braquial
+III.98|Impulso por baixo (cast) ao apoio
+III.99|Felge com ½ giro à suspensão braquial
+III.100|Felge com ½ giro ao apoio dorsal
+III.104|Impulso por baixo (cast) com ½ giro à suspensão braquial
+III.105|Impulso por baixo (cast) com ½ giro ao apoio
+III.106|Felge à parada de mãos, também em um barrote ou com ¼ de giro (Cucherat - Celen)
+III.107|Felge com ½ ou ¾ de giro à parada de mãos
+III.108|Felge com 1 giro à parada de mãos (Teng Hai Bin)
+III.111|Impulso por baixo (cast) e corte afastado para trás à parada de mãos (Arican)
+III.114|Felge com 1¼ de giro à parada de mãos (Zhou Shixiong)
+III.115|Felge com deslocamento à suspensão
+III.116|Felge ao apoio
+III.117|Felge com corte afastado imediato ao apoio
+III.119|Felge à parada de mãos em um barrote (ligado a elemento tipo Healy) (Chiarlo)
+III.120|Felge passando pela parada de mãos e Makuts (Yamamuro)
+III.122|Felge com rolamento para trás e mortal grupado com ½ pirueta à suspensão braquial (Gagnon)
+III.123|Felge com rolamento para trás e mortal estendido com ½ pirueta à suspensão braquial (Gagnon 2)
+III.125|Felge com mortal para trás grupado à suspensão braquial (Tejada)
+III.126|Felge com mortal para trás carpado à suspensão braquial (Juarez 1)
+III.127|Felge para frente ao apoio
+III.128|Felge para frente com ½ giro ao apoio
+III.130|Impulso para cima (shoot up) com ¼ de giro à parada de mãos
+III.131|Impulso para cima (shoot up) com ½ ou ¾ de giro à parada de mãos (Nguyen)
+III.137|Impulso para cima (shoot up) à parada de mãos e queda para trás ao apoio com ¼ de giro (Malone)
+IV.1|Mortal para frente carpado ou estendido, também com ½ pirueta
+IV.5|Duplo mortal para frente grupado
+IV.6|Duplo mortal para frente carpado (Belyavskiy)
+IV.8|Mortal para frente carpado ou estendido com 1 pirueta
+IV.9|Mortal para frente carpado ou estendido com 1½ pirueta
+IV.10|Mortal para frente carpado ou estendido com 2 ou 2½ piruetas
+IV.11|Duplo mortal para frente grupado com ½ pirueta, ou ½ giro e duplo mortal para trás
+IV.12|Duplo mortal para frente grupado com 1 pirueta (Larduet)
+IV.15|Duplo mortal para frente grupado a partir da extremidade
+IV.18|Duplo mortal para frente carpado com ½ pirueta (Dalaloyan)
+IV.19|Mortal para trás carpado ou estendido, também com ½ pirueta
+IV.21|Mortal para trás carpado ou estendido com 1 ou 1½ pirueta
+IV.22|Mortal para trás estendido com 2 piruetas (Kan)
+IV.28|Wende alta e mortal para trás grupado ou carpado (Roethlisberger)
+IV.32|Duplo mortal para trás grupado a partir da extremidade
+IV.33|Duplo mortal para trás grupado
+IV.34|Duplo mortal para trás carpado
+IV.36|Duplo mortal para trás grupado com 1 pirueta (Hiroyuki Kato)
+IV.40|Duplo mortal para trás grupado com ½ pirueta, ou mortal para trás grupado com ½ pirueta seguido de mortal para frente grupado
+IV.43|Da suspensão na extremidade, mortal para trás estendido
+IV.45|Da suspensão na extremidade, duplo mortal para trás grupado
+IV.46|Da suspensão na extremidade, duplo mortal para trás carpado
+IV.47|Da suspensão na extremidade, duplo mortal para trás estendido (Alvarez)
+IV.48|Da suspensão na extremidade, triplo mortal para trás grupado
+IV.53|Da suspensão na extremidade, duplo mortal para trás grupado com 1 ou ½ pirueta
+IV.54|Da suspensão na extremidade, duplo mortal para trás grupado com 2 piruetas

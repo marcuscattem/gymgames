@@ -22,7 +22,9 @@ Arquivos em Markdown para consulta e para carregar em modelos de IA. Fonte: Cód
 
 ## Observações
 
-- As tabelas de elementos foram extraídas automaticamente dos PDFs; nomes e descrições estão em inglês, como no original. Todas as páginas passaram por uma checagem automática de cobertura (nenhum texto das tabelas ficou fora de uma caixa) e algumas foram comparadas visualmente; ainda assim pode haver erro pontual — o PDF prevalece.
+- As tabelas apresentam a descrição traduzida para português ao lado do original em inglês. As traduções estão em `traducoes/` e os termos recorrentes estão no [glossário](glossario.md).
+
+- As descrições originais foram extraídas automaticamente dos PDFs. Todas as páginas passaram por uma checagem automática de cobertura e algumas foram comparadas visualmente. Em caso de divergência, consulte o PDF.
 - Nomes de ginastas que no PDF fazem parte do desenho (não são texto) não foram extraídos; aparecem na figura do elemento dentro do jogo.
 - Nas regras, valores que o PDF mostra apenas como ícone estão marcados com **(ver PDF)**.
 - Uma "caixa" pode listar mais de um elemento (separados por `//`); pelo Código, contam como o mesmo elemento para dificuldade.

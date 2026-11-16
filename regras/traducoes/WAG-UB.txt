@@ -1,0 +1,217 @@
+1.101|Kipe de deslize ao apoio na barra baixa, ou deslize com ½ giro (180°) e kipe ao apoio na barra baixa
+1.102|Salto com ½ giro (180°) e kipe ao apoio na barra baixa
+1.102|Salto com ½ giro (180°) e passagem carpada das pernas entre os braços ao apoio dorsal na barra baixa (kipe dorsal)
+1.103|Deslize na barra baixa (ou balanço para frente na barra alta) e passagem carpada das pernas entre os braços ao apoio dorsal (kipe dorsal); ou corte afastado para trás à suspensão na mesma barra
+1.104|Salto à suspensão na barra alta – também em tomada palmar – kipe ao apoio
+1.105|De frente para a barra alta – salto com 1 giro (360°) à suspensão na barra alta
+1.106|Salto afastado com repulsão das mãos sobre a barra baixa para agarrar a barra alta
+1.202|Salto com 1 giro (360°) e kipe de deslize ao apoio na barra baixa
+1.203|Kipe reverso a partir de: deslize para frente na barra baixa ou balanço para frente na barra alta – passagem carpada das pernas entre os braços à suspensão de kipe, balanço de kipe dorsal, giro sentado (carpado) para trás ao apoio dorsal
+1.204|De frente para a barra alta – salto com ½ giro (180°) – kipe ao apoio na barra alta
+1.204|Salto livre com ½ giro (180°) sobre a barra baixa à suspensão na barra alta
+1.206|Salto afastado livre sobre a barra baixa à suspensão na barra alta
+1.206|Salto hecht (pernas unidas) com repulsão das mãos sobre a barra baixa à suspensão na barra alta
+1.207|Mortal para frente grupado, carpado ou afastado sobre a barra baixa à suspensão em tomada cubital na barra baixa
+1.208|Rondada em frente à barra baixa – voo para trás (afastado) passando pelo apoio afastado livre na barra baixa
+1.210|Salto à parada de mãos na barra baixa com quadril flexionado e depois estendido, também com ½ giro (180°) na fase de parada de mãos, pernas unidas ou afastadas
+1.304|Salto com ½ giro (180°) sobre a barra baixa – kipe ao apoio na barra alta
+1.306|Salto estendido livre sobre a barra baixa, com pernas unidas, à suspensão na barra alta (Makhautsova)
+1.307|De frente para a barra alta – mortal para frente à suspensão na barra alta
+1.307|Rolamento para frente carpado com repulsão das mãos sobre a barra baixa, com voo à suspensão na barra alta
+1.308|Rondada em frente à barra baixa – voo para trás sobre a barra baixa, com pernas unidas ou afastadas, à suspensão na barra alta
+1.310|Salto à parada de mãos na barra baixa com quadril flexionado e depois estendido, com 1 giro (360°) na fase de parada de mãos, pernas unidas ou afastadas
+1.310|Salto com o corpo estendido à parada de mãos na barra baixa, também com ½ giro (180°)
+1.406|Salto hecht (pernas unidas) com repulsão das mãos e 1 giro (360°) sobre a barra baixa à suspensão na barra alta (Gebeshian)
+1.406|Salto estendido livre (pernas unidas) com 1 giro (360°) sobre a barra baixa à suspensão na barra alta (Petrova)
+1.407|Mortal para frente grupado sobre a barra baixa à suspensão na barra alta, sem tocar a barra baixa
+1.408|Rondada em frente à barra baixa – voo para trás sobre a barra baixa com 1 giro (360°) à suspensão na barra alta
+1.409|Rondada em frente à barra baixa – mortal para trás grupado sobre a barra baixa à suspensão na barra baixa (Jentsch)
+1.409|Rondada em frente à barra baixa, flic-flac passando pela parada de mãos na barra baixa (González)
+1.410|Salto com o corpo estendido à parada de mãos na barra baixa com 1 giro (360°) na fase de parada de mãos (Maaranen)
+1.411|Salto ao apoio livre na barra alta – giro de quadril livre à parada de mãos na barra alta, também com ½ giro (180°) na fase de parada de mãos (McNamara)
+1.509|Rondada em frente à barra baixa, flic-flac com 1 giro (360°) ao apoio livre ou passando pela parada de mãos na barra baixa (Gurova)
+1.609|Rondada em frente à barra baixa – mortal árabe grupado sobre a barra baixa à suspensão na barra alta, sem tocar a barra baixa
+1.709|Rondada em frente à barra baixa – mortal árabe carpado sobre a barra baixa à suspensão na barra alta, sem tocar a barra baixa
+2.101|Impulso à parada de mãos com pernas afastadas ou com quadril flexionado; também com troca de tomada em salto
+2.104|Giro de quadril para frente (quadril encostado na barra)
+2.105|Giro de quadril para trás (quadril encostado na barra)
+2.105|Giro de quadril livre para trás ou giro de quadril para trás na barra baixa – repulsão do quadril ("false-pop") – com retomada da barra baixa
+2.201|Impulso à parada de mãos com pernas unidas e quadril estendido; também com troca de tomada em salto, também com ½ giro (180°), pernas unidas ou afastadas
+2.202|Apoio facial na barra alta – passagem carpada com voo ou passagem afastada livre para frente sobre a barra alta e ½ giro (180°) à suspensão na barra alta
+2.206|Balanço por baixo livre na barra baixa, largada e contramovimento para frente em voo à suspensão na barra alta
+2.301|Impulso com 1 giro (360°) à parada de mãos
+2.302|Giro de quadril para trás com hecht, voo e ½ giro (180°) passando sobre a barra à suspensão na mesma barra – também a partir de giro de quadril livre para trás
+2.303|Do apoio facial na barra alta – impulso com largada e 1 giro (360°) à suspensão na barra alta (Caslavska)
+2.305|Giro de quadril livre à parada de mãos, também com troca de tomada em salto na fase de parada de mãos, ou com ½ giro (180°) à parada de mãos
+2.306|Giro de quadril livre para trás na barra alta com hecht ao apoio livre na barra baixa (Pedrick)
+2.307|Apoio facial externo – giro de quadril livre para trás na barra baixa com hecht à suspensão na barra alta (Yarotska)
+2.401|Impulso com 1½ giro (540°) à parada de mãos (Reeder)
+2.403|Do apoio facial interno na barra baixa – impulso com mortal rolado para frente à suspensão na barra alta (rolamento Radochla) (Brause/Radochla)
+2.404|Giro de quadril livre para frente à parada de mãos, também com ½ giro (180°) na fase de parada de mãos (kipe Weiler)
+2.405|Giro de quadril livre com 1 giro (360°) à parada de mãos
+2.406|Apoio facial interno na barra baixa – giro de quadril livre passando pela parada de mãos, com voo à suspensão na barra alta (Shaposhnikova)
+2.407|Apoio facial externo – giro de quadril livre para trás na barra baixa com hecht e ½ giro (180°) à suspensão na barra alta (pernas unidas ou afastadas)
+2.503|Apoio facial na barra alta – impulso com mortal para frente afastado à suspensão na barra alta (mortal Comaneci) (Comaneci)
+2.504|Giro de quadril livre para frente à parada de mãos com 1 giro (360°) na fase de parada de mãos (Godwin)
+2.504|Giro de quadril livre para frente (Weiler) seguido de mortal para frente afastado à suspensão na barra alta (mortal Comaneci) (Adalsteinsdottir)
+2.505|Giro de quadril livre com 1½ giro (540°) à parada de mãos
+2.506|Giro de quadril livre na barra alta, contramovimento afastado sobre a barra alta à suspensão na barra alta (Hindorff)
+2.506|Giro de quadril livre na barra alta com contramovimento afastado sobre a barra alta e ½ giro (180°) à suspensão em tomada mista cubital (Martins)
+2.506|Giro de quadril livre passando pela parada de mãos com ½ giro (180°) em voo à suspensão na barra alta (Khorkina)
+2.606|Giro de quadril livre na barra alta, contramovimento carpado sobre a barra alta à suspensão na barra alta (Shang)
+2.606|Giro de quadril livre na barra alta, contramovimento carpado sobre a barra alta com ½ giro (180°) à suspensão em tomada mista cubital (Black)
+2.706|Giro de quadril livre na barra alta com contramovimento estendido – hecht reverso em posição estendida sobre a barra alta à suspensão (Zhang)
+3.201|Giro gigante para trás em tomada dorsal, ou em um braço (Liu), também com ½ giro (180°) à parada de mãos
+3.206|Giro gigante para frente em tomada palmar, dorsal ou mista, também com pernas afastadas ou quadril flexionado na fase ascendente; também com ½ giro (180°) à parada de mãos
+3.301|Giro gigante para trás com 1 giro (360°) à parada de mãos
+3.304|Suspensão na barra alta, de frente para a barra baixa – balanço para frente e rolamento para trás (pernas afastadas) ao apoio livre na barra baixa
+3.306|Giro gigante para frente com 1 giro (360°) à parada de mãos
+3.307|Balanço para trás – voo afastado para trás sobre a barra baixa à parada de mãos na barra baixa
+3.308|Balanço para trás e mortal para frente grupado à suspensão na barra alta (mortal Jaeger)
+3.309|Balanço para trás com passagem carpada livre ou salto afastado e ½ giro (180°) sobre a barra alta à suspensão (Zhang/Volpi)
+3.310|Giro gigante para frente em tomada cubital com corpo carpado ou estendido (gigante cubital), também com ½ giro (180°) à parada de mãos (Zaytseva)
+3.401|Giro gigante para trás com 1½ ou 2 giros (540° ou 720°) à parada de mãos, também com salto e 1 giro (360°) à parada de mãos (Chusovitina)
+3.402|Suspensão na barra alta – balanço para frente com ½ giro (180°) e voo à parada de mãos na barra baixa
+3.403|Balanço longo para frente, contramovimento afastado – hecht reverso sobre a barra alta à suspensão (Tkatchev) (Davydova)
+3.403|Tkatchev com ½ giro (180°) (Kononenko)
+3.403|Balanço para frente com ½ giro (180°), salto carpado sobre a barra alta à suspensão (Monckton)
+3.404|Suspensão na barra alta, de frente para a barra baixa – balanço para frente, mortal para trás estendido entre as barras ao apoio livre na barra baixa (Pak)
+3.405|Balanço para frente com ½ giro (180°) e mortal para frente afastado à suspensão na barra alta (mortal Deltchev), ou carpado (Moreno/Nakamura), ou balanço para frente e mortal para trás carpado com ½ giro (180°) à suspensão na barra alta (mortal Gienger)
+3.407|Balanço para trás, largada e ½ giro (180°) em voo entre as barras ao apoio livre na barra baixa (Ejova)
+3.408|Mortal Jaeger afastado à suspensão na barra alta
+3.408|Mortal Jaeger afastado com ½ giro (180°) à suspensão na barra alta (Li Ya)
+3.408|Mortal Jaeger carpado à suspensão na barra alta
+3.409|Balanço para trás com ½ giro (180°) e voo afastado para trás sobre a barra alta à suspensão (Khorkina)
+3.410|Giro gigante para frente em tomada cubital com 1 giro (360°) à parada de mãos
+3.502|Suspensão na barra alta – balanço para frente com 1½ giro (540°) e voo sobre a barra baixa à suspensão na barra baixa (Strong)
+3.503|Tkatchev carpado
+3.503|Balanço longo para frente com ½ giro (180°) e mais ½ giro (180°) ao contramovimento afastado em voo sobre a barra alta à suspensão (Shushunova)
+3.504|Mortal Pak com 1 giro (360°) (Bhardwaj)
+3.505|Balanço para frente e mortal para trás estendido com ½ giro (180°) à suspensão na barra alta
+3.506|Giro gigante para frente em tomada palmar à parada de mãos com início de 1 giro (360°) em um braço antes da fase de parada de mãos, ou giro gigante para frente em tomada palmar com 1½ giro (540°) à parada de mãos
+3.510|Giro gigante para frente em tomada cubital com início de 1 giro (360°) em um braço antes da fase de parada de mãos, completado na parada de mãos, ou giro gigante para frente em tomada cubital com 1½ giro (540°) à parada de mãos (qualquer técnica é aceita)
+3.604|De frente para fora na barra alta – balanço para frente e contramortal para frente com pernas afastadas à suspensão na barra alta em tomada palmar (Kim)
+3.608|Mortal Jaeger estendido à suspensão na barra alta (Capuccitti)
+3.608|Mortal Jaeger carpado com 1 giro (360°) à suspensão na barra alta (Minamino)
+3.705|Balanço para frente e mortal para trás estendido com 1½ giro (540°) à suspensão na barra alta (Hristakieva)
+3.708|Balanço para trás com mortal para frente grupado sobre a barra alta à suspensão na barra alta (Mo)
+3.708|Mortal Jaeger estendido com 1 giro (360°) à suspensão na barra alta (Yang)
+4.101|Giro afastado livre para frente ao apoio livre
+4.103|Giro afastado livre para frente em tomada cubital ao apoio livre
+4.104|Giro afastado livre para trás ao apoio livre
+4.106|Apoio dorsal – giro sentado (carpado) para frente ao apoio dorsal
+4.107|Apoio dorsal – giro sentado (carpado) para trás ao apoio dorsal
+4.201|Kipe na barra alta passando pelo apoio afastado livre – balanço/força à parada de mãos e ½ giro (180°) na fase de parada de mãos
+4.205|De frente para dentro – Stalder para trás com largada e contramovimento para frente em voo à suspensão na barra alta
+4.208|Giro carpado livre para trás na barra baixa com contravoo à suspensão na barra alta
+4.302|Giro afastado livre para trás na barra alta com voo ao apoio livre na barra baixa
+4.304|Stalder para trás à parada de mãos, também com troca de tomada em salto na fase de parada de mãos ou com ½ giro (180°) à parada de mãos
+4.305|De frente para dentro – Stalder para trás com voo hecht à suspensão na barra alta
+4.308|Giro carpado livre para trás na barra baixa com voo hecht à suspensão na barra alta (Zgoba)
+4.308|Giro carpado livre para trás na barra alta com voo ao apoio livre na barra baixa (Sayer)
+4.401|Stalder para frente à parada de mãos, também com ½ giro (180°) à parada de mãos
+4.402|Giro afastado livre para trás na barra alta com voo para frente à parada de mãos na barra baixa
+4.403|Stalder para frente em tomada cubital à parada de mãos, também com ½ giro (180°) à parada de mãos (White)
+4.404|Stalder para trás com 1 giro (360°) à parada de mãos (Frederick)
+4.405|De frente para fora – Stalder para trás passando pela parada de mãos, com voo à suspensão na barra alta
+4.406|Giro carpado livre para frente à parada de mãos, também com ½ giro (180°) à parada de mãos
+4.407|Giro carpado livre para trás à parada de mãos, também com ½ giro (180°) à parada de mãos
+4.501|Stalder para frente com 1 giro (360°) à parada de mãos
+4.502|Stalder para trás na barra alta com contramovimento afastado – hecht reverso sobre a barra alta à suspensão (Ricna)
+4.502|Stalder para trás na barra alta com contramovimento afastado – hecht reverso sobre a barra alta com ½ giro (180°) à suspensão em tomada mista cubital (Derwael / Fenton)
+4.503|Stalder para frente em tomada cubital com 1 giro (360°) à parada de mãos (qualquer técnica é aceita)
+4.504|Stalder para trás com 1½ giro (540°) à parada de mãos
+4.505|Stalder para trás passando pela parada de mãos, com voo e ½ giro (180°) à suspensão na barra alta
+4.506|Giro carpado livre para frente com 1 giro (360°) à parada de mãos
+4.507|Giro carpado livre para trás com 1 giro (360°) à parada de mãos
+4.508|Giro carpado livre para trás passando pela parada de mãos, com voo à suspensão na barra alta, também com ½ giro (180°) (Komova)
+4.508|Giro carpado livre para trás com contramovimento afastado (abertura do quadril antes do voo) – hecht reverso sobre a barra alta à suspensão (Galante)
+4.602|Stalder para trás na barra alta com contramovimento carpado – hecht reverso sobre a barra alta à suspensão (Downie)
+4.608|Giro carpado livre para trás com contramovimento carpado – hecht reverso sobre a barra alta à suspensão
+4.708|Giro carpado livre para trás com contramovimento estendido – hecht reverso em posição estendida sobre a barra alta à suspensão (Nemour)
+5.101|Apoio dorsal na barra baixa ou alta – giro sentado (carpado) para frente com corte afastado para trás à suspensão na mesma barra
+5.104|Balanço por baixo para trás (balanço carpado invertido), deslocamento (Schleudern) à suspensão na barra alta
+5.105|Giro com apoio dos pés para frente (carpado ou afastado)
+5.106|Giro com apoio dos pés para frente em tomada cubital (carpado ou afastado)
+5.108|Giro com apoio dos pés para trás (carpado ou afastado)
+5.202|Apoio dorsal na barra alta – giro sentado para trás com largada à suspensão na barra baixa
+5.207|Balanço por baixo na barra baixa (com apoio dos pés) com contramovimento para frente em voo à suspensão na barra alta
+5.301|Apoio dorsal externo na barra alta – queda para trás ao balanço carpado invertido ou giro sentado (carpado) para frente – corte afastado para trás com voo sobre a barra baixa à suspensão
+5.301|Apoio dorsal na barra baixa – giro sentado (carpado) para frente com corte afastado para trás e troca de tomada à suspensão na barra alta
+5.302|Apoio dorsal carpado livre na barra alta (pernas unidas) – giro completo para trás terminando em apoio dorsal livre na barra alta (giro Steinemann)
+5.303|Apoio dorsal carpado livre (pernas unidas) na barra alta – giro completo para trás com saída carpada para trás à suspensão na barra alta (Li Li)
+5.304|Schleudern até próximo da parada de mãos com troca em salto para tomada dorsal na barra alta
+5.304|Passagem carpada das pernas entre os braços na barra alta, deslocamento e largada com ½ giro (180°) em voo entre as barras para agarrar a barra baixa em suspensão (Alt)
+5.305|Giro carpado com apoio dos pés para frente em tomada palmar à parada de mãos, também com ½ giro (180°) à parada de mãos
+5.306|Giro carpado com apoio dos pés para frente em tomada cubital à parada de mãos, também com ½ giro (180°)
+5.307|Balanço por baixo na barra alta ou baixa com largada das mãos e 1½ giro (540°) à suspensão (Burda)
+5.308|Giro carpado com apoio dos pés para trás à parada de mãos, também com troca em salto para tomada palmar na fase de parada de mãos, também com ½ giro (180°)
+5.402|Apoio dorsal carpado livre na barra alta (pernas unidas) – giro completo para trás – continuando pelo apoio dorsal carpado livre para trás sobre a barra alta até a suspensão (Mirgoradskaja)
+5.402|Da parada de mãos, giro carpado livre para trás ao apoio dorsal carpado invertido (Krasnyanska)
+5.403|Apoio dorsal carpado livre (pernas unidas) na barra alta – giro completo para trás com contravoo para trás afastado (Li Li)
+5.404|Balanço por baixo para trás (balanço carpado invertido) na barra alta – deslocamento com voo à parada de mãos na barra baixa (Zuchold-Schleudern), também a partir da passagem carpada das pernas entre os braços etc.
+5.405|Giro carpado com apoio dos pés para frente em tomada palmar com 1 giro (360°) à parada de mãos (Hoefnagel)
+5.406|Giro carpado com apoio dos pés para frente em tomada cubital com 1 giro (360°) à parada de mãos
+5.408|Giro carpado com apoio dos pés para trás com 1 giro (360°) à parada de mãos
+5.409|Apoio facial interno na barra baixa – giro carpado com apoio dos pés para trás passando pela parada de mãos, com voo à suspensão na barra alta (Maloney)
+5.410|Giro carpado com apoio dos pés para trás, contramovimento afastado – hecht reverso sobre a barra alta à suspensão (Ray)
+5.410|Giro carpado com apoio dos pés para trás com contramovimento afastado (hecht) sobre a barra alta e ½ giro (180°) à suspensão em tomada mista cubital (Tweddle)
+5.501|Passagem carpada das pernas para dentro ao giro Adler – giro sentado (carpado) para frente passando pelo apoio livre estendido, terminando em tomada cubital (desvio de até 30° permitido), também com ½ giro (180°) (Luo)
+5.502|Apoio dorsal carpado livre na barra alta (pernas unidas) – giro para trás continuando em mortal para trás estendido entre as barras ao apoio livre na barra baixa (Teza); ou giro para trás e ½ giro (180°) com voo à parada de mãos na barra baixa
+5.508|Giro carpado com apoio dos pés para trás com 1½ giro (540°) à parada de mãos (Lucke)
+5.509|De frente para fora na barra baixa – giro carpado com apoio dos pés para trás passando pela parada de mãos, com voo e ½ giro (180°) (Van Leeuwen), ou 1 giro (360°) à suspensão na barra alta (Seitz)
+5.510|Giro carpado com apoio dos pés para trás, contramovimento carpado (hecht) sobre a barra alta à suspensão (Church)
+5.510|Giro carpado com apoio dos pés para trás com contramovimento carpado (hecht) sobre a barra alta e ½ giro (180°) à suspensão em tomada mista cubital (Fenton)
+5.607|De frente para fora na barra alta – balanço por baixo com apoio dos pés – contramortal para frente afastado à suspensão na barra alta em tomada palmar
+5.610|Giro carpado com apoio dos pés para trás com contramovimento estendido – hecht reverso em posição estendida sobre a barra alta à suspensão (Nabieva)
+5.610|Giro carpado com apoio dos pés para trás com contramovimento estendido – hecht reverso em posição estendida sobre a barra alta, com ½ giro (180°) à suspensão em tomada mista cubital (Derwael)
+6.101|Da barra alta – balanço por baixo com ½ giro (180°) ou 1 giro (360°) à posição em pé
+6.102|Da barra alta – balanço por baixo livre com ½ giro (180°) ou 1 giro (360°) à posição em pé
+6.104|Balanço para frente e mortal para trás grupado, carpado ou estendido (flyaway)
+6.108|Balanço para trás e mortal para frente grupado, carpado ou estendido; ou giro afastado livre para frente na barra alta e mortal para frente grupado
+6.201|Da barra alta – balanço por baixo com mortal para frente grupado ou carpado
+6.204|Balanço para frente e mortal para trás grupado ou estendido com ½ pirueta (180°) ou 1 pirueta (360°) (flyaway)
+6.205|Balanço para frente e duplo mortal para trás grupado
+6.208|Balanço para trás e mortal para frente grupado ou estendido com ½ pirueta (180°) ou 1 pirueta (360°)
+6.209|Giro de quadril para trás (também livre) na barra baixa ou alta – hecht
+6.210|Sobre a barra alta – mortal para frente grupado
+6.301|Da barra alta – balanço por baixo com mortal para frente grupado ou carpado com ½ pirueta (180°) ou 1 pirueta (360°)
+6.302|Da barra alta – balanço por baixo livre com mortal para frente grupado ou carpado; também com ½ pirueta (180°)
+6.302|Giro afastado livre com mortal para frente grupado (Plichta), também com ½ pirueta (180°) (Alt)
+6.303|Da barra alta – balanço por baixo, ou balanço por baixo livre, com ½ giro (180°) e mortal para trás grupado ou carpado (Comaneci)
+6.304|Balanço para frente e mortal para trás estendido com 1½ pirueta (540°) ou 2 piruetas (720°)
+6.305|Balanço para frente e duplo mortal para trás carpado
+6.308|Balanço para trás e mortal para frente estendido com 1½ pirueta (540°) ou 2 piruetas (720°) (Pechstein)
+6.308|Da tomada cubital, balanço para trás, ½ giro (180°) e duplo mortal para trás grupado (Fan)
+6.309|Giro de quadril para trás (também livre) na barra baixa ou alta – hecht com 1 pirueta (360°)
+6.310|Sobre a barra alta – mortal para frente carpado, ou mortal para trás grupado ou carpado (Delladio / Parolari)
+6.401|Da barra alta – balanço por baixo com mortal para frente grupado com 1½ pirueta (540°)
+6.401|Da barra alta – balanço por baixo com mortal para frente estendido com ½ pirueta (180°) (Moors)
+6.402|Da barra alta – balanço por baixo livre com mortal para frente grupado com 1 pirueta (360°)
+6.402|Balanço por baixo carpado livre e mortal para frente estendido com ½ pirueta (180°) (Brunner)
+6.402|Da barra alta – giro afastado livre com mortal para frente grupado com 1 pirueta (360°) (Petz)
+6.403|Da barra alta – balanço por baixo com ½ giro (180°) e mortal para trás estendido
+6.403|Da barra alta – balanço por baixo livre com ½ giro (180°) e mortal para trás estendido (Okino)
+6.403|Da barra alta – balanço por baixo com ½ giro (180°) e mortal para trás grupado com 1 pirueta (360°) (Kraeker)
+6.404|Balanço para frente e mortal para trás estendido com 2½ piruetas (900°) (Ji)
+6.405|Balanço para frente e duplo mortal para trás grupado ou carpado com 1 pirueta (360°) no primeiro ou no segundo mortal (Morio / Chusovitina)
+6.406|Balanço para frente e duplo mortal para trás estendido
+6.407|Balanço para frente e mortal para trás grupado com ½ pirueta (180°), seguido de mortal para frente grupado (Fontaine)
+6.407|Balanço para frente com ½ giro (180°) e duplo mortal para frente grupado
+6.408|Balanço para trás e duplo mortal para frente grupado
+6.408|Da tomada cubital, balanço para trás, ½ giro (180°) e duplo mortal para trás carpado (Okamura)
+6.409|Giro de quadril para trás (também livre) na barra baixa ou alta – hecht com mortal para trás grupado (Mukhina)
+6.502|Da barra alta – balanço por baixo livre com mortal para frente grupado com 1½ pirueta (540°)
+6.504|Balanço para frente e mortal para trás estendido com 3 piruetas (1080°) (Bar)
+6.505|Balanço para frente e duplo mortal para trás grupado com 1½ pirueta (540°) (Mustafina)
+6.507|Balanço para frente e mortal para trás estendido com ½ pirueta (180°), seguido de mortal para frente estendido (Blanco)
+6.507|Balanço para frente com ½ giro (180°) e duplo mortal para frente carpado (Giovannini / Li Ya)
+6.508|Balanço para trás e duplo mortal para frente grupado com ½ pirueta (180°), ou mortal para frente com ½ pirueta (180°) seguido de mortal para trás grupado (Arai)
+6.508|Balanço para trás e duplo mortal para frente carpado (Stewart)
+6.509|Giro de quadril para trás (também livre) na barra baixa ou alta – hecht com ½ giro (180°) e mortal para frente grupado
+6.605|Balanço para frente e duplo mortal para trás grupado com 2 piruetas (720°) (Fabrichnova)
+6.606|Balanço para frente e duplo mortal para trás estendido com 1 pirueta (360°) no primeiro ou no segundo mortal
+6.608|Balanço para trás e duplo mortal para frente carpado com ½ pirueta (180°) (Pentek)
+6.609|Giro de quadril para trás (também livre) na barra baixa ou alta – hecht com 1 pirueta (360°) e mortal para trás grupado (Ma)
+6.706|Balanço para frente e duplo mortal para trás estendido com 2 piruetas (720°) (Ray)
+6.707|Balanço para frente e triplo mortal para trás grupado (Magaña)

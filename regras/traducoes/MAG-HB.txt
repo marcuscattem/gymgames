@@ -1,0 +1,131 @@
+I.1|Subida de balanço para trás à parada de mãos
+I.2|Subida de balanço para trás à parada de mãos com 1 giro, também à tomada mista
+I.7|Subida de balanço para trás à parada de mãos com ½ giro
+I.8|Balanço para trás e pirueta à suspensão
+I.9|Balanço para trás e pirueta ao apoio
+I.13|Giro gigante para frente
+I.14|1 giro passando pela parada de mãos em tomada mista
+I.15|1 giro passando pela parada de mãos em dupla tomada cubital
+I.19|½ giro passando pela parada de mãos
+I.20|Giro gigante para frente com voo, ou com ½ giro
+I.21|Giro gigante para frente com voo e 1 giro
+I.26|Giro gigante para frente em um braço, em tomada palmar
+I.27|Em um braço, giro gigante para frente com 1 giro passando pela tomada cubital e 1 giro à tomada palmar (Zou Li Min)
+I.31|Giro gigante para trás
+I.31|½ giro para trás passando pela parada de mãos – elemento I.37
+I.32|Giro gigante para trás em um braço
+I.43|Giro gigante para trás com salto à tomada palmar
+I.44|Giro gigante para trás com voo
+I.45|Giro gigante para trás com voo e 1 giro (Quast)
+I.50|Giro gigante para trás com salto e ½ giro à tomada cubital
+I.51|Giro gigante para trás com salto e 1½ giro à tomada palmar ou mista cubital
+I.52|Giro gigante para trás com salto e 1½ giro à dupla tomada cubital (Rybalko)
+I.56|½ giro para trás passando pela parada de mãos à tomada cubital
+I.62|Balanço longo para frente com salto à tomada cubital
+I.68|Giro gigante em tomada cubital
+I.69|Giro gigante dorsal para frente (gigante russo)
+I.70|Giro gigante dorsal para trás (gigante tcheco)
+I.74|Subida Steineman com ½ giro ao apoio (Ono)
+I.75|Giro gigante em tomada cubital com 1 giro passando pela parada de mãos em tomada mista
+I.76|Giro gigante dorsal para trás (gigante tcheco) com ½ giro ao giro gigante para frente
+II.2|Subida de balanço para trás e passagem afastada sobre a barra à suspensão dorsal
+II.3|Subida de balanço para trás e hecht afastado à suspensão, também com ½ giro (Markelov) (Principi)
+II.6|Subida de balanço para trás e hecht estendido com 1½ giro à suspensão (Walstrom)
+II.9|Markelov estendido com pernas unidas, também com ½ giro (Yamawaki) (Muñoz - Pozzo)
+II.15|Balanço para frente e salto para trás afastado sobre a barra à suspensão, também com ½ giro (Tkatchev) (Lynch)
+II.16|Tkatchev estendido, também com ½ giro à tomada mista cubital seguido de subida de balanço para trás à parada de mãos (Moznik)
+II.18|Tkatchev estendido com 1 giro (Liukin)
+II.21|Balanço para frente e salto para trás carpado sobre a barra à suspensão, também com ½ giro (Samiloglu)
+II.23|Tkatchev afastado com ½ giro à dupla tomada cubital (Kulesza)
+II.26|Subida de balanço para trás e salto carpado com ½ giro à suspensão (Voronin)
+II.28|Stalder ou giro de quadril livre para trás ao Tkatchev afastado, também com ½ giro (Piatti)
+II.29|Piatti estendido, também com ½ giro à tomada mista cubital seguido de subida de balanço para trás à parada de mãos (Kierzkowski)
+II.32|Subida de balanço para trás e passagem dorsal com ¼ de giro à suspensão
+II.34|Piatti carpado, também com ½ giro
+II.36|Piatti estendido com 1 giro (Suarez)
+II.39|Balanço para trás e mortal para frente grupado ou afastado à suspensão, também a partir da tomada cubital (Jäger)
+II.40|Balanço para trás e mortal para frente carpado à suspensão, também a partir da tomada cubital
+II.41|Mortal para frente estendido, também a partir da tomada cubital (Balabanov)
+II.42|Mortal para frente estendido com 1 pirueta, também a partir da tomada cubital (Winkler - Pogorelev)
+II.48|Mortal para frente estendido com 2 piruetas, também a partir da tomada cubital
+II.51|Gigante tcheco e salto para trás afastado sobre a barra à suspensão
+II.52|Balanço para frente e contramortal para frente afastado à suspensão (Xiao Ruizhi)
+II.57|Balanço para frente com ½ giro e mortal para frente afastado à suspensão (Deltchev)
+II.58|Balanço para frente e mortal para trás carpado com ½ pirueta à suspensão, também a partir do gigante tcheco (Gienger) (Sapronenko)
+II.60|Balanço para frente e mortal para trás com 1½ pirueta à suspensão (Deff)
+II.65|Mortal para frente grupado sobre a barra, também a partir da tomada cubital (Gaylord)
+II.66|Gaylord com ½ pirueta (Pegan)
+II.72|Gaylord com 1 pirueta (Koudinov)
+II.78|Gaylord carpado
+II.82|Mortal para trás grupado com ½ pirueta sobre a barra
+II.83|Mortal para trás carpado com ½ pirueta sobre a barra (Gaylord 2)
+II.84|Pegan carpado (Maras)
+II.88|Duplo mortal para trás grupado sobre a barra (Kovacs)
+II.89|Kovacs com 1 pirueta (Kolman)
+II.90|Kovacs com 2 piruetas (Bretschneider)
+II.95|Kovacs carpado ou estendido
+II.96|Kovacs estendido ou carpado com 1 pirueta (Cassina) (Pineda – carpado)
+II.102|Kovacs estendido com 2 piruetas (Miyachi)
+II.108|Kovacs com 1½ pirueta à tomada mista (Shaham)
+III.1|Kipe à parada de mãos, ou da tomada mista à parada de mãos
+III.8|Da parada de mãos, giro de quadril livre para frente passando pela parada de mãos (Weiler)
+III.13|Da suspensão ou do apoio, giro de quadril livre passando pela parada de mãos
+III.25|Da suspensão ou do apoio, giro de quadril livre com salto à parada de mãos
+III.32|Giro livre para frente afastado passando pela parada de mãos (Endo)
+III.33|Giro livre para frente com pernas unidas passando pela parada de mãos
+III.38|Giro livre para trás afastado passando pela parada de mãos (Stalder)
+III.40|Stalder com salto e 1½ giro passando pela parada de mãos à tomada mista cubital
+III.41|Stalder com salto e 1½ giro passando pela parada de mãos à tomada cubital
+III.45|Stalder com pernas unidas passando pela parada de mãos
+III.50|Stalder com salto passando pela parada de mãos
+III.51|Stalder com pernas unidas e salto passando pela parada de mãos – elemento III.57
+III.63|Giro carpado dorsal para frente passando pela parada de mãos (Adler)
+III.64|Adler com ½ giro passando pela parada de mãos à tomada dorsal
+III.65|Adler com 1 giro passando pela parada de mãos à tomada palmar (Fuentes)
+III.70|Adler com salto à parada de mãos em tomada palmar, dorsal ou mista
+III.76|Adler com 1 giro passando pela parada de mãos à tomada mista, também com salto (Baldauf)
+III.79|Lançamento para trás à suspensão dorsal
+III.80|Da suspensão dorsal, subida de balanço para frente ao apoio dorsal (Steineman)
+III.81|Passagem carpada das pernas entre os braços e lançamento livre para trás à suspensão dorsal
+III.87|Subida Steineman com passagem carpada ou à parada de mãos (Köste)
+III.92|Subida Steineman com passagem lateral das pernas para trás ao apoio ou à suspensão
+III.99|Endo em tomada cubital passando pela parada de mãos
+III.100|Endo com pernas unidas em tomada cubital passando pela parada de mãos
+III.103|Giro carpado para frente e corte afastado à suspensão ou ao apoio
+III.104|Giro carpado para frente e corte afastado passando pela parada de mãos
+III.105|Giro carpado para frente e corte afastado com ½ giro (Carballo)
+III.106|Carballo com ½ giro à tomada mista cubital (Quintero)
+III.107|Quintero à tomada cubital
+IV.1|Mortal para frente carpado ou estendido, também com ½ pirueta
+IV.2|Mortal para frente estendido com 1 ou 1½ pirueta
+IV.3|Mortal para frente estendido com 2 ou 2½ piruetas
+IV.6|Triplo mortal para frente grupado, também com ½ pirueta (Rumbutis)
+IV.9|Duplo mortal para frente grupado ou carpado, também com ½ pirueta
+IV.10|Duplo mortal para frente grupado ou carpado com 1 ou 1½ pirueta
+IV.11|Duplo mortal para frente grupado ou carpado com 2 ou 2½ piruetas
+IV.16|Duplo mortal para frente estendido, também com ½ pirueta, ou sobre a barra (Roethlisberger 2)
+IV.17|Duplo mortal para frente estendido com 1 ou 1½ pirueta (Alvarez)
+IV.21|Duplo mortal para frente grupado ou carpado, também com ½ pirueta, sobre a barra
+IV.22|Duplo mortal para frente grupado ou carpado com 1 ou 1½ pirueta sobre a barra (Roethlisberger 1)
+IV.25|Mortal para trás carpado ou estendido, também com ½ ou 1 pirueta
+IV.26|Mortal para trás estendido com 1½ ou 2 piruetas
+IV.27|Mortal para trás estendido com 2½ ou 3 piruetas
+IV.32|Duplo mortal para trás grupado ou carpado
+IV.33|Duplo mortal para trás grupado com 1 pirueta (Tsukahara)
+IV.34|Duplo mortal para trás grupado com 2 piruetas
+IV.39|Duplo mortal para trás estendido
+IV.40|Duplo mortal para trás estendido com 1 pirueta
+IV.41|Duplo mortal para trás estendido com 2 piruetas (Watanabe)
+IV.42|Duplo mortal para trás estendido com 3 piruetas (Fedorchenko)
+IV.48|Triplo mortal para trás grupado, também sobre a barra (Andrianov) (Hoffmann)
+IV.50|Duplo mortal para trás grupado sobre a barra
+IV.51|Duplo mortal para trás grupado com 1 pirueta sobre a barra
+IV.52|Duplo mortal para trás grupado com 2 piruetas sobre a barra
+IV.54|Triplo mortal para trás carpado (Fardan)
+IV.57|Duplo mortal para trás estendido sobre a barra
+IV.58|Duplo mortal para trás estendido com 1 pirueta sobre a barra (Hayden)
+IV.59|Duplo mortal para trás estendido com 1½ ou 2 piruetas sobre a barra (Faulk) (Valverde)
+IV.60|Triplo mortal para trás grupado com 1 pirueta (Belle)
+IV.61|Hecht afastado, hecht ou hecht com ½ giro
+IV.62|Hecht com 1 ou 1½ giro
+IV.64|Hecht com 2 giros

@@ -1,0 +1,142 @@
+I.1|Subida de balanço para frente ao apoio
+I.7|De qualquer prancha, da maltesa ou do balanço para trás em apoio, rolamento para frente ao balanço para trás em suspensão
+I.8|Subida de balanço para frente e contramortal para frente ao balanço para trás em suspensão (Chechi)
+I.19|Da suspensão, felge para cima ao apoio [proibido para juvenis]
+I.20|Balanço para frente passando pela parada de mãos
+I.21|Duplo mortal para trás grupado à suspensão (Guczoghy)
+I.22|Duplo mortal para trás carpado ou estendido à suspensão
+I.25|Deslocamento para trás carpado ou estendido
+I.31|Subida de balanço para trás ao apoio
+I.32|Subida de balanço para trás, corpo estendido, passando pela parada de mãos
+I.37|Inlocação carpada ou estendida
+I.38|Balanço para trás e mortal para frente carpado ao apoio (Honma)
+I.39|Honma estendido
+I.43|Inlocação lenta a partir da suspensão
+I.44|Duplo mortal para frente grupado à suspensão (Yamawaki)
+I.45|Duplo mortal para frente carpado ou estendido à suspensão (Jonasson)
+I.49|Kipe ao apoio
+I.55|Kipe dorsal com braços flexionados ao apoio
+I.56|Kipe dorsal ao apoio
+I.61|Balanço para frente ao balanço para trás em suspensão
+I.63|Balanço para trás e mortal carpado ao apoio
+I.67|Do apoio ou do crucifixo, felge para trás carpado ou estendido com braços flexionados ao apoio
+I.74|Kipe dorsal ou rolamento para trás estendido com braços flexionados à parada de mãos (2 s)
+I.75|Balanço para frente à parada de mãos, ou giro gigante para trás à parada de mãos (2 s)
+I.81|Subida de balanço para trás à parada de mãos, ou giro gigante para frente à parada de mãos (2 s)
+I.86|Do apoio, balanço para trás à parada de mãos (2 s)
+I.87|Honma e balanço para trás à parada de mãos (2 s)
+I.88|Honma estendido e balanço para trás à parada de mãos (2 s)
+II.1|Esquadro (2 s) ou esquadro afastado (2 s)
+II.2|Esquadro em V (2 s)
+II.4|Crucifixo invertido (2 s)
+II.7|Prancha dorsal em suspensão (back lever) (2 s)
+II.9|Prancha em apoio (2 s)
+II.10|Prancha em apoio na altura das argolas (maltesa) (2 s) (Hirondelle)
+II.11|Maltesa invertida (2 s)
+II.13|Prancha facial em suspensão (front lever) (2 s)
+II.15|Qualquer crucifixo (2 s) ou crucifixo em V (2 s)
+II.19|Prancha em apoio com pernas afastadas (2 s)
+II.22|Crucifixo em V e elevação em força ao esquadro em V (2 s) (Tsukahara 3)
+II.23|Puxada vertical com braços estendidos ao crucifixo em V (2 s) (Colak)
+II.25|Elevação em força à parada de mãos com corpo e braços flexionados (2 s). Também com pernas afastadas
+II.25|#DROP
+II.26|Elevação em força à parada de mãos com corpo estendido e braços flexionados, ou corpo flexionado e braços estendidos, ou a partir da prancha em apoio afastada (2 s). Também com pernas afastadas
+II.26|#DROP
+II.27|Elevação em força à parada de mãos com corpo e braços estendidos, a partir do apoio ou da prancha em apoio (2 s)
+II.28|Elevação em força à parada de mãos com corpo e braços estendidos, a partir da maltesa (2 s)
+II.31|Rolamento lento para frente carpado com braços flexionados, ao apoio
+II.32|Rolamento lento para frente estendido com braços flexionados, ao apoio
+II.38|Rolamento lento para trás com corpo estendido ao esquadro (2 s)
+II.39|Rolamento lento para frente estendido ao crucifixo ou crucifixo em esquadro (2 s)
+II.50|Puxada vertical com braços flexionados à prancha dorsal em suspensão (2 s)
+II.51|Puxada vertical com braços estendidos à prancha dorsal em suspensão (2 s)
+II.52|Rolamento lento para trás com corpo estendido ao crucifixo, crucifixo em esquadro ou crucifixo em V (2 s) (Azarian) (Tay)
+II.56|Do crucifixo ou crucifixo em esquadro, avançar à prancha dorsal em suspensão (2 s)
+II.57|Puxada vertical ao esquadro (2 s)
+II.58|A partir da prancha dorsal em suspensão, ou passando por ela, puxada ao crucifixo, crucifixo em esquadro ou crucifixo em V (2 s) (Nakayama) (NG Kiu Chung)
+II.60|Passando pela prancha dorsal em suspensão, puxada com corpo estendido passando pelo crucifixo até a maltesa invertida (2 s) (Zahran)
+II.62|Da parada de mãos, descida na horizontal à prancha dorsal em suspensão (2 s)
+II.63|Do apoio ou do crucifixo, descida lenta à suspensão e puxada com braços estendidos ao crucifixo (2 s) (Li Xiaoshuang)
+II.64|Puxada vertical ao crucifixo ou crucifixo em esquadro (2 s)
+II.65|Da prancha, descida lenta na horizontal à prancha dorsal em suspensão e elevação em força à maltesa (2 s); ou o mesmo da maltesa à prancha, ou de prancha a prancha (Van Gelder)
+II.66|Da suspensão, puxada vertical lenta com braços estendidos passando pelo crucifixo até a maltesa invertida (2 s) (Tulloch 2)
+II.68|Da parada de mãos, descida lenta passando pelo crucifixo invertido à suspensão invertida
+II.70|Da maltesa, elevação em força à prancha em apoio (2 s)
+II.71|Da maltesa, descida lenta à prancha dorsal em suspensão e elevação em força à maltesa (2 s)
+II.72|Da prancha dorsal em suspensão, elevação em força à maltesa (também à prancha em apoio) (2 s)
+II.75|Do crucifixo ou crucifixo em esquadro, elevação em força ao esquadro (2 s)
+II.77|Do crucifixo em esquadro, elevação em força com corpo flexionado ao crucifixo invertido (2 s)
+II.78|Do crucifixo, elevação em força com corpo estendido ao crucifixo invertido (2 s)
+II.84|Da maltesa, elevação em força ao crucifixo invertido (2 s)
+II.88|Do crucifixo, elevação em força à prancha sem passar antes pelo apoio (2 s)
+II.89|Do crucifixo, elevação em força à maltesa (2 s)
+II.90|Passando pela suspensão dorsal, elevação em força com corpo estendido ao crucifixo invertido (2 s) (Carmona)
+II.94|Do crucifixo invertido, descida lenta à suspensão invertida e felge lento para trás ao crucifixo (2 s) (Vorobiov/Zou)
+II.95|Do crucifixo invertido, descida lenta à suspensão invertida e felge lento para trás à maltesa (2 s) ou à prancha em apoio (2 s) (Jotchev) (Zou 2)
+II.101|Rolamento lento para trás com braços e corpo estendidos à prancha em apoio livre (2 s) (Yan Mijayoung)
+II.107|Rolamento lento para trás com corpo estendido à maltesa (2 s)
+II.108|Rolamento lento para trás com braços e corpo estendidos ao crucifixo invertido passando pela maltesa (Simonov)
+II.118|Rolamento lento para frente com corpo estendido passando pelo crucifixo e elevação em força à prancha em apoio sem passar antes pelo apoio (2 s) (Ng Kiu Chung 2)
+II.119|Rolamento lento para frente com corpo estendido passando pelo crucifixo ao crucifixo invertido (2 s) (Wynn)
+II.120|Azarian até a maltesa invertida (2 s) (Tulloch)
+II.124|Rolamento lento para frente com corpo estendido ao crucifixo ou crucifixo em esquadro (2 s), também a partir da suspensão invertida (Davtyan)
+II.125|Rolamento lento para frente com corpo estendido passando pelo crucifixo até a maltesa (2 s) (Pham 2)
+II.130|Da suspensão, puxada vertical ao apoio e elevação em força à parada de mãos com corpo e braços estendidos
+II.132|Da suspensão, puxada vertical à maltesa (2 s) (Balandin 1)
+II.137|Da suspensão, puxada vertical passando pela maltesa à prancha em apoio (2 s) (Balandin 3)
+II.138|Da suspensão, puxada vertical ao crucifixo invertido (2 s) (Balandin 2)
+III.2|Subida de balanço para frente ao esquadro (2 s)
+III.3|Subida de balanço para frente ao esquadro em V (2 s)
+III.4|Subida de balanço para frente ao crucifixo em V (2 s)
+III.8|Kipe ao esquadro (2 s)
+III.9|Kipe ao esquadro em V (2 s)
+III.14|Honma ao esquadro (2 s)
+III.15|Honma ao esquadro em V (2 s) (Gracia)
+III.16|Honma ao crucifixo / crucifixo em esquadro (2 s)
+III.17|Honma ao crucifixo em V (2 s) (Tanaka)
+III.22|Balanço para trás e mortal para frente carpado ao crucifixo ou crucifixo em esquadro (2 s)
+III.27|Subida de balanço para frente ao crucifixo ou crucifixo em esquadro (2 s)
+III.33|Subida de balanço para trás ao crucifixo ou crucifixo em esquadro (2 s)
+III.39|Kipe ao crucifixo ou crucifixo em esquadro (2 s)
+III.40|Kipe ao crucifixo em V (2 s) (Molinari)
+III.42|Kipe à maltesa invertida (2 s)
+III.45|Kipe dorsal ao crucifixo ou crucifixo em esquadro (2 s)
+III.46|Kipe dorsal à prancha em apoio (2 s)
+III.47|Kipe dorsal à maltesa (2 s)
+III.50|Felge para cima ao apoio com pernas afastadas apoiadas acima das argolas (2 s) (Deltchev)
+III.53|Kipe dorsal ao crucifixo invertido (2 s)
+III.56|Felge para cima à prancha em apoio com pernas afastadas (2 s)
+III.57|Felge para cima ao crucifixo ou crucifixo em esquadro (2 s)
+III.58|Felge para cima à prancha em apoio (2 s)
+III.59|Felge para cima à maltesa (2 s)
+III.60|Subida de balanço para frente à maltesa invertida (2 s) (Rodrigues)
+III.65|Felge para cima ao crucifixo invertido (2 s)
+III.68|Subida de balanço para trás à prancha em apoio com pernas afastadas (2 s)
+III.70|Subida de balanço para trás à prancha em apoio (2 s)
+III.71|Subida de balanço para trás à maltesa (2 s)
+III.77|Subida de balanço para trás ao crucifixo invertido (2 s)
+III.82|Felge para trás estendido à prancha em apoio livre (2 s)
+IV.1|Mortal para frente carpado ou estendido, também com ½ pirueta
+IV.2|Mortal para frente carpado ou estendido com 1 pirueta
+IV.3|Mortal para frente carpado ou estendido com 1½ pirueta
+IV.4|Mortal para frente carpado ou estendido com 2 piruetas
+IV.9|Duplo mortal para frente grupado, também com ½ pirueta
+IV.10|Duplo mortal para frente grupado com 1½ pirueta (também com 1 pirueta) (Fischer)
+IV.16|Duplo mortal para frente carpado, também com ½ pirueta (Balabanov)
+IV.17|Duplo mortal para frente carpado com 1½ pirueta (também com 1 pirueta)
+IV.25|Mortal para trás carpado ou estendido, também com ½ pirueta
+IV.26|Mortal para trás estendido com 1 pirueta
+IV.27|Mortal para trás estendido com 2 piruetas ou 1½ pirueta
+IV.29|Mortal para trás estendido com 3 piruetas
+IV.32|Duplo mortal para trás grupado ou carpado
+IV.33|Duplo mortal para trás estendido
+IV.36|Triplo mortal para trás grupado
+IV.42|Triplo mortal para trás carpado (Whittenburg)
+IV.45|Duplo mortal para trás grupado com ½ ou 1 pirueta
+IV.45|Duplo mortal para trás grupado com 1½ pirueta
+IV.47|Duplo mortal para trás grupado com 2 piruetas
+IV.48|Duplo mortal para trás grupado com 2½ piruetas (Tuuha)
+IV.51|Mortal para trás estendido com 1 pirueta seguido de mortal grupado
+IV.52|Duplo mortal para trás estendido com ½ ou 1 pirueta
+IV.54|Duplo mortal para trás estendido com 1½ ou 2 piruetas
+IV.54|Duplo mortal para trás grupado com 3 piruetas

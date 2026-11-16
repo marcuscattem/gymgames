@@ -679,7 +679,7 @@
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="achWrap" class="ach-wrap" role="status" aria-live="polite"></div>
-  <script src="codigo-data.js?v=2026-11-16b"></script>
+  <script src="codigo-data.js?v=pt-elementos-1"></script>
   <script>
 /* GymGames — engine v3 (2026-11): Código de Pontuação FIG 2025-2028 integrado (regras, elementos, desafio, montador), tática da equipe, bônus de cravada GAM.
    Antes: engine v2
@@ -6846,8 +6846,15 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     <p class="codex-note">${t("codexSource")}</p>`;
   }
   function codexFiltered() {
-    const q = codex.q.trim().toLowerCase();
-    return codeRows().filter((r) => (!codex.letter || String(r[2]) === codex.letter) && (!q || (r[3] + " " + (r[4] || "") + " " + r[0]).toLowerCase().includes(q)));
+    const q = normalizeElementSearch(codex.q.trim());
+    return codeRows().filter((r) => (!codex.letter || String(r[2]) === codex.letter) &&
+      (!q || normalizeElementSearch([r[0], r[3], r[4], r[8]].join(" ")).includes(q)));
+  }
+  function normalizeElementSearch(text) {
+    return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+  function elementDescription(row) {
+    return state.lang === "pt-BR" && row[8] ? row[8] : row[3];
   }
   function codexElementList() {
     const rows = codexFiltered();
@@ -6861,7 +6868,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       const on = builder && picks.has(r[0]);
       return `${head}<li class="el-row ${on ? "picked" : ""}">
         ${valueBadge(codex.app, r)}
-        <div class="el-main"><div class="el-desc">${escapeHTML(r[3]).split(" // ").join('<span class="el-or"> ou </span>')}</div><div class="el-meta"><span>${escapeHTML(r[0])}</span>${codex.app !== "VT" ? `<span>${codePts(codex.app, r).toFixed(1)} pt</span>` : ""}${r[5] ? `<span>${t("codexDance")}</span>` : ""}${r[4] ? `<span class="el-name">${escapeHTML(r[4])}</span>` : ""}${(r[7] || []).some(Boolean) ? `<button class="qlink" data-act="codexFig" data-id="${escapeHTML(r[0])}">${t("codexFig")}</button>` : ""}</div><div class="el-figs"></div></div>
+        <div class="el-main"><div class="el-desc">${escapeHTML(elementDescription(r)).split(" // ").join('<span class="el-or"> ou </span>')}</div><div class="el-meta"><span>${escapeHTML(r[0])}</span>${codex.app !== "VT" ? `<span>${codePts(codex.app, r).toFixed(1)} pt</span>` : ""}${r[5] ? `<span>${t("codexDance")}</span>` : ""}${r[4] ? `<span class="el-name">${escapeHTML(r[4])}</span>` : ""}${(r[7] || []).some(Boolean) ? `<button class="qlink" data-act="codexFig" data-id="${escapeHTML(r[0])}">${t("codexFig")}</button>` : ""}</div><div class="el-figs"></div></div>
         ${builder ? `<button class="btn ${on ? "btn-danger" : "btn-secondary"} btn-icon el-add" data-act="codexPick" data-id="${escapeHTML(r[0])}" aria-label="${on ? t("codexRemove") : t("codexAdd")}">${on ? icon("x") : icon("plus")}</button>` : ""}
       </li>`;
     }).join("");
@@ -6946,7 +6953,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
           ${reqBlock}
           <div class="bd-block"><div class="bd-lab">${t("builderCV")} <b>${c.cv.toFixed(1)}</b></div><div class="stepper"><button class="btn btn-secondary btn-icon" data-act="codexCV" data-val="-1" aria-label="−0,1">${icon("minus")}</button><span>${c.cv.toFixed(1)}</span><button class="btn btn-secondary btn-icon" data-act="codexCV" data-val="1" aria-label="+0,1">${icon("plus")}</button></div></div>
           <div class="bd-block"><div class="bd-lab">${t("builderPicked", { n: c.picked.length })}</div>
-            ${c.picked.length ? `<ul class="pick-list">${[...c.picked].sort((x, y) => y.pts - x.pts).map((p) => `<li class="${countSet.has(p.r[0]) ? "counts" : "extra"}">${valueBadge(a, p.r)}<span class="pick-desc">${escapeHTML(p.r[3].split(" // ")[0])}</span><button class="pick-x" data-act="codexPick" data-id="${escapeHTML(p.r[0])}" aria-label="${t("codexRemove")}">${icon("x")}</button></li>`).join("")}</ul>` : `<p class="codex-note">${t("builderEmpty")}</p>`}
+            ${c.picked.length ? `<ul class="pick-list">${[...c.picked].sort((x, y) => y.pts - x.pts).map((p) => `<li class="${countSet.has(p.r[0]) ? "counts" : "extra"}">${valueBadge(a, p.r)}<span class="pick-desc">${escapeHTML(elementDescription(p.r).split(" // ")[0])}</span><button class="pick-x" data-act="codexPick" data-id="${escapeHTML(p.r[0])}" aria-label="${t("codexRemove")}">${icon("x")}</button></li>`).join("")}</ul>` : `<p class="codex-note">${t("builderEmpty")}</p>`}
             ${c.notes.map((n) => `<p class="bd-warn">${escapeHTML(n)}</p>`).join("")}
             ${c.shortPen ? `<p class="bd-warn">${t("builderShort", { n: c.shortPen.toFixed(1) })}</p>` : ""}
             ${c.picked.length ? `<button class="btn btn-secondary mt-2" data-act="codexClear">${icon("x")} ${t("builderClear")}</button>` : ""}
@@ -6984,7 +6991,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const out = [];
     quizCfg().apps.forEach((k) => {
       const [g, a] = k.split("-");
-      codeRows(g, a).forEach((row) => String(row[3]).split(" // ").forEach((text, vi) => out.push({ g, a, row, vi, text, fig: !!(row[7] && row[7][vi]) })));
+      codeRows(g, a).forEach((row) => elementDescription(row).split(" // ").forEach((text, vi) => out.push({ g, a, row, vi, text, fig: !!(row[7] && row[7][vi]) })));
     });
     return out;
   }

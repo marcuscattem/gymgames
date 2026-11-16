@@ -1,0 +1,83 @@
+1.00|Reversão para frente
+1.01|Reversão para frente – ½ giro (180°) no 2º voo
+1.02|Reversão para frente – 1 giro (360°) no 2º voo
+1.03|Reversão para frente – 1½ giro (540°) no 2º voo (Kim)
+1.04|Reversão para frente – 2 giros (720°) no 2º voo
+1.05|Reversão para frente – 2½ giros (900°) no 2º voo
+1.10|Yamashita
+1.11|Yamashita com ½ giro (180°) no 2º voo
+1.12|Yamashita com 1 giro (360°) no 2º voo
+1.20|Reversão para frente com ½ giro (180°) no 1º voo – repulsão
+1.21|Reversão para frente com ½ giro (180°) no 1º voo – ½ giro (180°) no 2º voo (em qualquer direção)
+1.22|Reversão para frente com ½ giro (180°) no 1º voo – 1 giro (360°) no 2º voo
+1.23|Reversão para frente com ½ giro (180°) no 1º voo – 1½ giro (540°) no 2º voo
+1.24|Reversão para frente com ½ giro (180°) no 1º voo – 2 giros (720°) no 2º voo
+1.30|Reversão para frente com 1 giro (360°) no 1º voo – reversão para frente no 2º voo
+1.31|Reversão para frente com 1 giro (360°) no 1º voo – 1 giro (360°) no 2º voo (Korbut)
+1.40|Rondada, flic-flac – repulsão
+1.50|Rondada, flic-flac com ½ giro (180°) no 1º voo – reversão para frente no 2º voo
+1.51|Rondada, flic-flac com ½ giro (180°) no 1º voo – ½ giro (180°) no 2º voo
+1.52|Rondada, flic-flac com ½ giro (180°) no 1º voo – 1 giro (360°) no 2º voo
+1.53|Rondada, flic-flac com ½ giro (180°) no 1º voo – 1½ giro (540°) no 2º voo
+1.60|Rondada, flic-flac com 1 giro (360°) no 1º voo – repulsão
+1.61|Rondada, flic-flac com 1 giro (360°) no 1º voo – ½ giro (180°) no 2º voo
+1.62|Rondada, flic-flac com 1 giro (360°) no 1º voo – 1 giro (360°) no 2º voo
+2.10|Reversão para frente – mortal para frente grupado
+2.11|Reversão para frente – mortal para frente grupado com ½ pirueta (180°), ou ½ giro (180°) e mortal para trás grupado
+2.12|Reversão para frente – mortal para frente grupado com 1 pirueta (360°)
+2.13|Reversão para frente – mortal para frente grupado com 1½ pirueta (540°)
+2.20|Reversão para frente – mortal para frente carpado
+2.21|Reversão para frente – mortal para frente carpado com ½ pirueta (180°), ou ½ giro (180°) e mortal para trás carpado
+2.22|Reversão para frente – mortal para frente carpado com 1 pirueta (360°) (Chusovitina)
+2.30|Reversão para frente – mortal para frente estendido (Evdokimova)
+2.31|Reversão para frente – mortal para frente estendido com ½ pirueta (180°) (Wang)
+2.32|Reversão para frente – mortal para frente estendido com 1 pirueta (360°)
+2.33|Reversão para frente – mortal para frente estendido com 1½ pirueta (540°) (Chusovitina)
+2.34|Reversão para frente – mortal para frente estendido com 2 piruetas (720°) (Yeo)
+2.40|Reversão para frente com 1 giro (360°) no 1º voo – mortal para frente grupado (Davydova)
+2.41|Reversão para frente com 1 giro (360°) no 1º voo – mortal para frente carpado
+2.50|Reversão para frente – duplo mortal para frente grupado (Produnova)
+3.10|Tsukahara grupado (Tourischeva)
+3.11|Tsukahara grupado com ½ pirueta (180°)
+3.12|Tsukahara grupado com 1 pirueta (360°) (Kim)
+3.13|Tsukahara grupado com 1½ pirueta (540°)
+3.14|Tsukahara grupado com 2 piruetas (720°)
+3.20|Tsukahara carpado
+3.30|Tsukahara estendido
+3.31|Tsukahara estendido com ½ pirueta (180°)
+3.32|Tsukahara estendido com 1 pirueta (360°) (Kim)
+3.33|Tsukahara estendido com 1½ pirueta (540°)
+3.34|Tsukahara estendido com 2 piruetas (720°) (Zamolodchikova)
+3.35|Tsukahara estendido com 2½ piruetas (900°)
+4.10|Rondada, flic-flac – mortal para trás grupado (Yurchenko)
+4.11|Rondada, flic-flac – mortal para trás grupado com ½ pirueta (180°)
+4.12|Rondada, flic-flac – mortal para trás grupado com 1 pirueta (360°)
+4.13|Rondada, flic-flac – mortal para trás grupado com 1½ pirueta (540°)
+4.14|Rondada, flic-flac – mortal para trás grupado com 2 piruetas (720°) (Dungelova)
+4.20|Rondada, flic-flac – mortal para trás carpado
+4.30|Rondada, flic-flac – mortal para trás estendido
+4.31|Rondada, flic-flac – mortal para trás estendido com ½ pirueta (180°)
+4.32|Rondada, flic-flac – mortal para trás estendido com 1 pirueta (360°)
+4.33|Rondada, flic-flac – mortal para trás estendido com 1½ pirueta (540°)
+4.34|Rondada, flic-flac – mortal para trás estendido com 2 piruetas (720°) (Baitova)
+4.35|Rondada, flic-flac – mortal para trás estendido com 2½ piruetas (900°) (Amanar)
+4.40|Rondada, flic-flac com ¾ de giro (270°) no 1º voo – mortal para trás grupado (Luconi)
+4.41|Rondada, flic-flac com ¾ de giro (270°) no 1º voo – mortal para trás grupado com ½ pirueta (180°)
+4.42|Rondada, flic-flac com ¾ de giro (270°) no 1º voo – mortal para trás grupado com 1 pirueta (360°)
+4.50|Rondada, flic-flac com ¾ de giro (270°) no 1º voo – mortal para trás carpado
+4.51|Rondada, flic-flac com ¾ de giro (270°) no 1º voo – mortal para trás estendido
+4.52|Rondada, flic-flac com ¾ de giro (270°) no 1º voo – mortal para trás estendido com ½ pirueta (180°)
+4.53|Rondada, flic-flac com ¾ de giro (270°) no 1º voo – mortal para trás estendido com 1 pirueta (360°)
+4.62|Rondada, flic-flac – duplo mortal para trás carpado (Biles)
+5.10|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente grupado (Ivantcheva)
+5.11|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente grupado com ½ pirueta (180°), ou ½ giro (180°) e mortal para trás grupado (Servente)
+5.12|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente grupado com 1 pirueta (360°)
+5.13|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente grupado com 1½ pirueta (540°) (Khorkina)
+5.20|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente carpado (Omelianchik)
+5.21|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente carpado com ½ pirueta (180°), ou ½ giro (180°) e mortal para trás carpado (Podkopayeva)
+5.22|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente carpado com 1 pirueta (360°)
+5.30|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente estendido
+5.31|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente estendido com ½ pirueta (180°)
+5.32|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente estendido com 1 pirueta (360°)
+5.33|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente estendido com 1½ pirueta (540°) (Cheng)
+5.34|Rondada, flic-flac com ½ giro (180°) no 1º voo – mortal para frente estendido com 2 piruetas (720°) (Biles)

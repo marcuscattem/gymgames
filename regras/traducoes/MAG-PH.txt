@@ -1,0 +1,109 @@
+I.1|Tesoura para frente
+I.2|Tesoura para frente com deslocamento lateral (também com ½ giro)
+I.3|Tesoura para frente com salto lateral de uma extremidade à outra (3/3)
+I.7|Tesoura para frente com ½ giro
+I.8|Tesoura dupla para frente (¼ de giro para frente e ¼ de giro para trás)
+I.9|Tesoura dupla para frente (¼ de giro para frente e ¼ de giro para trás) com deslocamento lateral
+I.10|Tesoura dupla para frente com deslocamento lateral de uma extremidade à outra (3/3) (Mikulak)
+I.15|Tesoura dupla para frente com deslocamento lateral passando pela parada de mãos (Stepanyan)
+I.20|Corte de perna ou corte por baixo para trás passando pela parada de mãos, com descida ao apoio com pernas afastadas
+I.22|Tesoura para frente com ¼ de giro passando pela parada de mãos em 1 alça, com descida ao apoio com pernas afastadas sobre o outro braço (com troca de pernas) (Li Ning) (Bryan)
+I.25|Tesoura para trás
+I.26|Tesoura para trás com deslocamento lateral (também com ½ giro)
+I.27|Tesoura para trás com salto lateral de uma extremidade à outra (posições 1-2 a 4-5)
+I.31|Tesoura para trás com ½ giro
+I.32|Tesoura dupla para trás (¼ de giro para frente e ¼ de giro para trás)
+I.39|Balanço para trás com ¼ de giro passando pela parada de mãos em 1 alça (também com ¼ de giro depois), com descida ao apoio com pernas afastadas (com troca de pernas)
+II.1|Qualquer círculo ou flair em apoio lateral (Thomas)
+II.2|Círculo em apoio lateral fora das alças ou entre as alças
+II.7|Círculos em apoio transversal de frente, na extremidade
+II.8|Círculos em apoio transversal em 1 alça (a partir de ou até ¼ de giro para frente)
+II.13|Círculos em apoio transversal de costas, na extremidade
+II.14|Círculos em apoio transversal entre as alças
+II.25|Qualquer ¼ de spindle
+II.26|Qualquer ½ spindle (Keikha 2)
+II.28|Qualquer spindle completo em apoio lateral com uma alça entre as mãos, pernas afastadas, em no máximo 2 círculos
+II.29|Qualquer spindle completo em apoio lateral com apoio da mão para o outro lado e retorno (no máximo 2 flairs ou círculos) (Eichorn)
+II.30|Qualquer spindle completo com as duas alças entre as mãos (flair ou círculo) (Keikha 1) (Keikha 5)
+II.34|Qualquer spindle completo em no máximo 2 círculos na extremidade (Magyar)
+II.35|Spindle completo com pernas afastadas ou unidas sobre as alças em no máximo 2 círculos (Berki)
+II.36|Em apoio transversal, spindle completo com as mãos entre as alças em no máximo 2 círculos (Mousichidis)
+II.38|Stöckli direto A (DSA) sobre as alças ou com uma alça entre as mãos
+II.40|Stöckli direto A (DSA) fora das alças (Keikha 3) (Keikha 6)
+II.44|Stöckli direto B (DSB)
+II.51|Flair ou círculo passando pela parada de mãos (com ou sem ½ giro), com descida ao flair ou círculo (Tippelt)
+II.52|Flair com deslocamento em salto para trás passando pela parada de mãos, com descida a círculos ou flairs
+II.54|Stöckli reverso, DSA ou círculo afastado na alça passando pela parada de mãos, deslocamento 3/3 (para frente e para trás), giro de 360° até flairs (Busnari)
+II.55|Kehre dupla (dupla passagem dorsal)
+II.56|Kehre com 270° de giro em 1 alça (técnica Sohn), do apoio transversal ao apoio lateral
+II.57|Kehre com 270° de giro em 1 alça (técnica Sohn), do apoio lateral ao apoio transversal (Bertoncelj)
+II.58|Kehre com 1 giro completo em 1 alça (Sohn)
+II.60|Bertoncelj ligado a Busnari (Moore)
+II.62|Tramlot direto
+II.66|Bertoncelj ligado a Davtyan em uma alça (Mamukyan)
+II.68|Stöckli reverso com giro de 180° (ou 270° a partir de uma alça) em um círculo
+II.69|Stöckli reverso com 270° de giro (técnica Bezugo), das 2 alças ao apoio transversal em 1 alça (Davtyan)
+II.71|Stöckli reverso com 360° de giro em 1 alça (Bezugo)
+II.73|Schwabenflank
+II.74|Kehre tcheca sobre as alças ou com uma alça entre as mãos
+II.76|Kehre tcheca fora das alças (Pinheiro)
+II.79|Wendeswing para frente com ½ giro ao apoio de frente na extremidade, a partir do apoio lateral usando 1 ou 2 alças
+II.85|Russo (wendeswing russo) com 180° ou 270°
+II.91|Russo (wendeswing russo) com 360° ou 540°
+II.92|Russo (wendeswing russo) com 720° ou 900°
+II.93|Russo (wendeswing russo) com 1080° ou mais
+II.97|Sobre o couro, russo com 180° ou 270°, também com deslocamento
+II.103|Sobre o couro, russo com 360° ou 540°
+II.104|Sobre o couro, russo com 720° ou 900°
+II.105|Sobre o couro, russo com 1080° ou mais
+II.110|Russo com 180° ou 270° em 1 alça ou entre as alças
+II.111|Russo com 360° ou 540° em 1 alça ou entre as alças
+II.112|Russo com 720° ou 900° em 1 alça ou entre as alças
+II.113|Russo com 1080° ou mais em 1 alça ou entre as alças
+III.1|Círculos com qualquer deslocamento em apoio lateral (1/3) (também com ¼ de giro)
+III.2|Círculos com qualquer deslocamento em apoio lateral (3/3)
+III.3|Qualquer deslocamento em apoio lateral (3/3) com as mãos entre as alças
+III.4|Qualquer deslocamento em apoio lateral (3/3) sobre as duas alças (também com salto)
+III.8|Círculos com qualquer deslocamento em salto em apoio lateral (1/3)
+III.9|Círculos com qualquer deslocamento em salto, 2 vezes, em apoio lateral (3/3)
+III.11|Do apoio lateral ao lado da alça, deslocamento em salto sobre as 2 alças ao apoio de frente na outra extremidade (posições 1-1 a 5-5) (Yamawaki)
+III.14|Deslocamento para frente ou para trás com ¼ de spindle ao apoio lateral nas 2 alças
+III.15|Todos os deslocamentos com ½ spindle em apoio lateral
+III.17|De uma extremidade, deslocamento lateral com 2 × ½ spindle até a outra extremidade
+III.22|Qualquer deslocamento para frente 3/3 com ½ spindle de uma alça sobre a outra alça (Nin Reyes) (Titov)
+III.23|Deslocamento 3/3 sobre as duas alças com ½ spindle (Nin Reyes 2) (Keikha 4)
+III.29|Qualquer deslocamento 3/3 em flairs com spindle completo em 2 círculos (Urzica 2) (Burkhart)
+III.32|Deslocamento para frente em apoio transversal (1/2 ou 2/3)
+III.33|Deslocamento para frente em apoio transversal com apoio no couro, alça, alça, couro (3/3) (posições 1-2-4-5)
+III.34|Qualquer outro deslocamento para frente em apoio transversal até a outra extremidade (3/3) (Magyar)
+III.35|Deslocamento para frente em apoio transversal sobre as duas alças (também com salto) (Driggs)
+III.37|Deslocamento para trás em apoio transversal de uma parte do cavalo ou alça para outra (1/3)
+III.38|Deslocamento para trás em apoio transversal (1/2 ou 2/3)
+III.39|Deslocamento para trás em apoio transversal com apoio no couro, alça, alça, couro (3/3) (posições 5-4-2-1)
+III.40|Qualquer outro deslocamento para trás em apoio transversal até a outra extremidade (3/3) (Sivado)
+III.41|Deslocamento para trás em apoio transversal sobre as duas alças (também com salto) (Kurbanov) (Reid)
+III.46|Kehre para frente, Stöckli reverso, kehre para frente (Moguilny)
+III.52|Kehre para trás, kehre para frente, kehre para trás (Belenki)
+III.57|Do apoio em 1 alça, russo para frente até a outra extremidade sem apoio sobre as alças ou entre elas (de apoio lateral a lateral, ou de lateral a transversal)
+III.58|Do apoio na extremidade, russo para frente até a outra extremidade sem apoio sobre as alças ou entre elas (lateral a lateral, lateral a transversal, transversal a lateral, transversal a transversal) (Tong Fei)
+III.59|Sobre o couro, a partir do apoio transversal, russo com 360° ou mais sobre as duas alças (Vammen)
+III.64|Do apoio nas posições 1-2, deslocamento 3/3 em russo com 630° ou mais de giro
+III.65|Qualquer deslocamento 3/3 em russo com 720° ou mais de giro, com as duas mãos entre as alças (Wu Guonian)
+III.70|Qualquer russo com 360° de giro e deslocamento 3/3 (Roth)
+III.75|Stöckli reverso do apoio transversal na extremidade até a alça mais distante (Romero)
+III.76|Stöckli reverso do apoio transversal de uma extremidade à outra (Abu Alsoud)
+IV.1|Na extremidade, wende a partir de círculo (também russo de 180° ou 270° até wende)
+IV.2|Chaguinian até wende
+IV.4|Do apoio lateral na extremidade, círculo ou flair à parada de mãos e deslocamento 3/3 com giro de 450° ou mais (Kolyvanov)
+IV.5|DSA à parada de mãos, deslocamento 3/3 com giro de 450° ou mais
+IV.7|Na extremidade, russo com 360° ou 540°
+IV.8|Na extremidade, russo com 720° ou 900°
+IV.9|Na extremidade, russo com 1080° ou mais
+IV.10|Das alças, círculo com ¼ de giro ao russo de 270° em uma alça até a parada de mãos (Dolidze)
+IV.13|Do apoio lateral, wendeswing para frente com ½ giro ao apoio, seguido de wende
+IV.15|DSA, Stöckli reverso ou círculo em uma alça passando pela parada de mãos
+IV.16|DSA com salto para trás passando pela parada de mãos na outra extremidade (Jessen) (Loos)
+IV.20|Círculo ou flair passando pela parada de mãos (também com ¾ de giro, com ou sem deslocamento)
+IV.21|Círculo ou flair com deslocamento em salto para trás passando pela parada de mãos
+IV.22|Russo de 180° de uma extremidade do cavalo à outra, passando pela parada de mãos até a saída
+IV.22|Bertoncelj passando pela parada de mãos até a saída (Targhetta)

@@ -1,0 +1,83 @@
+101|Reversão para frente e mortal para frente grupado com ½ pirueta (ou Cuervo grupado)
+102|Reversão para frente e mortal para frente grupado com 1 pirueta (Cuervo grupado com ½ pirueta)
+103|Reversão para frente e mortal para frente grupado com 1½ pirueta (Cuervo grupado com 1 pirueta) (Kroll)
+104|Reversão para frente e mortal para frente grupado com 2 piruetas (ou Cuervo grupado com 1½ pirueta) (Canbas)
+107|Reversão para frente e mortal para frente carpado com ½ pirueta (Cuervo carpado)
+108|Reversão para frente e mortal para frente carpado com 1 pirueta (Cuervo carpado com ½ pirueta)
+109|Reversão para frente e mortal para frente carpado com 1½ pirueta (Cuervo carpado com 1 pirueta)
+113|Reversão para frente e mortal para frente estendido com ½ pirueta (Cuervo estendido)
+114|Reversão para frente e mortal para frente estendido com 1 pirueta (Cuervo estendido com ½ pirueta)
+115|Reversão para frente e mortal para frente estendido com 1½ pirueta (Cuervo estendido com 1 pirueta) (Lou-Yun)
+116|Reversão para frente e mortal para frente estendido com 2 piruetas (Cuervo estendido com 1½ pirueta)
+117|Reversão para frente e mortal para frente estendido com 2½ piruetas (Yeo 2)
+118|Reversão para frente e mortal para frente estendido com 3 piruetas (Yang Hak Seon)
+119|Reversão lateral com ¼ de giro e mortal para frente grupado com ½ pirueta, ou Tsukahara grupado com 1 pirueta (Kasamatsu)
+120|Tsukahara grupado com 1½ pirueta, ou Kasamatsu grupado com ½ pirueta
+121|Tsukahara grupado com 2 piruetas (Barbieri)
+122|Tsukahara grupado com 2½ piruetas
+125|Tsukahara estendido com 1 pirueta, ou Kasamatsu estendido
+126|Kasamatsu estendido com ½ pirueta, ou Tsukahara estendido com 1½ pirueta
+127|Kasamatsu estendido com 1 pirueta, ou Tsukahara estendido com 2 piruetas (Akopian)
+131|Kasamatsu estendido com 1½ pirueta (Driggs)
+132|Kasamatsu estendido com 2 piruetas (López)
+133|Kasamatsu estendido com 2½ piruetas, ou Tsukahara estendido com 3½ piruetas (Yonekura)
+201|Reversão para frente
+202|Reversão para frente com ½ giro
+203|Reversão para frente com 1 giro
+204|Reversão para frente com 1½ giro
+205|Reversão para frente com 2 giros
+206|Reversão para frente com 2½ giros (Tsygankov)
+207|Reversão para frente e mortal para frente grupado
+213|Reversão para frente e mortal para frente carpado
+219|Reversão para frente e mortal para frente estendido
+225|Reversão para frente e duplo mortal para frente grupado (Roche)
+226|Roche com ½ pirueta (Dragulescu)
+228|Reversão para frente e mortal para frente grupado com ½ pirueta seguido de mortal para trás grupado (Zimmerman)
+231|Reversão para frente e duplo mortal para frente carpado (Blanik)
+232|Dragulescu carpado (Ri Se Gwang 2)
+301|Reversão lateral com ¼ de giro
+302|Reversão lateral com ¾ de giro
+303|Reversão lateral com 1¼ de giro
+307|Reversão lateral com ¼ de giro e mortal para trás grupado (Tsukahara)
+308|Tsukahara carpado
+309|Tsukahara grupado com ½ pirueta
+313|Tsukahara estendido
+314|Tsukahara estendido com ½ pirueta
+319|Tsukahara com duplo mortal para trás grupado (Yeo)
+320|Tsukahara com duplo mortal para trás carpado (Lu Yu Fu)
+321|Duplo Tsukahara com 1 pirueta (Ri Se Gwang)
+401|Yurchenko grupado com 1 pirueta
+402|Yurchenko grupado com 1½ pirueta
+403|Yurchenko grupado com 2 piruetas
+404|Yurchenko grupado com 2½ piruetas
+405|Yurchenko estendido com 1 pirueta
+406|Yurchenko estendido com 1½ pirueta
+407|Yurchenko estendido com 2 piruetas
+408|Yurchenko estendido com 2½ piruetas (Shewfelt)
+409|Yurchenko estendido com 3 piruetas (Shirai - Kim Hee Hoon)
+410|Yurchenko estendido com 3½ piruetas (Shirai 2)
+413|Rondada, ½ giro e reversão para frente com mortal para frente grupado com ½ pirueta
+414|Rondada, ½ giro e reversão para frente com mortal para frente carpado com ½ pirueta (Nemov)
+415|Rondada, ½ giro e reversão para frente com mortal para frente estendido com ½ pirueta (Hutcheon)
+416|Rondada, ½ giro e reversão para frente com mortal para frente estendido com 1 pirueta
+417|Rondada, ½ giro e reversão para frente com mortal para frente estendido com 1½ pirueta
+419|Rondada, ½ giro e reversão para frente com mortal para frente estendido com 2 piruetas
+420|Rondada, ½ giro e reversão para frente com mortal para frente estendido com 2½ piruetas (Li Xiao Peng)
+501|Rondada e reversão para trás (flic-flac)
+502|Rondada e reversão para trás com ½ giro
+503|Rondada e reversão para trás com 1 giro
+507|Rondada, reversão para trás e mortal para trás grupado (Yurchenko)
+508|Yurchenko grupado com ½ pirueta
+509|Yurchenko carpado
+510|Yurchenko estendido
+511|Yurchenko estendido com ½ pirueta
+513|Rondada, ½ giro e reversão para frente
+514|Rondada, ½ giro e reversão para frente com ½ giro
+515|Rondada, ½ giro e reversão para frente com 1 giro
+516|Rondada, ½ giro e reversão para frente com mortal para frente grupado
+517|Rondada, ½ giro e reversão para frente com mortal para frente carpado
+518|Rondada, ½ giro e reversão para frente com mortal para frente estendido
+519|Yurchenko com duplo mortal para trás grupado (Melissanidis)
+520|Melissanidis carpado (Yang Wei)
+521|Rondada, ½ giro e reversão para frente com duplo mortal para frente grupado
+522|Yurchenko com duplo mortal para trás grupado com 1 pirueta (Olfati)

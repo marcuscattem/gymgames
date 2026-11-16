@@ -1,6 +1,6 @@
 # GAF (WAG) — Tabela de elementos — Barras Assimétricas (Uneven Bars)
 
-> Fonte: FIG — Women's Artistic Gymnastics Code of Points 2025-2028 (PDF na raiz desta pasta). Descrições mantidas em inglês, como no documento oficial, para não introduzir erros de tradução.
+> Fonte: FIG — Women's Artistic Gymnastics Code of Points 2025-2028 (PDF na raiz desta pasta). A coluna **Elemento (português)** traz o nome completo traduzido, por extenso (sem as abreviações do Código); a coluna **Original (inglês)** mantém o texto do documento oficial. As traduções ficam em `regras/traducoes/` e podem ser corrigidas ali. Glossário: [glossario.md](glossario.md).
 > Extraído automaticamente do PDF; em caso de dúvida, o PDF oficial prevalece. Abreviações: fwd = para frente, bwd = para trás, swd = para o lado, hstd/hdst = parada de mãos, t. = tucked (grupado) ou turn (giro) conforme o contexto, p. = piked (carpado), str. = stretched/straight (estendido), strad. = afastado, DMT = saída, MT = entrada, LA = eixo longitudinal, HB/LB = barra alta/baixa.
 
 
@@ -11,210 +11,210 @@ Valores: A 0,10 · B 0,20 · C 0,30 · D 0,40 · E 0,50 · F 0,60 · G 0,70 · H
 
 ## 1.000 — Entradas
 
-| Código | Valor | Pontos | Dança | Descrição | Nome |
-|---|---|---|---|---|---|
-| 1.101 | A | 0.10 |  | Glide kip to support on LB, or glide with ½ turn (180°) kip to support on LB |  |
-| 1.102 | A | 0.10 |  | Jump with ½ turn (180°) kip to support on LB **//** Jump with ½ turn (180°) stoop through to rear support on LB (back kip) |  |
-| 1.103 | A | 0.10 |  | Glide on LB (or swing fwd on HB) and stoop through to rear support (back kip); or straddle cut bwd to hang on same bar |  |
-| 1.104 | A | 0.10 |  | Jump to hang on HB – also with reverse grip – kip to support |  |
-| 1.105 | A | 0.10 |  | Facing HB – Jump with 1/1 turn (360°) to hang on HB |  |
-| 1.106 | A | 0.10 |  | Straddle vault with hand repulsion over LB to catch HB |  |
-| 1.202 | B | 0.20 |  | Jump with 1/1 turn (360°) and Glide kip to support on LB |  |
-| 1.203 | B | 0.20 |  | Reverse kip from: – glide fwd on LB – swing fwd on HB – stoop through to kip hang, back kip swing, seat (pike) circle bwd to rear support |  |
-| 1.204 | B | 0.20 |  | Facing HB – Jump with ½ turn (180°) – kip to support on HB **//** Free jump with ½ turn (180°) over LB to hang on HB |  |
-| 1.206 | B | 0.20 |  | Free straddle jump over LB to hang on HB **//** Hecht jump (legs together) with hand repulsion over LB to hang on HB |  |
-| 1.207 | B | 0.20 |  | Salto fwd tucked, piked or straddled over LB into L hang on LB |  |
-| 1.208 | B | 0.20 |  | Round-off in front of LB – flight bwd (straddled) through clear straddle support on LB |  |
-| 1.210 | B | 0.20 |  | Jump to hstd on LB with hips bent, then extended, also with ½ turn (180°) in hstd phase, legs together or straddle |  |
-| 1.304 | C | 0.30 |  | Jump with ½ turn (180°) over LB – kip to support on HB |  |
-| 1.306 | C | 0.30 |  | Free stretch jump over LB with legs together to hang on HB (Makhautsova) | Makhautsova |
-| 1.307 | C | 0.30 |  | Facing HB – salto fwd to hang on HB **//** Roll fwd piked with hand repulsion over LB with flight to hang on HB |  |
-| 1.308 | C | 0.30 |  | Round-off in front of LB – flight bwd over LB with legs together or straddled to hang on HB |  |
-| 1.310 | C | 0.30 |  | Jump to hstd on LB with hips bent, then extended and 1/1 turn (360°) in hstd phase, legs together or straddle **//** Jump with extended body to hdst on LB also with ½ turn (180°) |  |
-| 1.406 | D | 0.40 |  | Hecht jump (legs together) with hand repulsion and 1/1 turn (360°) over LB to hang on HB (Gebeshian) **//** Free stretch jump (legs together) with 1/1 turn (360°) over LB to hang on HB (Petrova) | Gebeshian, Petrova |
-| 1.407 | D | 0.40 |  | Salto fwd tucked over LB to hang on HB without touching LB |  |
-| 1.408 | D | 0.40 |  | Round-off in front of LB – flight bwd over LB with 1/1 turn (360°) to hang on HB |  |
-| 1.409 | D | 0.40 |  | Round-off in front of LB – tucked salto bwd over LB to hang on LB (Jentsch) **//** Round-off in front of LB, flic-flac through hstd phase on LB (González) | Jentsch, González |
-| 1.410 | D | 0.40 |  | Jump with extended body to hstd on LB with 1/1 turn (360°) in hstd phase (Maaranen) | Maaranen |
-| 1.411 | D | 0.40 |  | Jump to clear support on HB – clear hip circle to hstd on HB, also with ½ turn (180°) in hstd phase on HB (McNamara) | McNamara |
-| 1.509 | E | 0.50 |  | Round-off in front of LB, flic-flac with 1/1 turn (360°) to clear support or through hstd phase on LB (Gurova) | Gurova |
-| 1.609 | F | 0.60 |  | Round-off in front of LB – tucked arabian salto over LB to hang on HB without touching the LB |  |
-| 1.709 | G | 0.70 |  | Round-off in front of LB – piked arabian salto over LB to hang on HB without touching the LB |  |
+| Código | Valor | Pontos | Dança | Elemento (português) | Original (inglês) | Nome |
+|---|---|---|---|---|---|---|
+| 1.101 | A | 0.10 |  | Kipe de deslize ao apoio na barra baixa, ou deslize com ½ giro (180°) e kipe ao apoio na barra baixa | Glide kip to support on LB, or glide with ½ turn (180°) kip to support on LB |  |
+| 1.102 | A | 0.10 |  | Salto com ½ giro (180°) e kipe ao apoio na barra baixa **//** Salto com ½ giro (180°) e passagem carpada das pernas entre os braços ao apoio dorsal na barra baixa (kipe dorsal) | Jump with ½ turn (180°) kip to support on LB **//** Jump with ½ turn (180°) stoop through to rear support on LB (back kip) |  |
+| 1.103 | A | 0.10 |  | Deslize na barra baixa (ou balanço para frente na barra alta) e passagem carpada das pernas entre os braços ao apoio dorsal (kipe dorsal); ou corte afastado para trás à suspensão na mesma barra | Glide on LB (or swing fwd on HB) and stoop through to rear support (back kip); or straddle cut bwd to hang on same bar |  |
+| 1.104 | A | 0.10 |  | Salto à suspensão na barra alta – também em tomada palmar – kipe ao apoio | Jump to hang on HB – also with reverse grip – kip to support |  |
+| 1.105 | A | 0.10 |  | De frente para a barra alta – salto com 1 giro (360°) à suspensão na barra alta | Facing HB – Jump with 1/1 turn (360°) to hang on HB |  |
+| 1.106 | A | 0.10 |  | Salto afastado com repulsão das mãos sobre a barra baixa para agarrar a barra alta | Straddle vault with hand repulsion over LB to catch HB |  |
+| 1.202 | B | 0.20 |  | Salto com 1 giro (360°) e kipe de deslize ao apoio na barra baixa | Jump with 1/1 turn (360°) and Glide kip to support on LB |  |
+| 1.203 | B | 0.20 |  | Kipe reverso a partir de: deslize para frente na barra baixa ou balanço para frente na barra alta – passagem carpada das pernas entre os braços à suspensão de kipe, balanço de kipe dorsal, giro sentado (carpado) para trás ao apoio dorsal | Reverse kip from: – glide fwd on LB – swing fwd on HB – stoop through to kip hang, back kip swing, seat (pike) circle bwd to rear support |  |
+| 1.204 | B | 0.20 |  | De frente para a barra alta – salto com ½ giro (180°) – kipe ao apoio na barra alta **//** Salto livre com ½ giro (180°) sobre a barra baixa à suspensão na barra alta | Facing HB – Jump with ½ turn (180°) – kip to support on HB **//** Free jump with ½ turn (180°) over LB to hang on HB |  |
+| 1.206 | B | 0.20 |  | Salto afastado livre sobre a barra baixa à suspensão na barra alta **//** Salto hecht (pernas unidas) com repulsão das mãos sobre a barra baixa à suspensão na barra alta | Free straddle jump over LB to hang on HB **//** Hecht jump (legs together) with hand repulsion over LB to hang on HB |  |
+| 1.207 | B | 0.20 |  | Mortal para frente grupado, carpado ou afastado sobre a barra baixa à suspensão em tomada cubital na barra baixa | Salto fwd tucked, piked or straddled over LB into L hang on LB |  |
+| 1.208 | B | 0.20 |  | Rondada em frente à barra baixa – voo para trás (afastado) passando pelo apoio afastado livre na barra baixa | Round-off in front of LB – flight bwd (straddled) through clear straddle support on LB |  |
+| 1.210 | B | 0.20 |  | Salto à parada de mãos na barra baixa com quadril flexionado e depois estendido, também com ½ giro (180°) na fase de parada de mãos, pernas unidas ou afastadas | Jump to hstd on LB with hips bent, then extended, also with ½ turn (180°) in hstd phase, legs together or straddle |  |
+| 1.304 | C | 0.30 |  | Salto com ½ giro (180°) sobre a barra baixa – kipe ao apoio na barra alta | Jump with ½ turn (180°) over LB – kip to support on HB |  |
+| 1.306 | C | 0.30 |  | Salto estendido livre sobre a barra baixa, com pernas unidas, à suspensão na barra alta (Makhautsova) | Free stretch jump over LB with legs together to hang on HB (Makhautsova) | Makhautsova |
+| 1.307 | C | 0.30 |  | De frente para a barra alta – mortal para frente à suspensão na barra alta **//** Rolamento para frente carpado com repulsão das mãos sobre a barra baixa, com voo à suspensão na barra alta | Facing HB – salto fwd to hang on HB **//** Roll fwd piked with hand repulsion over LB with flight to hang on HB |  |
+| 1.308 | C | 0.30 |  | Rondada em frente à barra baixa – voo para trás sobre a barra baixa, com pernas unidas ou afastadas, à suspensão na barra alta | Round-off in front of LB – flight bwd over LB with legs together or straddled to hang on HB |  |
+| 1.310 | C | 0.30 |  | Salto à parada de mãos na barra baixa com quadril flexionado e depois estendido, com 1 giro (360°) na fase de parada de mãos, pernas unidas ou afastadas **//** Salto com o corpo estendido à parada de mãos na barra baixa, também com ½ giro (180°) | Jump to hstd on LB with hips bent, then extended and 1/1 turn (360°) in hstd phase, legs together or straddle **//** Jump with extended body to hdst on LB also with ½ turn (180°) |  |
+| 1.406 | D | 0.40 |  | Salto hecht (pernas unidas) com repulsão das mãos e 1 giro (360°) sobre a barra baixa à suspensão na barra alta (Gebeshian) **//** Salto estendido livre (pernas unidas) com 1 giro (360°) sobre a barra baixa à suspensão na barra alta (Petrova) | Hecht jump (legs together) with hand repulsion and 1/1 turn (360°) over LB to hang on HB (Gebeshian) **//** Free stretch jump (legs together) with 1/1 turn (360°) over LB to hang on HB (Petrova) | Gebeshian, Petrova |
+| 1.407 | D | 0.40 |  | Mortal para frente grupado sobre a barra baixa à suspensão na barra alta, sem tocar a barra baixa | Salto fwd tucked over LB to hang on HB without touching LB |  |
+| 1.408 | D | 0.40 |  | Rondada em frente à barra baixa – voo para trás sobre a barra baixa com 1 giro (360°) à suspensão na barra alta | Round-off in front of LB – flight bwd over LB with 1/1 turn (360°) to hang on HB |  |
+| 1.409 | D | 0.40 |  | Rondada em frente à barra baixa – mortal para trás grupado sobre a barra baixa à suspensão na barra baixa (Jentsch) **//** Rondada em frente à barra baixa, flic-flac passando pela parada de mãos na barra baixa (González) | Round-off in front of LB – tucked salto bwd over LB to hang on LB (Jentsch) **//** Round-off in front of LB, flic-flac through hstd phase on LB (González) | Jentsch, González |
+| 1.410 | D | 0.40 |  | Salto com o corpo estendido à parada de mãos na barra baixa com 1 giro (360°) na fase de parada de mãos (Maaranen) | Jump with extended body to hstd on LB with 1/1 turn (360°) in hstd phase (Maaranen) | Maaranen |
+| 1.411 | D | 0.40 |  | Salto ao apoio livre na barra alta – giro de quadril livre à parada de mãos na barra alta, também com ½ giro (180°) na fase de parada de mãos (McNamara) | Jump to clear support on HB – clear hip circle to hstd on HB, also with ½ turn (180°) in hstd phase on HB (McNamara) | McNamara |
+| 1.509 | E | 0.50 |  | Rondada em frente à barra baixa, flic-flac com 1 giro (360°) ao apoio livre ou passando pela parada de mãos na barra baixa (Gurova) | Round-off in front of LB, flic-flac with 1/1 turn (360°) to clear support or through hstd phase on LB (Gurova) | Gurova |
+| 1.609 | F | 0.60 |  | Rondada em frente à barra baixa – mortal árabe grupado sobre a barra baixa à suspensão na barra alta, sem tocar a barra baixa | Round-off in front of LB – tucked arabian salto over LB to hang on HB without touching the LB |  |
+| 1.709 | G | 0.70 |  | Rondada em frente à barra baixa – mortal árabe carpado sobre a barra baixa à suspensão na barra alta, sem tocar a barra baixa | Round-off in front of LB – piked arabian salto over LB to hang on HB without touching the LB |  |
 
 ## 2.000 — Impulsos (casts) e giros livres de quadril
 
-| Código | Valor | Pontos | Dança | Descrição | Nome |
-|---|---|---|---|---|---|
-| 2.101 | A | 0.10 |  | Cast to hstd with legs straddled or with hips bent; also with hop- grip change |  |
-| 2.104 | A | 0.10 |  | Hip circle fwd (hips touching bar) |  |
-| 2.105 | A | 0.10 |  | Hip circle bwd (hips touching bar) **//** Clear hip circle bwd or hip circle bwd on LB – hip repulsion (“false- pop”) – with regrasp on LB |  |
-| 2.201 | B | 0.20 |  | Cast to hstd with legs together and hips extended; also with hop- grip change, also with ½ turn (180°) legs together or straddled |  |
-| 2.202 | B | 0.20 |  | Front support on HB – stoop with flight or free straddle fwd over HB and ½ turn (180°) to hang on HB |  |
-| 2.206 | B | 0.20 |  | Clear underswing on LB, release and counter movement fwd in flight to hang on HB. |  |
-| 2.301 | C | 0.30 |  | Cast with 1/1 turn (360°) to hstd |  |
-| 2.302 | C | 0.30 |  | Hip circle bwd hecht with flight and ½ turn (180°) passing over bar to hang on same bar – also from clear hip circle bwd |  |
-| 2.303 | C | 0.30 |  | From front support on HB – cast with release and 1/1 turn (360°) to hang on HB (Caslavska) | Caslavska |
-| 2.305 | C | 0.30 |  | Clear hip circle to hstd, also with hop-grip change in hstd phase, or with ½ turn (180°) to hstd |  |
-| 2.306 | C | 0.30 |  | Clear hip circle bwd on HB with hecht to clear support on LB (Pedrick) | Pedrick |
-| 2.307 | C | 0.30 |  | Outer front support – clear hip circle bwd on LB with hecht to hang on HB (Yarotska) | Yarotska |
-| 2.401 | D | 0.40 |  | Cast with 1½ turn (540°) to hstd (Reeder) | Reeder |
-| 2.403 | D | 0.40 |  | From inner front support on LB – cast with salto roll fwd to hang on HB (Radochla roll) (Brause/Radochla) | Radochla roll, Brause/Radochla |
-| 2.404 | D | 0.40 |  | Clear hip circle fwd to hstd, also with ½ turn (180°) in hstd phase (Weiler-kip) | Weiler-kip |
-| 2.405 | D | 0.40 |  | Clear hip circle with 1/1 turn (360°) to hstd |  |
-| 2.406 | D | 0.40 |  | Inner front support on LB – clear hip circle through hstd with flight to hang on HB (Shaposhnikova) | Shaposhnikova |
-| 2.407 | D | 0.40 |  | Outer front support – clear hip circle bwd on LB with hecht with ½ turn (180°) to hang on HB (legs together or straddled) |  |
-| 2.503 | E | 0.50 |  | Front support on HB – cast with salto fwd straddled to hang on HB (Comaneci salto) (Comaneci) | Comaneci salto, Comaneci |
-| 2.504 | E | 0.50 |  | Clear hip circle fwd to hstd with 1/1 turn (360°) in hstd phase (Godwin) **//** Clear hip circle forward (Weiler) into salto fwd straddled to hang on HB (Comaneci salto) (Adalsteinsdottir) | Godwin, Weiler, Comaneci salto, Adalsteinsdottir |
-| 2.505 | E | 0.50 |  | Clear hip circle with 1½ turn (540°) to hstd |  |
-| 2.506 | E | 0.50 |  | Clear hip circle on HB, counter straddle over HB to hang on HB (Hindorff) **//** Clear hip circle on HB with counter straddle over the HB with ½ turn (180°) to hang in mixed L grip (Martins) **//** Clear hip circle through hstd with ½ turn (180°) in flight to hang on HB (Khorkina) | Hindorff, Martins, Khorkina |
-| 2.606 | F | 0.60 |  | Clear hip circle on HB, counter pike over HB to hang on HB (Shang) **//** Clear hip circle on HB, counter pike over HB with ½ turn (180°) to hang in mixed L grip (Black) | Shang, Black |
-| 2.706 | G | 0.70 |  | Clear hip circle on HB, with counter stretched -reverse hecht in layout position over HB to hang (Zhang) | Zhang |
+| Código | Valor | Pontos | Dança | Elemento (português) | Original (inglês) | Nome |
+|---|---|---|---|---|---|---|
+| 2.101 | A | 0.10 |  | Impulso à parada de mãos com pernas afastadas ou com quadril flexionado; também com troca de tomada em salto | Cast to hstd with legs straddled or with hips bent; also with hop- grip change |  |
+| 2.104 | A | 0.10 |  | Giro de quadril para frente (quadril encostado na barra) | Hip circle fwd (hips touching bar) |  |
+| 2.105 | A | 0.10 |  | Giro de quadril para trás (quadril encostado na barra) **//** Giro de quadril livre para trás ou giro de quadril para trás na barra baixa – repulsão do quadril ("false-pop") – com retomada da barra baixa | Hip circle bwd (hips touching bar) **//** Clear hip circle bwd or hip circle bwd on LB – hip repulsion (“false- pop”) – with regrasp on LB |  |
+| 2.201 | B | 0.20 |  | Impulso à parada de mãos com pernas unidas e quadril estendido; também com troca de tomada em salto, também com ½ giro (180°), pernas unidas ou afastadas | Cast to hstd with legs together and hips extended; also with hop- grip change, also with ½ turn (180°) legs together or straddled |  |
+| 2.202 | B | 0.20 |  | Apoio facial na barra alta – passagem carpada com voo ou passagem afastada livre para frente sobre a barra alta e ½ giro (180°) à suspensão na barra alta | Front support on HB – stoop with flight or free straddle fwd over HB and ½ turn (180°) to hang on HB |  |
+| 2.206 | B | 0.20 |  | Balanço por baixo livre na barra baixa, largada e contramovimento para frente em voo à suspensão na barra alta | Clear underswing on LB, release and counter movement fwd in flight to hang on HB. |  |
+| 2.301 | C | 0.30 |  | Impulso com 1 giro (360°) à parada de mãos | Cast with 1/1 turn (360°) to hstd |  |
+| 2.302 | C | 0.30 |  | Giro de quadril para trás com hecht, voo e ½ giro (180°) passando sobre a barra à suspensão na mesma barra – também a partir de giro de quadril livre para trás | Hip circle bwd hecht with flight and ½ turn (180°) passing over bar to hang on same bar – also from clear hip circle bwd |  |
+| 2.303 | C | 0.30 |  | Do apoio facial na barra alta – impulso com largada e 1 giro (360°) à suspensão na barra alta (Caslavska) | From front support on HB – cast with release and 1/1 turn (360°) to hang on HB (Caslavska) | Caslavska |
+| 2.305 | C | 0.30 |  | Giro de quadril livre à parada de mãos, também com troca de tomada em salto na fase de parada de mãos, ou com ½ giro (180°) à parada de mãos | Clear hip circle to hstd, also with hop-grip change in hstd phase, or with ½ turn (180°) to hstd |  |
+| 2.306 | C | 0.30 |  | Giro de quadril livre para trás na barra alta com hecht ao apoio livre na barra baixa (Pedrick) | Clear hip circle bwd on HB with hecht to clear support on LB (Pedrick) | Pedrick |
+| 2.307 | C | 0.30 |  | Apoio facial externo – giro de quadril livre para trás na barra baixa com hecht à suspensão na barra alta (Yarotska) | Outer front support – clear hip circle bwd on LB with hecht to hang on HB (Yarotska) | Yarotska |
+| 2.401 | D | 0.40 |  | Impulso com 1½ giro (540°) à parada de mãos (Reeder) | Cast with 1½ turn (540°) to hstd (Reeder) | Reeder |
+| 2.403 | D | 0.40 |  | Do apoio facial interno na barra baixa – impulso com mortal rolado para frente à suspensão na barra alta (rolamento Radochla) (Brause/Radochla) | From inner front support on LB – cast with salto roll fwd to hang on HB (Radochla roll) (Brause/Radochla) | Radochla roll, Brause/Radochla |
+| 2.404 | D | 0.40 |  | Giro de quadril livre para frente à parada de mãos, também com ½ giro (180°) na fase de parada de mãos (kipe Weiler) | Clear hip circle fwd to hstd, also with ½ turn (180°) in hstd phase (Weiler-kip) | Weiler-kip |
+| 2.405 | D | 0.40 |  | Giro de quadril livre com 1 giro (360°) à parada de mãos | Clear hip circle with 1/1 turn (360°) to hstd |  |
+| 2.406 | D | 0.40 |  | Apoio facial interno na barra baixa – giro de quadril livre passando pela parada de mãos, com voo à suspensão na barra alta (Shaposhnikova) | Inner front support on LB – clear hip circle through hstd with flight to hang on HB (Shaposhnikova) | Shaposhnikova |
+| 2.407 | D | 0.40 |  | Apoio facial externo – giro de quadril livre para trás na barra baixa com hecht e ½ giro (180°) à suspensão na barra alta (pernas unidas ou afastadas) | Outer front support – clear hip circle bwd on LB with hecht with ½ turn (180°) to hang on HB (legs together or straddled) |  |
+| 2.503 | E | 0.50 |  | Apoio facial na barra alta – impulso com mortal para frente afastado à suspensão na barra alta (mortal Comaneci) (Comaneci) | Front support on HB – cast with salto fwd straddled to hang on HB (Comaneci salto) (Comaneci) | Comaneci salto, Comaneci |
+| 2.504 | E | 0.50 |  | Giro de quadril livre para frente à parada de mãos com 1 giro (360°) na fase de parada de mãos (Godwin) **//** Giro de quadril livre para frente (Weiler) seguido de mortal para frente afastado à suspensão na barra alta (mortal Comaneci) (Adalsteinsdottir) | Clear hip circle fwd to hstd with 1/1 turn (360°) in hstd phase (Godwin) **//** Clear hip circle forward (Weiler) into salto fwd straddled to hang on HB (Comaneci salto) (Adalsteinsdottir) | Godwin, Weiler, Comaneci salto, Adalsteinsdottir |
+| 2.505 | E | 0.50 |  | Giro de quadril livre com 1½ giro (540°) à parada de mãos | Clear hip circle with 1½ turn (540°) to hstd |  |
+| 2.506 | E | 0.50 |  | Giro de quadril livre na barra alta, contramovimento afastado sobre a barra alta à suspensão na barra alta (Hindorff) **//** Giro de quadril livre na barra alta com contramovimento afastado sobre a barra alta e ½ giro (180°) à suspensão em tomada mista cubital (Martins) **//** Giro de quadril livre passando pela parada de mãos com ½ giro (180°) em voo à suspensão na barra alta (Khorkina) | Clear hip circle on HB, counter straddle over HB to hang on HB (Hindorff) **//** Clear hip circle on HB with counter straddle over the HB with ½ turn (180°) to hang in mixed L grip (Martins) **//** Clear hip circle through hstd with ½ turn (180°) in flight to hang on HB (Khorkina) | Hindorff, Martins, Khorkina |
+| 2.606 | F | 0.60 |  | Giro de quadril livre na barra alta, contramovimento carpado sobre a barra alta à suspensão na barra alta (Shang) **//** Giro de quadril livre na barra alta, contramovimento carpado sobre a barra alta com ½ giro (180°) à suspensão em tomada mista cubital (Black) | Clear hip circle on HB, counter pike over HB to hang on HB (Shang) **//** Clear hip circle on HB, counter pike over HB with ½ turn (180°) to hang in mixed L grip (Black) | Shang, Black |
+| 2.706 | G | 0.70 |  | Giro de quadril livre na barra alta com contramovimento estendido – hecht reverso em posição estendida sobre a barra alta à suspensão (Zhang) | Clear hip circle on HB, with counter stretched -reverse hecht in layout position over HB to hang (Zhang) | Zhang |
 
 ## 3.000 — Giros gigantes
 
-| Código | Valor | Pontos | Dança | Descrição | Nome |
-|---|---|---|---|---|---|
-| 3.201 | B | 0.20 |  | Giant circle bwd in regular grip, or on one arm (Liu), also with ½ turn (180°) to hstd | Liu |
-| 3.206 | B | 0.20 |  | Giant circle fwd in reverse, regular or mix grip, also with legs straddled or hips bent in upswing phase; also with ½ turn (180°) to hstd. |  |
-| 3.301 | C | 0.30 |  | Giant circle bwd with 1/1 turn (360°) to hstd |  |
-| 3.304 | C | 0.30 |  | Hang on HB, facing LB – swing fwd and roll bwd (legs straddled) to clear support on LB |  |
-| 3.306 | C | 0.30 |  | Giant circle fwd with 1/1 turn (360°) to hstd |  |
-| 3.307 | C | 0.30 |  | Swing bwd – straddle flight bwd over LB to hstd on LB |  |
-| 3.308 | C | 0.30 |  | Swing bwd salto fwd tucked to hang on HB (Jaeger-Salto) | Jaeger-Salto |
-| 3.309 | C | 0.30 |  | Swing bwd with free stoop or straddle vault and ½ turn (180°) over HB to hang (Zhang/Volpi) | Zhang/Volpi |
-| 3.310 | C | 0.30 |  | Giant circle fwd in L grip with piked or stretched body (L grip giant), also with ½ turn (180°) to hstd (Zaytseva) | Zaytseva |
-| 3.401 | D | 0.40 |  | Giant circle bwd with 1½ or 2/1 turn (540° or 720°) to hstd, also with hop 1/1 turn (360°) to hstd (Chusovitina) | Chusovitina |
-| 3.402 | D | 0.40 |  | Hang on HB – Swing fwd with ½ turn (180°) and flight to hstd on LB |  |
-| 3.403 | D | 0.40 |  | Long swing fwd, counter straddle-reverse hecht over HB to hang (Tkatchev) (Davydova) **//** Tkatchev with ½ turn (180°) (Kononenko) **//** Swing fwd with ½ turn (180°), pike vault over HB to hang (Monckton) | Tkatchev, Davydova, Kononenko, Monckton |
-| 3.404 | D | 0.40 |  | Hang on HB, facing LB – swing fwd, salto bwd stretched between bars to clear support on LB (Pak) | Pak |
-| 3.405 | D | 0.40 |  | Swing fwd with ½ turn (180°) and salto fwd straddled to hang on HB (Deltchev Salto), or piked (Moreno/Nakamura) or swing fwd and salto bwd piked with ½ turn (180°) to hang on HB (Gienger Salto) | Deltchev Salto, Moreno/Nakamura, Gienger Salto |
-| 3.407 | D | 0.40 |  | Swing bwd release and ½ turn (180°) in flight between the bars to clear support on LB (Ejova) | Ejova |
-| 3.408 | D | 0.40 |  | Jaeger Salto straddled to hang on HB **//** Jaeger Salto straddled with ½ turn (180°) to hang on HB (Li Ya) **//** Jaeger Salto piked to hang on HB | Li Ya |
-| 3.409 | D | 0.40 |  | Swing bwd with ½ turn (180°) and straddle flight bwd over HB to hang (Khorkina) | Khorkina |
-| 3.410 | D | 0.40 |  | Giant circle fwd in L grip with 1/1 turn (360°) to hstd |  |
-| 3.502 | E | 0.50 |  | Hang on HB – Swing fwd with 1½ turn (540°) and flight over LB to hang on LB (Strong) | Strong |
-| 3.503 | E | 0.50 |  | Tkatchev piked **//** Long swing fwd with ½ turn (180°) - ½ turn (180°) to counter straddle in flight over HB to hang (Shushunova) | Shushunova |
-| 3.504 | E | 0.50 |  | Pak Salto with 1/1 turn (360°) (Bhardwaj) | Bhardwaj |
-| 3.505 | E | 0.50 |  | Swing fwd and salto bwd with ½ turn (180°) stretched to hang on HB |  |
-| 3.506 | E | 0.50 |  | Giant circle fwd in reverse grip to hstd with initiation of 1/1 turn (360°) on one arm before hstd phase, or giant circle fwd in reverse grip with 1½ turn (540°) to hstd |  |
-| 3.510 | E | 0.50 |  | Giant circle fwd in L grip with initiation of 1/1 turn (360°) on 1 arm before hstd phase, completed to hstd, or Giant circle fwd in L grip with 1½ turn (540˚) to hstd (any technique accepted) |  |
-| 3.604 | F | 0.60 |  | Facing outward on HB - swing fwd and counter salto fwd with legs straddled to hang on HB in reverse grip (Kim) | Kim |
-| 3.608 | F | 0.60 |  | Jaeger Salto stretched to hang on HB (Capuccitti) **//** Jaeger Salto piked with 1/1turn (360°), to hang on HB (Minamino) | Capuccitti, Minamino |
-| 3.705 | G | 0.70 |  | Swing fwd and salto bwd stretched with 1½ turn (540°) to hang on HB (Hristakieva) | Hristakieva |
-| 3.708 | G | 0.70 |  | Swing bwd with salto fwd tucked over HB to hang on HB (Mo) **//** Jaeger Salto stretched with 1/1turn (360°), to hang on HB (Yang) | Mo, Yang |
+| Código | Valor | Pontos | Dança | Elemento (português) | Original (inglês) | Nome |
+|---|---|---|---|---|---|---|
+| 3.201 | B | 0.20 |  | Giro gigante para trás em tomada dorsal, ou em um braço (Liu), também com ½ giro (180°) à parada de mãos | Giant circle bwd in regular grip, or on one arm (Liu), also with ½ turn (180°) to hstd | Liu |
+| 3.206 | B | 0.20 |  | Giro gigante para frente em tomada palmar, dorsal ou mista, também com pernas afastadas ou quadril flexionado na fase ascendente; também com ½ giro (180°) à parada de mãos | Giant circle fwd in reverse, regular or mix grip, also with legs straddled or hips bent in upswing phase; also with ½ turn (180°) to hstd. |  |
+| 3.301 | C | 0.30 |  | Giro gigante para trás com 1 giro (360°) à parada de mãos | Giant circle bwd with 1/1 turn (360°) to hstd |  |
+| 3.304 | C | 0.30 |  | Suspensão na barra alta, de frente para a barra baixa – balanço para frente e rolamento para trás (pernas afastadas) ao apoio livre na barra baixa | Hang on HB, facing LB – swing fwd and roll bwd (legs straddled) to clear support on LB |  |
+| 3.306 | C | 0.30 |  | Giro gigante para frente com 1 giro (360°) à parada de mãos | Giant circle fwd with 1/1 turn (360°) to hstd |  |
+| 3.307 | C | 0.30 |  | Balanço para trás – voo afastado para trás sobre a barra baixa à parada de mãos na barra baixa | Swing bwd – straddle flight bwd over LB to hstd on LB |  |
+| 3.308 | C | 0.30 |  | Balanço para trás e mortal para frente grupado à suspensão na barra alta (mortal Jaeger) | Swing bwd salto fwd tucked to hang on HB (Jaeger-Salto) | Jaeger-Salto |
+| 3.309 | C | 0.30 |  | Balanço para trás com passagem carpada livre ou salto afastado e ½ giro (180°) sobre a barra alta à suspensão (Zhang/Volpi) | Swing bwd with free stoop or straddle vault and ½ turn (180°) over HB to hang (Zhang/Volpi) | Zhang/Volpi |
+| 3.310 | C | 0.30 |  | Giro gigante para frente em tomada cubital com corpo carpado ou estendido (gigante cubital), também com ½ giro (180°) à parada de mãos (Zaytseva) | Giant circle fwd in L grip with piked or stretched body (L grip giant), also with ½ turn (180°) to hstd (Zaytseva) | Zaytseva |
+| 3.401 | D | 0.40 |  | Giro gigante para trás com 1½ ou 2 giros (540° ou 720°) à parada de mãos, também com salto e 1 giro (360°) à parada de mãos (Chusovitina) | Giant circle bwd with 1½ or 2/1 turn (540° or 720°) to hstd, also with hop 1/1 turn (360°) to hstd (Chusovitina) | Chusovitina |
+| 3.402 | D | 0.40 |  | Suspensão na barra alta – balanço para frente com ½ giro (180°) e voo à parada de mãos na barra baixa | Hang on HB – Swing fwd with ½ turn (180°) and flight to hstd on LB |  |
+| 3.403 | D | 0.40 |  | Balanço longo para frente, contramovimento afastado – hecht reverso sobre a barra alta à suspensão (Tkatchev) (Davydova) **//** Tkatchev com ½ giro (180°) (Kononenko) **//** Balanço para frente com ½ giro (180°), salto carpado sobre a barra alta à suspensão (Monckton) | Long swing fwd, counter straddle-reverse hecht over HB to hang (Tkatchev) (Davydova) **//** Tkatchev with ½ turn (180°) (Kononenko) **//** Swing fwd with ½ turn (180°), pike vault over HB to hang (Monckton) | Tkatchev, Davydova, Kononenko, Monckton |
+| 3.404 | D | 0.40 |  | Suspensão na barra alta, de frente para a barra baixa – balanço para frente, mortal para trás estendido entre as barras ao apoio livre na barra baixa (Pak) | Hang on HB, facing LB – swing fwd, salto bwd stretched between bars to clear support on LB (Pak) | Pak |
+| 3.405 | D | 0.40 |  | Balanço para frente com ½ giro (180°) e mortal para frente afastado à suspensão na barra alta (mortal Deltchev), ou carpado (Moreno/Nakamura), ou balanço para frente e mortal para trás carpado com ½ giro (180°) à suspensão na barra alta (mortal Gienger) | Swing fwd with ½ turn (180°) and salto fwd straddled to hang on HB (Deltchev Salto), or piked (Moreno/Nakamura) or swing fwd and salto bwd piked with ½ turn (180°) to hang on HB (Gienger Salto) | Deltchev Salto, Moreno/Nakamura, Gienger Salto |
+| 3.407 | D | 0.40 |  | Balanço para trás, largada e ½ giro (180°) em voo entre as barras ao apoio livre na barra baixa (Ejova) | Swing bwd release and ½ turn (180°) in flight between the bars to clear support on LB (Ejova) | Ejova |
+| 3.408 | D | 0.40 |  | Mortal Jaeger afastado à suspensão na barra alta **//** Mortal Jaeger afastado com ½ giro (180°) à suspensão na barra alta (Li Ya) **//** Mortal Jaeger carpado à suspensão na barra alta | Jaeger Salto straddled to hang on HB **//** Jaeger Salto straddled with ½ turn (180°) to hang on HB (Li Ya) **//** Jaeger Salto piked to hang on HB | Li Ya |
+| 3.409 | D | 0.40 |  | Balanço para trás com ½ giro (180°) e voo afastado para trás sobre a barra alta à suspensão (Khorkina) | Swing bwd with ½ turn (180°) and straddle flight bwd over HB to hang (Khorkina) | Khorkina |
+| 3.410 | D | 0.40 |  | Giro gigante para frente em tomada cubital com 1 giro (360°) à parada de mãos | Giant circle fwd in L grip with 1/1 turn (360°) to hstd |  |
+| 3.502 | E | 0.50 |  | Suspensão na barra alta – balanço para frente com 1½ giro (540°) e voo sobre a barra baixa à suspensão na barra baixa (Strong) | Hang on HB – Swing fwd with 1½ turn (540°) and flight over LB to hang on LB (Strong) | Strong |
+| 3.503 | E | 0.50 |  | Tkatchev carpado **//** Balanço longo para frente com ½ giro (180°) e mais ½ giro (180°) ao contramovimento afastado em voo sobre a barra alta à suspensão (Shushunova) | Tkatchev piked **//** Long swing fwd with ½ turn (180°) - ½ turn (180°) to counter straddle in flight over HB to hang (Shushunova) | Shushunova |
+| 3.504 | E | 0.50 |  | Mortal Pak com 1 giro (360°) (Bhardwaj) | Pak Salto with 1/1 turn (360°) (Bhardwaj) | Bhardwaj |
+| 3.505 | E | 0.50 |  | Balanço para frente e mortal para trás estendido com ½ giro (180°) à suspensão na barra alta | Swing fwd and salto bwd with ½ turn (180°) stretched to hang on HB |  |
+| 3.506 | E | 0.50 |  | Giro gigante para frente em tomada palmar à parada de mãos com início de 1 giro (360°) em um braço antes da fase de parada de mãos, ou giro gigante para frente em tomada palmar com 1½ giro (540°) à parada de mãos | Giant circle fwd in reverse grip to hstd with initiation of 1/1 turn (360°) on one arm before hstd phase, or giant circle fwd in reverse grip with 1½ turn (540°) to hstd |  |
+| 3.510 | E | 0.50 |  | Giro gigante para frente em tomada cubital com início de 1 giro (360°) em um braço antes da fase de parada de mãos, completado na parada de mãos, ou giro gigante para frente em tomada cubital com 1½ giro (540°) à parada de mãos (qualquer técnica é aceita) | Giant circle fwd in L grip with initiation of 1/1 turn (360°) on 1 arm before hstd phase, completed to hstd, or Giant circle fwd in L grip with 1½ turn (540˚) to hstd (any technique accepted) |  |
+| 3.604 | F | 0.60 |  | De frente para fora na barra alta – balanço para frente e contramortal para frente com pernas afastadas à suspensão na barra alta em tomada palmar (Kim) | Facing outward on HB - swing fwd and counter salto fwd with legs straddled to hang on HB in reverse grip (Kim) | Kim |
+| 3.608 | F | 0.60 |  | Mortal Jaeger estendido à suspensão na barra alta (Capuccitti) **//** Mortal Jaeger carpado com 1 giro (360°) à suspensão na barra alta (Minamino) | Jaeger Salto stretched to hang on HB (Capuccitti) **//** Jaeger Salto piked with 1/1turn (360°), to hang on HB (Minamino) | Capuccitti, Minamino |
+| 3.705 | G | 0.70 |  | Balanço para frente e mortal para trás estendido com 1½ giro (540°) à suspensão na barra alta (Hristakieva) | Swing fwd and salto bwd stretched with 1½ turn (540°) to hang on HB (Hristakieva) | Hristakieva |
+| 3.708 | G | 0.70 |  | Balanço para trás com mortal para frente grupado sobre a barra alta à suspensão na barra alta (Mo) **//** Mortal Jaeger estendido com 1 giro (360°) à suspensão na barra alta (Yang) | Swing bwd with salto fwd tucked over HB to hang on HB (Mo) **//** Jaeger Salto stretched with 1/1turn (360°), to hang on HB (Yang) | Mo, Yang |
 
 ## 4.000 — Stalders
 
-| Código | Valor | Pontos | Dança | Descrição | Nome |
-|---|---|---|---|---|---|
-| 4.101 | A | 0.10 |  | Clear straddle circle fwd to clear support |  |
-| 4.103 | A | 0.10 |  | Clear straddle circle fwd in L grip to clear support |  |
-| 4.104 | A | 0.10 |  | Clear straddle circle bwd to clear support |  |
-| 4.106 | A | 0.10 |  | Rear support – seat (pike) circle fwd to rear support |  |
-| 4.107 | A | 0.10 |  | Rear support – seat (pike) circle bwd to rear support |  |
-| 4.201 | B | 0.20 |  | Kip on HB, passing through clear straddle support – swing/press to hstd and ½ turn (180°) in hstd phase |  |
-| 4.205 | B | 0.20 |  | Facing inward – Stalder bwd with release and counter movement fwd in flight to hang on HB |  |
-| 4.208 | B | 0.20 |  | Clear pike circle bwd on LB with counter flight to hang on HB |  |
-| 4.302 | C | 0.30 |  | Clear straddle circle bwd on HB with flight to clear support on LB |  |
-| 4.304 | C | 0.30 |  | Stalder bwd to hstd, also with hop-grip change in hstd phase or with ½ turn (180°) to hstd |  |
-| 4.305 | C | 0.30 |  | Facing inward – Stalder bwd with hecht flight to hang on HB |  |
-| 4.308 | C | 0.30 |  | Clear pike circle bwd on LB with hecht flight to hang on HB (Zgoba) **//** Clear pike circle bwd on HB with flight to clear support on LB (Sayer) | Zgoba, Sayer |
-| 4.401 | D | 0.40 |  | Stalder fwd to hstd, also with ½ turn (180°) to hstd |  |
-| 4.402 | D | 0.40 |  | Clear straddle circle bwd on HB with flight fwd to hstd on LB |  |
-| 4.403 | D | 0.40 |  | Stalder fwd in L grip to hstd, also with ½ turn (180°) to hstd (White) | White |
-| 4.404 | D | 0.40 |  | Stalder bwd with 1/1 turn (360°) to hstd (Frederick) | Frederick |
-| 4.405 | D | 0.40 |  | Facing outward – Stalder bwd through hstd with flight to hang on HB |  |
-| 4.406 | D | 0.40 |  | Clear pike circle fwd to hstd, also with ½ turn (180°) to hstd |  |
-| 4.407 | D | 0.40 |  | Clear pike circle bwd to hstd, also with ½ turn (180°) to hstd |  |
-| 4.501 | E | 0.50 |  | Stalder fwd with 1/1 turn (360°) to hstd |  |
-| 4.502 | E | 0.50 |  | Stalder bwd on HB with counter straddle - reverse hecht over HB to hang (Ricna) **//** Stalder bwd on HB with counter straddle reverse hecht over HB with ½ (180°) turn to hang in mixed L grip (Derwael / Fenton) | Ricna, Derwael / Fenton |
-| 4.503 | E | 0.50 |  | Stalder fwd in L grip with 1/1 turn (360°) to hstd (any technique accepted) |  |
-| 4.504 | E | 0.50 |  | Stalder bwd with 1½ turn (540°) to hstd |  |
-| 4.505 | E | 0.50 |  | Stalder bwd through hstd with flight and ½ turn (180°), to hang on HB |  |
-| 4.506 | E | 0.50 |  | Clear pike circle fwd with 1/1 turn (360°) to hstd |  |
-| 4.507 | E | 0.50 |  | Clear pike circle bwd with 1/1 turn (360°) to hstd. |  |
-| 4.508 | E | 0.50 |  | Clear pike circle bwd through hstd with flight to hang on HB, also with ½ turn (180°) (Komova) **//** Clear pike circle bwd with counter straddle (open hip before flight) – reverse hecht over HB to hang (Galante) | Komova, Galante |
-| 4.602 | F | 0.60 |  | Stalder bwd on HB with counter pike - reverse hecht over HB to hang (Downie) | Downie |
-| 4.608 | F | 0.60 |  | Clear pike circle bwd with counter pike – reverse hecht over HB to hang |  |
-| 4.708 | G | 0.70 |  | Clear pike circle bwd with counter stretched - reverse hecht in layout position over HB to hang (Nemour) | Nemour |
+| Código | Valor | Pontos | Dança | Elemento (português) | Original (inglês) | Nome |
+|---|---|---|---|---|---|---|
+| 4.101 | A | 0.10 |  | Giro afastado livre para frente ao apoio livre | Clear straddle circle fwd to clear support |  |
+| 4.103 | A | 0.10 |  | Giro afastado livre para frente em tomada cubital ao apoio livre | Clear straddle circle fwd in L grip to clear support |  |
+| 4.104 | A | 0.10 |  | Giro afastado livre para trás ao apoio livre | Clear straddle circle bwd to clear support |  |
+| 4.106 | A | 0.10 |  | Apoio dorsal – giro sentado (carpado) para frente ao apoio dorsal | Rear support – seat (pike) circle fwd to rear support |  |
+| 4.107 | A | 0.10 |  | Apoio dorsal – giro sentado (carpado) para trás ao apoio dorsal | Rear support – seat (pike) circle bwd to rear support |  |
+| 4.201 | B | 0.20 |  | Kipe na barra alta passando pelo apoio afastado livre – balanço/força à parada de mãos e ½ giro (180°) na fase de parada de mãos | Kip on HB, passing through clear straddle support – swing/press to hstd and ½ turn (180°) in hstd phase |  |
+| 4.205 | B | 0.20 |  | De frente para dentro – Stalder para trás com largada e contramovimento para frente em voo à suspensão na barra alta | Facing inward – Stalder bwd with release and counter movement fwd in flight to hang on HB |  |
+| 4.208 | B | 0.20 |  | Giro carpado livre para trás na barra baixa com contravoo à suspensão na barra alta | Clear pike circle bwd on LB with counter flight to hang on HB |  |
+| 4.302 | C | 0.30 |  | Giro afastado livre para trás na barra alta com voo ao apoio livre na barra baixa | Clear straddle circle bwd on HB with flight to clear support on LB |  |
+| 4.304 | C | 0.30 |  | Stalder para trás à parada de mãos, também com troca de tomada em salto na fase de parada de mãos ou com ½ giro (180°) à parada de mãos | Stalder bwd to hstd, also with hop-grip change in hstd phase or with ½ turn (180°) to hstd |  |
+| 4.305 | C | 0.30 |  | De frente para dentro – Stalder para trás com voo hecht à suspensão na barra alta | Facing inward – Stalder bwd with hecht flight to hang on HB |  |
+| 4.308 | C | 0.30 |  | Giro carpado livre para trás na barra baixa com voo hecht à suspensão na barra alta (Zgoba) **//** Giro carpado livre para trás na barra alta com voo ao apoio livre na barra baixa (Sayer) | Clear pike circle bwd on LB with hecht flight to hang on HB (Zgoba) **//** Clear pike circle bwd on HB with flight to clear support on LB (Sayer) | Zgoba, Sayer |
+| 4.401 | D | 0.40 |  | Stalder para frente à parada de mãos, também com ½ giro (180°) à parada de mãos | Stalder fwd to hstd, also with ½ turn (180°) to hstd |  |
+| 4.402 | D | 0.40 |  | Giro afastado livre para trás na barra alta com voo para frente à parada de mãos na barra baixa | Clear straddle circle bwd on HB with flight fwd to hstd on LB |  |
+| 4.403 | D | 0.40 |  | Stalder para frente em tomada cubital à parada de mãos, também com ½ giro (180°) à parada de mãos (White) | Stalder fwd in L grip to hstd, also with ½ turn (180°) to hstd (White) | White |
+| 4.404 | D | 0.40 |  | Stalder para trás com 1 giro (360°) à parada de mãos (Frederick) | Stalder bwd with 1/1 turn (360°) to hstd (Frederick) | Frederick |
+| 4.405 | D | 0.40 |  | De frente para fora – Stalder para trás passando pela parada de mãos, com voo à suspensão na barra alta | Facing outward – Stalder bwd through hstd with flight to hang on HB |  |
+| 4.406 | D | 0.40 |  | Giro carpado livre para frente à parada de mãos, também com ½ giro (180°) à parada de mãos | Clear pike circle fwd to hstd, also with ½ turn (180°) to hstd |  |
+| 4.407 | D | 0.40 |  | Giro carpado livre para trás à parada de mãos, também com ½ giro (180°) à parada de mãos | Clear pike circle bwd to hstd, also with ½ turn (180°) to hstd |  |
+| 4.501 | E | 0.50 |  | Stalder para frente com 1 giro (360°) à parada de mãos | Stalder fwd with 1/1 turn (360°) to hstd |  |
+| 4.502 | E | 0.50 |  | Stalder para trás na barra alta com contramovimento afastado – hecht reverso sobre a barra alta à suspensão (Ricna) **//** Stalder para trás na barra alta com contramovimento afastado – hecht reverso sobre a barra alta com ½ giro (180°) à suspensão em tomada mista cubital (Derwael / Fenton) | Stalder bwd on HB with counter straddle - reverse hecht over HB to hang (Ricna) **//** Stalder bwd on HB with counter straddle reverse hecht over HB with ½ (180°) turn to hang in mixed L grip (Derwael / Fenton) | Ricna, Derwael / Fenton |
+| 4.503 | E | 0.50 |  | Stalder para frente em tomada cubital com 1 giro (360°) à parada de mãos (qualquer técnica é aceita) | Stalder fwd in L grip with 1/1 turn (360°) to hstd (any technique accepted) |  |
+| 4.504 | E | 0.50 |  | Stalder para trás com 1½ giro (540°) à parada de mãos | Stalder bwd with 1½ turn (540°) to hstd |  |
+| 4.505 | E | 0.50 |  | Stalder para trás passando pela parada de mãos, com voo e ½ giro (180°) à suspensão na barra alta | Stalder bwd through hstd with flight and ½ turn (180°), to hang on HB |  |
+| 4.506 | E | 0.50 |  | Giro carpado livre para frente com 1 giro (360°) à parada de mãos | Clear pike circle fwd with 1/1 turn (360°) to hstd |  |
+| 4.507 | E | 0.50 |  | Giro carpado livre para trás com 1 giro (360°) à parada de mãos | Clear pike circle bwd with 1/1 turn (360°) to hstd. |  |
+| 4.508 | E | 0.50 |  | Giro carpado livre para trás passando pela parada de mãos, com voo à suspensão na barra alta, também com ½ giro (180°) (Komova) **//** Giro carpado livre para trás com contramovimento afastado (abertura do quadril antes do voo) – hecht reverso sobre a barra alta à suspensão (Galante) | Clear pike circle bwd through hstd with flight to hang on HB, also with ½ turn (180°) (Komova) **//** Clear pike circle bwd with counter straddle (open hip before flight) – reverse hecht over HB to hang (Galante) | Komova, Galante |
+| 4.602 | F | 0.60 |  | Stalder para trás na barra alta com contramovimento carpado – hecht reverso sobre a barra alta à suspensão (Downie) | Stalder bwd on HB with counter pike - reverse hecht over HB to hang (Downie) | Downie |
+| 4.608 | F | 0.60 |  | Giro carpado livre para trás com contramovimento carpado – hecht reverso sobre a barra alta à suspensão | Clear pike circle bwd with counter pike – reverse hecht over HB to hang |  |
+| 4.708 | G | 0.70 |  | Giro carpado livre para trás com contramovimento estendido – hecht reverso em posição estendida sobre a barra alta à suspensão (Nemour) | Clear pike circle bwd with counter stretched - reverse hecht in layout position over HB to hang (Nemour) | Nemour |
 
 ## 5.000 — Giros carpados (pike/sole circles)
 
-| Código | Valor | Pontos | Dança | Descrição | Nome |
-|---|---|---|---|---|---|
-| 5.101 | A | 0.10 |  | Rear support on LB or HB – seat (pike) circle fwd with straddle cut bwd to hang on same bar |  |
-| 5.104 | A | 0.10 |  | Underswing bwd (inverted pike swing), dislocate (Schleudern) to hang on HB | Schleudern |
-| 5.105 | A | 0.10 |  | Sole circle forward (piked or straddle) |  |
-| 5.106 | A | 0.10 |  | Sole circle forward in L grip (piked or straddle) |  |
-| 5.108 | A | 0.10 |  | Sole circle bwd (piked or straddle) |  |
-| 5.202 | B | 0.20 |  | Rear support on HB – seat circle bwd with release to hang on LB |  |
-| 5.207 | B | 0.20 |  | Underswing on LB (support of feet) with counter movement fwd in flight to hang on HB |  |
-| 5.301 | C | 0.30 |  | Outer rear support on HB – fall bwd to inverted pike swing or seat (pike) circle fwd – straddle cut bwd with flight over LB to hang **//** Rear support on LB - seat (pike) circle fwd with straddle cut bwd and grip change to hang on HB. |  |
-| 5.302 | C | 0.30 |  | Clear rear pike support on HB (legs together) – full circle swing bwd to finish in clear rear support on HB (Steinemann circle) | Steinemann circle |
-| 5.303 | C | 0.30 |  | Clear rear pike support (legs together) on HB – full circle swing bwd with stoop out bwd to hang on HB (Li Li) | Li Li |
-| 5.304 | C | 0.30 |  | Schleudern to near hstd with hop-change to regular grip on HB **//** Stoop through on HB, dislocate and release with ½ (180°) turn in flight between the bars to catch LB in hang (Alt) | Alt |
-| 5.305 | C | 0.30 |  | Pike sole circle fwd in reverse grip to hstd, also with ½ turn (180°) to hstd |  |
-| 5.306 | C | 0.30 |  | Pike sole circle fwd in L grip to hstd, also with ½ turn (180°) |  |
-| 5.307 | C | 0.30 |  | Underswing on HB or LB with hand release and 1½ turn (540°) to hang (Burda) | Burda |
-| 5.308 | C | 0.30 |  | Pike sole circle bwd to hstd, also with hop-grip change to reverse grip in hstd phase, also with ½ turn (180°) |  |
-| 5.402 | D | 0.40 |  | Clear rear pike support on HB (legs together) – full circle swing bwd – continuing through clear rear pike support bwd over HB into hang (Mirgoradskaja) **//** From hstd clear pike circle bwd to rear inverted pike support (Krasnyanska) | Mirgoradskaja, Krasnyanska |
-| 5.403 | D | 0.40 |  | Clear rear pike support (legs together) on HB – full circle swing bwd with counter flight bwd straddled (Li Li) | Li Li |
-| 5.404 | D | 0.40 |  | Underswing bwd (inverted pike swing) on HB – dislocate with flight to hstd on LB (Zuchold-Schleudern) also from stoop through etc... | Zuchold-Schleudern |
-| 5.405 | D | 0.40 |  | Pike sole circle fwd in reverse grip with 1/1 turn (360°) to hstd (Hoefnagel) | Hoefnagel |
-| 5.406 | D | 0.40 |  | Pike sole circle fwd in L grip with 1/1 turn (360°) to hstd |  |
-| 5.408 | D | 0.40 |  | Pike sole circle bwd with 1/1 turn (360°) to hstd |  |
-| 5.409 | D | 0.40 |  | Inner front support on LB – pike sole circle bwd through hstd with flight to hang on HB (Maloney) | Maloney |
-| 5.410 | D | 0.40 |  | Pike sole circle bwd counter straddle-reverse hecht over HB to hang (Ray) **//** Pike sole circle bwd with counter straddle hecht over HB with ½ turn (180°) to hang in mixed L grip (Tweddle) | Ray, Tweddle |
-| 5.501 | E | 0.50 |  | Stoop in to Adler-seat (pike) circle fwd through clear extended support to finish in L grip (deviation up to 30° allowed), also with ½ turn (180°) (Luo) | Luo |
-| 5.502 | E | 0.50 |  | Clear rear pike support on HB (legs together) – circle swing bwd and continue to salto bwd stretched between bars to clear support on LB (Teza) circle swing bwd and ½ turn (180°) with flight to hstd on LB | Teza |
-| 5.508 | E | 0.50 |  | Pike sole circle bwd with 1½ turn (540°) to hstd (Lucke) | Lucke |
-| 5.509 | E | 0.50 |  | Facing outward on LB – pike sole circle bwd through hstd with flight and ½ turn (180°) (Van Leeuwen), or 1/1 turn (360°) to hang on HB (Seitz) | Van Leeuwen, Seitz |
-| 5.510 | E | 0.50 |  | Pike sole circle bwd counter pike hecht over HB to hang (Church) **//** Pike sole circle bwd with counter pike hecht over HB with ½ turn (180°) to hang in mixed L grip (Fenton) | Church, Fenton |
-| 5.607 | F | 0.60 |  | Facing outward on HB – underswing with support of feet- counter salto fwd straddled to hang on HB in reverse grip |  |
-| 5.610 | F | 0.60 |  | Pike sole circle bwd with counter stretched – reverse hecht in layout position over HB to hang (Nabieva) **//** Pike sole circle bwd with counter stretched – reverse hecht in layout position over HB, with ½ turn (180°) to hang in mixed L grip (Derwael) | Nabieva, Derwael |
+| Código | Valor | Pontos | Dança | Elemento (português) | Original (inglês) | Nome |
+|---|---|---|---|---|---|---|
+| 5.101 | A | 0.10 |  | Apoio dorsal na barra baixa ou alta – giro sentado (carpado) para frente com corte afastado para trás à suspensão na mesma barra | Rear support on LB or HB – seat (pike) circle fwd with straddle cut bwd to hang on same bar |  |
+| 5.104 | A | 0.10 |  | Balanço por baixo para trás (balanço carpado invertido), deslocamento (Schleudern) à suspensão na barra alta | Underswing bwd (inverted pike swing), dislocate (Schleudern) to hang on HB | Schleudern |
+| 5.105 | A | 0.10 |  | Giro com apoio dos pés para frente (carpado ou afastado) | Sole circle forward (piked or straddle) |  |
+| 5.106 | A | 0.10 |  | Giro com apoio dos pés para frente em tomada cubital (carpado ou afastado) | Sole circle forward in L grip (piked or straddle) |  |
+| 5.108 | A | 0.10 |  | Giro com apoio dos pés para trás (carpado ou afastado) | Sole circle bwd (piked or straddle) |  |
+| 5.202 | B | 0.20 |  | Apoio dorsal na barra alta – giro sentado para trás com largada à suspensão na barra baixa | Rear support on HB – seat circle bwd with release to hang on LB |  |
+| 5.207 | B | 0.20 |  | Balanço por baixo na barra baixa (com apoio dos pés) com contramovimento para frente em voo à suspensão na barra alta | Underswing on LB (support of feet) with counter movement fwd in flight to hang on HB |  |
+| 5.301 | C | 0.30 |  | Apoio dorsal externo na barra alta – queda para trás ao balanço carpado invertido ou giro sentado (carpado) para frente – corte afastado para trás com voo sobre a barra baixa à suspensão **//** Apoio dorsal na barra baixa – giro sentado (carpado) para frente com corte afastado para trás e troca de tomada à suspensão na barra alta | Outer rear support on HB – fall bwd to inverted pike swing or seat (pike) circle fwd – straddle cut bwd with flight over LB to hang **//** Rear support on LB - seat (pike) circle fwd with straddle cut bwd and grip change to hang on HB. |  |
+| 5.302 | C | 0.30 |  | Apoio dorsal carpado livre na barra alta (pernas unidas) – giro completo para trás terminando em apoio dorsal livre na barra alta (giro Steinemann) | Clear rear pike support on HB (legs together) – full circle swing bwd to finish in clear rear support on HB (Steinemann circle) | Steinemann circle |
+| 5.303 | C | 0.30 |  | Apoio dorsal carpado livre (pernas unidas) na barra alta – giro completo para trás com saída carpada para trás à suspensão na barra alta (Li Li) | Clear rear pike support (legs together) on HB – full circle swing bwd with stoop out bwd to hang on HB (Li Li) | Li Li |
+| 5.304 | C | 0.30 |  | Schleudern até próximo da parada de mãos com troca em salto para tomada dorsal na barra alta **//** Passagem carpada das pernas entre os braços na barra alta, deslocamento e largada com ½ giro (180°) em voo entre as barras para agarrar a barra baixa em suspensão (Alt) | Schleudern to near hstd with hop-change to regular grip on HB **//** Stoop through on HB, dislocate and release with ½ (180°) turn in flight between the bars to catch LB in hang (Alt) | Alt |
+| 5.305 | C | 0.30 |  | Giro carpado com apoio dos pés para frente em tomada palmar à parada de mãos, também com ½ giro (180°) à parada de mãos | Pike sole circle fwd in reverse grip to hstd, also with ½ turn (180°) to hstd |  |
+| 5.306 | C | 0.30 |  | Giro carpado com apoio dos pés para frente em tomada cubital à parada de mãos, também com ½ giro (180°) | Pike sole circle fwd in L grip to hstd, also with ½ turn (180°) |  |
+| 5.307 | C | 0.30 |  | Balanço por baixo na barra alta ou baixa com largada das mãos e 1½ giro (540°) à suspensão (Burda) | Underswing on HB or LB with hand release and 1½ turn (540°) to hang (Burda) | Burda |
+| 5.308 | C | 0.30 |  | Giro carpado com apoio dos pés para trás à parada de mãos, também com troca em salto para tomada palmar na fase de parada de mãos, também com ½ giro (180°) | Pike sole circle bwd to hstd, also with hop-grip change to reverse grip in hstd phase, also with ½ turn (180°) |  |
+| 5.402 | D | 0.40 |  | Apoio dorsal carpado livre na barra alta (pernas unidas) – giro completo para trás – continuando pelo apoio dorsal carpado livre para trás sobre a barra alta até a suspensão (Mirgoradskaja) **//** Da parada de mãos, giro carpado livre para trás ao apoio dorsal carpado invertido (Krasnyanska) | Clear rear pike support on HB (legs together) – full circle swing bwd – continuing through clear rear pike support bwd over HB into hang (Mirgoradskaja) **//** From hstd clear pike circle bwd to rear inverted pike support (Krasnyanska) | Mirgoradskaja, Krasnyanska |
+| 5.403 | D | 0.40 |  | Apoio dorsal carpado livre (pernas unidas) na barra alta – giro completo para trás com contravoo para trás afastado (Li Li) | Clear rear pike support (legs together) on HB – full circle swing bwd with counter flight bwd straddled (Li Li) | Li Li |
+| 5.404 | D | 0.40 |  | Balanço por baixo para trás (balanço carpado invertido) na barra alta – deslocamento com voo à parada de mãos na barra baixa (Zuchold-Schleudern), também a partir da passagem carpada das pernas entre os braços etc. | Underswing bwd (inverted pike swing) on HB – dislocate with flight to hstd on LB (Zuchold-Schleudern) also from stoop through etc... | Zuchold-Schleudern |
+| 5.405 | D | 0.40 |  | Giro carpado com apoio dos pés para frente em tomada palmar com 1 giro (360°) à parada de mãos (Hoefnagel) | Pike sole circle fwd in reverse grip with 1/1 turn (360°) to hstd (Hoefnagel) | Hoefnagel |
+| 5.406 | D | 0.40 |  | Giro carpado com apoio dos pés para frente em tomada cubital com 1 giro (360°) à parada de mãos | Pike sole circle fwd in L grip with 1/1 turn (360°) to hstd |  |
+| 5.408 | D | 0.40 |  | Giro carpado com apoio dos pés para trás com 1 giro (360°) à parada de mãos | Pike sole circle bwd with 1/1 turn (360°) to hstd |  |
+| 5.409 | D | 0.40 |  | Apoio facial interno na barra baixa – giro carpado com apoio dos pés para trás passando pela parada de mãos, com voo à suspensão na barra alta (Maloney) | Inner front support on LB – pike sole circle bwd through hstd with flight to hang on HB (Maloney) | Maloney |
+| 5.410 | D | 0.40 |  | Giro carpado com apoio dos pés para trás, contramovimento afastado – hecht reverso sobre a barra alta à suspensão (Ray) **//** Giro carpado com apoio dos pés para trás com contramovimento afastado (hecht) sobre a barra alta e ½ giro (180°) à suspensão em tomada mista cubital (Tweddle) | Pike sole circle bwd counter straddle-reverse hecht over HB to hang (Ray) **//** Pike sole circle bwd with counter straddle hecht over HB with ½ turn (180°) to hang in mixed L grip (Tweddle) | Ray, Tweddle |
+| 5.501 | E | 0.50 |  | Passagem carpada das pernas para dentro ao giro Adler – giro sentado (carpado) para frente passando pelo apoio livre estendido, terminando em tomada cubital (desvio de até 30° permitido), também com ½ giro (180°) (Luo) | Stoop in to Adler-seat (pike) circle fwd through clear extended support to finish in L grip (deviation up to 30° allowed), also with ½ turn (180°) (Luo) | Luo |
+| 5.502 | E | 0.50 |  | Apoio dorsal carpado livre na barra alta (pernas unidas) – giro para trás continuando em mortal para trás estendido entre as barras ao apoio livre na barra baixa (Teza); ou giro para trás e ½ giro (180°) com voo à parada de mãos na barra baixa | Clear rear pike support on HB (legs together) – circle swing bwd and continue to salto bwd stretched between bars to clear support on LB (Teza) circle swing bwd and ½ turn (180°) with flight to hstd on LB | Teza |
+| 5.508 | E | 0.50 |  | Giro carpado com apoio dos pés para trás com 1½ giro (540°) à parada de mãos (Lucke) | Pike sole circle bwd with 1½ turn (540°) to hstd (Lucke) | Lucke |
+| 5.509 | E | 0.50 |  | De frente para fora na barra baixa – giro carpado com apoio dos pés para trás passando pela parada de mãos, com voo e ½ giro (180°) (Van Leeuwen), ou 1 giro (360°) à suspensão na barra alta (Seitz) | Facing outward on LB – pike sole circle bwd through hstd with flight and ½ turn (180°) (Van Leeuwen), or 1/1 turn (360°) to hang on HB (Seitz) | Van Leeuwen, Seitz |
+| 5.510 | E | 0.50 |  | Giro carpado com apoio dos pés para trás, contramovimento carpado (hecht) sobre a barra alta à suspensão (Church) **//** Giro carpado com apoio dos pés para trás com contramovimento carpado (hecht) sobre a barra alta e ½ giro (180°) à suspensão em tomada mista cubital (Fenton) | Pike sole circle bwd counter pike hecht over HB to hang (Church) **//** Pike sole circle bwd with counter pike hecht over HB with ½ turn (180°) to hang in mixed L grip (Fenton) | Church, Fenton |
+| 5.607 | F | 0.60 |  | De frente para fora na barra alta – balanço por baixo com apoio dos pés – contramortal para frente afastado à suspensão na barra alta em tomada palmar | Facing outward on HB – underswing with support of feet- counter salto fwd straddled to hang on HB in reverse grip |  |
+| 5.610 | F | 0.60 |  | Giro carpado com apoio dos pés para trás com contramovimento estendido – hecht reverso em posição estendida sobre a barra alta à suspensão (Nabieva) **//** Giro carpado com apoio dos pés para trás com contramovimento estendido – hecht reverso em posição estendida sobre a barra alta, com ½ giro (180°) à suspensão em tomada mista cubital (Derwael) | Pike sole circle bwd with counter stretched – reverse hecht in layout position over HB to hang (Nabieva) **//** Pike sole circle bwd with counter stretched – reverse hecht in layout position over HB, with ½ turn (180°) to hang in mixed L grip (Derwael) | Nabieva, Derwael |
 
 ## 6.000 — Saídas
 
-| Código | Valor | Pontos | Dança | Descrição | Nome |
-|---|---|---|---|---|---|
-| 6.101 | A | 0.10 |  | From HB – underswing with ½ turn (180°) or 1/1 turn (360°) to stand |  |
-| 6.102 | A | 0.10 |  | From HB – clear underswing with ½ turn (180°) or 1/1 turn (360°) to stand |  |
-| 6.104 | A | 0.10 |  | Swing fwd to salto bwd tucked, piked or stretched (flyaway) |  |
-| 6.108 | A | 0.10 |  | Swing bwd to salto fwd tucked, piked or stretched or clear straddle circle fwd on HB to salto fwd tucked |  |
-| 6.201 | B | 0.20 |  | From HB – underswing with salto fwd tucked or piked |  |
-| 6.204 | B | 0.20 |  | Swing fwd to salto bwd tucked, or stretched with ½ turn (180°) or 1/1 turn (360°) (flyaway) |  |
-| 6.205 | B | 0.20 |  | Swing fwd to double salto bwd tucked |  |
-| 6.208 | B | 0.20 |  | Swing bwd to salto fwd tucked or stretched with ½ turn (180°) or 1/1 turn (360°) |  |
-| 6.209 | B | 0.20 |  | Hip circle bwd (also clear) on LB or HB – hecht |  |
-| 6.210 | B | 0.20 |  | On HB - salto fwd tucked |  |
-| 6.301 | C | 0.30 |  | From HB – underswing with salto fwd tucked or piked with ½ turn (180°) or 1/1 turn (360°) |  |
-| 6.302 | C | 0.30 |  | From HB – clear underswing with salto fwd tucked or piked; also with ½ turn (180°) **//** Clear straddle circle with salto fwd tucked (Plichta) also with ½ turn (180°) (Alt) | Plichta, Alt |
-| 6.303 | C | 0.30 |  | From HB – underswing with ½ or clear underswing with ½ turn (180°) to salto bwd tucked or piked (Comaneci) | Comaneci |
-| 6.304 | C | 0.30 |  | Swing fwd to salto bwd stretched with 1½ turn (540°) or 2/1 turn (720°) |  |
-| 6.305 | C | 0.30 |  | Swing fwd to double salto bwd piked |  |
-| 6.308 | C | 0.30 |  | Swing bwd to salto fwd stretched with 1½ turn (540°) or 2/1 turn (720°) (Pechstein) **//** From L grip, swing bwd, ½ (180°) turn, to double salto bwd tucked (Fan) | Pechstein, Fan |
-| 6.309 | C | 0.30 |  | Hip circle bwd (also clear) on LB or HB – hecht with 1/1 turn (360°) |  |
-| 6.310 | C | 0.30 |  | On HB – salto fwd piked or salto bwd tucked or piked (Delladio / Parolari) | Delladio / Parolari |
-| 6.401 | D | 0.40 |  | From HB – underswing with salto fwd tucked with 1½ turn (540°) **//** From HB – underswing with salto fwd stretched with ½ turn (180°) (Moors) | Moors |
-| 6.402 | D | 0.40 |  | From HB – clear underswing with salto fwd tucked with 1/1 turn (360°) **//** Clear pike underswing to salto forward stretched with ½ turn (180°) (Brunner) **//** From HB – clear straddle circle with salto fwd tucked with 1/1 turn (360°) (Petz) | Brunner, Petz |
-| 6.403 | D | 0.40 |  | From HB – underswing with ½ turn (180°) to salto bwd stretched **//** From HB – clear underswing with ½ turn (180°) to salto bwd stretched (Okino) **//** From HB – underswing with ½ turn (180°) to salto bwd tucked with 1/1 turn (360°) (Kraeker) | Okino, Kraeker |
-| 6.404 | D | 0.40 |  | Swing fwd to salto bwd stretched with 2½ turn (900°) (Ji) | Ji |
-| 6.405 | D | 0.40 |  | Swing fwd to double salto bwd tucked or piked with 1/1 turn (360°) in first or second salto (Morio / Chusovitina) | Morio / Chusovitina |
-| 6.406 | D | 0.40 |  | Swing fwd to double salto bwd stretched |  |
-| 6.407 | D | 0.40 |  | Swing fwd to salto bwd tucked with ½ turn (180°) – into salto fwd tucked (Fontaine) **//** Swing fwd with ½ turn (180°) to double salto fwd tucked | Fontaine |
-| 6.408 | D | 0.40 |  | Swing bwd to double salto fwd tucked **//** From L grip, swing bwd ½ turn (180°), to double salto bwd piked (Okamura) | Okamura |
-| 6.409 | D | 0.40 |  | Hip circle bwd (also clear) on LB or HB – hecht with salto bwd tucked (Mukhina) | Mukhina |
-| 6.502 | E | 0.50 |  | From HB – clear underswing with salto fwd tucked with 1½ turn (540°) |  |
-| 6.504 | E | 0.50 |  | Swing fwd to salto bwd stretched with 3/1 turn (1080°) (Bar) | Bar |
-| 6.505 | E | 0.50 |  | Swing fwd to double salto bwd tucked with 1½ turn (540°) (Mustafina) | Mustafina |
-| 6.507 | E | 0.50 |  | Swing fwd to salto bwd stretched with ½ turn (180°) – into salto fwd stretched (Blanco) **//** Swing fwd with ½ turn (180°) to double salto fwd piked (Giovannini / Li Ya) | Blanco, Giovannini / Li Ya |
-| 6.508 | E | 0.50 |  | Swing bwd to double salto fwd tucked with ½ turn (180°) also salto fwd with ½ turn (180°) into salto bwd tucked (Arai) **//** Swing bwd to double salto fwd piked (Stewart) | Arai, Stewart |
-| 6.509 | E | 0.50 |  | Hip circle bwd (also clear) on LB or HB – hecht with ½ turn (180°) to salto fwd tucked |  |
-| 6.605 | F | 0.60 |  | Swing fwd to double salto bwd tucked with 2/1 turn (720°) (Fabrichnova) | Fabrichnova |
-| 6.606 | F | 0.60 |  | Swing fwd to double salto bwd stretched with 1/1 turn (360°) in first or second salto |  |
-| 6.608 | F | 0.60 |  | Swing bwd to double salto fwd piked with ½ turn (180°) (Pentek) | Pentek |
-| 6.609 | F | 0.60 |  | Hip circle bwd (also clear) on LB or HB – hecht with 1/1 turn (360°) to salto bwd tucked (Ma) | Ma |
-| 6.706 | G | 0.70 |  | Swing fwd to double salto bwd stretched with 2/1 turn (720°) (Ray) | Ray |
-| 6.707 | G | 0.70 |  | Swing fwd to triple salto bwd tucked (Magaña) | Magaña |
+| Código | Valor | Pontos | Dança | Elemento (português) | Original (inglês) | Nome |
+|---|---|---|---|---|---|---|
+| 6.101 | A | 0.10 |  | Da barra alta – balanço por baixo com ½ giro (180°) ou 1 giro (360°) à posição em pé | From HB – underswing with ½ turn (180°) or 1/1 turn (360°) to stand |  |
+| 6.102 | A | 0.10 |  | Da barra alta – balanço por baixo livre com ½ giro (180°) ou 1 giro (360°) à posição em pé | From HB – clear underswing with ½ turn (180°) or 1/1 turn (360°) to stand |  |
+| 6.104 | A | 0.10 |  | Balanço para frente e mortal para trás grupado, carpado ou estendido (flyaway) | Swing fwd to salto bwd tucked, piked or stretched (flyaway) |  |
+| 6.108 | A | 0.10 |  | Balanço para trás e mortal para frente grupado, carpado ou estendido; ou giro afastado livre para frente na barra alta e mortal para frente grupado | Swing bwd to salto fwd tucked, piked or stretched or clear straddle circle fwd on HB to salto fwd tucked |  |
+| 6.201 | B | 0.20 |  | Da barra alta – balanço por baixo com mortal para frente grupado ou carpado | From HB – underswing with salto fwd tucked or piked |  |
+| 6.204 | B | 0.20 |  | Balanço para frente e mortal para trás grupado ou estendido com ½ pirueta (180°) ou 1 pirueta (360°) (flyaway) | Swing fwd to salto bwd tucked, or stretched with ½ turn (180°) or 1/1 turn (360°) (flyaway) |  |
+| 6.205 | B | 0.20 |  | Balanço para frente e duplo mortal para trás grupado | Swing fwd to double salto bwd tucked |  |
+| 6.208 | B | 0.20 |  | Balanço para trás e mortal para frente grupado ou estendido com ½ pirueta (180°) ou 1 pirueta (360°) | Swing bwd to salto fwd tucked or stretched with ½ turn (180°) or 1/1 turn (360°) |  |
+| 6.209 | B | 0.20 |  | Giro de quadril para trás (também livre) na barra baixa ou alta – hecht | Hip circle bwd (also clear) on LB or HB – hecht |  |
+| 6.210 | B | 0.20 |  | Sobre a barra alta – mortal para frente grupado | On HB - salto fwd tucked |  |
+| 6.301 | C | 0.30 |  | Da barra alta – balanço por baixo com mortal para frente grupado ou carpado com ½ pirueta (180°) ou 1 pirueta (360°) | From HB – underswing with salto fwd tucked or piked with ½ turn (180°) or 1/1 turn (360°) |  |
+| 6.302 | C | 0.30 |  | Da barra alta – balanço por baixo livre com mortal para frente grupado ou carpado; também com ½ pirueta (180°) **//** Giro afastado livre com mortal para frente grupado (Plichta), também com ½ pirueta (180°) (Alt) | From HB – clear underswing with salto fwd tucked or piked; also with ½ turn (180°) **//** Clear straddle circle with salto fwd tucked (Plichta) also with ½ turn (180°) (Alt) | Plichta, Alt |
+| 6.303 | C | 0.30 |  | Da barra alta – balanço por baixo, ou balanço por baixo livre, com ½ giro (180°) e mortal para trás grupado ou carpado (Comaneci) | From HB – underswing with ½ or clear underswing with ½ turn (180°) to salto bwd tucked or piked (Comaneci) | Comaneci |
+| 6.304 | C | 0.30 |  | Balanço para frente e mortal para trás estendido com 1½ pirueta (540°) ou 2 piruetas (720°) | Swing fwd to salto bwd stretched with 1½ turn (540°) or 2/1 turn (720°) |  |
+| 6.305 | C | 0.30 |  | Balanço para frente e duplo mortal para trás carpado | Swing fwd to double salto bwd piked |  |
+| 6.308 | C | 0.30 |  | Balanço para trás e mortal para frente estendido com 1½ pirueta (540°) ou 2 piruetas (720°) (Pechstein) **//** Da tomada cubital, balanço para trás, ½ giro (180°) e duplo mortal para trás grupado (Fan) | Swing bwd to salto fwd stretched with 1½ turn (540°) or 2/1 turn (720°) (Pechstein) **//** From L grip, swing bwd, ½ (180°) turn, to double salto bwd tucked (Fan) | Pechstein, Fan |
+| 6.309 | C | 0.30 |  | Giro de quadril para trás (também livre) na barra baixa ou alta – hecht com 1 pirueta (360°) | Hip circle bwd (also clear) on LB or HB – hecht with 1/1 turn (360°) |  |
+| 6.310 | C | 0.30 |  | Sobre a barra alta – mortal para frente carpado, ou mortal para trás grupado ou carpado (Delladio / Parolari) | On HB – salto fwd piked or salto bwd tucked or piked (Delladio / Parolari) | Delladio / Parolari |
+| 6.401 | D | 0.40 |  | Da barra alta – balanço por baixo com mortal para frente grupado com 1½ pirueta (540°) **//** Da barra alta – balanço por baixo com mortal para frente estendido com ½ pirueta (180°) (Moors) | From HB – underswing with salto fwd tucked with 1½ turn (540°) **//** From HB – underswing with salto fwd stretched with ½ turn (180°) (Moors) | Moors |
+| 6.402 | D | 0.40 |  | Da barra alta – balanço por baixo livre com mortal para frente grupado com 1 pirueta (360°) **//** Balanço por baixo carpado livre e mortal para frente estendido com ½ pirueta (180°) (Brunner) **//** Da barra alta – giro afastado livre com mortal para frente grupado com 1 pirueta (360°) (Petz) | From HB – clear underswing with salto fwd tucked with 1/1 turn (360°) **//** Clear pike underswing to salto forward stretched with ½ turn (180°) (Brunner) **//** From HB – clear straddle circle with salto fwd tucked with 1/1 turn (360°) (Petz) | Brunner, Petz |
+| 6.403 | D | 0.40 |  | Da barra alta – balanço por baixo com ½ giro (180°) e mortal para trás estendido **//** Da barra alta – balanço por baixo livre com ½ giro (180°) e mortal para trás estendido (Okino) **//** Da barra alta – balanço por baixo com ½ giro (180°) e mortal para trás grupado com 1 pirueta (360°) (Kraeker) | From HB – underswing with ½ turn (180°) to salto bwd stretched **//** From HB – clear underswing with ½ turn (180°) to salto bwd stretched (Okino) **//** From HB – underswing with ½ turn (180°) to salto bwd tucked with 1/1 turn (360°) (Kraeker) | Okino, Kraeker |
+| 6.404 | D | 0.40 |  | Balanço para frente e mortal para trás estendido com 2½ piruetas (900°) (Ji) | Swing fwd to salto bwd stretched with 2½ turn (900°) (Ji) | Ji |
+| 6.405 | D | 0.40 |  | Balanço para frente e duplo mortal para trás grupado ou carpado com 1 pirueta (360°) no primeiro ou no segundo mortal (Morio / Chusovitina) | Swing fwd to double salto bwd tucked or piked with 1/1 turn (360°) in first or second salto (Morio / Chusovitina) | Morio / Chusovitina |
+| 6.406 | D | 0.40 |  | Balanço para frente e duplo mortal para trás estendido | Swing fwd to double salto bwd stretched |  |
+| 6.407 | D | 0.40 |  | Balanço para frente e mortal para trás grupado com ½ pirueta (180°), seguido de mortal para frente grupado (Fontaine) **//** Balanço para frente com ½ giro (180°) e duplo mortal para frente grupado | Swing fwd to salto bwd tucked with ½ turn (180°) – into salto fwd tucked (Fontaine) **//** Swing fwd with ½ turn (180°) to double salto fwd tucked | Fontaine |
+| 6.408 | D | 0.40 |  | Balanço para trás e duplo mortal para frente grupado **//** Da tomada cubital, balanço para trás, ½ giro (180°) e duplo mortal para trás carpado (Okamura) | Swing bwd to double salto fwd tucked **//** From L grip, swing bwd ½ turn (180°), to double salto bwd piked (Okamura) | Okamura |
+| 6.409 | D | 0.40 |  | Giro de quadril para trás (também livre) na barra baixa ou alta – hecht com mortal para trás grupado (Mukhina) | Hip circle bwd (also clear) on LB or HB – hecht with salto bwd tucked (Mukhina) | Mukhina |
+| 6.502 | E | 0.50 |  | Da barra alta – balanço por baixo livre com mortal para frente grupado com 1½ pirueta (540°) | From HB – clear underswing with salto fwd tucked with 1½ turn (540°) |  |
+| 6.504 | E | 0.50 |  | Balanço para frente e mortal para trás estendido com 3 piruetas (1080°) (Bar) | Swing fwd to salto bwd stretched with 3/1 turn (1080°) (Bar) | Bar |
+| 6.505 | E | 0.50 |  | Balanço para frente e duplo mortal para trás grupado com 1½ pirueta (540°) (Mustafina) | Swing fwd to double salto bwd tucked with 1½ turn (540°) (Mustafina) | Mustafina |
+| 6.507 | E | 0.50 |  | Balanço para frente e mortal para trás estendido com ½ pirueta (180°), seguido de mortal para frente estendido (Blanco) **//** Balanço para frente com ½ giro (180°) e duplo mortal para frente carpado (Giovannini / Li Ya) | Swing fwd to salto bwd stretched with ½ turn (180°) – into salto fwd stretched (Blanco) **//** Swing fwd with ½ turn (180°) to double salto fwd piked (Giovannini / Li Ya) | Blanco, Giovannini / Li Ya |
+| 6.508 | E | 0.50 |  | Balanço para trás e duplo mortal para frente grupado com ½ pirueta (180°), ou mortal para frente com ½ pirueta (180°) seguido de mortal para trás grupado (Arai) **//** Balanço para trás e duplo mortal para frente carpado (Stewart) | Swing bwd to double salto fwd tucked with ½ turn (180°) also salto fwd with ½ turn (180°) into salto bwd tucked (Arai) **//** Swing bwd to double salto fwd piked (Stewart) | Arai, Stewart |
+| 6.509 | E | 0.50 |  | Giro de quadril para trás (também livre) na barra baixa ou alta – hecht com ½ giro (180°) e mortal para frente grupado | Hip circle bwd (also clear) on LB or HB – hecht with ½ turn (180°) to salto fwd tucked |  |
+| 6.605 | F | 0.60 |  | Balanço para frente e duplo mortal para trás grupado com 2 piruetas (720°) (Fabrichnova) | Swing fwd to double salto bwd tucked with 2/1 turn (720°) (Fabrichnova) | Fabrichnova |
+| 6.606 | F | 0.60 |  | Balanço para frente e duplo mortal para trás estendido com 1 pirueta (360°) no primeiro ou no segundo mortal | Swing fwd to double salto bwd stretched with 1/1 turn (360°) in first or second salto |  |
+| 6.608 | F | 0.60 |  | Balanço para trás e duplo mortal para frente carpado com ½ pirueta (180°) (Pentek) | Swing bwd to double salto fwd piked with ½ turn (180°) (Pentek) | Pentek |
+| 6.609 | F | 0.60 |  | Giro de quadril para trás (também livre) na barra baixa ou alta – hecht com 1 pirueta (360°) e mortal para trás grupado (Ma) | Hip circle bwd (also clear) on LB or HB – hecht with 1/1 turn (360°) to salto bwd tucked (Ma) | Ma |
+| 6.706 | G | 0.70 |  | Balanço para frente e duplo mortal para trás estendido com 2 piruetas (720°) (Ray) | Swing fwd to double salto bwd stretched with 2/1 turn (720°) (Ray) | Ray |
+| 6.707 | G | 0.70 |  | Balanço para frente e triplo mortal para trás grupado (Magaña) | Swing fwd to triple salto bwd tucked (Magaña) | Magaña |
 
 _Total: 178 caixas de elementos._
