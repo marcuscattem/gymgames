@@ -466,15 +466,9 @@
     }
 
     @media (max-width:560px) {
-      .topbar > div { gap:8px; padding:8px; }
       #brandHome { max-width:100%; min-width:0; }
       #brandHome > span:last-child { min-width:0; }
       #brandSubtitle { white-space:normal; }
-      .topbar > div > div:last-child { width:100%; display:grid; grid-template-columns:minmax(0,1fr) 42px; gap:8px; }
-      .topbar .status-pill, .topbar .language-select { width:100%; }
-      .topbar .status-pill { grid-column:1 / -1; }
-      .topbar .language-select { grid-column:1; min-width:0; }
-      .topbar .btn-icon { grid-column:2; align-self:stretch; }
       .screen { width:calc(100vw - 10px); padding-top:10px; }
       .section-title { font-size:17px; }
       .chip { font-size:12px; padding-inline:10px; }
@@ -500,12 +494,163 @@
     :root[data-device="mobile"] .commentary-list { max-height:220px; }
     :root[data-device="mobile"] .log-list { max-height:210px; }
     :root[data-device="tablet"] .screen { width:min(1000px,calc(100vw - 18px)); }
+
+    /* ===== v3 · topbar compacta ===== */
+    .topbar-in { display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; max-width:1200px; margin:0 auto; padding:10px 12px; }
+    .topbar-ctl { display:flex; align-items:center; gap:8px; min-width:0; }
+    .topbar-ctl .language-select { min-width:0; }
+    @media (max-width:700px) {
+      .topbar-in { padding:8px 10px; }
+      .topbar-in #brandSubtitle, .topbar-in .status-pill { display:none; }
+      .topbar-ctl .language-select { width:104px; padding:8px 8px; font-size:13px; }
+      .topbar-ctl .btn-icon { width:42px; min-width:42px; flex:0 0 42px; }
+    }
+    /* ===== v3 · tática ===== */
+    .tactic-bar { margin-top:18px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface-2); padding:12px; }
+    .tactic-head { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 12px; margin-bottom:10px; }
+    .tactic-hint { font-size:12.5px; font-weight:600; color:var(--muted); }
+    .tactic-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+    .tactic-opt { min-height:58px; display:grid; gap:2px; align-content:center; text-align:center; border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--surface); padding:8px 6px; transition:border-color .15s, background .15s, transform .1s; }
+    .tactic-opt:active { transform:scale(.97); }
+    .tactic-opt.active { border-color:var(--accent); background:var(--accent-soft); box-shadow:inset 0 0 0 1px var(--accent); }
+    .tactic-name { font-family:var(--disp); font-weight:800; font-size:17px; line-height:1.1; }
+    .tactic-fx { font-size:11.5px; font-weight:700; color:var(--muted); line-height:1.2; }
+    .tactic-opt.active .tactic-fx { color:var(--accent); }
+    .sbox-bonus { font-size:10.5px; font-weight:800; color:var(--good); }
+    /* ===== v3 · placar ao vivo no celular ===== */
+    @media (max-width:640px) {
+      .spot-scores { grid-template-columns:1fr 1fr 1.25fr !important; gap:6px !important; }
+      .spot-scores .sbox { padding:9px 9px; }
+      .spot-scores .sbox-lab { font-size:9.5px; letter-spacing:.04em; }
+      .spot-scores .sbox-val { font-size:22px; }
+    }
+    /* ===== v3 · Código de Pontuação ===== */
+    .codex-card { display:flex; align-items:center; gap:14px; width:100%; text-align:left; border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(135deg,var(--accent-soft),transparent 70%),var(--surface); padding:16px; transition:border-color .15s, transform .1s; }
+    .codex-card:hover { border-color:var(--accent); } .codex-card:active { transform:scale(.99); }
+    .codex-card-ico { width:48px; height:48px; flex:0 0 48px; border-radius:12px; display:grid; place-items:center; background:var(--accent); color:#fff; }
+    :root[data-theme="dark"] .codex-card-ico { color:#04120f; }
+    .codex-card-ico svg { width:26px; height:26px; }
+    .codex-card-title { font-family:var(--disp); font-weight:800; font-size:21px; line-height:1.1; }
+    .codex-card-sub { margin-top:3px; font-size:13px; font-weight:600; color:var(--muted); }
+    .codex-top { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px; }
+    .codex-tabs { margin-top:16px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:4px; padding:4px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface-2); position:sticky; top:62px; z-index:20; }
+    .codex-tabs button { min-height:44px; border:0; border-radius:9px; background:transparent; font-weight:800; font-size:14px; color:var(--muted); padding:6px 4px; }
+    .codex-tabs button.active { background:var(--surface); color:var(--text); box-shadow:var(--shadow-sm); }
+    .codex-h2 { font-family:var(--disp); font-weight:800; font-size:20px; margin:4px 0 8px; }
+    .codex-rules { display:grid; gap:18px; }
+    @media (min-width:900px) { .codex-rules { grid-template-columns:repeat(3,minmax(0,1fr)); align-items:start; } }
+    .rule-card { border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--surface-2); margin-bottom:8px; }
+    .rule-card summary { cursor:pointer; list-style:none; padding:13px 14px; font-weight:800; font-size:15px; display:flex; justify-content:space-between; gap:10px; }
+    .rule-card summary::-webkit-details-marker { display:none; }
+    .rule-card summary::after { content:"+"; font-family:var(--disp); font-size:20px; line-height:1; color:var(--accent); }
+    .rule-card[open] summary::after { content:"–"; }
+    .rule-card ul { margin:0; padding:0 14px 12px 32px; list-style:disc; display:grid; gap:7px; font-size:14px; line-height:1.45; }
+    .codex-note { margin-top:12px; font-size:12.5px; font-weight:600; color:var(--muted); }
+    .codex-gender { max-width:420px; }
+    .codex-apps { margin-top:10px; display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+    .codex-apps::-webkit-scrollbar { display:none; }
+    .app-pill { flex:0 0 auto; min-height:42px; display:inline-flex; align-items:center; gap:7px; border:1px solid var(--line); border-radius:999px; background:var(--surface); padding:6px 14px; font-weight:800; font-size:13.5px; white-space:nowrap; }
+    .app-pill.active { border-color:var(--accent); background:var(--accent); color:#fff; }
+    :root[data-theme="dark"] .app-pill.active { color:#04120f; }
+    .codex-filter { margin-top:12px; display:grid; gap:8px; }
+    .letter-row { display:flex; gap:6px; overflow-x:auto; padding-bottom:2px; scrollbar-width:none; }
+    .letter-row::-webkit-scrollbar { display:none; }
+    .lt { flex:0 0 auto; min-width:42px; min-height:40px; border:1px solid var(--line); border-radius:9px; background:var(--surface); font-family:var(--disp); font-weight:800; font-size:16px; padding:0 10px; }
+    .lt.active { border-color:var(--accent); background:var(--accent-soft); color:var(--accent); }
+    .el-list { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:6px; }
+    .el-group { margin-top:10px; font-size:11.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--accent); }
+    .el-row { display:flex; align-items:flex-start; gap:10px; border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--surface); padding:10px; }
+    .el-row.picked { border-color:var(--accent); background:var(--accent-soft); }
+    .el-main { min-width:0; flex:1; }
+    .el-desc { font-size:14px; font-weight:600; line-height:1.35; overflow-wrap:anywhere; }
+    .el-meta { margin-top:4px; display:flex; flex-wrap:wrap; gap:4px 10px; font-size:12px; font-weight:700; color:var(--muted); }
+    .el-name { color:var(--accent-2); }
+    .el-add { flex:0 0 42px; }
+    .vbadge { flex:0 0 auto; min-width:38px; height:38px; padding:0 6px; border-radius:9px; display:grid; place-items:center; font-family:var(--disp); font-weight:900; font-size:19px; font-variant-numeric:tabular-nums; border:1px solid var(--line); background:var(--surface-2); }
+    .vb-mid { background:color-mix(in srgb,var(--accent) 14%,var(--surface)); border-color:color-mix(in srgb,var(--accent) 35%,var(--line)); color:var(--accent); }
+    .vb-high { background:color-mix(in srgb,var(--accent-3) 18%,var(--surface)); border-color:color-mix(in srgb,var(--accent-3) 45%,var(--line)); color:var(--accent-3); }
+    .vb-top { background:color-mix(in srgb,var(--accent-2) 16%,var(--surface)); border-color:color-mix(in srgb,var(--accent-2) 45%,var(--line)); color:var(--accent-2); }
+    .vb-num { font-size:16px; min-width:46px; color:var(--accent); }
+    .builder { margin-top:14px; display:grid; gap:16px; }
+    @media (min-width:900px) { .builder { grid-template-columns:minmax(0,380px) minmax(0,1fr); align-items:start; } .builder-sum { position:sticky; top:124px; } }
+    .builder-sum { display:grid; gap:10px; }
+    .bd-total { border-radius:var(--radius); background:var(--accent); color:#fff; padding:14px 16px; display:grid; gap:2px; }
+    :root[data-theme="dark"] .bd-total { color:#04120f; }
+    .bd-total .sbox-lab { color:inherit; opacity:.8; }
+    .bd-num { font-family:var(--disp); font-weight:900; font-size:44px; line-height:1; font-variant-numeric:tabular-nums; }
+    .bd-eq { font-size:12.5px; font-weight:700; opacity:.85; }
+    .bd-block { border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--surface-2); padding:12px; }
+    .bd-lab { display:flex; justify-content:space-between; gap:8px; font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .bd-lab b { color:var(--text); font-family:var(--disp); font-size:16px; letter-spacing:0; }
+    .cr-grid { display:grid; gap:6px; }
+    .cr-opt { min-height:44px; display:flex; align-items:center; gap:8px; text-align:left; border:1px solid var(--line); border-radius:9px; background:var(--surface); padding:8px 10px; font-size:13.5px; font-weight:700; }
+    .cr-opt svg { width:16px; height:16px; flex:0 0 16px; } .cr-opt span { flex:1; } .cr-opt em { font-style:normal; font-family:var(--disp); font-weight:800; color:var(--muted); }
+    .cr-opt.active { border-color:var(--accent); background:var(--accent-soft); color:var(--accent); } .cr-opt.active em { color:var(--accent); }
+    .eg-row { display:flex; flex-wrap:wrap; gap:6px; }
+    .eg-chip { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:999px; padding:6px 12px; font-size:13px; font-weight:800; color:var(--muted); background:var(--surface); }
+    .eg-chip.ok { border-color:var(--accent); color:var(--accent); background:var(--accent-soft); }
+    .eg-chip b { font-family:var(--disp); font-size:15px; }
+    .stepper { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .stepper span { font-family:var(--disp); font-weight:900; font-size:26px; font-variant-numeric:tabular-nums; }
+    .pick-list { margin:0; padding:0; list-style:none; display:grid; gap:5px; }
+    .pick-list li { display:flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:9px; background:var(--surface); padding:5px 6px; }
+    .pick-list li.extra { opacity:.55; }
+    .pick-list .vbadge { min-width:30px; height:30px; font-size:15px; }
+    .pick-desc { flex:1; min-width:0; font-size:12.5px; font-weight:600; line-height:1.25; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .pick-x { flex:0 0 36px; width:36px; height:36px; border:0; background:transparent; color:var(--muted); display:grid; place-items:center; border-radius:8px; }
+    .pick-x svg { width:16px; height:16px; }
+    .bd-warn { margin-top:8px; font-size:12.5px; font-weight:700; color:var(--accent-2); }
+    .quiz, .quiz-intro { max-width:640px; margin:10px auto 0; }
+    .quiz-intro { display:grid; justify-items:center; gap:12px; text-align:center; padding:24px 8px; }
+    .quiz-art { width:92px; height:92px; border-radius:24px; display:grid; place-items:center; background:var(--accent-soft); color:var(--accent); }
+    .quiz-best { font-size:14px; font-weight:700; color:var(--muted); } .quiz-best b { color:var(--text); font-family:var(--disp); font-size:18px; }
+    .quiz-score { font-family:var(--disp); font-weight:900; font-size:72px; line-height:1; color:var(--accent); font-variant-numeric:tabular-nums; }
+    .quiz-bar { display:flex; justify-content:space-between; gap:10px; font-size:13px; font-weight:800; color:var(--muted); margin-bottom:8px; }
+    .quiz-pts { color:var(--accent); }
+    .quiz-prog .step.miss { background:var(--bad); }
+    .quiz-text { margin-top:6px; font-size:19px; font-weight:700; line-height:1.35; overflow-wrap:anywhere; }
+    .quiz-opts { margin-top:16px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .quiz-opt { min-height:64px; border:1px solid var(--strong-line); border-radius:var(--radius); background:var(--surface); font-family:var(--disp); font-weight:800; font-size:22px; padding:10px; transition:transform .1s, border-color .15s; overflow-wrap:anywhere; }
+    .quiz-opt:not(:disabled):active { transform:scale(.97); }
+    .quiz-opt:not(:disabled):hover { border-color:var(--accent); }
+    .quiz-opt.right { background:color-mix(in srgb,var(--good) 16%,var(--surface)); border-color:var(--good); color:var(--good); }
+    .quiz-opt.wrong { background:color-mix(in srgb,var(--bad) 12%,var(--surface)); border-color:var(--bad); color:var(--bad); }
+    .quiz-opt.dim { opacity:.45; }
+    .quiz-feedback { margin-top:14px; border-radius:var(--radius-sm); padding:12px 14px; display:grid; gap:3px; font-size:14px; font-weight:600; }
+    .quiz-feedback.ok { background:color-mix(in srgb,var(--good) 12%,var(--surface)); color:var(--good); }
+    .quiz-feedback.no { background:color-mix(in srgb,var(--bad) 10%,var(--surface)); color:var(--bad); }
+    .quiz-feedback span { color:var(--muted); font-size:12.5px; }
+    @media (prefers-reduced-motion:reduce) { .tactic-opt, .quiz-opt, .codex-card { transition:none; } }
+    .codex-h2::first-letter { text-transform:uppercase; }
+    .quiz-prog { display:grid; grid-template-columns:repeat(10,minmax(0,1fr)); gap:4px; }
+    @media (max-width:420px) { .tactic-name { font-size:15px; } .tactic-opt { padding:8px 3px; } .codex-tabs button { font-size:13px; } }
+    label.field { align-self:start; }
+    /* ===== v3.1 · quiz com figuras ===== */
+    .qimg { width:100%; background-repeat:no-repeat; background-color:#fff; border-radius:8px; }
+    .qimg-wrap { margin:10px auto 0; max-width:420px; border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff; padding:6px; }
+    .qimg-wrap .qimg { max-height:46vh; margin:0 auto; }
+    .quiz-opts-text { grid-template-columns:1fr; }
+    .quiz-opts-text .quiz-opt { min-height:54px; font-family:var(--ui); font-weight:600; font-size:14.5px; line-height:1.3; text-align:left; padding:10px 14px; }
+    .quiz-opts-fig .quiz-opt { padding:5px; background:#fff; min-height:0; }
+    .quiz-opt.right { box-shadow:0 0 0 2px var(--good) inset; } .quiz-opt.wrong { box-shadow:0 0 0 2px var(--bad) inset; }
+    .quiz-setup { max-width:720px; margin:6px auto 0; display:grid; gap:16px; }
+    .quiz-setup-head { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:8px 16px; }
+    .qset-head { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+    .qchips { display:flex; flex-wrap:wrap; gap:8px; }
+    .qchip { min-height:44px; display:inline-flex; align-items:center; gap:7px; border:1px solid var(--line); border-radius:999px; background:var(--surface); padding:6px 14px; font-weight:700; font-size:13.5px; color:var(--muted); }
+    .qchip.active { border-color:var(--accent); background:var(--accent-soft); color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent); }
+    .qlink { border:0; background:none; padding:4px 2px; font-size:12.5px; font-weight:800; color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+    .quiz-count { max-width:260px; }
+    .el-or { color:var(--muted); font-weight:800; }
+    .el-figs { display:grid; gap:6px; margin-top:6px; max-width:360px; }
+    .el-figs:empty { display:none; }
+    .el-figs .qimg { border:1px solid var(--line); }
   </style>
 </head>
 <body>
 <div class="shell">
   <header class="topbar">
-    <div class="mx-auto flex w-full max-w-[1200px] flex-col gap-3 px-3 py-3 md:flex-row md:items-center md:justify-between">
+    <div class="topbar-in">
       <button id="brandHome" class="flex items-center gap-3 text-left" title="Início">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none"><path d="M8 2.5V7.5M16 2.5V7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="12.5" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="12.5" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
@@ -515,13 +660,14 @@
           <span id="brandSubtitle" class="block text-xs font-bold uppercase tracking-wider text-[var(--muted)]">Simulação Olímpica</span>
         </span>
       </button>
-      <div class="flex flex-col gap-2 md:flex-row md:items-center">
+      <div class="topbar-ctl">
         <div id="phaseLabel" class="status-pill">Configuração</div>
         <select id="languageSelect" class="language-select" title="Idioma" aria-label="Idioma">
           <option value="pt-BR">Português (BR)</option>
           <option value="en">English</option>
           <option value="es">Español</option>
         </select>
+        <button id="codexButton" class="btn btn-secondary btn-icon" data-act="openCodex" title="Código de Pontuação" aria-label="Código de Pontuação"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h6M9 12h4"/></svg></button>
         <button id="themeButton" class="btn btn-secondary btn-icon" title="Alternar tema" aria-label="Alternar tema"></button>
       </div>
     </div>
@@ -533,8 +679,10 @@
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="achWrap" class="ach-wrap" role="status" aria-live="polite"></div>
+  <script src="codigo-data.js?v=2026-11-16b"></script>
   <script>
-/* GymGames — engine v2
+/* GymGames — engine v3 (2026-11): Código de Pontuação FIG 2025-2028 integrado (regras, elementos, desafio, montador), tática da equipe, bônus de cravada GAM.
+   Antes: engine v2
    Novidades: pictogramas de aparelhos, design refinado e MÓDULO AO VIVO
    (rotação a rotação com disputa em tempo real, nota de execução e deduções detalhadas). */
 (function () {
@@ -1657,7 +1805,530 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     { tag: "asian-2023-deep-roster", tier: "continental", gender: "M", country: "KAZ", year: 2023, names: ["Milad Karimi", "Nariman Kurbanov", "Dmitriy Patanin", "Ilyas Azizov"] },
     { tag: "asian-2023-deep-roster", tier: "continental", gender: "M", country: "TPE", year: 2023, names: ["Tang Chia-Hung", "Lee Chih-Kai", "Hsiao Yu-Jan", "Yu Chao-Wei"] }
   ];
-  ATHLETE_COVERAGE_PACKS.push(...ATHLETE_SUPPLEMENTAL_COVERAGE_PACKS, ...ATHLETE_2000_OFFICIAL_EXPANSION_PACKS);
+  /* Elencos dos Mundiais 2021, 2022, 2023, 2025 e 2026 e dos Jogos de Tóquio 2020 e Paris 2024 (fonte: Wikipédia, consultada em 16/11/2026).
+     Só atletas que ainda não estavam no banco para aquele ano. Atributos estimados por nível (tier), como nos demais packs; "offset" = posição do atleta no elenco original. */
+  const ATHLETE_WORLDS_OLYMPICS_2021_2026_PACKS = [
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "USA", year: 2026, offset: 0, names: ["Skye Blakely", "Reese Esponda", "Dulcy Caylor", "Hezly Rivera"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "CHN", year: 2026, offset: 2, names: ["Qiu Qiyuan", "Du Siyu", "Zhang Yihan", "Qin Xinyi"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "JPN", year: 2026, offset: 0, names: ["Aiko Sugihara", "Mana Okamura", "Haruka Nakamura", "Sara Yamaguchi"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "RUS", year: 2026, offset: 0, names: ["Liudmila Roshchina", "Alena Glotova", "Elizaveta Us", "Aleksandra Anufrieva", "Milana Kaiumova", "Zlata Osokina"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "ALG", year: 2026, offset: 1, names: ["Louna Hamames-Moallic", "Sihem Hamidi", "Lena Khenoun", "Djenna Laroui"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "FRA", year: 2026, offset: 0, names: ["Elena Colas", "Maiana Prat", "Lorette Charpy", "Morgane Osyssek-Reimer", "Celia Serber", "Alizee Letrange"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "ITA", year: 2026, offset: 0, names: ["Giulia Perotti", "Elisa Iorio", "Manila Esposito", "Sofia Tonelli", "July Marano", "Anthea Sisio"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "BRA", year: 2026, offset: 1, names: ["Flavia Saraiva", "Lorrane Oliveira", "Gabriela Boucas"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "CAN", year: 2026, offset: 1, names: ["Ellie Black", "Gabrielle Black", "Coralie Demers", "Zoe Tsaprailis"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "GBR", year: 2026, offset: 0, names: ["Abigail Martin", "Alice Kinsella", "Ruby Evans", "Becky Downie", "Alia Leat", "Shantae-Eve Amankwaah"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "GER", year: 2026, offset: 0, names: ["Helen Kevric", "Lea Marie Quaas", "Karina Schonmaier", "Madita Mayr", "Emma Malewski", "Charleen Pach"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "NED", year: 2026, offset: 0, names: ["Naomi Visser", "Sanna Veerman", "Vera van Pol", "Sanne Wevers", "Vera Ubbink", "Floor Slooff"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "ESP", year: 2026, offset: 0, names: ["Alba Petisco", "Laura Casabuena", "Marina Escudero", "Laia Font", "Aitana Pacheco", "Carlota Armenta"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "BEL", year: 2026, offset: 0, names: ["Lisa Vaelen", "Mie de Wilde", "Naomi Descamps", "Jade Vansteenkiste", "Liese Vieuxtemps", "Sien Ghekiere"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "UKR", year: 2026, offset: 0, names: ["Kristina Hrudetska", "Marianna Kiniuk", "Bohdana Kovalova", "Anastasiia Lev", "Diana Lobok"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "SUI", year: 2026, offset: 0, names: ["Lena Bickel", "Daria Hartmann", "Samira Raffin", "Anastassia Pascu", "Anny Wu", "Caterina Cereghetti"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "ROU", year: 2026, offset: 0, names: ["Iris Iordache", "Alexia Blanaru", "Ariana Cotu", "Anamaria Mihaescu", "Sabrina Voinea", "Daria Tanasa"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "SWE", year: 2026, offset: 0, names: ["Alva Eriksson", "Nora Hanfelt", "Maya Stahl", "Emelie Westlund", "Nathalie Westlund"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "BLR", year: 2026, offset: 0, names: ["Karolina Fedanyuk", "Ulyana Kuzmenkova", "Sofia Shtykhetskaya", "Vera Sadyrbaeva", "Anastasiya Smantsar"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "AUS", year: 2026, offset: 0, names: ["Breanna Scott", "Kate McDonald", "Ruby Pass", "Lucy Stewart", "Emily Whitehead", "Romi Brown"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "MEX", year: 2026, offset: 1, names: ["Michelle Pineda", "Mariangela Flores", "Paulina Guerra", "Jazmyn Jimenez", "Julieta Bizarron"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "ARG", year: 2026, offset: 0, names: ["Emilia Acosta", "Sira Macias", "Meline Mesropian", "Rocio Saucedo"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "MAS", year: 2026, offset: 0, names: ["Zarith Imaan Khalid", "Cadence Teh Zi Qi", "Rachel Yeoh Li Wen", "Audi Zulkarnien"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "KOR", year: 2026, offset: 0, names: ["Yeo Seo-jeong", "Hwang Seo-hyun", "Lim Su-min", "Park Na-young", "Shin Sol-yi", "Lee Yun-seo"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "CZE", year: 2026, offset: 0, names: ["Alice Vlkova", "Sona Artamonova", "Patricie Makovickova"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "AZE", year: 2026, offset: 0, names: ["Nazanin Teymurova", "Daniz Aliyeva"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "AUT", year: 2026, offset: 0, names: ["Leni Bohle", "Charlize Morz"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "CRO", year: 2026, offset: 0, names: ["Tina Zelcic", "Sofia Mester", "Mila Prpic", "Tijana Korent"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "SLO", year: 2026, offset: 0, names: ["Lucija Hribar", "Vita Prijanovic", "Teja Belak", "Meta Kunaver"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "IRL", year: 2026, offset: 0, names: ["Emma Slevin", "Mimi Moloney"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "HUN", year: 2026, offset: 0, names: ["Greta Mayer", "Nikolett Szilagyi", "Kira Balazs"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "NOR", year: 2026, offset: 0, names: ["Christine Kubon", "Keisha Lockert"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "TUR", year: 2026, offset: 0, names: ["Sevgi Kayisoglu", "Ceren Biner"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "POL", year: 2026, offset: 0, names: ["Marta Pihan-Kulesza"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "ISR", year: 2026, offset: 0, names: ["Roni Shamay", "Lihie Raz", "Yali Shoshani"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "LIE", year: 2026, offset: 0, names: ["Julia Weissenhofer"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "FIN", year: 2026, offset: 0, names: ["Kaia Tanskanen"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "SVK", year: 2026, offset: 0, names: ["Barbora Kundrat", "Nela Ostrihonova"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "LUX", year: 2026, offset: 0, names: ["Celeste Mordenti"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "DEN", year: 2026, offset: 0, names: ["Cecilie Bergholt"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "ISL", year: 2026, offset: 0, names: ["Lilja Gunnarsdottir", "Thelma Adalsteinsdottir"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "POR", year: 2026, offset: 0, names: ["Mafalda Costa", "Mariana Parente"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "GEO", year: 2026, offset: 0, names: ["Ani Gobadze"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "NZL", year: 2026, offset: 0, names: ["Jun McDonald", "Sienna Shields"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "PAN", year: 2026, offset: 1, names: ["Hillary Heron", "Ana Lucia Beitia", "Alyiah Lide de Leon"] },
+    { tag: "worlds-2026", tier: "continental", gender: "F", country: "CRC", year: 2026, offset: 0, names: ["Marina Guevara", "Samantha Marin", "Rachel Rodriguez"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "ECU", year: 2026, offset: 0, names: ["Ashley Bohorquez"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "DOM", year: 2026, offset: 0, names: ["Sophia Diaz"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "COL", year: 2026, offset: 0, names: ["Ginna Escobar"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "PUR", year: 2026, offset: 0, names: ["Karelys Diaz"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "PER", year: 2026, offset: 0, names: ["Fabiola Diaz", "Luana Roda"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "CHI", year: 2026, offset: 0, names: ["Paula Carvajal"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "GUA", year: 2026, offset: 0, names: ["Brithany Herrera"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "MMR", year: 2026, offset: 0, names: ["Pan Ei Phyu"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "HON", year: 2026, offset: 0, names: ["Lily Guevara"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "ESA", year: 2026, offset: 0, names: ["Maria Mancia"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "ZWE", year: 2026, offset: 0, names: ["Kylana Muchatuta"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "GRE", year: 2026, offset: 0, names: ["Magdalini Tsiori", "Elvira Katsali", "Athanasia Mesiri"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "TPE", year: 2026, offset: 1, names: ["Pan Cai-chen", "Ting Hua-tien", "Lee Chia-wei"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "UZB", year: 2026, offset: 1, names: ["Aleksandra Shevchenko"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "SGP", year: 2026, offset: 1, names: ["Alena Tan"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "HKG", year: 2026, offset: 0, names: ["Joanne Chen Hoi Yuen"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "F", country: "PHI", year: 2026, offset: 0, names: ["Haylee Garcia"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "INA", year: 2026, offset: 0, names: ["Dylanov Brahmana"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "IND", year: 2026, offset: 0, names: ["Nishka Agarwal"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "MLT", year: 2026, offset: 0, names: ["Philippa Busuttil"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "QAT", year: 2026, offset: 0, names: ["Salma Hamed"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "RSA", year: 2026, offset: 0, names: ["Caitlin Rooskrantz", "Zelme Daries"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "EGY", year: 2026, offset: 0, names: ["Judy Abdallah", "Jana Abdelsalam"] },
+    { tag: "worlds-2026", tier: "open", gender: "F", country: "MAR", year: 2026, offset: 0, names: ["Salina Bousmayo"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "JPN", year: 2026, offset: 0, names: ["Daiki Hashimoto", "Shinnosuke Oka", "Shohei Kawakami", "Ryosuke Doi", "Nao Ojima"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "CHN", year: 2026, offset: 1, names: ["Lan Xingyu", "Zou Jingyuan", "Tian Hao", "Li Hongyan", "Hong Yanming"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "RUS", year: 2026, offset: 0, names: ["Arsenii Dukhno", "Daniel Marinov", "Sergei Naidin", "Savelii Sieedin", "Ilia Zaika", "Mukhammadzhon Iakubov"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "GBR", year: 2026, offset: 0, names: ["Joe Fraser", "Harry Hepworth", "Courtney Tulloch", "Reuben Ward", "Jonas Rushworth"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "USA", year: 2026, offset: 1, names: ["Danila Leykin", "Kameron Nelson", "Shane Wiskus"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "NED", year: 2026, offset: 0, names: ["Elijah Faverus", "Jermain Grunberg", "Casimir Schmidt", "Armine Abaidi", "Loran de Munck", "Jordi Hagenaar", "Kyan Jacobs"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "COL", year: 2026, offset: 2, names: ["Thomas Mejia", "Yan Zabala", "Jorman Alvarez", "Juan Felipe Ramos"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "SUI", year: 2026, offset: 0, names: ["Noe Seifert", "Florian Langenegger", "Matteo Giubellini", "Mattia Piffaretti", "Dominic Tamsel", "Luca Giubellini"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "ITA", year: 2026, offset: 0, names: ["Yumin Abbadini", "Gabriele Targhetta", "Mario Macchiati", "Simone Speranza", "Niccolo Vannucchi", "Riccardo Villa"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "CRO", year: 2026, offset: 0, names: ["Illia Kovtun"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "GER", year: 2026, offset: 0, names: ["Timo Eder", "Nils Dunkel", "Lucas Kochan", "Radomyr Stelmakh", "Glenn Trebing", "Alexander Kunz"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "FRA", year: 2026, offset: 0, names: ["Nael Sakouhi", "Anthony Mansard", "Kevin Carvalho", "Melwin Touchais", "Leeroy Traore-Malatre", "Swaimy Bellil"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "BEL", year: 2026, offset: 0, names: ["Victor Martinez", "Kilan Van der Aa", "Glen Cuyle", "Nicola Cuyle", "Noah Kuavita"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "HUN", year: 2026, offset: 0, names: ["Krisztofer Meszaros", "Dominik Kis", "Botond Molnar", "Benedek Tomcsanyi", "Szilard Zavory"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "ISR", year: 2026, offset: 0, names: ["Artem Dolgopyat", "Noam Berkovich", "Ron Pyatov", "Pavel Gulidov", "Ilia Liubimov", "Ron Ortal"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "ESP", year: 2026, offset: 0, names: ["Ignacio Yockers", "Rayderley Zapata", "Daniel Carrion", "Thierno Diallo", "Nicolau Mir", "Joel Plata"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "UKR", year: 2026, offset: 0, names: ["Nazar Chepurnyi", "Oleg Verniaiev", "Vladyslav Hryko", "Mykyta Melnykov", "Bohdan Suprun"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "KAZ", year: 2026, offset: 1, names: ["Nariman Kurbanov", "Ilyas Azizov", "Milad Karimi", "Dmitriy Patanin"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "KOR", year: 2026, offset: 0, names: ["Hur Woong", "Kim Jae-ho", "Lee Jung-hyo", "Park Jin-ho", "Park Seung-ho", "Ryu Sung-hyun"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "TPE", year: 2026, offset: 1, names: ["Chiou Min-han", "Wang Yi-hsiang", "Wu Tsung-hua"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "ARM", year: 2026, offset: 0, names: ["Hamlet Manukyan", "Mamikon Khachatryan", "Artur Avetisyan", "Artur Davtyan"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "AUS", year: 2026, offset: 0, names: ["Jesse Moore", "Aiden Frick", "Tru Hagens", "James Hardy", "Ritam Malik", "Benjamin Foster"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "SWE", year: 2026, offset: 0, names: ["David Rumbutis", "William Sundell"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "NOR", year: 2026, offset: 0, names: ["Sebastian Sponevik", "Theodor Gadderud", "Harald Wibye", "Peder Skogvang"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "GRE", year: 2026, offset: 0, names: ["Eleftherios Petrounias", "Apostolos Kanellos", "Antonios Tantalidis", "Ioannis Chronopoulos"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "TUR", year: 2026, offset: 0, names: ["Mehmet Ayberk Kosak", "Kerem Sener", "Ferhat Arican", "Mert Efe Kilicer", "Alperen Ege Avci"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "IRL", year: 2026, offset: 0, names: ["Rhys McClenaghan", "Eamon Montgomery", "Chester Enriquez", "James Hickey", "Adam Steele"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "BLR", year: 2026, offset: 0, names: ["Yahor Sharamkou", "Daniil Tvardouski", "Danila Hryharchuk"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "CAN", year: 2026, offset: 0, names: ["Samuel Zakutney", "Ethan Ikeda"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "BRA", year: 2026, offset: 0, names: ["Arthur Mariano", "Johnny Oshiro", "Patrick Sampaio", "Bernardo Actos"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "ARG", year: 2026, offset: 1, names: ["Nahuel Pardo", "Daniel Villafane"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "AZE", year: 2026, offset: 0, names: ["Rasul Ahmadzada"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "BUL", year: 2026, offset: 0, names: ["Daniel Trifonov", "David Ivanov", "Yordan Aleksandrov", "Kevin Penev"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "CZE", year: 2026, offset: 0, names: ["Ondrej Kalny", "Jonas Danek", "Adam Lakomy", "Jack Gagamov", "Tomas Kalinic"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "SLO", year: 2026, offset: 0, names: ["Anze Hribar", "Luka Bojanc", "Gregor Rakovic", "Beno Kunst"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "CHI", year: 2026, offset: 0, names: ["Luciano Letelier", "Ignacio Varas"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "HKG", year: 2026, offset: 0, names: ["Cheung Ching"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "ALB", year: 2026, offset: 0, names: ["Matvei Petrov"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "SRB", year: 2026, offset: 0, names: ["Petar Vefic"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "UZB", year: 2026, offset: 2, names: ["Rasulijon Abdurakhimov"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "MGL", year: 2026, offset: 0, names: ["Usukhbayar Erkhembayar"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "IRI", year: 2026, offset: 0, names: ["Hooman Jafari"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "POL", year: 2026, offset: 0, names: ["Kacper Garnczarek"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "ISL", year: 2026, offset: 0, names: ["Agust Davidsson", "Dagur Olafsson"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "LTU", year: 2026, offset: 0, names: ["Nedas Grikinis"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "POR", year: 2026, offset: 0, names: ["Luis Lechaud"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "LUX", year: 2026, offset: 0, names: ["Quentin Brandenburger"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "GEO", year: 2026, offset: 0, names: ["Levan Skhiladze"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "THA", year: 2026, offset: 0, names: ["Suphacheep Baobenmad"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "SGP", year: 2026, offset: 0, names: ["Asher Pua"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "MAS", year: 2026, offset: 0, names: ["Luqman Al Hafiz Zulfa"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "RSA", year: 2026, offset: 0, names: ["Daniel McLean"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "TUN", year: 2026, offset: 0, names: ["Louay Sahli"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "PER", year: 2026, offset: 0, names: ["Edward Gonzales"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "DOM", year: 2026, offset: 0, names: ["Wilfry Contreras"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "GUA", year: 2026, offset: 0, names: ["Rahi Garcia"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "ECU", year: 2026, offset: 0, names: ["Sefano Romero"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "JAM", year: 2026, offset: 0, names: ["Elel Baker"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "PUR", year: 2026, offset: 1, names: ["Jensuel Soto"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "NZL", year: 2026, offset: 0, names: ["Alexander Istock", "Keegan Greene"] },
+    { tag: "worlds-2026", tier: "olympic", gender: "M", country: "ALG", year: 2026, offset: 0, names: ["Adam Cogat"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "MAR", year: 2026, offset: 0, names: ["Hamza Hossaini"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "EGY", year: 2026, offset: 0, names: ["Mohamed Afify", "Omar Mohamed", "Mostafa Ahmed", "Mazen Ali", "Omar Elshobki"] },
+    { tag: "worlds-2026", tier: "continental", gender: "M", country: "CYP", year: 2026, offset: 0, names: ["Georgios Angonas", "Ilias Georgio", "Marios Georgiou", "Neofytos Kyriakou", "Sokratis Pilakouris"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "AUT", year: 2026, offset: 0, names: ["Gino Vetter"] },
+    { tag: "worlds-2026", tier: "open", gender: "M", country: "FIN", year: 2026, offset: 0, names: ["Robert Kirmes", "Elias Koski"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "RUS", year: 2025, offset: 0, names: ["Angelina Melnikova", "Liudmila Roshchina", "Leila Vasileva", "Anna Kalmykova"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "ALG", year: 2025, offset: 0, names: ["Kaylia Nemour"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "AUS", year: 2025, offset: 0, names: ["Breanna Scott", "Kate McDonald"] },
+    { tag: "worlds-2025", tier: "open", gender: "F", country: "AUT", year: 2025, offset: 0, names: ["Charlize Morz"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "BEL", year: 2025, offset: 0, names: ["Lisa Vaelen"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "BRA", year: 2025, offset: 0, names: ["Flavia Saraiva"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "CAN", year: 2025, offset: 0, names: ["Lia Monica Fontaine", "Ellie Black", "Gabrielle Black"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "CHN", year: 2025, offset: 0, names: ["Zhang Qingying", "Yang Fanyuwei", "Deng Yalan"] },
+    { tag: "worlds-2025", tier: "open", gender: "F", country: "CZE", year: 2025, offset: 0, names: ["Sona Artamonova", "Vanesa Masova"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "ESP", year: 2025, offset: 0, names: ["Alba Petisco", "Laia Font", "Marina Escudero"] },
+    { tag: "worlds-2025", tier: "open", gender: "F", country: "FIN", year: 2025, offset: 0, names: ["Kaia Tanskanen"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "FRA", year: 2025, offset: 0, names: ["Lorette Charpy"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "GBR", year: 2025, offset: 0, names: ["Abigail Martin", "Ruby Evans"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "GER", year: 2025, offset: 0, names: ["Karina Schonmaier", "Silja Stohr"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "HUN", year: 2025, offset: 0, names: ["Greta Mayer", "Zoja Szekely", "Bettina Lili Czifra"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "ITA", year: 2025, offset: 0, names: ["Asia D'Amato", "Giulia Perotti"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "JPN", year: 2025, offset: 0, names: ["Rina Kishi", "Aiko Sugihara"] },
+    { tag: "worlds-2025", tier: "open", gender: "F", country: "MEX", year: 2025, offset: 0, names: ["Natalia Escalera"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "NED", year: 2025, offset: 0, names: ["Naomi Visser", "Sanna Veerman"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "ROU", year: 2025, offset: 0, names: ["Sabrina Voinea", "Denisa Golgota"] },
+    { tag: "worlds-2025", tier: "open", gender: "F", country: "SGP", year: 2025, offset: 0, names: ["Amanda Yap"] },
+    { tag: "worlds-2025", tier: "open", gender: "F", country: "SLO", year: 2025, offset: 0, names: ["Lucija Hribar"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "SUI", year: 2025, offset: 0, names: ["Lena Bickel"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "F", country: "USA", year: 2025, offset: 0, names: ["Leanne Wong", "Dulcy Caylor", "Joscelyn Roberson", "Skye Blakely"] },
+    { tag: "worlds-2025", tier: "open", gender: "F", country: "VIE", year: 2025, offset: 0, names: ["Nguyen Thi Quynh Nhu"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "RUS", year: 2025, offset: 0, names: ["Daniel Marinov", "Vladislav Polyashov", "Mukhammadzhon Iakubov"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "ARM", year: 2025, offset: 0, names: ["Mamikon Khachatryan", "Hamlet Manukyan", "Artur Davtyan", "Artur Avetisyan"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "AUS", year: 2025, offset: 0, names: ["Jesse Moore"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "BEL", year: 2025, offset: 0, names: ["Victor Martinez", "Glen Cuyle"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "BRA", year: 2025, offset: 0, names: ["Caio Souza", "Diogo Soares"] },
+    { tag: "worlds-2025", tier: "open", gender: "M", country: "BUL", year: 2025, offset: 0, names: ["Kevin Penev"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "CAN", year: 2025, offset: 0, names: ["Felix Dolci", "Aidan Li"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "CHN", year: 2025, offset: 0, names: ["Zhang Boheng", "Shi Cong", "Lan Xingyu", "Hong Yanming", "Zou Jingyuan", "Huang Mingqi"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "COL", year: 2025, offset: 0, names: ["Angel Barajas"] },
+    { tag: "worlds-2025", tier: "open", gender: "M", country: "CZE", year: 2025, offset: 0, names: ["Ondrej Kalny"] },
+    { tag: "worlds-2025", tier: "open", gender: "M", country: "EGY", year: 2025, offset: 0, names: ["Omar Mohamed"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "ESP", year: 2025, offset: 0, names: ["Joel Plata", "Thierno Diallo"] },
+    { tag: "worlds-2025", tier: "open", gender: "M", country: "FIN", year: 2025, offset: 0, names: ["Robert Kirmes", "Akseli Karsikas"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "FRA", year: 2025, offset: 0, names: ["Anthony Mansard"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "GBR", year: 2025, offset: 0, names: ["Jake Jarman", "Luke Whitehouse", "Joe Fraser", "Alexander Yolshin-Cash", "Harry Hepworth", "Courtney Tulloch"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "GER", year: 2025, offset: 0, names: ["Timo Eder", "Nils Dunkel"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "GRE", year: 2025, offset: 0, names: ["Eleftherios Petrounias"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "HUN", year: 2025, offset: 0, names: ["Krisztofer Meszaros", "Benedek Tomcsanyi"] },
+    { tag: "worlds-2025", tier: "open", gender: "M", country: "ISL", year: 2025, offset: 0, names: ["Dagur Kari Olafsson"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "ITA", year: 2025, offset: 0, names: ["Tommaso Brugnami", "Carlo Macchini", "Gabriele Targhetta"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "JPN", year: 2025, offset: 0, names: ["Daiki Hashimoto", "Shinnosuke Oka", "Tomoharu Tsunogai", "Kazuki Minami", "Kiichi Kaneta"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "KAZ", year: 2025, offset: 0, names: ["Milad Karimi", "Nariman Kurbanov", "Zeinolla Idrissov"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "KOR", year: 2025, offset: 0, names: ["Ryu Sung-hyun"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "NED", year: 2025, offset: 0, names: ["Casimir Schmidt"] },
+    { tag: "worlds-2025", tier: "open", gender: "M", country: "NOR", year: 2025, offset: 0, names: ["Sebastian Sponevik"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "PHI", year: 2025, offset: 0, names: ["Carlos Yulo"] },
+    { tag: "worlds-2025", tier: "open", gender: "M", country: "SLO", year: 2025, offset: 0, names: ["Gregor Rakovic"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "SUI", year: 2025, offset: 0, names: ["Noe Seifert", "Florian Langenegger"] },
+    { tag: "worlds-2025", tier: "open", gender: "M", country: "THA", year: 2025, offset: 0, names: ["Tikumporn Surintornta"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "TUR", year: 2025, offset: 0, names: ["Adem Asil", "Ferhat Arican"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "UKR", year: 2025, offset: 0, names: ["Vladyslav Hryko", "Nazar Chepurnyi"] },
+    { tag: "worlds-2025", tier: "olympic", gender: "M", country: "USA", year: 2025, offset: 0, names: ["Donnell Whittenburg", "Brody Malone", "Patrick Hoopes", "Kameron Nelson"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "ALG", year: 2023, offset: 0, names: ["Kaylia Nemour", "Lahna Salem"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "ARG", year: 2023, offset: 0, names: ["Brisa Carraro"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "AUS", year: 2023, offset: 0, names: ["Georgia Godwin", "Kate McDonald", "Ruby Pass", "Breanna Scott", "Emily Whitehead", "Macy Pegoli"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "AUT", year: 2023, offset: 0, names: ["Leni Bohle", "Bianca Frysak", "Selina Kickinger", "Carina Kroll", "Charlize Morz", "Jasmin Mader", "Elisa Hammerle"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "AZE", year: 2023, offset: 0, names: ["Nazanin Teymurova", "Samira Gahramanova"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "BAR", year: 2023, offset: 0, names: ["Olivia Kelly", "Anya Pilgram"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "BEL", year: 2023, offset: 0, names: ["Maellyse Brassart", "Fien Enghels", "Erika Pinxten", "Ylea Tollet", "Jutta Verkest", "Margaux Dandois"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "CAN", year: 2023, offset: 4, names: ["Rose-Kaying Woo"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "CHI", year: 2023, offset: 0, names: ["Makarena Pinto Adasme"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "CHN", year: 2023, offset: 5, names: ["Wu Ran"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "COL", year: 2023, offset: 0, names: ["Ginna Escobar Betancur"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "CRO", year: 2023, offset: 0, names: ["Tina Zelcic"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "CZE", year: 2023, offset: 0, names: ["Sona Artamonova", "Klara Peterkova", "Dominika Ponizilova", "Lucie Trnkova", "Alice Vlkova"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "DEN", year: 2023, offset: 0, names: ["Camille Rasmussen"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "EGY", year: 2023, offset: 0, names: ["Jana Abdelsalam", "Sandra Elsadek", "Jana Mahmoud"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "ESP", year: 2023, offset: 1, names: ["Laia Font", "Ana Perez", "Alba Petisco", "Sara Pinilla", "Laia Masferrer"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "FIN", year: 2023, offset: 0, names: ["Misella Antila", "Malla Montell", "Adeliina Siikala", "Kaia Tanskanen", "Olivia Vatto", "Ada Hautala"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "FRA", year: 2023, offset: 1, names: ["Morgane Osyssek-Reimer"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "GBR", year: 2023, offset: 5, names: ["Poppy-Grace Stickler"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "GER", year: 2023, offset: 0, names: ["Pauline Schafer", "Lea Marie Quaas", "Karina Schonmaier", "Meolie Jauch", "Anna-Lena Konig"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "GRE", year: 2023, offset: 0, names: ["Athanasia Mesiri", "Elvira Katsali", "Magdalini Tsiori"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "HKG", year: 2023, offset: 0, names: ["Angel Hiu Ying Wong"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "HUN", year: 2023, offset: 0, names: ["Csenge Bacskay", "Bettina Lili Czifra", "Zoja Szekely", "Greta Mayer", "Nikolett Szilagyi"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "INA", year: 2023, offset: 1, names: ["Ameera Hariadi"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "IRL", year: 2023, offset: 0, names: ["Emma Slevin", "Halle Hilton"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "ISL", year: 2023, offset: 0, names: ["Thelma Adalsteinsdottir", "Margret Kristinsdottir"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "ISR", year: 2023, offset: 0, names: ["Lihie Raz"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "ITA", year: 2023, offset: 0, names: ["Manila Esposito", "Alice D'Amato", "Arianna Belardelli", "Veronica Mandriota"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "JPN", year: 2023, offset: 1, names: ["Rina Kishi", "Chiaki Hatakeda", "Urara Ashikawa", "Kokoro Fukasawa", "Ayaka Sakaguchi"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "KAZ", year: 2023, offset: 0, names: ["Darya Yassinskaya", "Amina Khalimarden"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "KOR", year: 2023, offset: 2, names: ["Lee Da-yeong", "Eom Do-hyun"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "LAT", year: 2023, offset: 0, names: ["Katrina Jurevica", "Valerija Ratibolska", "Anastasija Ananjeva"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "LUX", year: 2023, offset: 0, names: ["Celeste Mordenti"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "MAS", year: 2023, offset: 0, names: ["Zarith Khalid"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "MEX", year: 2023, offset: 5, names: ["Greys Briceno"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "MON", year: 2023, offset: 0, names: ["Joana De Freitas"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "NED", year: 2023, offset: 3, names: ["Sanne Wevers"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "NOR", year: 2023, offset: 0, names: ["Maria Tronrud", "Mari Kanter", "Julie Erichsen", "Marie Ronbeck"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "NZL", year: 2023, offset: 0, names: ["Reece Cobb", "Madeleine Marshall"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "POL", year: 2023, offset: 0, names: ["Kaja Skalska", "Marta Pihan-Kulesza"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "POR", year: 2023, offset: 0, names: ["Ana Filipa Martins", "Mafalda Costa", "Mariana Parente"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "ROU", year: 2023, offset: 0, names: ["Ana Barbosu", "Sabrina Voinea", "Lilia Cosman", "Andreea Preda", "Amalia Ghigoarta", "Ella Oprea"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "RSA", year: 2023, offset: 0, names: ["Caleigh Anders", "Naveen Daries", "Shante Koti", "Garcelle Napier", "Caitlin Rooskrantz"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "SGP", year: 2023, offset: 0, names: ["Nadine Joy Nathan", "Emma Yap"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "SLO", year: 2023, offset: 0, names: ["Lucija Hribar", "Zala Trtnik"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "SRI", year: 2023, offset: 0, names: ["Milka Gehani"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "SUI", year: 2023, offset: 0, names: ["Anny Wu", "Lena Bickel"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "SVK", year: 2023, offset: 0, names: ["Barbora Mokosova"] },
+    { tag: "worlds-2023", tier: "continental", gender: "F", country: "SWE", year: 2023, offset: 0, names: ["Elina Grawin", "Tonya Paulsson", "Emelie Westlund", "Jennifer Williams", "Alva Eriksson", "Maya Stahl"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "TPE", year: 2023, offset: 1, names: ["Liao Yi-chun", "Lin Yi-chen", "Wu Sing-fen", "Huang Tzu-hsing"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "TUR", year: 2023, offset: 0, names: ["Sevgi Kayisoglu", "Bengisu Yildiz", "Bilge Tarhan", "Derin Tanriyasukur"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "UKR", year: 2023, offset: 0, names: ["Anna Lashchevska", "Ilona Krupa", "Yelyzaveta Hubareva"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "F", country: "USA", year: 2023, offset: 0, names: ["Simone Biles"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "UZB", year: 2023, offset: 0, names: ["Dildora Aripova", "Gulnaz Jumabekova"] },
+    { tag: "worlds-2023", tier: "open", gender: "F", country: "VIE", year: 2023, offset: 0, names: ["Tran Doan Quynh Nam"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "ALB", year: 2023, offset: 0, names: ["Matvei Petrov"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "ALG", year: 2023, offset: 0, names: ["Ahmed-Riadh Aliouat", "Hillal Metidji"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "ARM", year: 2023, offset: 0, names: ["Artur Davtyan", "Gagik Khachikyan", "Harutyun Merdinyan", "Vahagn Davtyan", "Artur Avetisyan"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "AUS", year: 2023, offset: 0, names: ["Vedant Sawant", "Tyson Bull", "James Hardy", "Clay Mason Stephens", "Mitchell Morgans", "Jesse Moore"] },
+    { tag: "worlds-2023", tier: "continental", gender: "M", country: "AUT", year: 2023, offset: 0, names: ["Vinzenz Hock", "Ricardo Rudy", "Ashkab Matiev"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "AZE", year: 2023, offset: 0, names: ["Nikita Simonov", "Ivan Tikhonov"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "BEL", year: 2023, offset: 0, names: ["Luka van den Keybus", "Nicola Cuyle", "Glen Cuyle", "Maxime Gentges", "Noah Kuavita", "Victor Martinez"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "BRA", year: 2023, offset: 5, names: ["Arthur Zanetti"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "BUL", year: 2023, offset: 0, names: ["Kevin Penev", "Yordan Aleksandrov"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "CHN", year: 2023, offset: 4, names: ["Shi Cong"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "COL", year: 2023, offset: 2, names: ["Jose Martinez"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "CRO", year: 2023, offset: 0, names: ["Tin Srbic", "Filip Ude"] },
+    { tag: "worlds-2023", tier: "continental", gender: "M", country: "CYP", year: 2023, offset: 0, names: ["Neofytos Kyriakou", "Ilias Georgiou", "Michalis Chari", "Marios Georgiou", "Sokratis Pilakouris"] },
+    { tag: "worlds-2023", tier: "continental", gender: "M", country: "CZE", year: 2023, offset: 0, names: ["Daniel Bago", "Ondrej Kalny", "Radomir Sliz"] },
+    { tag: "worlds-2023", tier: "continental", gender: "M", country: "EGY", year: 2023, offset: 0, names: ["Ahmed Abdelrahman", "Mohamed Afify", "Ahmed Elmaraghy", "Zaid Khater", "Omar Mohamed", "Abdelrahman Mahmoud"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "ESP", year: 2023, offset: 0, names: ["Thierno Diallo", "Nestor Abad", "Rayderley Zapata", "Nicolau Mir", "Joel Plata", "Adria Vera"] },
+    { tag: "worlds-2023", tier: "continental", gender: "M", country: "FIN", year: 2023, offset: 0, names: ["Elias Koski", "Oskar Kirmes", "Akseli Karsikas"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "FRA", year: 2023, offset: 0, names: ["Kevin Carvalho", "Lucas Desanges", "Leo Saladino", "Jim Zona", "Cameron-Lie Bernard"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "GBR", year: 2023, offset: 3, names: ["Max Whitlock"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "GER", year: 2023, offset: 0, names: ["Lukas Dauser", "Pascal Brendel", "Nick Klessing", "Lucas Kochan", "Andreas Toba"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "GRE", year: 2023, offset: 0, names: ["Eleftherios Petrounias", "Nikolaos Iliopoulos", "Stefanos Tsolakidis"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "HKG", year: 2023, offset: 0, names: ["Shek Wai Hung"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "HUN", year: 2023, offset: 0, names: ["Krisztofer Meszaros", "Balazs Kiss", "Krisztian Balazs", "Botond Molnar", "Benedek Tomcsanyi", "Szabolcs Batori"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "IND", year: 2023, offset: 0, names: ["Yogeshwar Singh"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "IRL", year: 2023, offset: 1, names: ["Dominick Cunningham", "Eamon Montgomery", "Adam Steele"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "ISL", year: 2023, offset: 0, names: ["Valgard Reinhardsson"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "ISR", year: 2023, offset: 0, names: ["Artem Dolgopyat", "Ilia Liubimov", "Uri Zeidel", "Pavel Gulidov", "Alexander Myakinin", "Eliran Ioscovich"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "ITA", year: 2023, offset: 0, names: ["Yumin Abbadini", "Mario Macchiati", "Lorenzo Minh Casali", "Nicola Bartolini", "Lorenzo Bonicelli"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "JOR", year: 2023, offset: 0, names: ["Ahmad Abu Al-Soud"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "JPN", year: 2023, offset: 3, names: ["Kazuki Minami", "Kaito Sugimoto", "Teppei Miwa"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "KAZ", year: 2023, offset: 4, names: ["Diyas Toishybek", "Emil Akhmejanov"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "KOR", year: 2023, offset: 2, names: ["Lee Jung-hyo", "Seo Jung-won", "Kan Hyun-bae"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "LAT", year: 2023, offset: 0, names: ["Ricards Plate", "Dmitrijs Mickevics"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "LTU", year: 2023, offset: 0, names: ["Robert Tvorogal", "Gytis Chasazyrovas"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "LUX", year: 2023, offset: 0, names: ["Quentin Brandenburger"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "MAR", year: 2023, offset: 0, names: ["Hamza Hossaini"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "MGL", year: 2023, offset: 0, names: ["Usukhbayar Erkhembayar", "Enkhtushin Damdindorj"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "NED", year: 2023, offset: 0, names: ["Casimir Schmidt", "Loran de Munck", "Bart Deurloo", "Jermain Grunberg", "Jordi Hagenaar", "Martijn de Veer"] },
+    { tag: "worlds-2023", tier: "continental", gender: "M", country: "NOR", year: 2023, offset: 0, names: ["Sofus Heggemsnes", "Harald Wibye", "Sebastian Sponevik"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "NZL", year: 2023, offset: 0, names: ["Mikhail Koudinov", "Ethan Dick"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "PHI", year: 2023, offset: 1, names: ["Juancho Miguel Besana"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "POL", year: 2023, offset: 0, names: ["Sebastian Gawronski", "Kacper Garnczarek"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "POR", year: 2023, offset: 0, names: ["Jose Nogueira", "Guilherme Campos"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "PUR", year: 2023, offset: 0, names: ["Josue Perez Gines"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "ROU", year: 2023, offset: 0, names: ["Andrei Muntean", "Nicholas Tarca", "Robert Burtanete", "Roland Modoianu", "Emilian Neagu", "Gabriel Burtanete"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "SMR", year: 2023, offset: 0, names: ["Lucca Bertone"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "SRB", year: 2023, offset: 0, names: ["Petar Vefic", "Ivan Dejanovic"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "SUI", year: 2023, offset: 0, names: ["Noe Seifert", "Florian Langenegger", "Christian Baumann", "Luca Giubellini", "Taha Serhani"] },
+    { tag: "worlds-2023", tier: "continental", gender: "M", country: "SWE", year: 2023, offset: 0, names: ["Marcus Stenberg", "Filip Lidbeck", "Kim Vanstroem"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "TPE", year: 2023, offset: 1, names: ["Lin Guan-yi", "Yeh Cheng", "Shiao Yu-jan", "Yin Guan-li", "Tseng Wei-sheng"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "TUR", year: 2023, offset: 0, names: ["Adem Asil", "Ahmet Onder", "Emre Dodanli", "Ferhat Arican", "Mehmet Ayberk Kosak", "Kerem Sener"] },
+    { tag: "worlds-2023", tier: "olympic", gender: "M", country: "UKR", year: 2023, offset: 5, names: ["Pantely Kolodii"] },
+    { tag: "worlds-2023", tier: "continental", gender: "M", country: "UZB", year: 2023, offset: 0, names: ["Khabibullo Ergashev", "Abdulaziz Mirvaliev", "Abdulla Azimov", "Rasuljon Abdurakhimov", "Utkirbek Juraev"] },
+    { tag: "worlds-2023", tier: "open", gender: "M", country: "VIE", year: 2023, offset: 0, names: ["Van Vi Luong"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "USA", year: 2022, offset: 0, names: ["Shilese Jones", "Jordan Chiles", "Skye Blakely", "Leanne Wong", "Lexi Zeiss"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "GBR", year: 2022, offset: 2, names: ["Jennifer Gadirova", "Georgia-Mae Fenton", "Poppy-Grace Stickler"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "BRA", year: 2022, offset: 1, names: ["Flavia Saraiva", "Carolyne Pedro", "Julia Soares"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "CAN", year: 2022, offset: 0, names: ["Ellie Black", "Sydney Turner", "Laurie Denommee", "Denelle Pedrick", "Emma Spence", "Shallon Olsen"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "ITA", year: 2022, offset: 0, names: ["Martina Maggio", "Alice D'Amato", "Manila Esposito", "Giorgia Villa", "Veronica Mandriota"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "JPN", year: 2022, offset: 2, names: ["Hazuki Watanabe"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "NED", year: 2022, offset: 0, names: ["Naomi Visser", "Tisha Volleman", "Sanna Veerman", "Eythora Thorsdottir", "Eve de Ruiter"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "FRA", year: 2022, offset: 0, names: ["Coline Devillard", "Carolann Heduit", "Aline Friess", "Marine Boyer", "Melanie de Jesus dos Santos"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "BEL", year: 2022, offset: 0, names: ["Lisa Vaelen", "Nina Derwael", "Maellyse Brassart", "Jutta Verkest", "Ylea Tollet"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "GER", year: 2022, offset: 0, names: ["Elisabeth Seitz", "Karina Schonmaier", "Anna-Lena Konig", "Lea Quaas"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "KOR", year: 2022, offset: 0, names: ["Lee Yun-seo", "Yeo Seo-jeong"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "AUS", year: 2022, offset: 0, names: ["Georgia Godwin", "Romi Brown", "Georgia-Rose Brown", "Breanna Scott", "Kate McDonald"] },
+    { tag: "worlds-2022", tier: "open", gender: "F", country: "FIN", year: 2022, offset: 0, names: ["Maisa Kuusikko"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "HUN", year: 2022, offset: 0, names: ["Zsofia Kovacs"] },
+    { tag: "worlds-2022", tier: "open", gender: "F", country: "MEX", year: 2022, offset: 0, names: ["Natalia Escalera"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "ISR", year: 2022, offset: 0, names: ["Lihie Raz"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "TPE", year: 2022, offset: 0, names: ["Ting Hua-tien"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "ROU", year: 2022, offset: 0, names: ["Ana Barbosu"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "F", country: "ESP", year: 2022, offset: 0, names: ["Laura Casabuena"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "CHN", year: 2022, offset: 1, names: ["Zou Jingyuan", "You Hao", "Su Weide"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "JPN", year: 2022, offset: 0, names: ["Daiki Hashimoto", "Ryosuke Doi", "Yuya Kamoto", "Kakeru Tanigawa", "Kazuma Kaya"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "GBR", year: 2022, offset: 0, names: ["Jake Jarman", "Joe Fraser", "Courtney Tulloch", "Adam Tobin"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "USA", year: 2022, offset: 1, names: ["Asher Hong", "Stephen Nedoroscik", "Donnell Whittenburg", "Colt Walker"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "ITA", year: 2022, offset: 0, names: ["Lorenzo Minh Casali", "Yumin Abbadini", "Nicola Bartolini", "Carlo Macchini", "Matteo Levantesi"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "ESP", year: 2022, offset: 0, names: ["Nestor Abad", "Joel Plata", "Nicolau Mir", "Thierno Diallo", "Rayderley Zapata"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "BRA", year: 2022, offset: 1, names: ["Diogo Soares", "Arthur Mariano", "Yuri Guimaraes", "Lucas Bitencourt"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "KOR", year: 2022, offset: 0, names: ["Ryu Sung-hyun", "Kim Han-sol", "Lee Jun-ho", "Kim Jae-ho", "Lee Jung-hyo"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "GER", year: 2022, offset: 0, names: ["Lukas Dauser", "Nils Dunkel", "Pascal Brendel", "Andreas Toba", "Glenn Trebing"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "CAN", year: 2022, offset: 0, names: ["Zachary Clay", "Felix Dolci", "William Emard", "Samuel Zakutney", "Chris Kaji"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "TUR", year: 2022, offset: 1, names: ["Ferhat Arican", "Yunus Gundogdu", "Mehmet Kosak", "Ahmet Onder"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "HUN", year: 2022, offset: 0, names: ["Krisztofer Meszaros", "Krisztian Balazs", "Botond Kardos", "Benedek Tomcsanyi", "Balazs Kiss"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "UKR", year: 2022, offset: 0, names: ["Illia Kovtun", "Igor Radivilov"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "PHI", year: 2022, offset: 0, names: ["Carlos Yulo"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "IRL", year: 2022, offset: 0, names: ["Rhys McClenaghan"] },
+    { tag: "worlds-2022", tier: "open", gender: "M", country: "JOR", year: 2022, offset: 0, names: ["Ahmad Abu Al-Soud"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "ARM", year: 2022, offset: 0, names: ["Artur Davtyan", "Harutyun Merdinyan", "Vahagn Davtyan", "Artur Avetisyan"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "NED", year: 2022, offset: 0, names: ["Casimir Schmidt", "Loran de Munck"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "FRA", year: 2022, offset: 0, names: ["Benjamin Osberger"] },
+    { tag: "worlds-2022", tier: "open", gender: "M", country: "CRO", year: 2022, offset: 0, names: ["Filip Ude", "Aurel Benovic"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "ROU", year: 2022, offset: 0, names: ["Gabriel Burtanete"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "COL", year: 2022, offset: 0, names: ["Jossimar Calvo"] },
+    { tag: "worlds-2022", tier: "open", gender: "M", country: "CYP", year: 2022, offset: 0, names: ["Ilias Georgiou", "Sokratis Pilakouris"] },
+    { tag: "worlds-2022", tier: "open", gender: "M", country: "UZB", year: 2022, offset: 0, names: ["Abdulla Azimov"] },
+    { tag: "worlds-2022", tier: "open", gender: "M", country: "EGY", year: 2022, offset: 0, names: ["Omar Mohamed", "Mohamed Afify"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "AUS", year: 2022, offset: 0, names: ["Tyson Bull", "Mitchell Morgans"] },
+    { tag: "worlds-2022", tier: "open", gender: "M", country: "NOR", year: 2022, offset: 0, names: ["Sofus Heggemsnes"] },
+    { tag: "worlds-2022", tier: "olympic", gender: "M", country: "BEL", year: 2022, offset: 0, names: ["Luka van den Keybus"] },
+    { tag: "worlds-2022", tier: "open", gender: "M", country: "LTU", year: 2022, offset: 0, names: ["Robert Tvorogal"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "ITA", year: 2021, offset: 2, names: ["Elisa Iorio"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "CAN", year: 2021, offset: 0, names: ["Rose Woo", "Audrey Rousseau"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "CHN", year: 2021, offset: 1, names: ["Luo Rui"] },
+    { tag: "worlds-2021", tier: "open", gender: "F", country: "EGY", year: 2021, offset: 0, names: ["Nancy Taman"] },
+    { tag: "worlds-2021", tier: "open", gender: "F", country: "FIN", year: 2021, offset: 0, names: ["Ada Hautala"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "FRA", year: 2021, offset: 1, names: ["Celia Serber", "Coline Devillard"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "GBR", year: 2021, offset: 0, names: ["Ruby Stacey"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "GER", year: 2021, offset: 0, names: ["Pauline Schafer-Betz"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "HUN", year: 2021, offset: 0, names: ["Csenge Bacskay", "Zsofia Kovacs", "Zoja Szekely"] },
+    { tag: "worlds-2021", tier: "open", gender: "F", country: "IND", year: 2021, offset: 0, names: ["Aruna Budda Reddy"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "IRL", year: 2021, offset: 0, names: ["Emma Slevin"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "ISR", year: 2021, offset: 0, names: ["Ofir Netzer"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "JPN", year: 2021, offset: 2, names: ["Urara Ashikawa"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "KOR", year: 2021, offset: 0, names: ["Lee Yun-seo", "Shin Sol-yi"] },
+    { tag: "worlds-2021", tier: "open", gender: "F", country: "MEX", year: 2021, offset: 0, names: ["Natalia Escalera"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "NED", year: 2021, offset: 1, names: ["Elze Geurts"] },
+    { tag: "worlds-2021", tier: "open", gender: "F", country: "POR", year: 2021, offset: 0, names: ["Filipa Martins"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "ROU", year: 2021, offset: 0, names: ["Maria Ceplinschi"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "RUS", year: 2021, offset: 2, names: ["Yana Vorona", "Maria Minaeva"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "SUI", year: 2021, offset: 0, names: ["Stefanie Siegenthaler"] },
+    { tag: "worlds-2021", tier: "open", gender: "F", country: "SWE", year: 2021, offset: 0, names: ["Jennifer Williams"] },
+    { tag: "worlds-2021", tier: "open", gender: "F", country: "AUT", year: 2021, offset: 0, names: ["Marlies Mannersdorfer"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "UKR", year: 2021, offset: 0, names: ["Anastasiia Bachynska", "Yelyzaveta Hubareva"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "F", country: "USA", year: 2021, offset: 0, names: ["Leanne Wong", "Kayla DiCello", "Konnor McClain", "Emjae Frazier"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "ARM", year: 2021, offset: 0, names: ["Harutyun Merdinyan"] },
+    { tag: "worlds-2021", tier: "open", gender: "M", country: "AUT", year: 2021, offset: 0, names: ["Alexander Benda", "Vinzenz Hock"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "BEL", year: 2021, offset: 0, names: ["Luka van den Keybus", "Noah Kuavita"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "CAN", year: 2021, offset: 0, names: ["William Emard"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "CHN", year: 2021, offset: 1, names: ["Shi Cong", "Hu Xuwei", "Lan Xingyu", "Weng Hao"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "COL", year: 2021, offset: 0, names: ["Jossimar Calvo", "Andres Martinez"] },
+    { tag: "worlds-2021", tier: "open", gender: "M", country: "CRO", year: 2021, offset: 0, names: ["Filip Ude"] },
+    { tag: "worlds-2021", tier: "open", gender: "M", country: "CYP", year: 2021, offset: 0, names: ["Ilias Georgiou", "Marios Georgiou"] },
+    { tag: "worlds-2021", tier: "open", gender: "M", country: "EGY", year: 2021, offset: 0, names: ["Ali Zahran"] },
+    { tag: "worlds-2021", tier: "continental", gender: "M", country: "FIN", year: 2021, offset: 0, names: ["Robert Kirmes", "Oskar Kirmes", "Emil Soravuo"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "GBR", year: 2021, offset: 0, names: ["Joshua Nathan", "Courtney Tulloch", "Hayden Skinner"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "GER", year: 2021, offset: 0, names: ["Andreas Bretschneider"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "GRE", year: 2021, offset: 0, names: ["Nikolaos Iliopoulos"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "HUN", year: 2021, offset: 0, names: ["Krisztofer Meszaros"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "ISR", year: 2021, offset: 0, names: ["Eyal Indig", "Andrey Medvedev"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "ITA", year: 2021, offset: 1, names: ["Marco Lodadio", "Salvatore Maresca", "Thomas Grasso"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "JPN", year: 2021, offset: 2, names: ["Kazuki Minami", "Hidenobu Yonekura"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "KAZ", year: 2021, offset: 0, names: ["Milad Karimi", "Nariman Kurbanov"] },
+    { tag: "worlds-2021", tier: "open", gender: "M", country: "LTU", year: 2021, offset: 0, names: ["Robert Tvorogal"] },
+    { tag: "worlds-2021", tier: "open", gender: "M", country: "MEX", year: 2021, offset: 0, names: ["Isaac Nunez"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "NED", year: 2021, offset: 0, names: ["Loran de Munck"] },
+    { tag: "worlds-2021", tier: "open", gender: "M", country: "NOR", year: 2021, offset: 0, names: ["Sofus Heggemsnes"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "RUS", year: 2021, offset: 0, names: ["Grigorii Klimentev", "Nikita Ignatyev", "Mukhammadzhon Iakubov"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "SUI", year: 2021, offset: 0, names: ["Henji Mboyo"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "UKR", year: 2021, offset: 0, names: ["Illia Kovtun", "Nazar Chepurnyi"] },
+    { tag: "worlds-2021", tier: "olympic", gender: "M", country: "USA", year: 2021, offset: 1, names: ["Stephen Nedoroscik"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "F", country: "AUS", year: 2024, offset: 1, names: ["Emma Nedov"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "AUT", year: 2024, offset: 0, names: ["Charlize Morz"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "BUL", year: 2024, offset: 0, names: ["Valentina Georgieva"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "CZE", year: 2024, offset: 0, names: ["Sona Artamonova"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "EGY", year: 2024, offset: 0, names: ["Jana Mahmoud"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "F", country: "FRA", year: 2024, offset: 4, names: ["Ming van Eijken"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "F", country: "GER", year: 2024, offset: 2, names: ["Pauline Schafer"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "HAI", year: 2024, offset: 0, names: ["Lynnzee Brown"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "F", country: "HUN", year: 2024, offset: 2, names: ["Zoja Szekely"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "INA", year: 2024, offset: 0, names: ["Rifda Irfanaluthfi"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "F", country: "ISR", year: 2024, offset: 0, names: ["Lihie Raz"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "F", country: "KOR", year: 2024, offset: 3, names: ["Eom Do-hyun", "Lee Da-yeong"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "NZL", year: 2024, offset: 0, names: ["Georgia-Rose Brown"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "POR", year: 2024, offset: 0, names: ["Filipa Martins"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "PRK", year: 2024, offset: 0, names: ["An Chang-ok"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "F", country: "RSA", year: 2024, offset: 0, names: ["Caitlin Rooskrantz"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "F", country: "UKR", year: 2024, offset: 0, names: ["Anna Lashchevska"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "BEL", year: 2024, offset: 1, names: ["Glen Cuyle"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "BRA", year: 2024, offset: 1, names: ["Arthur Mariano"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "M", country: "BUL", year: 2024, offset: 0, names: ["Kevin Penev"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "CAN", year: 2024, offset: 2, names: ["Samuel Zakutney"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "M", country: "CRO", year: 2024, offset: 0, names: ["Aurel Benovic", "Tin Srbic"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "M", country: "CYP", year: 2024, offset: 0, names: ["Marios Georgiou"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "M", country: "DOM", year: 2024, offset: 0, names: ["Audrys Nin Reyes"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "ESP", year: 2024, offset: 4, names: ["Rayderley Zapata"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "FRA", year: 2024, offset: 0, names: ["Samir Ait Said"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "GBR", year: 2024, offset: 4, names: ["Max Whitlock"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "HUN", year: 2024, offset: 0, names: ["Krisztofer Meszaros"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "M", country: "JOR", year: 2024, offset: 0, names: ["Ahmad Abu Al-Soud"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "KOR", year: 2024, offset: 0, names: ["Lee Jun-ho", "Ryu Sung-hyun", "Hur Woong"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "M", country: "LTU", year: 2024, offset: 0, names: ["Robert Tvorogal"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "ROU", year: 2024, offset: 0, names: ["Andrei Muntean"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "SUI", year: 2024, offset: 0, names: ["Matteo Giubellini", "Florian Langenegger", "Luca Giubellini"] },
+    { tag: "olympics-2024-roster", tier: "open", gender: "M", country: "SYR", year: 2024, offset: 0, names: ["Lais Najjar"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "TUR", year: 2024, offset: 0, names: ["Emre Dodanli"] },
+    { tag: "olympics-2024-roster", tier: "olympic", gender: "M", country: "UKR", year: 2024, offset: 1, names: ["Illia Kovtun"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "ARG", year: 2021, offset: 0, names: ["Abigail Magistrati"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "AUS", year: 2021, offset: 0, names: ["Georgia Godwin", "Emily Whitehead"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "AUT", year: 2021, offset: 0, names: ["Elisa Hammerle"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "AZE", year: 2021, offset: 0, names: ["Marina Nekrasova"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "BLR", year: 2021, offset: 0, names: ["Hanna Traukova"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "CAY", year: 2021, offset: 0, names: ["Raegan Rutty"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "CHI", year: 2021, offset: 0, names: ["Simona Castro"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "CRC", year: 2021, offset: 0, names: ["Luciana Alvarado"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "CRO", year: 2021, offset: 0, names: ["Ana Derek"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "CUB", year: 2021, offset: 0, names: ["Marcia Vidiaux"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "CZE", year: 2021, offset: 0, names: ["Aneta Holasova"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "EGY", year: 2021, offset: 0, names: ["Zeina Ibrahim", "Mandy Mohamed"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "IND", year: 2021, offset: 0, names: ["Pranati Nayak"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "IRL", year: 2021, offset: 0, names: ["Megan Ryan"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "ISR", year: 2021, offset: 0, names: ["Lihie Raz"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "ITA", year: 2021, offset: 4, names: ["Lara Mori"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "JAM", year: 2021, offset: 0, names: ["Danusia Francis"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "KOR", year: 2021, offset: 1, names: ["Yeo Seo-jeong"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "MAS", year: 2021, offset: 0, names: ["Farah Ann Abdul Hadi"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "NED", year: 2021, offset: 0, names: ["Lieke Wevers"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "NOR", year: 2021, offset: 0, names: ["Julie Erichsen"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "PER", year: 2021, offset: 0, names: ["Ariana Orrego"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "POL", year: 2021, offset: 0, names: ["Gabriela Sasnal"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "RUS", year: 2021, offset: 4, names: ["Elena Gerasimova"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "ROU", year: 2021, offset: 0, names: ["Maria Holbura", "Larisa Iordache"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "RSA", year: 2021, offset: 0, names: ["Caitlin Rooskrantz", "Naveen Daries"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "SGP", year: 2021, offset: 0, names: ["Tan Sze En"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "SRI", year: 2021, offset: 0, names: ["Milka Gehani"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "SUI", year: 2021, offset: 0, names: ["Giulia Steingruber"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "SVK", year: 2021, offset: 0, names: ["Barbora Mokosova"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "SWE", year: 2021, offset: 0, names: ["Jonna Adlerteg"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "TPE", year: 2021, offset: 0, names: ["Ting Hua-tien"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "TUR", year: 2021, offset: 0, names: ["Nazli Savranbasi"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "F", country: "UKR", year: 2021, offset: 0, names: ["Diana Varinska"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "F", country: "UZB", year: 2021, offset: 0, names: ["Oksana Chusovitina"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "ALB", year: 2021, offset: 0, names: ["Matvei Petrov"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "ARM", year: 2021, offset: 0, names: ["Artur Davtyan"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "AUS", year: 2021, offset: 0, names: ["Tyson Bull"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "AZE", year: 2021, offset: 0, names: ["Ivan Tikhonov"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "BRA", year: 2021, offset: 2, names: ["Francisco Barretto Junior"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "BUL", year: 2021, offset: 0, names: ["David Huddleston"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "CAN", year: 2021, offset: 0, names: ["Rene Cournoyer"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "CHI", year: 2021, offset: 0, names: ["Tomas Gonzalez"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "CHN", year: 2021, offset: 4, names: ["You Hao"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "CRO", year: 2021, offset: 0, names: ["Tin Srbic"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "CZE", year: 2021, offset: 0, names: ["David Jessen"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "EGY", year: 2021, offset: 0, names: ["Omar Mohamed"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "ESP", year: 2021, offset: 4, names: ["Rayderley Zapata"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "FRA", year: 2021, offset: 1, names: ["Samir Ait Said", "Cyril Tommasone"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "GRE", year: 2021, offset: 0, names: ["Eleftherios Petrounias"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "HKG", year: 2021, offset: 0, names: ["Shek Wai Hung"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "IRL", year: 2021, offset: 0, names: ["Rhys McClenaghan"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "ISR", year: 2021, offset: 1, names: ["Alexander Shatilov"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "ITA", year: 2021, offset: 0, names: ["Ludovico Edalli"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "JPN", year: 2021, offset: 4, names: ["Kohei Kameyama"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "KOR", year: 2021, offset: 0, names: ["Lee Jun-ho", "Shin Jae-hwan"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "MAS", year: 2021, offset: 0, names: ["Loo Phay Xing"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "MEX", year: 2021, offset: 0, names: ["Daniel Corral"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "NED", year: 2021, offset: 0, names: ["Bart Deurloo", "Epke Zonderland"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "NGR", year: 2021, offset: 0, names: ["Uche Eke"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "NZL", year: 2021, offset: 0, names: ["Mikhail Koudinov"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "RUS", year: 2021, offset: 3, names: ["Aleksandr Kartsev", "Vladislav Polyashov"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "ROU", year: 2021, offset: 0, names: ["Marian Dragulescu"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "SUI", year: 2021, offset: 3, names: ["Pablo Bragger"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "SWE", year: 2021, offset: 0, names: ["David Rumbutis"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "TPE", year: 2021, offset: 2, names: ["Shiao Yu-jan", "Hung Yuan-hsi"] },
+    { tag: "olympics-2020-roster", tier: "olympic", gender: "M", country: "UKR", year: 2021, offset: 0, names: ["Petro Pakhniuk", "Yevgen Yudenkov", "Igor Radivilov"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "UZB", year: 2021, offset: 0, names: ["Rasuljon Abdurakhimov"] },
+    { tag: "olympics-2020-roster", tier: "open", gender: "M", country: "VIE", year: 2021, offset: 0, names: ["Le Thanh Tung", "Dinh Phuong Thanh"] },
+  ];
+  ATHLETE_COVERAGE_PACKS.push(...ATHLETE_SUPPLEMENTAL_COVERAGE_PACKS, ...ATHLETE_2000_OFFICIAL_EXPANSION_PACKS, ...ATHLETE_WORLDS_OLYMPICS_2021_2026_PACKS);
+  // Países dos novos elencos passam a valer nas competições do continente correspondente (e nos Jogos / Battle Royale)
+  (function extendCompetitionCountries() {
+    const EUR = new Set("ALB ARM AUT AZE BEL BLR BUL CRO CYP CZE DEN ESP FIN FRA GBR GEO GER GRE HUN IRL ISL ISR ITA LAT LIE LTU LUX MLT MON NED NOR POL POR ROU RUS SLO SMR SRB SUI SVK SWE TUR UKR".split(" "));
+    const ASIA = new Set("CHN JPN KOR PRK TPE HKG KAZ UZB INA IND IRI JOR MAS MGL MMR PHI QAT SGP SRI SYR THA VIE".split(" "));
+    const PAN = new Set("USA CAN BRA ARG BAR CAY CHI COL CRC CUB DOM ECU ESA GUA HAI HON JAM MEX PAN PER PUR".split(" "));
+    ATHLETE_WORLDS_OLYMPICS_2021_2026_PACKS.forEach((p) => {
+      const g = p.gender === "F" ? "WAG" : "MAG";
+      const add = (k) => { const list = COMPETITIONS[k].countries[g]; if (!list.includes(p.country)) list.push(p.country); };
+      add("olympics"); add("battleRoyale");
+      if (EUR.has(p.country)) add("european");
+      if (ASIA.has(p.country)) add("asian");
+      if (PAN.has(p.country)) add("panamerican");
+    });
+  })();
 
   const ICONS = {
     moon: '<path d="M21 15.2A8.6 8.6 0 0 1 8.8 3a9.4 9.4 0 1 0 12.2 12.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
@@ -2072,7 +2743,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     phase: "setup", view: "setup", selectedIds: [], draftRound: 1, draftDraw: null,
     draftRerolls: { year: false, team: false }, draftOptions: [],
     battleOptions: [], battleMode: "royale", battleAssignments: {}, customFlag: getInitialCustomFlag(), cardAspect: FIXED_CARD_ASPECT,
-    qualTab: "teams", seed: Date.now(), rng: Math.random, teams: [], results: {}, live: null
+    tactic: "balanced", qualTab: "teams", seed: Date.now(), rng: Math.random, teams: [], results: {}, live: null
   };
   const BATTLE_CONFIG = {
     rosterSize: 6, teamCount: 64,
@@ -2174,6 +2845,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     updateChrome(); renderCurrentView();
   }
   function renderCurrentView() {
+    if (state.view === "codex") return renderCodex();
     if (state.view === "draft") renderDraftBoard();
     else if (state.view === "battleDraft") renderBattleDraft();
     else if (state.view === "battle" && state.results.battle) renderBattleResults();
@@ -2195,7 +2867,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       const key = `${pack.gender}-${slug(name)}-${pack.country}-${pack.year}`;
       if (seen.has(key)) return "";
       seen.add(key);
-      return coverageCsvLine(pack, name, nameIndex, packIndex);
+      return coverageCsvLine(pack, name, nameIndex + (pack.offset || 0), packIndex);
     })).filter(Boolean).join("\n");
   }
   function coverageCsvLine(pack, name, nameIndex, packIndex) {
@@ -2495,6 +3167,10 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     es: { USA: "Estados Unidos", BRA: "Brasil", CHN: "China", JPN: "Japón", GBR: "Gran Bretaña", ITA: "Italia", FRA: "Francia", GER: "Alemania", CAN: "Canadá", NED: "Países Bajos", AUS: "Australia", BEL: "Bélgica", UKR: "Ucrania", TUR: "Turquía", KOR: "Corea del Sur", ROU: "Rumania", PHI: "Filipinas", COL: "Colombia", ARG: "Argentina", CUB: "Cuba", MEX: "México", CHI: "Chile", PAN: "Panamá", GUA: "Guatemala", PUR: "Puerto Rico", PER: "Perú", VEN: "Venezuela", JAM: "Jamaica", HUN: "Hungría", SUI: "Suiza", ESP: "España", UZB: "Uzbekistán", KAZ: "Kazajistán", TPE: "Taipéi Chino", IND: "India", INA: "Indonesia", SRI: "Sri Lanka", HKG: "Hong Kong", THA: "Tailandia", VIE: "Vietnam", QAT: "Catar", KGZ: "Kirguistán", ALG: "Argelia", AUT: "Austria", GRE: "Grecia", IRL: "Irlanda", ISR: "Israel", ARM: "Armenia", SLO: "Eslovenia", EGY: "Egipto", AZE: "Azerbaiyán", RUS: "Rusia", BLR: "Bielorrusia", URS: "Unión Soviética", EUN: "Equipo Unificado", TCH: "Checoslovaquia", DOM: "República Dominicana", ECU: "Ecuador", CRC: "Costa Rica", ESA: "El Salvador", HAI: "Haití", BAR: "Barbados", BOL: "Bolivia", PRK: "Corea del Norte", MAS: "Malasia", SGP: "Singapur", IRI: "Irán", FAN: "Fantasy" }
   };
   const IOC_ISO = { USA: "us", BRA: "br", CHN: "cn", JPN: "jp", GBR: "gb", ITA: "it", FRA: "fr", GER: "de", CAN: "ca", NED: "nl", AUS: "au", BEL: "be", UKR: "ua", TUR: "tr", KOR: "kr", ROU: "ro", PHI: "ph", COL: "co", ARG: "ar", CUB: "cu", MEX: "mx", CHI: "cl", PAN: "pa", GUA: "gt", PUR: "pr", PER: "pe", VEN: "ve", JAM: "jm", HUN: "hu", SUI: "ch", ESP: "es", UZB: "uz", KAZ: "kz", TPE: "tw", IND: "in", INA: "id", SRI: "lk", HKG: "hk", THA: "th", VIE: "vn", QAT: "qa", KGZ: "kg", ALG: "dz", AUT: "at", GRE: "gr", IRL: "ie", ISR: "il", ARM: "am", SLO: "si", EGY: "eg", AZE: "az", RUS: "ru", BLR: "by", DOM: "do", ECU: "ec", CRC: "cr", ESA: "sv", HAI: "ht", BAR: "bb", BOL: "bo", PRK: "kp", MAS: "my", SGP: "sg", IRI: "ir" };
+  (function addIsoCodes() {
+    const extra = { ALB: "al", ALG: "dz", ARG: "ar", ARM: "am", AUT: "at", AZE: "az", BAR: "bb", BLR: "by", BUL: "bg", CAY: "ky", CHI: "cl", CRC: "cr", CRO: "hr", CUB: "cu", CYP: "cy", CZE: "cz", DEN: "dk", DOM: "do", ECU: "ec", EGY: "eg", ESA: "sv", FIN: "fi", GEO: "ge", GRE: "gr", GUA: "gt", HAI: "ht", HKG: "hk", HON: "hn", HUN: "hu", INA: "id", IND: "in", IRI: "ir", IRL: "ie", ISL: "is", ISR: "il", JAM: "jm", JOR: "jo", KAZ: "kz", LAT: "lv", LIE: "li", LTU: "lt", LUX: "lu", MAR: "ma", MAS: "my", MEX: "mx", MGL: "mn", MLT: "mt", MMR: "mm", MON: "mc", NGR: "ng", NOR: "no", NZL: "nz", PAN: "pa", PER: "pe", PHI: "ph", POL: "pl", POR: "pt", PRK: "kp", PUR: "pr", QAT: "qa", ROU: "ro", RSA: "za", SGP: "sg", SLO: "si", SMR: "sm", SRB: "rs", SRI: "lk", SUI: "ch", SVK: "sk", SWE: "se", SYR: "sy", THA: "th", TPE: "tw", TUN: "tn", TUR: "tr", UKR: "ua", UZB: "uz", VIE: "vn", ZWE: "zw" };
+    Object.keys(extra).forEach((k) => { if (!IOC_ISO[k]) IOC_ISO[k] = extra[k]; });
+  })();
   const COUNTRY_NAME_OVERRIDES = {
     "pt-BR": { GBR: "Grã-Bretanha", TPE: "Taipé Chinês", URS: "União Soviética", EUN: "Equipe Unificada", TCH: "Tchecoslováquia", FAN: "Fantasy" },
     en: { GBR: "Great Britain", TPE: "Chinese Taipei", URS: "Soviet Union", EUN: "Unified Team", TCH: "Czechoslovakia", FAN: "Fantasy" },
@@ -2623,9 +3299,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const dayForm = ctx.dayForm || 0;
     const pressure = Math.max(0, Math.min(0.6, ctx.pressure || 0));
     const stat = athlete.stats[apparatus.id];
-    const D = scoreValue(stat.d);
+    const tac = playerTactic(athlete); // tática da equipe do jogador (Segura / Equilibrada / Ousada)
+    let D = scoreValue(stat.d);
+    if (D > 0 && tac.d) D = round1(Math.max(0.8, D + tac.d));
     const baseExecution = sampledExecutionBase(stat, rng);
-    const typicalDed = Math.max(0.2, round1(10 - baseExecution)); // typical execution deductions
+    const typicalDed = Math.max(0.2, round1(10 - baseExecution + tac.ded)); // typical execution deductions
     // Curva em sino: variações extremas ficam raras. Pressão empurra levemente para pior;
     // atletas consistentes ("clutch") sofrem menos com ela.
     const clutch = 1 - (athlete.consistency - 0.7) * 1.6; // ~1.0 média, <1 para os mais consistentes
@@ -2637,8 +3315,8 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     let note = "limpa";
 
     const nerveFactor = 1 + pressure * Math.max(0.35, clutch);
-    const fallChance = (apparatus.risk + (1 - athlete.consistency) * 0.075) * nerveFactor;
-    const majorChance = (apparatus.risk * 1.35 + (1 - athlete.consistency) * 0.090) * nerveFactor;
+    const fallChance = (apparatus.risk + (1 - athlete.consistency) * 0.075) * nerveFactor * tac.risk;
+    const majorChance = (apparatus.risk * 1.35 + (1 - athlete.consistency) * 0.090) * nerveFactor * tac.risk;
     let major = null;
     if (rng() < fallChance) { major = { code: "fall", value: 1.0 }; note = "queda"; targetDed += 0.4 + rng() * 0.5; }
     else if (rng() < majorChance) { const v = round1(0.3 + rng() * 0.5); major = { code: "majorbreak", value: v }; note = "erro"; }
@@ -2673,10 +3351,13 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const judgePanel = judgePanelExecution(execDed, athlete, pressure, rng);
     const E = judgePanel.average;
     const neutralDed = round1(neutral.reduce((s, d) => s + d.value, 0));
+    // GAM Art. 7.2.9: saída/salto cravado recebe +0,1 da banca D (não vale no cavalo com alças)
+    const bonus = (note === "cravada" && athlete.gender === "MAG" && apparatus.id !== "ph" && D > 0) ? 0.1 : 0;
+    if (bonus) D = round1(D + bonus);
     const total = round3(D + E - neutralDed);
     // sort deductions: majors first, then by value desc
     deductions.sort((a, b) => (b.code === "fall" ? 1 : 0) - (a.code === "fall" ? 1 : 0) || b.value - a.value);
-    return { d: D, e: E, baseExecution, total, note, deductions, neutral, execDed, neutralDed, judgePanel };
+    return { d: D, e: E, baseExecution, total, note, deductions, neutral, execDed, neutralDed, judgePanel, bonus };
   }
   // Back-compat alias
   function simulateRoutine(athlete, apparatus, ctx = {}) { return buildRoutine(athlete, apparatus, state.rng, ctx); }
@@ -2785,8 +3466,12 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
               <button class="btn btn-secondary" data-act="openCareer">${icon("trophy")} ${t("careerTitle")}</button>
             </div>
           </div>
-          <div class="grid gap-4">
+          <div class="grid gap-4 content-start">
             ${arenaArt()}
+            <button class="codex-card" data-act="openCodex">
+              <span class="codex-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h6M9 12h4"/></svg></span>
+              <span><span class="codex-card-title block">${t("codexTitle")}</span><span class="codex-card-sub block">${t("codexCard")}</span></span>
+            </button>
             <div class="soft-panel p-4">
               <div class="flex flex-wrap gap-2">
                 ${displayApps.map((a) => `<span class="chip">${appName(a)}</span>`).join("")}
@@ -2833,16 +3518,17 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function draftPool(country, year, options = {}) {
     const includeSelected = Boolean(options.includeSelected);
     const selected = selectedIdSet();
-    return ATHLETES
-      .filter((a) => (
-        a.gender === state.gender
-        && isCountryEligible(a.country)
-        && a.country === country
-        && a.year === year
-        && (includeSelected || !selected.has(a.id))
-      ))
-      .sort((a, b) => totalPotential(b) - totalPotential(a));
+    if (!isCountryEligible(country)) return [];
+    // Índice em cache por modalidade/país/ano: o banco cresceu e a varredura completa a cada chamada travava o draft
+    const key = `${state.gender}|${country}|${year}`;
+    let list = DRAFT_INDEX.get(key);
+    if (!list) {
+      list = ATHLETES.filter((a) => a.gender === state.gender && a.country === country && a.year === year).sort((a, b) => totalPotential(b) - totalPotential(a));
+      DRAFT_INDEX.set(key, list);
+    }
+    return includeSelected ? [...list] : list.filter((a) => !selected.has(a.id));
   }
+  const DRAFT_INDEX = new Map();
   function availableDraftCombos() {
     const seen = new Set();
     return ATHLETES
@@ -2856,18 +3542,26 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       });
   }
   function availableYearsForCountry(country) {
-    return [...new Set(
-      ATHLETES
-        .filter((a) => a.gender === state.gender && isCountryEligible(a.country) && a.country === country)
-        .map((a) => a.year)
-    )].filter((year) => draftPool(country, year).length > 0).sort((a, b) => a - b);
+    if (!isCountryEligible(country)) return [];
+    return [...(draftGenderIndex().years.get(country) || [])].filter((year) => draftPool(country, year).length > 0).sort((a, b) => a - b);
   }
   function availableCountriesForYear(year) {
-    return [...new Set(
-      ATHLETES
-        .filter((a) => a.gender === state.gender && isCountryEligible(a.country) && a.year === year)
-        .map((a) => a.country)
-    )].filter((country) => draftPool(country, year).length > 0).sort();
+    return [...(draftGenderIndex().countries.get(year) || [])].filter((country) => isCountryEligible(country) && draftPool(country, year).length > 0).sort();
+  }
+  const DRAFT_GENDER_INDEX = {};
+  function draftGenderIndex() {
+    if (!DRAFT_GENDER_INDEX[state.gender]) {
+      const years = new Map(), countries = new Map();
+      ATHLETES.forEach((a) => {
+        if (a.gender !== state.gender) return;
+        if (!years.has(a.country)) years.set(a.country, new Set());
+        years.get(a.country).add(a.year);
+        if (!countries.has(a.year)) countries.set(a.year, new Set());
+        countries.get(a.year).add(a.country);
+      });
+      DRAFT_GENDER_INDEX[state.gender] = { years, countries };
+    }
+    return DRAFT_GENDER_INDEX[state.gender];
   }
   function resetDraftRerolls() {
     state.draftRerolls = { year: false, team: false };
@@ -3693,6 +4387,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
             <div class="metric"><div class="metric-num">${t("top24AA")}</div><div class="metric-cap">${t("aaRule")}</div></div>
             <div class="metric"><div class="metric-num">${t("top8Apps")}</div><div class="metric-cap">${t("appsRule")}</div></div>
           </div>
+          ${tacticBar()}
           <div class="mt-6 flex flex-col gap-3 md:flex-row">
             <button class="btn btn-primary" data-act="liveQuals">${icon("live")} ${t("watchQualsLive")}</button>
             <button class="btn btn-secondary" data-act="runQuals">${icon("play")} ${t("simulateQuals")}</button>
@@ -4649,19 +5344,21 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   function athleteStoryComment(r) {
     const L = state.live;
     L.storyUsed = L.storyUsed || {};
-    const triggers = new Set(["Entrada", "Curiosidade", apparatusStoryTrigger(r.apparatus)]);
+    const triggers = new Set(["Entrada", "Curiosidade", "Feito", apparatusStoryTrigger(r.apparatus)]);
     if (r.score.total >= 14.5 || r.score.note === "cravada") triggers.add("Medalha_Ouro");
-    const story = ATHLETE_STORIES.find((s) => {
+    const storyKey = (s) => `${s.athlete}-${s.year}-${s.trigger}-${s.comp || ""}-${(s.pt || "").length}`;
+    // Todas as histórias ainda não narradas deste atleta: primeiro as da competição atual e do ano do card
+    const candidates = ATHLETE_STORIES.filter((s) => {
       if (canonicalAthleteName(s.athlete) !== canonicalAthleteName(r.athlete.name)) return false;
       if (s.year !== "Todos" && Number(s.year) !== Number(r.athlete.year)) return false;
-      return triggers.has(s.trigger);
-    });
+      if (s.comp && s.comp !== state.competition) return false;
+      return triggers.has(s.trigger) && !L.storyUsed[storyKey(s)];
+    }).sort((a, b) => ((b.comp ? 2 : 0) + (b.year !== "Todos" ? 1 : 0)) - ((a.comp ? 2 : 0) + (a.year !== "Todos" ? 1 : 0)));
+    const story = candidates[0];
     if (!story) return null;
-    const key = `${story.athlete}-${story.year}-${story.trigger}`;
-    if (L.storyUsed[key]) return null;
-    L.storyUsed[key] = true;
+    L.storyUsed[storyKey(story)] = true;
     return directBoothComment(storyText(story), {
-      kind: story.trigger === "Curiosidade" ? "steady" : "bigScore",
+      kind: story.trigger === "Curiosidade" || story.trigger === "Feito" ? "steady" : "bigScore",
       meta: `${r.athlete.name} · ${r.athlete.year}`,
       you: r.team.isPlayer,
       top: true
@@ -4899,7 +5596,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
 
   function deductionsList(score) {
     const rows = [];
-    score.deductions.forEach((d) => rows.push({ label: faultLabel(d.code), value: d.value, major: d.code === "fall" || d.code === "majorbreak" }));
+    score.deductions.forEach((d) => rows.push({ label: (d.vault ? t("vaultN", { n: d.vault }) + " · " : "") + faultLabel(d.code), value: d.value, major: d.code === "fall" || d.code === "majorbreak" }));
     return rows;
   }
   function judgeDropIndexes(panel) {
@@ -4965,7 +5662,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
         </div>
       </div>
       <div class="spot-scores">
-        <div class="sbox"><span class="sbox-lab">${t("difficulty")} (D)</span><span class="sbox-val">${s.d.toFixed(1)}</span></div>
+        <div class="sbox"><span class="sbox-lab">${t("difficulty")} (D)</span><span class="sbox-val">${s.d.toFixed(1)}</span>${s.bonus ? `<span class="sbox-bonus">+0.1 ${t("stickBonus")}</span>` : ""}</div>
         <div class="sbox"><span class="sbox-lab">${t("execution")} (E)</span><span class="sbox-val">${s.e.toFixed(3)}</span></div>
         <div class="sbox sbox-total"><span class="sbox-lab">${t("total")}</span><span class="sbox-val">${formatScore(s.total)}</span></div>
       </div>
@@ -5940,7 +6637,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const el = e.target.closest("[data-act]");
     if (!el) return;
     const act = el.dataset.act;
-    if (ACTIONS[act]) { e.preventDefault(); ACTIONS[act](el); }
+    if (ACTIONS[act]) { e.preventDefault(); ACTIONS[act](el); ensureTacticBar(); }
   }
   function onInput(e) {
     if (e.target?.id === "teamNameInput") {
@@ -5985,6 +6682,606 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       reader.readAsDataURL(file);
     }
   }
+
+  /* ================= TÁTICA DA EQUIPE (competições clássicas) =================
+     O jogador escolhe, antes de cada fase, o plano de séries da sua equipe.
+     Inspirado no Código: mais dificuldade (ligações/bônus) custa mais risco de queda e de deduções. */
+  const TACTICS = {
+    safe:     { d: -0.3, risk: 0.62, ded: -0.12 },
+    balanced: { d: 0,    risk: 1,    ded: 0 },
+    bold:     { d: 0.3,  risk: 1.45, ded: 0.14 }
+  };
+  function playerTactic(athlete) {
+    if (!athlete || !athlete.isPlayerAthlete || isBattleMode()) return TACTICS.balanced;
+    return TACTICS[state.tactic] || TACTICS.balanced;
+  }
+  function tacticBar() {
+    if (isBattleMode()) return "";
+    const cur = TACTICS[state.tactic] ? state.tactic : "balanced";
+    return `<div id="tacticBar" class="tactic-bar">
+      <div class="tactic-head"><span class="kicker">${t("tacticTitle")}</span><span class="tactic-hint">${t("tacticHint")}</span></div>
+      <div class="tactic-grid">
+        ${["safe", "balanced", "bold"].map((k) => `<button class="tactic-opt ${cur === k ? "active" : ""}" data-act="tactic" data-val="${k}" aria-pressed="${cur === k}">
+          <span class="tactic-name">${t("tactic_" + k)}</span>
+          <span class="tactic-fx">${t("tacticFx_" + k)}</span>
+        </button>`).join("")}
+      </div>
+    </div>`;
+  }
+  function setTactic(k) {
+    if (!TACTICS[k]) return;
+    state.tactic = k;
+    const el = document.getElementById("tacticBar");
+    if (el) el.outerHTML = tacticBar();
+    showToast(t("tacticSet", { name: t("tactic_" + k) }));
+  }
+
+  /* ================= CÓDIGO DE PONTUAÇÃO · regras, elementos, desafio e montador =================
+     Dados: window.GYM_CODE (arquivo codigo-data.js, gerado de regras/elementos.json). */
+  const CODE = window.GYM_CODE || null;
+  const LETTER_PTS = { A: 0.1, B: 0.2, C: 0.3, D: 0.4, E: 0.5, F: 0.6, G: 0.7, H: 0.8, I: 0.9, J: 1.0 };
+  const CODE_APPS = { WAG: ["VT", "UB", "BB", "FX"], MAG: ["FX", "PH", "SR", "VT", "PB", "HB"] };
+  const CODEX_BEST_KEY = "gym-royale-codex-best";
+  const codex = { tab: "rules", gender: "WAG", app: "UB", letter: "", q: "", limit: 40, picks: {}, cr: {}, cv: {}, quiz: null, back: "setup" };
+
+  const CODEX_RULES = {
+    common: [
+      ["Nota final", ["Nota Final = Nota D (dificuldade) + Nota E (execução) − penalidades.", "A Nota E parte de 10,00 e perde a soma das deduções. Com 5 ou 7 árbitros, vale a média das 3 notas centrais.", "Valores de dificuldade: A 0,1 · B 0,2 · C 0,3 · D 0,4 · E 0,5 · F 0,6 · G 0,7 · H 0,8 · I 0,9 · J 1,0.", "No salto, a Nota D é o valor do salto na tabela. Na final de salto são 2 saltos de grupos diferentes e vale a média."]],
+      ["Deduções de execução", ["Pequena 0,10 · média 0,30 · grande 0,50 · queda 1,00.", "Queda, apoio das mãos no colchão ou não chegar com os pés primeiro: 1,00.", "Sem queda, as deduções de aterrissagem somam no máximo 0,80 (GAF) / 1,0 em passos e saltos (GAM).", "Elemento repetido não recebe valor de dificuldade de novo."]],
+      ["Formato da competição no jogo", ["Classificatórias: 5 atletas por equipe, contam as 3 melhores notas por aparelho.", "Final por equipes: 8 melhores equipes, 3 sobem e 3 contam por aparelho.", "Individual geral: 24 finalistas · finais por aparelho: 8 finalistas — no máximo 2 por país.", "Tática da equipe: Segura (−0,3 D, menos risco), Equilibrada ou Ousada (+0,3 D, mais risco)."]]
+    ],
+    WAG: [
+      ["Nota D — assimétricas, trave e solo", ["DV: os 8 elementos de maior valor, incluindo a saída.", "CR: 4 requisitos de composição × 0,50 = até 2,00.", "CV: ligações diretas valem +0,10 ou +0,20.", "Bônus de saída: +0,20 para saída D ou mais, sem queda. Trave: bônus de série +0,10 (B+B+C).", "Trave e solo: entre os 8 que contam, mínimo 3 de dança e 3 acrobáticos."]],
+      ["Requisitos de composição (CR)", ["Assimétricas: voo da barra alta para a baixa · voo na mesma barra · empunhaduras diferentes · elemento sem voo com giro de 360°.", "Trave: ligação de 2 elementos de dança (um com espacate 180°) · giro ou rolamento/flairs · série acrobática com 2 voos (um mortal) · acrobáticos em direções diferentes.", "Solo: passagem de dança com 2 leaps/hops (um com espacate 180°) · mortal com pirueta (mín. 360°) · mortal duplo · mortal para trás e mortal para frente."]],
+      ["Salto", ["1 salto nas classificatórias, final por equipes e individual geral; 2 saltos de grupos diferentes para a final de salto.", "Bônus de +0,20 quando os 2 saltos têm mortais em direções diferentes, sem queda.", "Salto nulo (0,00): sem apoio das mãos, com ajuda, sem chegar com os pés primeiro ou salto repetido."]],
+      ["Tempo e área", ["Trave e solo: até 1:30. Solo com música sem letra, em área de 12 × 12 m.", "Solo: no máximo 4 linhas acrobáticas. Sair da área gera penalidade na nota final.", "Exercício curto: 5–6 elementos −4,00 · 3–4 −6,00 · 1–2 −8,00."]]
+    ],
+    MAG: [
+      ["Nota D — 5 aparelhos (sem o salto)", ["Dificuldade de 8 elementos: os 7 melhores + a saída, com no máximo 4 do mesmo grupo de elementos (EG).", "Requisitos de grupo: EG I vale 0,5; EG II e III valem 0,5 com elemento D ou mais e 0,3 com A, B ou C.", "A saída vale, como grupo, o próprio valor de dificuldade (saída F = 0,6 + 0,6). Não se aplica ao solo.", "Bônus de cravada: +0,1 para saída mínima C cravada e saltos com mortal (não vale no cavalo)."]],
+      ["Solo e barra fixa — ligações", ["Solo: D ou mais + B/C = +0,1 · D ou mais + D ou mais = +0,2. Duração máxima 70 s.", "Solo exige mortal múltiplo entre os 8 que contam e um equilíbrio em uma perna.", "Barra fixa: voo D + voo D = +0,1 · voo D ou mais + voo E ou mais = +0,2 · C (grupo I/III) + voo D ou mais = +0,1."]],
+      ["Argolas, cavalo e paralelas", ["Argolas: posições estáticas mantidas 2 s; no máximo 3 elementos de força/estáticos seguidos; exige um balanço à parada de mãos (2 s).", "Cavalo: elementos de círculos e deslocamentos precisam de um elemento listado em seguida; queda não dá dificuldade parcial.", "Paralelas: elementos a uma barra sobem uma letra quando ligados a elementos tipo Healy."]],
+      ["Salto e exercício curto", ["1 salto nas classificatórias, equipes e individual geral; 2 saltos de grupos diferentes na final de salto (média).", "Salto nulo (0,00): sem apoio ou com apoio de só uma mão, com ajuda, sem chegar com os pés primeiro.", "Exercício curto: 5 elementos −3,0 · 4 −4,0 · 3 −5,0 · 2 −6,0 · 1 −7,0."]]
+    ]
+  };
+  const CODEX_CR = {
+    UB: ["Voo da barra alta para a baixa", "Voo na mesma barra", "Empunhaduras diferentes", "Sem voo com giro de 360°"],
+    BB: ["Ligação de 2 elementos de dança", "Giro ou rolamento/flairs", "Série acrobática (2 voos, 1 mortal)", "Acro em direções diferentes"],
+    FX: ["Passagem de dança (2 leaps/hops)", "Mortal com pirueta 360°+", "Mortal duplo", "Mortal para trás e para frente"]
+  };
+  const CODEX_QUIZ_RULES = [
+    ["Quanto vale uma queda na nota de execução?", ["0,50", "1,00", "0,80", "2,00"], 1],
+    ["Quantos elementos contam para a dificuldade nas assimétricas, trave e solo (GAF)?", ["6", "8", "10", "7"], 1],
+    ["Na GAF, qual o máximo dos requisitos de composição (CR)?", ["1,00", "1,50", "2,00", "2,50"], 2],
+    ["Qual é o bônus de saída (D ou mais, sem queda) na GAF?", ["+0,10", "+0,20", "+0,30", "+0,50"], 1],
+    ["Na GAM, quantos elementos do mesmo grupo podem contar no máximo?", ["3", "4", "5", "Sem limite"], 1],
+    ["Na GAM, quanto vale o bônus de cravada em saída mínima C?", ["+0,1", "+0,2", "+0,3", "Não existe"], 0],
+    ["Em qual aparelho masculino não há bônus de cravada?", ["Argolas", "Barra fixa", "Cavalo com alças", "Paralelas"], 2],
+    ["Qual a duração máxima do solo masculino?", ["60 s", "70 s", "90 s", "120 s"], 1],
+    ["Qual a duração máxima da série de trave?", ["1:10", "1:30", "1:45", "2:00"], 1],
+    ["Com 5 árbitros de execução, como se calcula a Nota E?", ["Média das 5", "Média das 3 centrais", "A menor nota", "A nota mais alta"], 1],
+    ["Na final de salto, a nota final é...", ["a melhor de 2 saltos", "a média de 2 saltos de grupos diferentes", "a soma de 2 saltos", "um único salto"], 1],
+    ["Quanto vale um elemento de valor E?", ["0,40", "0,50", "0,60", "0,70"], 1],
+    ["Por quanto tempo uma posição estática deve ser mantida nas argolas?", ["1 s", "2 s", "3 s", "5 s"], 1],
+    ["Uma dedução média de execução vale...", ["0,10", "0,20", "0,30", "0,50"], 2],
+    ["Quantas linhas acrobáticas, no máximo, contam no solo feminino?", ["3", "4", "5", "6"], 1],
+    ["Na GAM, quanto vale o grupo de elementos I quando cumprido?", ["0,3", "0,5", "Depende do valor", "0,2"], 1]
+  ];
+
+  function codeRows(g = codex.gender, a = codex.app) { return (CODE && CODE[g] && CODE[g][a]) || []; }
+  function codePts(a, row) { return a === "VT" ? Number(row[2]) || 0 : (LETTER_PTS[row[2]] || 0); }
+  function codeAppObj(g, a) { return APPARATUS[g].find((x) => x.id === a.toLowerCase()); }
+  function codeAppName(g, a) { const o = codeAppObj(g, a); return o ? appName(o) : a; }
+  function codeGroupName(g, a, grp) { return (CODE?.groups?.[g]?.[a]?.[grp]) || `Grupo ${grp}`; }
+  function codePickKey() { return `${codex.gender}-${codex.app}`; }
+  function codePicks() { return codex.picks[codePickKey()] || (codex.picks[codePickKey()] = []); }
+  function valueBadge(a, row) {
+    const v = row[2];
+    const cls = a === "VT" ? "vb-num" : `vb-${"ABCDEFGHIJ".indexOf(v) < 2 ? "low" : "ABCDEFGHIJ".indexOf(v) < 4 ? "mid" : "ABCDEFGHIJ".indexOf(v) < 6 ? "high" : "top"}`;
+    return `<span class="vbadge ${cls}">${escapeHTML(String(v))}</span>`;
+  }
+
+  function openCodex(tab) {
+    if (state.view !== "codex") codex.back = state.view;
+    if (state.live && state.live.playing) { state.live.playing = false; clearTimeout(state.live.timer); }
+    if (typeof tab === "string") codex.tab = tab;
+    if (state.gender && !codex._init) { codex.gender = state.gender; codex.app = state.gender === "WAG" ? "UB" : "FX"; codex._init = true; }
+    renderCodex();
+  }
+  function closeCodex() { state.view = codex.back || "setup"; renderCurrentView(); }
+  function renderCodex() {
+    state.view = "codex";
+    hideToast();
+    const el = document.getElementById("phaseLabel");
+    if (el) el.innerHTML = `${icon("check")} ${t("codexTitle")}`;
+    const tabs = [["rules", t("codexTabRules")], ["elements", t("codexTabElements")], ["quiz", t("codexTabQuiz")], ["builder", t("codexTabBuilder")]];
+    app.innerHTML = `
+      <section class="screen codex">
+        <div class="panel p-4 md:p-6">
+          <div class="codex-top">
+            <div>
+              <p class="kicker">FIG 2025–2028</p>
+              <h1 class="mt-1 display text-3xl md:text-4xl">${t("codexTitle")}</h1>
+            </div>
+            <button class="btn btn-secondary" data-act="closeCodex">${icon("arrow")} ${t("codexBack")}</button>
+          </div>
+          <div class="codex-tabs" role="tablist">
+            ${tabs.map(([k, label]) => `<button role="tab" aria-selected="${codex.tab === k}" class="${codex.tab === k ? "active" : ""}" data-act="codexTab" data-val="${k}">${label}</button>`).join("")}
+          </div>
+          <div id="codexBody" class="mt-4">${codexBody()}</div>
+        </div>
+      </section>`;
+    resetScrollSoon();
+  }
+  function refreshCodexBody(keepFocus) {
+    const body = document.getElementById("codexBody");
+    if (!body) return renderCodex();
+    if (keepFocus) { const list = document.getElementById("codexList"); if (list) { list.innerHTML = codexElementList(); return; } }
+    body.innerHTML = codexBody();
+  }
+  function codexBody() {
+    if (codex.tab === "rules") return codexRules();
+    if (!CODE) return `<p class="ded-empty">${t("codexNoData")}</p>`;
+    if (codex.tab === "elements") return codexElements(false);
+    if (codex.tab === "quiz") return codexQuiz();
+    return codexBuilder();
+  }
+  function codexGenderApps(allowVault = true) {
+    const list = CODE_APPS[codex.gender].filter((a) => allowVault || a !== "VT");
+    if (!list.includes(codex.app)) codex.app = list[0];
+    return `<div class="segment codex-gender">
+        <button class="${codex.gender === "WAG" ? "active" : ""}" data-act="codexGender" data-val="WAG">${t("female")}</button>
+        <button class="${codex.gender === "MAG" ? "active" : ""}" data-act="codexGender" data-val="MAG">${t("male")}</button>
+      </div>
+      <div class="codex-apps">
+        ${list.map((a) => `<button class="app-pill ${codex.app === a ? "active" : ""}" data-act="codexApp" data-val="${a}">${appIconSvg(a.toLowerCase(), 18)}<span>${escapeHTML(codeAppName(codex.gender, a))}</span></button>`).join("")}
+      </div>`;
+  }
+  function codexRules() {
+    const block = (title, groups, open) => `<h2 class="codex-h2">${title}</h2>${groups.map(([name, items], i) => `<details class="rule-card" ${open && i === 0 ? "open" : ""}><summary>${escapeHTML(name)}</summary><ul>${items.map((x) => `<li>${escapeHTML(x)}</li>`).join("")}</ul></details>`).join("")}`;
+    return `<div class="codex-rules">
+      <div>${block(t("codexCommon"), CODEX_RULES.common, true)}</div>
+      <div>${block(t("femaleGym"), CODEX_RULES.WAG)}</div>
+      <div>${block(t("maleGym"), CODEX_RULES.MAG)}</div>
+    </div>
+    <p class="codex-note">${t("codexSource")}</p>`;
+  }
+  function codexFiltered() {
+    const q = codex.q.trim().toLowerCase();
+    return codeRows().filter((r) => (!codex.letter || String(r[2]) === codex.letter) && (!q || (r[3] + " " + (r[4] || "") + " " + r[0]).toLowerCase().includes(q)));
+  }
+  function codexElementList() {
+    const rows = codexFiltered();
+    const builder = codex.tab === "builder";
+    const picks = builder ? new Set(codePicks()) : null;
+    if (!rows.length) return `<p class="ded-empty">${t("codexEmpty")}</p>`;
+    let lastGroup = null;
+    const html = rows.slice(0, codex.limit).map((r) => {
+      const head = r[1] !== lastGroup ? `<li class="el-group">${escapeHTML(codeGroupName(codex.gender, codex.app, r[1]))}</li>` : "";
+      lastGroup = r[1];
+      const on = builder && picks.has(r[0]);
+      return `${head}<li class="el-row ${on ? "picked" : ""}">
+        ${valueBadge(codex.app, r)}
+        <div class="el-main"><div class="el-desc">${escapeHTML(r[3]).split(" // ").join('<span class="el-or"> ou </span>')}</div><div class="el-meta"><span>${escapeHTML(r[0])}</span>${codex.app !== "VT" ? `<span>${codePts(codex.app, r).toFixed(1)} pt</span>` : ""}${r[5] ? `<span>${t("codexDance")}</span>` : ""}${r[4] ? `<span class="el-name">${escapeHTML(r[4])}</span>` : ""}${(r[7] || []).some(Boolean) ? `<button class="qlink" data-act="codexFig" data-id="${escapeHTML(r[0])}">${t("codexFig")}</button>` : ""}</div><div class="el-figs"></div></div>
+        ${builder ? `<button class="btn ${on ? "btn-danger" : "btn-secondary"} btn-icon el-add" data-act="codexPick" data-id="${escapeHTML(r[0])}" aria-label="${on ? t("codexRemove") : t("codexAdd")}">${on ? icon("x") : icon("plus")}</button>` : ""}
+      </li>`;
+    }).join("");
+    return `<ul class="el-list">${html}</ul>${rows.length > codex.limit ? `<button class="btn btn-secondary mt-3 w-full" data-act="codexMore">${t("codexMore", { n: rows.length - codex.limit })}</button>` : `<p class="codex-note">${t("codexCount", { n: rows.length })}</p>`}`;
+  }
+  function codexElements(builder) {
+    const values = [...new Set(codeRows().map((r) => String(r[2])))].sort((a, b) => (Number(a) || 0) - (Number(b) || 0) || a.localeCompare(b));
+    return `${codexGenderApps(!builder)}
+      <div class="codex-filter">
+        <input id="codexSearch" class="input" type="search" inputmode="search" placeholder="${t("codexSearch")}" value="${escapeHTML(codex.q)}" autocomplete="off" />
+        ${codex.app === "VT" ? "" : `<div class="letter-row"><button class="lt ${codex.letter === "" ? "active" : ""}" data-act="codexLetter" data-val="">${t("codexAll")}</button>${values.map((v) => `<button class="lt ${codex.letter === v ? "active" : ""}" data-act="codexLetter" data-val="${v}">${v}</button>`).join("")}</div>`}
+      </div>
+      <div id="codexList">${codexElementList()}</div>`;
+  }
+
+  /* ---------- Montador de série (Nota D) ---------- */
+  function builderCalc() {
+    const g = codex.gender, a = codex.app, key = codePickKey();
+    const all = codeRows();
+    const picked = codePicks().map((id) => all.find((r) => r[0] === id)).filter(Boolean).map((r) => ({ r, pts: codePts(a, r) }));
+    const byPts = (x, y) => y.pts - x.pts;
+    let counting = [], dmt = null, egr = 0, egrParts = [], notes = [];
+    if (g === "WAG") {
+      const hasDmtGroup = a === "UB" || a === "BB";
+      if (hasDmtGroup) dmt = picked.filter((p) => p.r[1] === "6").sort(byPts)[0] || null;
+      let pool = picked.filter((p) => p !== dmt).sort(byPts);
+      const need = 8 - (dmt ? 1 : 0);
+      if (a === "BB" || a === "FX") {
+        const dance = pool.filter((p) => p.r[5]).slice(0, 3), acro = pool.filter((p) => !p.r[5]).slice(0, Math.max(0, 3 - (dmt ? 1 : 0)));
+        const base = [...dance, ...acro];
+        const rest = pool.filter((p) => !base.includes(p)).slice(0, Math.max(0, need - base.length));
+        counting = [...base, ...rest].sort(byPts).slice(0, need);
+        const nd = counting.filter((p) => p.r[5]).length, na = counting.length - nd + (dmt ? 1 : 0);
+        if (picked.length >= 8 && (nd < 3 || na < 3)) notes.push(t("builderMix"));
+      } else counting = pool.slice(0, need);
+      if (dmt) counting.push(dmt);
+      const cr = codex.cr[key] || [];
+      egr = cr.filter(Boolean).length * 0.5;
+      if (hasDmtGroup && !dmt && picked.length) notes.push(t("builderNoDmt"));
+    } else {
+      const isFx = a === "FX";
+      if (!isFx) dmt = picked.filter((p) => p.r[1] === "IV").sort(byPts)[0] || null;
+      const pool = picked.filter((p) => p !== dmt).sort(byPts);
+      const perGroup = {}; if (dmt) perGroup.IV = 1;
+      const need = isFx ? 8 : 7;
+      for (const p of pool) {
+        if (counting.length >= need) break;
+        if ((perGroup[p.r[1]] || 0) >= 4) continue;
+        perGroup[p.r[1]] = (perGroup[p.r[1]] || 0) + 1; counting.push(p);
+      }
+      if (dmt) counting.push(dmt);
+      const groups = isFx ? ["I", "II", "III", "IV"] : ["I", "II", "III"];
+      groups.forEach((G) => {
+        const inG = counting.filter((p) => p.r[1] === G && p !== dmt);
+        if (!inG.length) { egrParts.push([G, 0]); return; }
+        const v = G === "I" ? 0.5 : (inG.some((p) => p.pts >= 0.4) ? 0.5 : 0.3);
+        egrParts.push([G, v]); egr += v;
+      });
+      if (!isFx) { const v = dmt ? dmt.pts : 0; egrParts.push(["IV", v]); egr += v; if (!dmt && picked.length) notes.push(t("builderNoDmt")); }
+    }
+    const dv = counting.reduce((s, p) => s + p.pts, 0);
+    const dmtBonus = g === "WAG" && dmt && dmt.pts >= 0.4 ? 0.2 : 0;
+    const cv = codex.cv[key] || 0;
+    const n = picked.length;
+    let shortPen = 0;
+    if (n > 0) shortPen = g === "WAG" ? (n >= 7 ? 0 : n >= 5 ? 4 : n >= 3 ? 6 : 8) : (n >= 6 ? 0 : n === 5 ? 3 : n === 4 ? 4 : n === 3 ? 5 : n === 2 ? 6 : 7);
+    return { picked, counting, dmt, dv, egr, egrParts, cv, dmtBonus, notes, shortPen, total: dv + egr + cv + dmtBonus };
+  }
+  function codexBuilder() {
+    const g = codex.gender, a = codex.app, key = codePickKey();
+    const head = codexGenderApps(false);
+    const c = builderCalc();
+    const cr = codex.cr[key] || (codex.cr[key] = [false, false, false, false]);
+    const countSet = new Set(c.counting.map((p) => p.r[0]));
+    const reqBlock = codex.gender === "WAG"
+      ? `<div class="bd-block"><div class="bd-lab">${t("builderCR")} <b>${c.egr.toFixed(1)}</b></div><div class="cr-grid">${(CODEX_CR[codex.app] || []).map((label, i) => `<button class="cr-opt ${cr[i] ? "active" : ""}" data-act="codexCR" data-val="${i}" aria-pressed="${!!cr[i]}">${cr[i] ? icon("check") : icon("plus")}<span>${escapeHTML(label)}</span><em>0,5</em></button>`).join("")}</div></div>`
+      : `<div class="bd-block"><div class="bd-lab">${t("builderEG")} <b>${c.egr.toFixed(1)}</b></div><div class="eg-row">${c.egrParts.map(([G, v]) => `<span class="eg-chip ${v ? "ok" : ""}">EG ${G}<b>${v.toFixed(1)}</b></span>`).join("")}</div></div>`;
+    return `${head}
+      <div class="builder">
+        <div class="builder-sum">
+          <div class="bd-total"><span class="sbox-lab">${t("builderD")}</span><span class="bd-num">${c.total.toFixed(1)}</span><span class="bd-eq">DV ${c.dv.toFixed(1)} + ${g === "WAG" ? "CR" : "EG"} ${c.egr.toFixed(1)} + CV ${c.cv.toFixed(1)}${c.dmtBonus ? ` + ${t("builderDmt")} 0,2` : ""}</span></div>
+          ${reqBlock}
+          <div class="bd-block"><div class="bd-lab">${t("builderCV")} <b>${c.cv.toFixed(1)}</b></div><div class="stepper"><button class="btn btn-secondary btn-icon" data-act="codexCV" data-val="-1" aria-label="−0,1">${icon("minus")}</button><span>${c.cv.toFixed(1)}</span><button class="btn btn-secondary btn-icon" data-act="codexCV" data-val="1" aria-label="+0,1">${icon("plus")}</button></div></div>
+          <div class="bd-block"><div class="bd-lab">${t("builderPicked", { n: c.picked.length })}</div>
+            ${c.picked.length ? `<ul class="pick-list">${[...c.picked].sort((x, y) => y.pts - x.pts).map((p) => `<li class="${countSet.has(p.r[0]) ? "counts" : "extra"}">${valueBadge(a, p.r)}<span class="pick-desc">${escapeHTML(p.r[3].split(" // ")[0])}</span><button class="pick-x" data-act="codexPick" data-id="${escapeHTML(p.r[0])}" aria-label="${t("codexRemove")}">${icon("x")}</button></li>`).join("")}</ul>` : `<p class="codex-note">${t("builderEmpty")}</p>`}
+            ${c.notes.map((n) => `<p class="bd-warn">${escapeHTML(n)}</p>`).join("")}
+            ${c.shortPen ? `<p class="bd-warn">${t("builderShort", { n: c.shortPen.toFixed(1) })}</p>` : ""}
+            ${c.picked.length ? `<button class="btn btn-secondary mt-2" data-act="codexClear">${icon("x")} ${t("builderClear")}</button>` : ""}
+          </div>
+        </div>
+        <div class="builder-list">${codexElements(true).replace(head, "")}</div>
+      </div>`;
+  }
+
+  /* ---------- Desafio do Código (quiz configurável por aparelho e tipo de pergunta) ---------- */
+  const QUIZ_CFG_KEY = "gym-royale-quiz-cfg";
+  const QUIZ_TYPES = ["value", "name", "figure", "eponym", "group", "rule"];
+  const PAGE_RATIO = 841.92 / 595.32;
+  function quizAllApps() { return [...CODE_APPS.WAG.map((a) => "WAG-" + a), ...CODE_APPS.MAG.map((a) => "MAG-" + a)]; }
+  function quizCfg() {
+    if (codex.qcfg) return codex.qcfg;
+    let c = null; try { c = JSON.parse(localStorage.getItem(QUIZ_CFG_KEY) || "null"); } catch (e) {}
+    if (!c || !Array.isArray(c.apps) || !Array.isArray(c.types)) c = { apps: quizAllApps(), types: [...QUIZ_TYPES], n: 10 };
+    c.apps = c.apps.filter((k) => quizAllApps().includes(k)); c.types = c.types.filter((k) => QUIZ_TYPES.includes(k));
+    return (codex.qcfg = c);
+  }
+  function quizSaveCfg() { try { localStorage.setItem(QUIZ_CFG_KEY, JSON.stringify(quizCfg())); } catch (e) {} }
+  function quizBest() { try { return Number(localStorage.getItem(CODEX_BEST_KEY)) || 0; } catch (e) { return 0; } }
+  function quizPick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function quizShuffle(arr) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+  function codeFigure(g, row, vi, cls = "") {
+    const r = row[7] && row[7][vi]; if (!r) return "";
+    const [x, y, w, h] = r;
+    const file = `codigo-img/${g.toLowerCase()}-${String(row[6]).padStart(3, "0")}.jpg`;
+    const px = w >= 1 ? 0 : (x / (1 - w)) * 100, py = h >= 1 ? 0 : (y / (1 - h)) * 100;
+    return `<div class="qimg ${cls}" role="img" aria-label="${t("quizFigAlt")}" style="aspect-ratio:${(w * PAGE_RATIO).toFixed(4)}/${h.toFixed(4)};background-image:url('${file}');background-size:${(100 / w).toFixed(2)}% ${(100 / h).toFixed(2)}%;background-position:${px.toFixed(2)}% ${py.toFixed(2)}%"></div>`;
+  }
+  // Lista de variantes (cada desenho/descrição de uma caixa da tabela) dos aparelhos marcados
+  function quizPool() {
+    const out = [];
+    quizCfg().apps.forEach((k) => {
+      const [g, a] = k.split("-");
+      codeRows(g, a).forEach((row) => String(row[3]).split(" // ").forEach((text, vi) => out.push({ g, a, row, vi, text, fig: !!(row[7] && row[7][vi]) })));
+    });
+    return out;
+  }
+  function stripNames(text) { return text.replace(/\s*\((?![0-9½¼¾])[A-ZÀ-Ý][^()°]*\)/g, "").trim(); }
+  function quizSameApp(pool, e) { return pool.filter((x) => x.g === e.g && x.a === e.a); }
+  function quizDistractors(cands, e, keyFn, n = 3) {
+    const seen = new Set([keyFn(e)]); const out = [];
+    const sameGroup = quizShuffle(cands.filter((x) => x.row[1] === e.row[1])), rest = quizShuffle(cands.filter((x) => x.row[1] !== e.row[1]));
+    for (const x of [...sameGroup, ...rest]) { const k = keyFn(x); if (seen.has(k)) continue; seen.add(k); out.push(x); if (out.length >= n) break; }
+    return out;
+  }
+  function quizLabel(e) { return `${e.g === "WAG" ? t("femaleGym") : t("maleGym")} · ${codeAppName(e.g, e.a)}`; }
+  function quizInfo(e) { return `${e.row[0]} · ${e.a === "VT" ? e.row[2] : e.row[2] + " (" + codePts(e.a, e.row).toFixed(1) + ")"} · ${codeGroupName(e.g, e.a, e.row[1])}`; }
+  function quizMake(type, pool, used) {
+    if (type === "rule") {
+      const free = CODEX_QUIZ_RULES.map((q, i) => i).filter((i) => !used.has("r" + i)); if (!free.length) return null;
+      const i = quizPick(free); used.add("r" + i); const q = CODEX_QUIZ_RULES[i];
+      return { type, ask: t("quizAskRule"), text: q[0], options: q[1].map((o) => ({ text: o })), answer: q[2], info: "" };
+    }
+    for (let tries = 0; tries < 40; tries++) {
+      const e = quizPick(pool); const key = `${type}-${e.g}-${e.a}-${e.row[0]}-${e.vi}`;
+      if (used.has(key)) continue;
+      const same = quizSameApp(pool, e); let q = null;
+      if (type === "value") {
+        if (e.text.length > 170) continue;
+        const scale = e.a === "VT" ? [...new Set(codeRows(e.g, e.a).map((x) => x[2]))].sort((x, y) => Number(x) - Number(y)) : "ABCDEFGHIJ".split("");
+        const idx = scale.indexOf(e.row[2]); if (idx < 0) continue;
+        const start = Math.max(0, Math.min(scale.length - 4, idx - Math.floor(Math.random() * 4)));
+        const opts = scale.slice(start, start + 4);
+        const safeFig = e.fig && e.a !== "VT" && !(e.g === "MAG" && "FGHIJ".includes(e.row[2]));
+        q = { type, ask: t("quizAskValue"), text: e.text, fig: safeFig ? codeFigure(e.g, e.row, e.vi) : "", options: opts.map((o) => ({ text: String(o) })), answer: opts.indexOf(e.row[2]), big: true };
+      } else if (type === "name") {
+        if (!e.fig || e.text.length > 150) continue;
+        const d = quizDistractors(same.filter((x) => x.text.length <= 150), e, (x) => x.text); if (d.length < 3) continue;
+        const opts = quizShuffle([e, ...d]);
+        q = { type, ask: t("quizAskName"), fig: codeFigure(e.g, e.row, e.vi), options: opts.map((o) => ({ text: o.text })), answer: opts.indexOf(e) };
+      } else if (type === "figure") {
+        if (!e.fig || e.text.length > 170) continue;
+        const d = quizDistractors(same.filter((x) => x.fig), e, (x) => x.row[0] + "-" + x.vi); if (d.length < 3) continue;
+        const opts = quizShuffle([e, ...d]);
+        q = { type, ask: t("quizAskFigure"), text: e.text, options: opts.map((o) => ({ fig: codeFigure(o.g, o.row, o.vi, "qimg-opt") })), answer: opts.indexOf(e) };
+      } else if (type === "eponym") {
+        const m = e.text.match(/\(((?![0-9½¼¾])[A-ZÀ-Ý][^()°]*)\)\.?\s*$/); if (!m || !e.row[4] || !e.row[4].includes(m[1].trim())) continue;
+        const name = m[1].trim(); const base = stripNames(e.text); if (base.length < 12 || base.length > 170) continue;
+        const names = [...new Set(same.flatMap((x) => (x.row[4] || "").split(", ")).filter((n) => n && n !== name && !e.row[4].includes(n)))];
+        if (names.length < 3) continue;
+        const opts = quizShuffle([name, ...quizShuffle(names).slice(0, 3)]);
+        q = { type, ask: t("quizAskEponym"), text: base, options: opts.map((o) => ({ text: o })), answer: opts.indexOf(name) };
+      } else if (type === "group") {
+        const groups = Object.keys(CODE?.groups?.[e.g]?.[e.a] || {}); if (groups.length < 3 || e.text.length > 170) continue;
+        let opts = quizShuffle(groups.filter((x) => x !== e.row[1])).slice(0, 3); opts = quizShuffle([e.row[1], ...opts]);
+        q = { type, ask: t("quizAskGroup"), text: stripNames(e.text), options: opts.map((o) => ({ text: codeGroupName(e.g, e.a, o) })), answer: opts.indexOf(e.row[1]) };
+      }
+      if (!q) continue;
+      used.add(key); q.sub = quizLabel(e); q.info = `${quizInfo(e)}${e.row[4] ? " · " + e.row[4] : ""}`; q.reveal = type === "figure" ? "" : e.text;
+      return q;
+    }
+    return null;
+  }
+  function quizStart() {
+    const cfg = quizCfg(); const pool = quizPool();
+    const types = cfg.types.filter((ty) => ty === "rule" || pool.length);
+    if (!types.length) { showToast(t("quizPickSomething")); return; }
+    const used = new Set(); const qs = [];
+    let guard = 0;
+    while (qs.length < cfg.n && guard++ < cfg.n * 12) {
+      const ty = types[(qs.length + guard) % types.length];
+      const q = quizMake(ty === "rule" && Math.random() < 0.5 && types.length > 1 ? quizPick(types) : ty, pool, used);
+      if (q) qs.push(q);
+    }
+    if (!qs.length) { showToast(t("quizPickSomething")); return; }
+    codex.quiz = { i: 0, score: 0, streak: 0, bestStreak: 0, picked: null, done: false, qs: quizShuffle(qs) };
+    refreshCodexBody(); resetScrollSoon();
+  }
+  function quizAnswer(n) {
+    const Q = codex.quiz; if (!Q || Q.picked != null || Q.done) return;
+    const q = Q.qs[Q.i]; Q.picked = n; q._ok = n === q.answer;
+    if (q._ok) { Q.streak++; Q.bestStreak = Math.max(Q.bestStreak, Q.streak); Q.score += 100 + (Q.streak - 1) * 25; }
+    else Q.streak = 0;
+    const y = window.scrollY; refreshCodexBody(); window.scrollTo(0, y);
+  }
+  function quizNext() {
+    const Q = codex.quiz; if (!Q) return;
+    if (Q.i >= Q.qs.length - 1) {
+      Q.done = true;
+      if (Q.score > quizBest()) { try { localStorage.setItem(CODEX_BEST_KEY, String(Q.score)); } catch (e) {} Q.record = true; }
+    } else { Q.i++; Q.picked = null; }
+    refreshCodexBody(); resetScrollSoon();
+  }
+  function quizSetup() {
+    const cfg = quizCfg();
+    const appBtn = (g, a) => { const k = `${g}-${a}`; const on = cfg.apps.includes(k); return `<button class="qchip ${on ? "active" : ""}" data-act="quizApp" data-val="${k}" aria-pressed="${on}">${appIconSvg(a.toLowerCase(), 18)}<span>${escapeHTML(codeAppName(g, a))}</span></button>`; };
+    const sexBlock = (g, label) => `<div class="qset"><div class="qset-head"><span class="field-label">${label}</span><button class="qlink" data-act="quizSex" data-val="${g}">${CODE_APPS[g].every((a) => cfg.apps.includes(`${g}-${a}`)) ? t("quizNone") : t("quizAll")}</button></div><div class="qchips">${CODE_APPS[g].map((a) => appBtn(g, a)).join("")}</div></div>`;
+    return `<div class="quiz-setup">
+        <div class="quiz-setup-head"><div><h2 class="display text-2xl">${t("quizTitle")}</h2><p class="sub">${t("quizIntro")}</p></div><div class="quiz-best">${t("quizBest")}: <b>${quizBest()}</b></div></div>
+        ${sexBlock("WAG", t("femaleGym"))}
+        ${sexBlock("MAG", t("maleGym"))}
+        <div class="qset"><div class="qset-head"><span class="field-label">${t("quizTypes")}</span></div><div class="qchips">${QUIZ_TYPES.map((k) => `<button class="qchip ${cfg.types.includes(k) ? "active" : ""}" data-act="quizType" data-val="${k}" aria-pressed="${cfg.types.includes(k)}"><span>${t("quizType_" + k)}</span></button>`).join("")}</div></div>
+        <div class="qset"><div class="qset-head"><span class="field-label">${t("quizCount")}</span></div><div class="segment quiz-count">${[5, 10, 20].map((n) => `<button class="${cfg.n === n ? "active" : ""}" data-act="quizN" data-val="${n}">${n}</button>`).join("")}</div></div>
+        <button class="btn btn-primary w-full" data-act="quizStart">${icon("play")} ${t("quizStart")}</button>
+      </div>`;
+  }
+  function codexQuiz() {
+    const Q = codex.quiz;
+    if (!Q) return quizSetup();
+    if (Q.done) {
+      const right = Q.qs.filter((q) => q._ok).length;
+      return `<div class="quiz-intro">
+        <div class="quiz-score">${Q.score}</div>
+        <h2 class="display text-2xl">${Q.record ? t("quizRecord") : t("quizDone")}</h2>
+        <p class="sub">${t("quizSummary", { right, total: Q.qs.length, streak: Q.bestStreak })}</p>
+        <div class="quiz-best">${t("quizBest")}: <b>${quizBest()}</b></div>
+        <div class="grid gap-2 w-full" style="max-width:340px"><button class="btn btn-primary" data-act="quizStart">${icon("play")} ${t("quizAgain")}</button><button class="btn btn-secondary" data-act="quizConfig">${t("quizConfig")}</button></div>
+      </div>`;
+    }
+    const q = Q.qs[Q.i]; const answered = Q.picked != null;
+    const figOpts = q.type === "figure";
+    return `<div class="quiz">
+      <div class="quiz-bar"><span>${t("quizQuestion", { n: Q.i + 1, total: Q.qs.length })}</span><span class="quiz-pts">${Q.score} pt${Q.streak > 1 ? ` · ${t("quizStreak", { n: Q.streak })}` : ""}</span></div>
+      <div class="progress quiz-prog" style="grid-template-columns:repeat(${Q.qs.length},minmax(0,1fr))">${Q.qs.map((x, i) => `<span class="step ${i < Q.i || (i === Q.i && answered) ? (x._ok ? "done" : "miss") : ""} ${i === Q.i && !answered ? "active" : ""}"></span>`).join("")}</div>
+      <p class="kicker mt-4">${q.sub ? escapeHTML(q.sub) + " — " : ""}${q.ask}</p>
+      ${q.fig ? `<div class="qimg-wrap">${q.fig}</div>` : ""}
+      ${q.text ? `<h2 class="quiz-text">${escapeHTML(q.text)}</h2>` : ""}
+      <div class="quiz-opts ${figOpts ? "quiz-opts-fig" : q.big ? "" : "quiz-opts-text"}">
+        ${q.options.map((o, i) => `<button class="quiz-opt ${answered ? (i === q.answer ? "right" : i === Q.picked ? "wrong" : "dim") : ""}" data-act="quizAnswer" data-val="${i}" ${answered ? "disabled" : ""}>${o.fig ? o.fig : escapeHTML(o.text)}</button>`).join("")}
+      </div>
+      ${answered ? `<div class="quiz-feedback ${q._ok ? "ok" : "no"}"><b>${q._ok ? t("quizRight") : (figOpts || !q.big ? t("quizWrongShort") : t("quizWrong", { a: q.options[q.answer].text }))}</b>${q.reveal && q.type === "name" ? `<span>${escapeHTML(q.reveal)}</span>` : ""}${q.info ? `<span>${escapeHTML(q.info)}</span>` : ""}</div>
+        <button class="btn btn-primary w-full mt-3" data-act="quizNext">${icon("arrow")} ${Q.i >= Q.qs.length - 1 ? t("quizFinish") : t("quizNext")}</button>` : ""}
+    </div>`;
+  }
+  function quizToggle(list, k) { const i = list.indexOf(k); if (i >= 0) list.splice(i, 1); else list.push(k); quizSaveCfg(); refreshCodexBody(); }
+
+  Object.assign(ACTIONS, {
+    tactic: (el) => setTactic(el.dataset.val),
+    openCodex: (el) => openCodex(el?.dataset?.val), closeCodex,
+    codexTab: (el) => { codex.tab = el.dataset.val; codex.limit = 40; renderCodex(); },
+    codexGender: (el) => { codex.gender = el.dataset.val; codex.app = CODE_APPS[codex.gender][codex.gender === "WAG" ? 1 : 0]; codex.letter = ""; codex.limit = 40; refreshCodexBody(); },
+    codexApp: (el) => { codex.app = el.dataset.val; codex.letter = ""; codex.limit = 40; refreshCodexBody(); },
+    codexLetter: (el) => { codex.letter = el.dataset.val; codex.limit = 40; refreshCodexBody(); },
+    codexMore: () => { codex.limit += 60; refreshCodexBody(true); },
+    codexPick: (el) => { const p = codePicks(); const i = p.indexOf(el.dataset.id); if (i >= 0) p.splice(i, 1); else p.push(el.dataset.id); const y = window.scrollY; refreshCodexBody(); window.scrollTo(0, y); },
+    codexCR: (el) => { const k = codePickKey(); const cr = codex.cr[k] || (codex.cr[k] = [false, false, false, false]); cr[Number(el.dataset.val)] = !cr[Number(el.dataset.val)]; const y = window.scrollY; refreshCodexBody(); window.scrollTo(0, y); },
+    codexCV: (el) => { const k = codePickKey(); codex.cv[k] = Math.max(0, Math.min(2, round1((codex.cv[k] || 0) + Number(el.dataset.val) * 0.1))); const y = window.scrollY; refreshCodexBody(); window.scrollTo(0, y); },
+    codexClear: () => { const k = codePickKey(); codex.picks[k] = []; codex.cr[k] = [false, false, false, false]; codex.cv[k] = 0; refreshCodexBody(); },
+    quizStart, quizNext, quizAnswer: (el) => quizAnswer(Number(el.dataset.val)),
+    quizConfig: () => { codex.quiz = null; refreshCodexBody(); },
+    quizApp: (el) => quizToggle(quizCfg().apps, el.dataset.val),
+    quizType: (el) => quizToggle(quizCfg().types, el.dataset.val),
+    quizSex: (el) => { const c = quizCfg(); const g = el.dataset.val; const keys = CODE_APPS[g].map((a) => `${g}-${a}`); const all = keys.every((k) => c.apps.includes(k)); c.apps = c.apps.filter((k) => !keys.includes(k)); if (!all) c.apps.push(...keys); quizSaveCfg(); refreshCodexBody(); },
+    quizN: (el) => { quizCfg().n = Number(el.dataset.val); quizSaveCfg(); refreshCodexBody(); },
+    codexFig: (el) => { const li = el.closest(".el-row"); const host = li && li.querySelector(".el-figs"); if (!host) return; if (host.innerHTML) { host.innerHTML = ""; return; } const row = codeRows().find((r) => r[0] === el.dataset.id); if (row) host.innerHTML = (row[7] || []).map((r, i) => codeFigure(codex.gender, row, i)).join(""); }
+  });
+  let codexSearchTimer = null;
+  document.addEventListener("input", (e) => {
+    if (e.target?.id !== "codexSearch") return;
+    codex.q = e.target.value; codex.limit = 40;
+    clearTimeout(codexSearchTimer);
+    codexSearchTimer = setTimeout(() => { const list = document.getElementById("codexList"); if (list) list.innerHTML = codexElementList(); }, 120);
+  });
+
+  const MOD_I18N = {
+    "pt-BR": {
+      tacticTitle: "Tática da equipe", tacticHint: "Vale para as próximas séries da sua equipe.",
+      tactic_safe: "Segura", tactic_balanced: "Equilibrada", tactic_bold: "Ousada",
+      tacticFx_safe: "−0,3 D · menos quedas", tacticFx_balanced: "Série padrão", tacticFx_bold: "+0,3 D · mais risco",
+      tacticSet: "Tática {name} definida.", stickBonus: "Bônus de cravada",
+      vaultN: "{n}º salto",
+      codexTitle: "Código de Pontuação", codexBack: "Voltar", codexTabRules: "Regras", codexTabElements: "Elementos", codexTabQuiz: "Desafio", codexTabBuilder: "Montador",
+      codexCommon: "Geral e formato", codexSource: "Resumo dos Códigos de Pontuação FIG 2025–2028. Texto completo nos arquivos da pasta regras/.",
+      codexNoData: "Tabela de elementos indisponível (arquivo codigo-data.js não foi carregado).",
+      codexSearch: "Buscar elemento ou ginasta…", codexAll: "Todos", codexEmpty: "Nenhum elemento encontrado.", codexMore: "Mostrar mais ({n})", codexCount: "{n} elementos",
+      codexDance: "dança", codexAdd: "Adicionar à série", codexRemove: "Remover da série", codexCard: "Regras, tabela de elementos, desafio e montador de séries.",
+      builderD: "Nota D", builderCR: "Requisitos de composição", builderEG: "Grupos de elementos", builderCV: "Ligações e bônus (CV)", builderDmt: "saída",
+      builderPicked: "Elementos da série: {n}", builderEmpty: "Toque em + na lista para montar a série.", builderClear: "Limpar série",
+      builderNoDmt: "Sem saída na série.", builderMix: "Entre os 8 que contam são exigidos 3 de dança e 3 acrobáticos.", builderShort: "Exercício curto: penalidade de {n} na nota final.",
+      quizTitle: "Desafio do Código", quizIntro: "Escolha os aparelhos e os tipos de pergunta. Sequências de acertos valem mais.",
+      quizTypes: "Tipos de pergunta", quizType_value: "Valor", quizType_name: "Nome pela figura", quizType_figure: "Figura e símbolo", quizType_eponym: "Ginasta que dá nome", quizType_group: "Grupo", quizType_rule: "Regras",
+      quizCount: "Número de perguntas", quizAll: "Marcar todos", quizNone: "Desmarcar", quizConfig: "Mudar filtros", quizPickSomething: "Marque pelo menos um aparelho e um tipo de pergunta.",
+      quizAskName: "qual é este elemento?", quizAskFigure: "qual é a figura e o símbolo deste elemento?", quizAskEponym: "qual ginasta dá nome a este elemento?", quizAskGroup: "a qual grupo pertence?",
+      quizWrongShort: "Não foi dessa vez.", quizFigAlt: "Figura e símbolo do elemento no Código de Pontuação", codexFig: "ver figura", quizBest: "Recorde", quizStart: "Começar", quizAgain: "Jogar de novo",
+      quizQuestion: "Pergunta {n} de {total}", quizStreak: "sequência ×{n}", quizAskValue: "qual é o valor?", quizAskRule: "Regra", quizRight: "Correto!", quizWrong: "Resposta: {a}",
+      quizNext: "Próxima", quizFinish: "Ver resultado", quizDone: "Desafio concluído", quizRecord: "Novo recorde!", quizSummary: "{right} de {total} acertos · melhor sequência {streak}"
+    },
+    en: {
+      tacticTitle: "Team tactic", tacticHint: "Applies to your team's next routines.",
+      tactic_safe: "Safe", tactic_balanced: "Balanced", tactic_bold: "Bold",
+      tacticFx_safe: "−0.3 D · fewer falls", tacticFx_balanced: "Standard routine", tacticFx_bold: "+0.3 D · more risk",
+      tacticSet: "{name} tactic set.", stickBonus: "Stick bonus", vaultN: "Vault {n}",
+      codexTitle: "Code of Points", codexBack: "Back", codexTabRules: "Rules", codexTabElements: "Elements", codexTabQuiz: "Challenge", codexTabBuilder: "Builder",
+      codexCommon: "General and format", codexSearch: "Search element or gymnast…", codexAll: "All", codexEmpty: "No elements found.", codexMore: "Show more ({n})", codexCount: "{n} elements",
+      codexCard: "Rules, element tables, quiz and routine builder.", quizTitle: "Code Challenge", quizStart: "Start", quizAgain: "Play again", quizNext: "Next", quizBest: "Best", quizRight: "Correct!", quizWrong: "Answer: {a}"
+    },
+    es: {
+      tacticTitle: "Táctica del equipo", tactic_safe: "Segura", tactic_balanced: "Equilibrada", tactic_bold: "Audaz",
+      codexTitle: "Código de Puntuación", codexBack: "Volver", codexTabRules: "Reglas", codexTabElements: "Elementos", codexTabQuiz: "Desafío", codexTabBuilder: "Armador"
+    }
+  };
+  Object.keys(MOD_I18N).forEach((lang) => { if (I18N[lang]) Object.assign(I18N[lang], MOD_I18N[lang]); });
+
+  /* ================= NARRAÇÃO · feitos reais dos atletas =================
+     [atleta, ano do card ("Todos" = qualquer), competição ("" = qualquer; "olympics" | "panamerican"), texto].
+     Só fatos documentados (resultados oficiais de Jogos Olímpicos e Pan-Americanos). Não inventar: ao acrescentar, conferir a fonte. */
+  const ATHLETE_FEATS = [
+    ["Simone Biles", 2024, "", "Paris 2024 de Simone Biles: ouro por equipes, no individual geral e no salto, mais a prata no solo."],
+    ["Simone Biles", "Todos", "olympics", "Em Jogos Olímpicos, Simone Biles soma 11 medalhas, sete delas de ouro."],
+    ["Simone Biles", 2016, "", "No Rio 2016 foram quatro ouros — equipes, individual geral, salto e solo — e o bronze na trave."],
+    ["Rebeca Andrade", 2024, "", "Paris 2024 de Rebeca: ouro no solo, pratas no individual geral e no salto e bronze por equipes."],
+    ["Rebeca Andrade", "Todos", "olympics", "Com seis medalhas, Rebeca Andrade é a maior medalhista olímpica da história do Brasil."],
+    ["Rebeca Andrade", 2021, "", "Em Tóquio, Rebeca foi prata no individual geral — primeira medalha olímpica da ginástica feminina do Brasil — e ouro no salto."],
+    ["Rebeca Andrade", 2023, "panamerican", "No Pan de Santiago 2023, Rebeca levou os ouros do salto e da trave, a prata nas assimétricas e a prata por equipes."],
+    ["Flavia Saraiva", 2023, "panamerican", "Santiago 2023 de Flávia Saraiva: prata no individual geral e na trave, bronze nas assimétricas e prata por equipes."],
+    ["Flavia Saraiva", 2024, "olympics", "Flávia Saraiva estava na equipe do bronze em Paris 2024, a primeira medalha olímpica por equipes da ginástica brasileira."],
+    ["Kayla DiCello", 2023, "panamerican", "Kayla DiCello foi a campeã do individual geral no Pan de Santiago 2023, além do ouro por equipes e da prata no solo."],
+    ["Jordan Chiles", 2023, "panamerican", "Em Santiago 2023, Jordan Chiles saiu com o ouro por equipes, a prata no salto e o bronze no individual geral."],
+    ["Felix Dolci", 2023, "panamerican", "Félix Dolci venceu o individual geral e o solo no Pan de Santiago 2023."],
+    ["Arthur Nory", 2023, "panamerican", "Santiago 2023 de Arthur Nory: ouro na barra fixa, pratas no solo e no salto e bronze por equipes."],
+    ["Arthur Nory", 2016, "", "No Rio 2016, Arthur Nory foi bronze no solo, dividindo o pódio com Diego Hypolito, prata."],
+    ["Diogo Soares", 2023, "panamerican", "Diogo Soares foi prata no individual geral do Pan de Santiago 2023."],
+    ["Donnell Whittenburg", 2023, "panamerican", "No Pan de Santiago 2023, Donnell Whittenburg foi ouro nas argolas e por equipes e bronze no individual geral."],
+    ["Audrys Nin Reyes", 2023, "panamerican", "Audrys Nin Reyes deu à República Dominicana o ouro do salto no Pan de Santiago 2023."],
+    ["Nadia Comaneci", 1976, "", "Em Montreal 1976, aos 14 anos, Nadia Comaneci recebeu sete notas 10 e conquistou três ouros."],
+    ["Larisa Latynina", "Todos", "", "Larisa Latynina soma 18 medalhas olímpicas, nove delas de ouro — a maior coleção da ginástica."],
+    ["Vera Caslavska", "Todos", "", "Vera Caslavska tem sete ouros olímpicos individuais, recorde entre as ginastas."],
+    ["Vera Caslavska", 1968, "", "Cidade do México 1968: Caslavska subiu ao pódio seis vezes na mesma edição."],
+    ["Olga Korbut", 1972, "", "Munique 1972 revelou Olga Korbut: três ouros — equipes, trave e solo — e a prata nas assimétricas."],
+    ["Mary Lou Retton", 1984, "", "Em Los Angeles 1984, Mary Lou Retton tornou-se a primeira americana campeã olímpica do individual geral."],
+    ["Nastia Liukin", 2008, "", "Pequim 2008: Nastia Liukin foi campeã olímpica do individual geral e saiu dos Jogos com cinco medalhas."],
+    ["Shawn Johnson", 2008, "", "Em Pequim 2008, Shawn Johnson levou o ouro na trave e três pratas."],
+    ["Gabby Douglas", 2012, "", "Londres 2012: Gabby Douglas venceu o individual geral e o ouro por equipes — primeira ginasta negra campeã olímpica do individual geral."],
+    ["Aly Raisman", "Todos", "", "Aly Raisman tem seis medalhas olímpicas, incluindo o ouro no solo em Londres 2012."],
+    ["Sunisa Lee", 2021, "", "Tóquio de Suni Lee: ouro no individual geral, prata por equipes e bronze nas assimétricas."],
+    ["Sunisa Lee", 2024, "", "Em Paris 2024, Suni Lee somou o ouro por equipes e os bronzes do individual geral e das assimétricas."],
+    ["Jade Carey", 2021, "", "Jade Carey é a campeã olímpica do solo em Tóquio."],
+    ["Jade Carey", 2024, "", "Paris 2024 de Jade Carey: ouro por equipes e bronze no salto."],
+    ["Guan Chenchen", 2021, "", "Aos 16 anos, Guan Chenchen foi campeã olímpica da trave em Tóquio."],
+    ["Nina Derwael", 2021, "", "O ouro de Nina Derwael nas assimétricas, em Tóquio, foi o primeiro título olímpico da ginástica belga."],
+    ["Alice D'Amato", 2024, "", "Em Paris 2024, Alice D'Amato foi ouro na trave — primeiro título olímpico da ginástica feminina italiana — e prata por equipes."],
+    ["Manila Esposito", 2024, "", "Manila Esposito saiu de Paris 2024 com o bronze na trave e a prata por equipes."],
+    ["Kaylia Nemour", 2024, "", "O ouro de Kaylia Nemour nas assimétricas, em Paris 2024, foi a primeira medalha olímpica da ginástica africana."],
+    ["Qiu Qiyuan", 2024, "", "Qiu Qiyuan foi prata nas assimétricas em Paris 2024."],
+    ["Zhou Yaqin", 2024, "", "Zhou Yaqin foi prata na trave em Paris 2024."],
+    ["Ana Barbosu", 2024, "", "Ana Barbosu ficou com o bronze do solo de Paris 2024, confirmado depois de decisão da Corte Arbitral do Esporte."],
+    ["Aliya Mustafina", "Todos", "", "Aliya Mustafina é bicampeã olímpica das assimétricas: Londres 2012 e Rio 2016."],
+    ["He Kexin", 2008, "", "He Kexin foi campeã olímpica das assimétricas em Pequim 2008."],
+    ["Deng Linlin", 2012, "", "Deng Linlin foi campeã olímpica da trave em Londres 2012."],
+    ["Sanne Wevers", 2016, "", "Sanne Wevers foi campeã olímpica da trave no Rio 2016."],
+    ["Giulia Steingruber", 2016, "", "O bronze de Giulia Steingruber no salto do Rio 2016 foi a primeira medalha olímpica de uma ginasta suíça."],
+    ["Catalina Ponor", 2004, "", "Atenas 2004 de Catalina Ponor: três ouros — equipes, trave e solo."],
+    ["Carly Patterson", 2004, "", "Carly Patterson foi a campeã olímpica do individual geral em Atenas 2004."],
+    ["Lilia Podkopayeva", 1996, "", "Atlanta 1996: Lilia Podkopayeva venceu o individual geral e o solo."],
+    ["Elena Shushunova", 1988, "", "Elena Shushunova foi a campeã olímpica do individual geral em Seul 1988."],
+    ["Shannon Miller", "Todos", "", "Shannon Miller soma sete medalhas olímpicas, com ouros na trave e por equipes em Atlanta 1996."],
+    ["Ludmilla Tourischeva", "Todos", "", "Ludmilla Tourischeva, campeã olímpica do individual geral em 1972, soma nove medalhas olímpicas."],
+    ["Kohei Uchimura", "Todos", "olympics", "Kohei Uchimura tem sete medalhas olímpicas e dois ouros seguidos no individual geral: Londres 2012 e Rio 2016."],
+    ["Daiki Hashimoto", 2021, "", "Tóquio de Daiki Hashimoto: ouro no individual geral e na barra fixa, prata por equipes."],
+    ["Daiki Hashimoto", 2024, "", "Em Paris 2024, Hashimoto ajudou o Japão a recuperar o ouro por equipes."],
+    ["Shinnosuke Oka", 2024, "", "Paris 2024 de Shinnosuke Oka: ouros por equipes, no individual geral e na barra fixa, mais o bronze nas paralelas."],
+    ["Zhang Boheng", 2024, "", "Zhang Boheng deixou Paris 2024 com as pratas do individual geral e por equipes e o bronze na barra fixa."],
+    ["Carlos Yulo", 2024, "", "Com os ouros do solo e do salto em Paris, Carlos Yulo foi o primeiro filipino a ganhar dois ouros olímpicos."],
+    ["Max Whitlock", 2016, "", "No Rio 2016, Max Whitlock venceu solo e cavalo com alças — os primeiros ouros olímpicos da ginástica britânica."],
+    ["Max Whitlock", 2021, "", "Em Tóquio, Max Whitlock defendeu com sucesso o título olímpico do cavalo com alças."],
+    ["Louis Smith", "Todos", "", "Louis Smith subiu ao pódio olímpico do cavalo com alças em três edições seguidas: bronze em 2008, prata em 2012 e 2016."],
+    ["Arthur Zanetti", 2012, "", "O ouro de Arthur Zanetti nas argolas, em Londres 2012, foi a primeira medalha olímpica da ginástica brasileira."],
+    ["Arthur Zanetti", 2016, "", "Em casa, no Rio 2016, Zanetti voltou ao pódio olímpico das argolas com a prata."],
+    ["Diego Hypolito", "Todos", "", "Diego Hypolito foi campeão mundial do solo em 2005 e 2007 e prata olímpica no Rio 2016."],
+    ["Eleftherios Petrounias", "Todos", "", "Petrounias tem três pódios olímpicos seguidos nas argolas: ouro no Rio 2016 e bronzes em Tóquio e Paris."],
+    ["Liu Yang", "Todos", "", "Liu Yang é bicampeão olímpico das argolas: Tóquio e Paris 2024."],
+    ["Zou Jingyuan", "Todos", "", "Zou Jingyuan é bicampeão olímpico das paralelas: Tóquio e Paris 2024, onde também foi prata nas argolas."],
+    ["Rhys McClenaghan", 2024, "", "O ouro de Rhys McClenaghan no cavalo com alças, em Paris 2024, foi a primeira medalha olímpica da ginástica irlandesa."],
+    ["Stephen Nedoroscik", 2024, "", "Em Paris 2024, Stephen Nedoroscik foi bronze no cavalo e ajudou os EUA a voltar ao pódio por equipes pela primeira vez desde 2008."],
+    ["Nariman Kurbanov", 2024, "", "Nariman Kurbanov foi prata no cavalo com alças em Paris 2024."],
+    ["Artem Dolgopyat", 2021, "", "O ouro de Artem Dolgopyat no solo, em Tóquio, foi a primeira medalha olímpica da ginástica de Israel."],
+    ["Artem Dolgopyat", 2024, "", "Em Paris 2024, Dolgopyat voltou ao pódio olímpico do solo com a prata."],
+    ["Jake Jarman", 2024, "", "Jake Jarman foi bronze no solo em Paris 2024."],
+    ["Artur Davtyan", 2024, "", "Artur Davtyan foi prata no salto em Paris 2024."],
+    ["Illia Kovtun", 2024, "", "Illia Kovtun foi prata nas paralelas em Paris 2024."],
+    ["Angel Barajas", 2024, "", "A prata de Ángel Barajas na barra fixa, em Paris 2024, foi a primeira medalha olímpica da ginástica colombiana."],
+    ["Oleg Verniaiev", 2016, "", "Rio 2016 de Oleg Verniaiev: ouro nas paralelas e prata no individual geral."],
+    ["Alexei Nemov", "Todos", "", "Alexei Nemov soma 12 medalhas olímpicas, quatro de ouro, entre Atlanta 1996 e Sydney 2000."],
+    ["Li Ning", 1984, "", "Em Los Angeles 1984, Li Ning ganhou seis medalhas, três delas de ouro."],
+    ["Sawao Kato", "Todos", "", "Sawao Kato tem oito ouros olímpicos, recorde entre os ginastas homens."],
+    ["Nikolai Andrianov", "Todos", "", "Nikolai Andrianov soma 15 medalhas olímpicas, sete de ouro."],
+    ["Boris Shakhlin", "Todos", "", "Boris Shakhlin soma 13 medalhas olímpicas, sete de ouro."],
+    ["Mitsuo Tsukahara", "Todos", "", "Mitsuo Tsukahara, que dá nome ao salto Tsukahara, tem cinco ouros olímpicos."],
+    ["Paul Hamm", 2004, "", "Em Atenas 2004, Paul Hamm foi o primeiro americano campeão olímpico do individual geral."],
+    ["Yang Wei", 2008, "", "Pequim 2008: Yang Wei foi campeão olímpico do individual geral e por equipes."],
+    ["Kenzo Shirai", 2016, "", "No Rio 2016, Kenzo Shirai foi ouro por equipes e bronze no salto."]
+  ];
+  ATHLETE_FEATS.forEach(([athlete, year, comp, pt]) => ATHLETE_STORIES.push({ athlete, year, comp, trigger: "Feito", pt }));
+
+  // Mostra a tática nas telas que antecedem uma fase (classificatórias, equipes, individual geral)
+  function ensureTacticBar() {
+    if (isBattleMode() || !["quals", "team", "aa"].includes(state.view) || document.getElementById("tacticBar")) return;
+    const anchor = document.querySelector("#app .screen .panel .progress");
+    if (anchor) anchor.insertAdjacentHTML("afterend", tacticBar());
+  }
+
   function updateDeviceProfile() {
     const w = window.innerWidth || document.documentElement.clientWidth || 1024;
     const h = window.innerHeight || document.documentElement.clientHeight || 768;
