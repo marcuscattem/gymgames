@@ -1,17 +1,17 @@
 # Vídeos para revisão
 
-21 movimentos, com 33 registros de execução. Os links numerados abrem o instante indicado pelo UpGrade. Na última coluna, registre o código FIG, a variante quando houver mais de uma descrição, ou o motivo para descartar.
+20 movimentos, com 32 registros de execução. Os links numerados abrem o instante indicado pelo UpGrade. Na última coluna, registre o código FIG, a variante quando houver mais de uma descrição, ou o motivo para descartar.
 
 ### Conferência das edições em 22/11/2026
 
-O [índice oficial da FIG](https://www.gymnastics.sport/site/rules/) lista o Código masculino em 02/11/2026 e o feminino em 16/10/2026. O PDF masculino do jogo é idêntico ao oficial (SHA-256 iniciado por `80601a66`). O PDF feminino do jogo tem metadados de março e difere do arquivo oficial de outubro. A edição usada em cada ficha do UpGrade não está identificada nos dados consultados.
+O [índice oficial da FIG](https://www.gymnastics.sport/site/rules/) lista o Código masculino em 02/11/2026 e o feminino em 16/10/2026. O PDF masculino do jogo é idêntico ao oficial (SHA-256 iniciado por `80601a66`). A edição feminina de março usada na revisão inicial foi substituída pelo PDF oficial de outubro. A edição usada em cada ficha do UpGrade não está identificada nos dados consultados.
 
 - **Solo masculino, III.42.** O PDF atual traz a indicação G na caixa do Hypolito. A atribuição F no banco local precisa ser conferida contra a posição do símbolo e a variante.
-- **Solo feminino, Biles.** O PDF atual separa o triplo giro, 5.1002, do duplo giro de Silivas, 5.802. A extração do jogo reuniu os dois sob 5.802. Para liberar este vídeo no quiz é preciso separar os registros e os respectivos recortes.
+- **Solo feminino, Biles II (resolvido).** O código 5.1002 tem ficha própria, valor J, figura e vídeo. O Silivas permanece em 5.802, valor H.
 - **Trave, 1.102.** No texto oficial, “(D)” junto ao código identifica um elemento de dança. A dificuldade é dada pela coluna A. Usar a marca de dança como dificuldade pode explicar o D da ficha de vídeo.
 - **Barra fixa, Kovacs.** A tabela masculina distingue II.95 (carpado ou estendido) de II.96 (com giro completo). O vídeo precisa confirmar o giro e a variante.
 
-Esses exemplos apontam diferenças de extração, notação e descrição. A data dos códigos por si só não resolve os 21 vínculos. Os trechos estão disponíveis pelo nome na aba Vídeos enquanto a associação ao quiz aguarda revisão.
+Esses exemplos apontam diferenças de extração, notação e descrição. A data dos códigos por si só não resolve os 20 vínculos restantes. Os trechos estão disponíveis pelo nome na aba Vídeos enquanto a associação ao quiz aguarda revisão.
 
 ## MAG · FX
 
@@ -62,9 +62,3 @@ Esses exemplos apontam diferenças de extração, notação e descrição. A dat
 | [Planche on one arm](https://www.upgradegymnastics.com/skills/bb1a6525-03e2-409d-b76a-ffe3878fd4c8) | B | [▶ 1](https://www.youtube.com/watch?v=DirGdV6DiK8&t=282s) | 1.111 · Faltam flexão do braço e duração; a ficha indica B, não A. | |
 | [Round-off at end of beam – flic-flac – swing down to cross straddle sit or cross straddle support on one arm](https://www.upgradegymnastics.com/skills/67bf8bf0-3be9-4676-800c-4c21836f00d7) | C | [▶ 1](https://www.youtube.com/watch?v=KV4pS3PbgVM&t=679s) | 1.317 · A ficha admite apoio em um braço; o catálogo só descreve chegada sentada. | |
 | [Thief vault – take-off from one leg – free leap over beam, one leg after another to rear support – 90° approach to beam, or Scissor leap over beam to cross sit on thigh – diagonal approach to beam](https://www.upgradegymnastics.com/skills/5033abd1-67aa-47de-b171-2aacf6c3dd3d) | D | [▶ 1](https://www.youtube.com/watch?v=DirGdV6DiK8&t=13s) | 1.102 · Entrada e apoios coincidem, mas a ficha indica D e o catálogo A. | |
-
-## WAG · FX
-
-| Movimento no UpGrade | Valor | Trechos | O que conferir | Sua decisão (código FIG e variante) |
-|---|---|---|---|---|
-| [Double salto backward tucked with 3/1 twist (1080°)](https://www.upgradegymnastics.com/skills/341dbc3c-f266-43a9-bcbe-a27b45f0e340) | J | [▶ 1](https://www.youtube.com/watch?v=A2pg9U0Epmk&t=22s) | 5.802 · O triplo giro J aparece como 5.1002 dentro da caixa H do duplo giro. | |

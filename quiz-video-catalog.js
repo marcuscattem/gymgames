@@ -901,5 +901,6 @@ window.GYM_SKILL_VIDEOS = [
   {"gender":"WAG","apparatus":"VT","code":"4.40","variant":0,"youtubeId":"DyACznPsaMA","start":6,"end":11,"skillUrl":"https://www.upgradegymnastics.com/skills/dacee15c-db74-4314-bca8-71ab21a4155f","source":"UpGrade Gymnastics / YouTube"},
   {"gender":"WAG","apparatus":"VT","code":"3.32","variant":0,"youtubeId":"FvKjZqAC1Us","start":81,"end":87,"skillUrl":"https://www.upgradegymnastics.com/skills/fecb4d19-444f-4192-a6ec-35afd61c7236","source":"UpGrade Gymnastics / YouTube"},
   {"gender":"WAG","apparatus":"VT","code":"3.10","variant":0,"youtubeId":"WBLD4wPLeSg","start":9,"end":13,"skillUrl":"https://www.upgradegymnastics.com/skills/258abd0b-fbbd-4ff2-b734-b5b2f3be1444","source":"UpGrade Gymnastics / YouTube"},
-  {"gender":"WAG","apparatus":"VT","code":"3.10","variant":0,"youtubeId":"902VXz6V4Ss","start":5,"end":13,"skillUrl":"https://www.upgradegymnastics.com/skills/258abd0b-fbbd-4ff2-b734-b5b2f3be1444","source":"UpGrade Gymnastics / YouTube"}
+  {"gender":"WAG","apparatus":"VT","code":"3.10","variant":0,"youtubeId":"902VXz6V4Ss","start":5,"end":13,"skillUrl":"https://www.upgradegymnastics.com/skills/258abd0b-fbbd-4ff2-b734-b5b2f3be1444","source":"UpGrade Gymnastics / YouTube"},
+  {"gender":"WAG","apparatus":"FX","code":"5.1002","variant":0,"youtubeId":"A2pg9U0Epmk","start":22,"end":29,"skillUrl":"https://www.upgradegymnastics.com/skills/341dbc3c-f266-43a9-bcbe-a27b45f0e340","source":"UpGrade Gymnastics / YouTube"}
 ];

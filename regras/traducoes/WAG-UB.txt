@@ -145,6 +145,7 @@
 5.305|Giro carpado com apoio dos pés para frente em tomada palmar à parada de mãos, também com ½ giro (180°) à parada de mãos
 5.306|Giro carpado com apoio dos pés para frente em tomada cubital à parada de mãos, também com ½ giro (180°)
 5.307|Balanço por baixo na barra alta ou baixa com largada das mãos e 1½ giro (540°) à suspensão (Burda)
+5.307|Subimpulsão na barra alta e mortal para trás estendido entre as barras ao apoio livre na barra baixa (Hamelin)
 5.308|Giro carpado com apoio dos pés para trás à parada de mãos, também com troca em salto para tomada palmar na fase de parada de mãos, também com ½ giro (180°)
 5.402|Apoio dorsal carpado livre na barra alta (pernas unidas) – giro completo para trás – continuando pelo apoio dorsal carpado livre para trás sobre a barra alta até a suspensão (Mirgoradskaja)
 5.402|Da parada de mãos, giro carpado livre para trás ao apoio dorsal carpado invertido (Krasnyanska)
@@ -178,6 +179,7 @@
 6.301|Da barra alta – balanço por baixo com mortal para frente grupado ou carpado com ½ pirueta (180°) ou 1 pirueta (360°)
 6.302|Da barra alta – balanço por baixo livre com mortal para frente grupado ou carpado; também com ½ pirueta (180°)
 6.302|Giro afastado livre com mortal para frente grupado (Plichta), também com ½ pirueta (180°) (Alt)
+6.302|Giro livre afastado e mortal para frente carpado com meia pirueta (Rodriguez)
 6.303|Da barra alta – balanço por baixo, ou balanço por baixo livre, com ½ giro (180°) e mortal para trás grupado ou carpado (Comaneci)
 6.304|Balanço para frente e mortal para trás estendido com 1½ pirueta (540°) ou 2 piruetas (720°)
 6.305|Balanço para frente e duplo mortal para trás carpado
@@ -202,6 +204,7 @@
 6.408|Da tomada cubital, balanço para trás, ½ giro (180°) e duplo mortal para trás carpado (Okamura)
 6.409|Giro de quadril para trás (também livre) na barra baixa ou alta – hecht com mortal para trás grupado (Mukhina)
 6.502|Da barra alta – balanço por baixo livre com mortal para frente grupado com 1½ pirueta (540°)
+6.502|Subimpulsão livre da barra alta e mortal para frente estendido (Mesiri)
 6.504|Balanço para frente e mortal para trás estendido com 3 piruetas (1080°) (Bar)
 6.505|Balanço para frente e duplo mortal para trás grupado com 1½ pirueta (540°) (Mustafina)
 6.507|Balanço para frente e mortal para trás estendido com ½ pirueta (180°), seguido de mortal para frente estendido (Blanco)

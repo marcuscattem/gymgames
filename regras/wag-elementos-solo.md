@@ -4,7 +4,7 @@
 > Extraído automaticamente do PDF; em caso de dúvida, o PDF oficial prevalece. Abreviações: fwd = para frente, bwd = para trás, swd = para o lado, hstd/hdst = parada de mãos, t. = tucked (grupado) ou turn (giro) conforme o contexto, p. = piked (carpado), str. = stretched/straight (estendido), strad. = afastado, DMT = saída, MT = entrada, LA = eixo longitudinal, HB/LB = barra alta/baixa.
 
 
-**Código** `G.VNN`: `G` = grupo estrutural, `V` = coluna de valor (1=A … 9=I), `NN` = nº da caixa. Elementos listados na **mesma caixa (mesmo código)** contam como o **mesmo elemento** para valor de dificuldade (DV só uma vez). `Dança` = contado como elemento de dança (D); `*` = elementos da mesma caixa recebem crédito uma única vez, em ordem cronológica.
+**Código** `G.VNN`: `G` = grupo estrutural, `V` = coluna de valor (1=A … 9=I, 10=J), `NN` = nº da caixa. Elementos listados na **mesma caixa (mesmo código)** contam como o **mesmo elemento** para valor de dificuldade (DV só uma vez). `Dança` = contado como elemento de dança (D); `*` = elementos da mesma caixa recebem crédito uma única vez, em ordem cronológica.
 
 Valores: A 0,10 · B 0,20 · C 0,30 · D 0,40 · E 0,50 · F 0,60 · G 0,70 · H 0,80 · I 0,90 · J 1,00
 
@@ -134,7 +134,8 @@ Valores: A 0,10 · B 0,20 · C 0,30 · D 0,40 · E 0,50 · F 0,60 · G 0,70 · H
 | 5.602 | F | 0.60 |  | Duplo mortal para trás grupado com 1½ pirueta (540°) (Heron) | Double salto bwd tucked with 1½ twist (540°) (Heron) | Heron |
 | 5.603 | F | 0.60 |  | Duplo mortal para trás estendido | Double salto bwd stretched |  |
 | 5.703 | G | 0.70 |  | Duplo mortal para trás estendido com ½ pirueta (180°) (Biles) | Double salto bwd stretched with ½ twist (180°) (Biles) | Biles |
-| 5.802 | H | 0.80 |  | Duplo mortal para trás grupado com 2 piruetas (720°) (Silivas) **//** Duplo mortal para trás grupado com 3 piruetas (1080°) (Biles) – elemento 5.1002, valor J (1,00) | Double salto bwd tucked with 2/1 twist (720°) (Silivas) **//** 5.1002 Double salto bwd tucked with 3/1 twist (1080°) (Biles) | Silivas, Biles |
+| 5.802 | H | 0.80 |  | Duplo mortal para trás grupado com 2 piruetas (720°) (Silivas) | Double salto bwd tucked with 2/1 twist (720°) (Silivas) | Silivas |
+| 5.1002 | J | 1.00 |  | Duplo mortal para trás grupado com 3 piruetas (1080°) (Biles II) | Double salto bwd tucked with 3/1 twist (1080°) (Biles II) | Biles II |
 | 5.803 | H | 0.80 |  | Duplo mortal para trás estendido com 1 pirueta (360°) (Chusovitina/Touzhikova) | Double salto bwd stretched with 1/1 twist (360°) (Chusovitina/Touzhikova) | Chusovitina/Touzhikova |
 | 5.903 | I | 0.90 |  | Duplo mortal para trás estendido com 2 piruetas (720°) (Moors) | Double Salto bwd stretched with 2/1 twist (720°) (Moors) | Moors |
 

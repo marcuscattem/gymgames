@@ -192,7 +192,7 @@ Valores: A 0,10 · B 0,20 · C 0,30 · D 0,40 · E 0,50 · F 0,60 · G 0,70 · H
 | 5.411 | D | 0.40 |  | Mortal lateral grupado, impulso de uma perna, à posição em pé lateral | Salto swd tucked take off from one leg to side stand |  |
 | 5.501 | E | 0.50 |  | Salto para trás (impulso de flic-flac) com ½ pirueta (180°) à reversão para frente com chegada nos dois pés (Worley) | Jump bwd (flic-flac take-off) with ½ twist (180°) to handspring fwd to land on both feet (Worley) | Worley |
 | 5.505 | E | 0.50 |  | Flic-flac a partir da posição lateral com 1 pirueta (360°) ao giro de quadril para trás (Teza) | Flic-flac from side position with 1/1 twist (360°) to hip circle bwd (Teza) | Teza |
-| 5.508 | E | 0.50 |  | Rondada sem mãos grupada ou carpada – impulso dos dois pés **//** Estrela sem mãos em posição lateral (Colussi) | Free (aerial) round-off tucked or piked – take off from both feet **//** Free (aerial) cartwheel in side position (Colussi) | Colussi |
+| 5.508 | E | 0.50 |  | Rondada sem mãos grupada ou carpada – impulso dos dois pés **//** Estrela sem mãos em posição lateral (Colussi) | Free round-off tucked or piked – take off from both feet **//** Free (aerial) cartwheel in side position (Colussi) | Colussi |
 | 5.510 | E | 0.50 |  | Mortal para frente carpado à posição em pé transversal | Salto fwd piked to cross stand |  |
 | 5.511 | E | 0.50 |  | Mortal lateral grupado com ½ pirueta (180°), impulso de uma perna, à posição em pé lateral (Schaefer) | Salto swd tucked with ½ twist (180°) take off from one leg to side stand (Schaefer) | Schaefer |
 | 5.512 | E | 0.50 |  | Mortal para trás estendido com pernas unidas | Salto bwd stretched with legs together |  |

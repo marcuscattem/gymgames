@@ -10,7 +10,7 @@ Arquivos em Markdown para consulta e para carregar em modelos de IA. Fonte: Cód
 | [wag-elementos-salto.md](wag-elementos-salto.md) | GAF — tabela de saltos (83) |
 | [wag-elementos-barras-assimetricas.md](wag-elementos-barras-assimetricas.md) | GAF — assimétricas (178 caixas) |
 | [wag-elementos-trave.md](wag-elementos-trave.md) | GAF — trave (202 caixas) |
-| [wag-elementos-solo.md](wag-elementos-solo.md) | GAF — solo (104 caixas) |
+| [wag-elementos-solo.md](wag-elementos-solo.md) | GAF — solo (105 códigos) |
 | [mag-elementos-solo.md](mag-elementos-solo.md) | GAM — solo (96) |
 | [mag-elementos-cavalo-com-alcas.md](mag-elementos-cavalo-com-alcas.md) | GAM — cavalo com alças (108) |
 | [mag-elementos-argolas.md](mag-elementos-argolas.md) | GAM — argolas (138) |

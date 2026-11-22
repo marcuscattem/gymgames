@@ -690,8 +690,8 @@
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="achWrap" class="ach-wrap" role="status" aria-live="polite"></div>
-  <script src="codigo-data.js?v=pt-elementos-1"></script>
-  <script src="quiz-video-catalog.js?v=upgrade-review-1"></script>
+  <script src="codigo-data.js?v=wag-2026-10"></script>
+  <script src="quiz-video-catalog.js?v=wag-2026-10"></script>
   <script src="catalogo-movimentos.js"></script>
   <script>
 /* GymGames — engine v3 (2026-11): Código de Pontuação FIG 2025-2028 integrado (regras, elementos, desafio, montador), tática da equipe, bônus de cravada GAM.
@@ -6845,7 +6845,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     if (codex.tab === "rules") return codexRules();
     if (!CODE) return `<p class="ded-empty">${t("codexNoData")}</p>`;
     if (codex.tab === "elements") return codexElements(false);
-    if (codex.tab === "videos") return `<input id="videoSearch" class="input" type="search" aria-label="${t("codexSearch")}" placeholder="${t("codexSearch")}" value="${escapeHTML(codex.videoQuery || "")}"><div id="videoResults">${movementVideos()}</div>`;
+    if (codex.tab === "videos") return `${videoFilters()}<input id="videoSearch" class="input" type="search" aria-label="${t("codexSearch")}" placeholder="${t("codexSearch")}" value="${escapeHTML(codex.videoQuery || "")}"><div id="videoResults">${movementVideos()}</div>`;
     if (codex.tab === "quiz") return codexQuiz();
     return codexBuilder();
   }
@@ -7123,15 +7123,24 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     return `<button type="button" class="qlink" data-act="catalogPlay" data-id="${escapeHTML(video.youtubeId)}" data-start="${start}" data-end="${video.end || 0}" title="${escapeHTML(title)}" aria-label="${escapeHTML(title)} · ${label}">▶ ${label}</button>`;
   }
   const skillBindings = new Map((window.GYM_SKILL_VIDEOS || []).map(v => [v.skillUrl.split("/").pop(), v]));
+  function videoFilters() {
+    const g = codex.videoGender || "";
+    const button = (act, val, label, active) => `<button class="app-pill ${active ? "active" : ""}" aria-pressed="${active}" data-act="${act}" data-val="${val}">${escapeHTML(label)}</button>`;
+    const genders = [["",t("codexAll")],["WAG",t("femaleGym")],["MAG",t("maleGym")]];
+    return `<div class="flex flex-wrap gap-2 mb-2">${genders.map(([key,label]) => button("videoGender",key,label,key===g)).join("")}</div>` +
+      (g ? `<div class="flex flex-wrap gap-2 mb-2">${["",...CODE_APPS[g]].map(a => button("videoApp",a,a ? codeAppName(g,a) : t("codexAll"),a===(codex.videoApp||""))).join("")}</div>` : "");
+  }
   function movementVideos() {
     const query = normalizeElementSearch(codex.videoQuery || "").trim();
     const results = [];
     for (const [id, skill] of Object.entries(window.GYM_VIDEO_MOVEMENTS || {})) {
+      if (codex.videoGender && skill.gender !== codex.videoGender) continue;
+      if (codex.videoApp && skill.apparatus !== codex.videoApp) continue;
       const binding = skillBindings.get(id);
       const row = binding && codeRows(skill.gender, skill.apparatus).find(r => r[0] === binding.code);
       const description = row ? elementDescription(row).split(" // ")[binding.variant || 0] : skill.description;
       const apparatus = codeAppName(skill.gender, skill.apparatus);
-      const title = skill.name || row?.[4] || description;
+      const title = row?.[4] === "Biles II" ? row[4] : skill.name || row?.[4] || description;
       const search = [title, description, skill.description, apparatus, skill.apparatus, skill.gender, row?.[0], row?.[4]].join(" ");
       if (query && !normalizeElementSearch(search).includes(query)) continue;
       const links = skill.clips.map(([youtubeId,start,end], i) => {
@@ -7340,6 +7349,8 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   Object.assign(ACTIONS, {
     tactic: (el) => setTactic(el.dataset.val),
     openCodex: (el) => openCodex(el?.dataset?.val), closeCodex,
+    videoGender: el => { codex.videoGender = el.dataset.val; codex.videoApp = ""; refreshCodexBody(); },
+    videoApp: el => { codex.videoApp = el.dataset.val; refreshCodexBody(); },
     catalogPlay: (el) => {
       const video = {youtubeId: el.dataset.id, start: el.dataset.start, end: el.dataset.end};
       if (!/^[A-Za-z0-9_-]{11}$/.test(video.youtubeId)) return;

@@ -124,6 +124,6 @@
 5.603|Duplo mortal para trás estendido
 5.703|Duplo mortal para trás estendido com ½ pirueta (180°) (Biles)
 5.802|Duplo mortal para trás grupado com 2 piruetas (720°) (Silivas)
-5.802|Duplo mortal para trás grupado com 3 piruetas (1080°) (Biles) – elemento 5.1002, valor J (1,00)
+5.1002|Duplo mortal para trás grupado com 3 piruetas (1080°) (Biles II)
 5.803|Duplo mortal para trás estendido com 1 pirueta (360°) (Chusovitina/Touzhikova)
 5.903|Duplo mortal para trás estendido com 2 piruetas (720°) (Moors)
