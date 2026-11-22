@@ -535,6 +535,7 @@
     .codex-top { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px; }
     .codex-tabs { margin-top:16px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:4px; padding:4px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface-2); position:sticky; top:62px; z-index:20; }
     .codex-tabs button { min-height:44px; border:0; border-radius:9px; background:transparent; font-weight:800; font-size:14px; color:var(--muted); padding:6px 4px; }
+    .codex-tabs { grid-template-columns:repeat(auto-fit,minmax(min(92px,100%),1fr)); }
     .codex-tabs button.active { background:var(--surface); color:var(--text); box-shadow:var(--shadow-sm); }
     .codex-h2 { font-family:var(--disp); font-weight:800; font-size:20px; margin:4px 0 8px; }
     .codex-rules { display:grid; gap:18px; }
@@ -690,7 +691,8 @@
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="achWrap" class="ach-wrap" role="status" aria-live="polite"></div>
   <script src="codigo-data.js?v=pt-elementos-1"></script>
-  <script src="quiz-video-catalog.js?v=upgrade-454"></script>
+  <script src="quiz-video-catalog.js?v=upgrade-review-1"></script>
+  <script src="catalogo-movimentos.js"></script>
   <script>
 /* GymGames — engine v3 (2026-11): Código de Pontuação FIG 2025-2028 integrado (regras, elementos, desafio, montador), tática da equipe, bônus de cravada GAM.
    Antes: engine v2
@@ -6814,7 +6816,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     hideToast();
     const el = document.getElementById("phaseLabel");
     if (el) el.innerHTML = `${icon("check")} ${t("codexTitle")}`;
-    const tabs = [["rules", t("codexTabRules")], ["elements", t("codexTabElements")], ["quiz", t("codexTabQuiz")], ["builder", t("codexTabBuilder")]];
+    const tabs = [["rules", t("codexTabRules")], ["elements", t("codexTabElements")], ["videos", state.lang === "en" ? "Videos" : "Vídeos"], ["quiz", t("codexTabQuiz")], ["builder", t("codexTabBuilder")]];
     app.innerHTML = `
       <section class="screen codex">
         <div class="panel p-4 md:p-6">
@@ -6843,6 +6845,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     if (codex.tab === "rules") return codexRules();
     if (!CODE) return `<p class="ded-empty">${t("codexNoData")}</p>`;
     if (codex.tab === "elements") return codexElements(false);
+    if (codex.tab === "videos") return `<input id="videoSearch" class="input" type="search" aria-label="${t("codexSearch")}" placeholder="${t("codexSearch")}" value="${escapeHTML(codex.videoQuery || "")}"><div id="videoResults">${movementVideos()}</div>`;
     if (codex.tab === "quiz") return codexQuiz();
     return codexBuilder();
   }
@@ -7081,8 +7084,15 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     });
     return out;
   }
-  function quizVideoFor(e) {
-    return (window.GYM_SKILL_VIDEOS || []).find((v) => v.gender === e.g && v.apparatus === e.a && v.code === e.row[0] && (v.variant ?? 0) === e.vi && /^[A-Za-z0-9_-]{11}$/.test(v.youtubeId || ""));
+  const quizVideoIndex = new Map();
+  for (const video of window.GYM_SKILL_VIDEOS || []) {
+    if (!/^[A-Za-z0-9_-]{11}$/.test(video.youtubeId)) continue;
+    const key = [video.gender, video.apparatus, video.code, video.variant ?? 0].join(":");
+    if (!quizVideoIndex.has(key)) quizVideoIndex.set(key, []);
+    quizVideoIndex.get(key).push(video);
+  }
+  function quizClips(e) {
+    return quizVideoIndex.get([e.g, e.a, e.row[0], e.vi].join(":")) || [];
   }
   function skillVideoUrl(video, embed = false) {
     const start = Math.max(0, Math.floor(Number(video.start) || 0));
@@ -7096,6 +7106,26 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     if (!videos.length) return "";
     return `<details class="quiz-credit"><summary>${quizTypeLabel("video")} (${videos.length})</summary>${videos.map((video, index) =>
       `<p><a href="${escapeHTML(skillVideoUrl(video))}" target="_blank" rel="noopener noreferrer">▶ ${index + 1} · ${escapeHTML(elementDescription(row).split(" // ")[video.variant || 0])}</a> · <a href="${escapeHTML(video.skillUrl)}" target="_blank" rel="noopener noreferrer">UpGrade</a></p>`).join("")}</details>`;
+  }
+  const skillBindings = new Map((window.GYM_SKILL_VIDEOS || []).map(v => [v.skillUrl.split("/").pop(), v]));
+  function movementVideos() {
+    const query = normalizeElementSearch(codex.videoQuery || "").trim();
+    const results = [];
+    for (const [id, skill] of Object.entries(window.GYM_VIDEO_MOVEMENTS || {})) {
+      const binding = skillBindings.get(id);
+      const row = binding && codeRows(skill.gender, skill.apparatus).find(r => r[0] === binding.code);
+      const description = row ? elementDescription(row).split(" // ")[binding.variant || 0] : skill.description;
+      const apparatus = codeAppName(skill.gender, skill.apparatus);
+      const title = skill.name || row?.[4] || description;
+      const search = [title, description, skill.description, apparatus, skill.apparatus, skill.gender, row?.[0], row?.[4]].join(" ");
+      if (query && !normalizeElementSearch(search).includes(query)) continue;
+      const links = skill.clips.map(([youtubeId,start,end], i) => {
+        const url = skillVideoUrl({youtubeId,start,end});
+        return `<a class="qlink" target="_blank" rel="noopener noreferrer" href="${escapeHTML(url)}">▶ ${i+1} · ${Math.floor(start/60)}:${String(start%60).padStart(2,"0")}</a>`;
+      });
+      results.push(`<li class="el-row"><div class="el-main"><strong>${escapeHTML(title)}</strong>${title !== description ? `<div>${escapeHTML(description)}</div>` : ""}<div class="el-meta">${skill.gender} · ${escapeHTML(apparatus)} · ${row ? escapeHTML(row[0]) : "UpGrade"}</div><div class="flex flex-wrap gap-3">${links.join("")} <a class="qlink" href="https://www.upgradegymnastics.com/skills/${id}" target="_blank" rel="noopener noreferrer">UpGrade</a></div></div></li>`);
+    }
+    return results.length ? `<ul class="el-list">${results.join("")}</ul>` : `<p class="ded-empty">${t("codexEmpty")}</p>`;
   }
   function quizRulePool() {
     const cfg = quizCfg();
@@ -7133,7 +7163,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function quizLabel(e) { return `${e.g === "WAG" ? t("femaleGym") : t("maleGym")} · ${codeAppName(e.g, e.a)}`; }
   function quizVideoQuestion(pool, used) {
-    for (const e of quizShuffle(pool.filter((entry) => quizVideoFor(entry)))) {
+    for (const e of quizShuffle(pool.filter((entry) => quizClips(entry).length))) {
       const same = codeRows(e.g, e.a).flatMap((row) => elementDescription(row).split(" // ").map((text, vi) => ({ g: e.g, a: e.a, row, vi, text })));
       const kinds = quizShuffle(["description", "value", "code", "group"]);
       for (const kind of kinds) {
@@ -7145,7 +7175,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
         if (distractors.length < 3) continue;
         const options = quizShuffle([e, ...distractors]);
         used.add(key);
-        return { type: "video", videoKind: kind, video: quizVideoFor(e),
+        return { type: "video", videoKind: kind, video: quizPick(quizClips(e)),
           ask: kind === "description" ? qw("askVideo") : kind === "value" ? t("quizAskValue") :
             kind === "code" ? qw("askCode") : t("quizAskGroup"),
           options: options.map((entry) => ({ text: label(entry) })), answer: options.indexOf(e),
@@ -7164,7 +7194,6 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     }
     if (!pool.length) return null;
     let candidates = pool;
-    if (type === "video") candidates = pool.filter((e) => !!quizVideoFor(e));
     if (type === "translation") candidates = pool.filter((e) => e.row[8] && e.row[3]);
     if (type === "eponym") candidates = pool.filter((e) => e.row[4]);
     if (type === "figure" || type === "name" || type === "code") candidates = pool.filter((e) => e.fig);
@@ -7182,15 +7211,14 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
         const start = Math.max(0, Math.min(scale.length - 4, idx - Math.floor(Math.random() * 4)));
         const opts = scale.slice(start, start + 4);
         q = { type, ask: t("quizAskValue"), text: e.text, fig: e.fig ? codeFigure(e.g, e.row, e.vi) : "", options: opts.map((o) => ({ text: String(o) })), answer: opts.indexOf(e.row[2]), big: true };
-      } else if (type === "name" || type === "video" || type === "translation") {
+      } else if (type === "name" || type === "translation") {
         const label = (x) => type === "translation" ? (x.row[8] || "").split(" // ")[x.vi] || x.row[8] : x.text;
         const correct = label(e);
         const d = quizDistractors(same.filter((x) => (type !== "translation" || x.row[8]) && label(x) && label(x) !== correct), e, label);
         if (d.length < 3) continue;
         const opts = quizShuffle([e, ...d]);
-        const ask = type === "name" ? t("quizAskName") : type === "video" ? qw("askVideo") : qw("askTranslation");
-        const sourceVideo = type === "video" ? quizVideoFor(e) : null;
-        q = { type, ask, fig: type === "name" ? codeFigure(e.g, e.row, e.vi) : "", text: type === "translation" ? (e.row[3] || "").split(" // ")[e.vi] || e.row[3] : "", video: sourceVideo, options: opts.map((o) => ({ text: label(o) })), answer: opts.indexOf(e) };
+        const ask = type === "name" ? t("quizAskName") : qw("askTranslation");
+        q = { type, ask, fig: type === "name" ? codeFigure(e.g, e.row, e.vi) : "", text: type === "translation" ? (e.row[3] || "").split(" // ")[e.vi] || e.row[3] : "", options: opts.map((o) => ({ text: label(o) })), answer: opts.indexOf(e) };
       } else if (type === "figure") {
         const d = quizDistractors(same.filter((x) => x.fig), e, (x) => x.row[0] + "-" + x.vi); if (d.length < 3) continue;
         const opts = quizShuffle([e, ...d]);
@@ -7227,7 +7255,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function quizStart() {
     const cfg = quizCfg(), pool = quizPool();
-    const types = cfg.types.filter((ty) => ty === "rule" ? quizRulePool().length : ty === "video" ? pool.some(quizVideoFor) : pool.length);
+    const types = cfg.types.filter((ty) => ty === "rule" ? quizRulePool().length : ty === "video" ? pool.some(e => quizClips(e).length) : pool.length);
     if (!cfg.apps.length || !cfg.types.length) { showToast(qw("min")); return; }
     if (!types.length) { showToast(qw("none")); return; }
     const used = new Set(), qs = [], exhausted = new Set();
@@ -7260,7 +7288,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
   function quizSetup() {
     const cfg = quizCfg(), pool = quizPool();
-    const clips = new Set(pool.map(quizVideoFor).filter(Boolean).map((video) => video.youtubeId)).size;
+    const clips = pool.reduce((total, e) => total + quizClips(e).length, 0);
     const appBtn = (g, a) => { const k = `${g}-${a}`, on = cfg.apps.includes(k); return `<button class="qchip ${on ? "active" : ""}" data-act="quizApp" data-val="${k}" aria-pressed="${on}">${appIconSvg(a.toLowerCase(), 18)}<span>${escapeHTML(codeAppName(g, a))}</span></button>`; };
     const sexBlock = (g, label) => `<div class="qset"><div class="qset-head"><span class="field-label">${label}</span><button class="qlink" data-act="quizSex" data-val="${g}">${CODE_APPS[g].every((a) => cfg.apps.includes(`${g}-${a}`)) ? t("quizNone") : t("quizAll")}</button></div><div class="qchips">${CODE_APPS[g].map((a) => appBtn(g, a)).join("")}</div></div>`;
     return `<div class="quiz-setup">
@@ -7330,6 +7358,11 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   });
   let codexSearchTimer = null;
   document.addEventListener("input", (e) => {
+    if (e.target?.id === "videoSearch") {
+      codex.videoQuery = e.target.value;
+      document.getElementById("videoResults").innerHTML = movementVideos();
+      return;
+    }
     if (e.target?.id !== "codexSearch") return;
     codex.q = e.target.value; codex.limit = 40;
     clearTimeout(codexSearchTimer);
