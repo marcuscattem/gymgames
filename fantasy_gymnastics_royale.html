@@ -645,6 +645,16 @@
     .el-figs { display:grid; gap:6px; margin-top:6px; max-width:360px; }
     .el-figs:empty { display:none; }
     .el-figs .qimg { border:1px solid var(--line); }
+    .quiz-home { border:2px solid var(--accent); box-shadow:var(--shadow-sm); }
+    .quiz-home .btn { min-width:146px; }
+    .quiz-filter-summary { display:flex; flex-wrap:wrap; gap:10px 20px; border:1px solid var(--line); border-radius:10px; background:var(--surface-2); padding:12px 14px; font-size:13px; font-weight:700; }
+    .quiz-filter-summary b { font-family:var(--disp); font-size:19px; color:var(--accent); }
+    .quiz-video { width:100%; aspect-ratio:16/9; overflow:hidden; margin:12px 0 4px; border-radius:12px; background:#000; }
+    .quiz-video iframe { width:100%; height:100%; border:0; display:block; }
+    .quiz-credit { margin-top:6px; font-size:12px; color:var(--muted); line-height:1.55; }
+    .quiz-credit a { color:var(--accent); text-decoration:underline; text-underline-offset:2px; }
+    .quiz .quiz-opts-text .quiz-opt { font-size:13.5px; line-height:1.4; min-height:54px; }
+    @media (max-width:560px) { .quiz-home .btn { width:100%; } .quiz-video { margin-top:8px; } .quiz-score { font-size:56px; } }
   </style>
 </head>
 <body>
@@ -680,6 +690,7 @@
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="achWrap" class="ach-wrap" role="status" aria-live="polite"></div>
   <script src="codigo-data.js?v=pt-elementos-1"></script>
+  <script src="quiz-video-catalog.js?v=upgrade-454"></script>
   <script>
 /* GymGames — engine v3 (2026-11): Código de Pontuação FIG 2025-2028 integrado (regras, elementos, desafio, montador), tática da equipe, bônus de cravada GAM.
    Antes: engine v2
@@ -3467,6 +3478,16 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
             </div>
           </div>
           <div class="grid gap-4 content-start">
+            <div class="quiz-home panel p-4">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div><p class="kicker">FIG 2025–2028</p>
+                  <h2 class="display text-2xl mt-1">${qw("home")}</h2>
+                  <p class="sub mt-1">${qw("homeSub")}</p>
+                </div>
+                <button class="btn btn-primary" data-act="openCodex" data-val="quiz">${icon("play")} ${qw("play")}</button>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-3"><span class="chip">${t("quizType_name")}</span><span class="chip">${t("quizType_rule")}</span><span class="chip">${quizTypeLabel("video")}</span></div>
+            </div>
             ${arenaArt()}
             <button class="codex-card" data-act="openCodex">
               <span class="codex-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h6M9 12h4"/></svg></span>
@@ -6868,7 +6889,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       const on = builder && picks.has(r[0]);
       return `${head}<li class="el-row ${on ? "picked" : ""}">
         ${valueBadge(codex.app, r)}
-        <div class="el-main"><div class="el-desc">${escapeHTML(elementDescription(r)).split(" // ").join('<span class="el-or"> ou </span>')}</div><div class="el-meta"><span>${escapeHTML(r[0])}</span>${codex.app !== "VT" ? `<span>${codePts(codex.app, r).toFixed(1)} pt</span>` : ""}${r[5] ? `<span>${t("codexDance")}</span>` : ""}${r[4] ? `<span class="el-name">${escapeHTML(r[4])}</span>` : ""}${(r[7] || []).some(Boolean) ? `<button class="qlink" data-act="codexFig" data-id="${escapeHTML(r[0])}">${t("codexFig")}</button>` : ""}</div><div class="el-figs"></div></div>
+        <div class="el-main"><div class="el-desc">${escapeHTML(elementDescription(r)).split(" // ").join('<span class="el-or"> ou </span>')}</div><div class="el-meta"><span>${escapeHTML(r[0])}</span>${codex.app !== "VT" ? `<span>${codePts(codex.app, r).toFixed(1)} pt</span>` : ""}${r[5] ? `<span>${t("codexDance")}</span>` : ""}${r[4] ? `<span class="el-name">${escapeHTML(r[4])}</span>` : ""}${(r[7] || []).some(Boolean) ? `<button class="qlink" data-act="codexFig" data-id="${escapeHTML(r[0])}">${t("codexFig")}</button>` : ""}</div><div class="el-figs"></div>${elementVideoLinks(r)}</div>
         ${builder ? `<button class="btn ${on ? "btn-danger" : "btn-secondary"} btn-icon el-add" data-act="codexPick" data-id="${escapeHTML(r[0])}" aria-label="${on ? t("codexRemove") : t("codexAdd")}">${on ? icon("x") : icon("plus")}</button>` : ""}
       </li>`;
     }).join("");
@@ -6964,15 +6985,65 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   }
 
   /* ---------- Desafio do Código (quiz configurável por aparelho e tipo de pergunta) ---------- */
+  /* GymGames · Quiz 2.0: perguntas FIG, traduções, comparação e vídeo externo verificado. */
   const QUIZ_CFG_KEY = "gym-royale-quiz-cfg";
-  const QUIZ_TYPES = ["value", "name", "figure", "eponym", "group", "rule"];
+  const QUIZ_TYPES = ["value", "name", "figure", "eponym", "group", "rule", "code", "translation", "compare", "video"];
+  const QUIZ_LEVELS = ["all", "basic", "intermediate", "advanced", "vault"];
   const PAGE_RATIO = 841.92 / 595.32;
+  const QUIZ_EXTRA_RULES = [
+    ["Qual é a dedução por uma falha pequena de execução?", ["0,10", "0,20", "0,30", "0,50"], 0, "ALL"],
+    ["Qual é a dedução por uma falha grande de execução?", ["0,30", "0,50", "0,80", "1,00"], 1, "ALL"],
+    ["O valor de dificuldade F corresponde a quantos pontos?", ["0,4", "0,5", "0,6", "0,7"], 2, "ALL"],
+    ["O valor de dificuldade H corresponde a quantos pontos?", ["0,6", "0,7", "0,8", "0,9"], 2, "ALL"],
+    ["O valor de dificuldade J corresponde a quantos pontos?", ["0,8", "0,9", "1,0", "1,1"], 2, "ALL"],
+    ["Na GAF, qual é o máximo de requisitos de composição por aparelho (exceto salto)?", ["2", "3", "4", "5"], 2, "WAG"],
+    ["Quanto vale cada requisito de composição (CR) na GAF?", ["0,10", "0,20", "0,30", "0,50"], 3, "WAG"],
+    ["Na GAF, quantos elementos de dança no mínimo devem estar entre os 8 que contam na trave e solo?", ["2", "3", "4", "5"], 1, "WAG", "BB,FX"],
+    ["Na GAF, quantos elementos acrobáticos no mínimo devem estar entre os 8 que contam na trave e solo?", ["2", "3", "4", "5"], 1, "WAG", "BB,FX"],
+    ["Qual é o tempo máximo de exercício no solo feminino?", ["60 s", "70 s", "90 s", "120 s"], 2, "WAG", "FX"],
+    ["Qual aparelho feminino utiliza série com música sem letra?", ["Barras assimétricas", "Trave", "Solo", "Salto"], 2, "WAG", "FX"],
+    ["Quantas linhas acrobáticas são permitidas no máximo no solo feminino?", ["3", "4", "5", "6"], 1, "WAG", "FX"],
+    ["Na GAF, qual é o bônus de série acrobática B+B+C na trave?", ["0,00", "+0,10", "+0,20", "+0,30"], 1, "WAG", "BB"],
+    ["Na GAF, qual é o bônus de saída D ou superior sem queda?", ["0,10", "0,20", "0,30", "0,50"], 1, "WAG"],
+    ["Na final de salto da GAF, quantos saltos são apresentados?", ["1", "2", "3", "4"], 1, "WAG", "VT"],
+    ["Na GAM, como se formam os 8 elementos que contam na dificuldade?", ["8 quaisquer", "7 melhores + saída", "6 melhores + 2 saídas", "Todos da série"], 1, "MAG"],
+    ["Na GAM, qual é o máximo de elementos que contam de um mesmo grupo?", ["2", "3", "4", "5"], 2, "MAG"],
+    ["Na GAM, qual o valor do requisito do grupo I quando cumprido?", ["0,1", "0,3", "0,5", "0,7"], 2, "MAG"],
+    ["Na GAM, grupo II ou III com elemento A, B ou C concede quanto?", ["0,1", "0,3", "0,5", "0,7"], 1, "MAG"],
+    ["Na GAM, grupo II ou III com elemento D ou superior concede quanto?", ["0,1", "0,3", "0,5", "0,7"], 2, "MAG"],
+    ["Na GAM, qual aparelho exige posições estáticas de força mantidas por 2 segundos?", ["Solo", "Argolas", "Barra fixa", "Paralelas"], 1, "MAG", "SR"],
+    ["Na GAM, quantas posições de força/estáticas podem aparecer seguidas nas argolas no máximo?", ["2", "3", "4", "5"], 1, "MAG", "SR"],
+    ["Na GAM, em qual aparelho uma cravada não gera o bônus de 0,1?", ["Cavalo com alças", "Argolas", "Solo", "Barra fixa"], 0, "MAG", "PH"],
+    ["Qual o tempo máximo do solo masculino?", ["60 s", "70 s", "90 s", "120 s"], 1, "MAG", "FX"],
+    ["Na GAM, ligação no solo entre dois elementos D ou superiores pode render quanto?", ["0,0", "0,1", "0,2", "0,4"], 2, "MAG", "FX"],
+    ["Na GAM, qual bônus uma saída de valor F pode gerar pelo grupo de saída (onde aplicável)?", ["0,2", "0,4", "0,6", "1,0"], 2, "MAG"],
+    ["Na final por equipes, quantos atletas por equipe competem e têm notas contabilizadas em cada aparelho?", ["2", "3", "4", "5"], 1, "ALL"],
+    ["Qual o número de finalistas do individual geral na simulação do GymGames?", ["8", "12", "24", "32"], 2, "ALL"],
+    ["No GymGames, quantos atletas no máximo de um país avançam por final individual?", ["1", "2", "3", "4"], 1, "ALL"],
+    ["Na final de salto, como é calculada a nota final?", ["Maior nota", "Menor nota", "Média de dois saltos", "Soma dos dois saltos"], 2, "ALL", "VT"]
+  ];
+  /* Escopos das perguntas legadas: impedem perguntas exclusivas da GAF em desafios GAM. */
+  const QUIZ_LEGACY_RULE_SCOPE = ["ALL", "WAG", "WAG", "WAG", "MAG", "MAG", "MAG", "MAG", "WAG", "ALL", "ALL", "ALL", "MAG", "ALL", "WAG", "MAG"];
+  const QUIZ_LEGACY_RULE_APP = ["", "", "", "", "", "", "PH", "FX", "BB", "", "VT", "", "SR", "", "FX", ""];
+  const QUIZ_WORDS = {
+    "pt-BR": { home: "Quiz de Ginástica", homeSub: "Desafio interativo: figuras, dificuldade, regras e movimentos em vídeo.", play: "Jogar quiz", level: "Dificuldade", levels: ["Todas", "A–C", "D–F", "G–J", "Somente saltos"], named: "Apenas elementos nomeados", search: "Buscar elemento, código ou ginasta", apply: "Aplicar filtro", filtered: "Elementos no filtro", clips: "Vídeos verificados", note: "Os vídeos vêm dos autores originais. Só aparecem perguntas de vídeo com correspondência FIG verificada.", source: "Fonte do vídeo", original: "Abrir vídeo original", askVideo: "Qual descrição completa corresponde ao movimento no vídeo?", askCode: "Qual é o código FIG deste elemento?", askTranslation: "Qual é a descrição completa em português deste elemento?", askCompare: "Qual destes elementos tem o MAIOR valor de dificuldade?", videoEmpty: "Nenhum vídeo verificado corresponde aos filtros atuais. Selecione Cavalo com alças (GAM) e inclua elementos de valor C; outras perguntas continuam disponíveis.", none: "Não há questões possíveis com essa combinação de filtros.", min: "Pelo menos um aparelho e um tipo de pergunta precisam estar selecionados.", filterAll: "Todos", filterNone: "Nenhum", mix: "Tipos", groups: "Aparelhos", preset: "Selecionar", noMedia: "Se a incorporação estiver bloqueada, abra o vídeo original.", qTypes: { video: "Vídeo: reconhecer movimento", code: "Código FIG", translation: "Descrição inglês → português", compare: "Maior dificuldade" } },
+    en: { home: "Gymnastics Quiz", homeSub: "Figures, difficulty, rules and real movement videos.", play: "Play quiz", level: "Difficulty", levels: ["All", "A–C", "D–F", "G–J", "Vault only"], named: "Named elements only", search: "Find element, code or gymnast", apply: "Apply filter", filtered: "Matching elements", clips: "Verified videos", note: "Video remains with its original publisher. Only verified Code of Points matches can become video questions.", source: "Video source", original: "Watch original", askVideo: "Which full description matches the movement in the video?", askCode: "What is this element's FIG code?", askTranslation: "Which is the complete Portuguese description?", askCompare: "Which element has the HIGHEST difficulty value?", videoEmpty: "No verified video matches the current filters; other question types remain available.", none: "No questions are available with these filters.", min: "Select at least one apparatus and question type.", filterAll: "All", filterNone: "None", noMedia: "If embedding is blocked, watch the original video.", qTypes: { video: "Video movement ID", code: "FIG code", translation: "English → Portuguese", compare: "Highest difficulty" } },
+    es: { home: "Quiz de Gimnasia", homeSub: "Figuras, dificultad, reglas y movimientos en vídeo.", play: "Jugar quiz", level: "Dificultad", levels: ["Todas", "A–C", "D–F", "G–J", "Solo saltos"], named: "Solo elementos con nombre", search: "Buscar elemento, código o gimnasta", apply: "Aplicar filtro", filtered: "Elementos encontrados", clips: "Vídeos verificados", note: "Los vídeos permanecen en sus fuentes originales y se cotejan con el código FIG.", source: "Fuente del vídeo", original: "Ver vídeo original", askVideo: "¿Qué descripción completa corresponde al movimiento del vídeo?", askCode: "¿Cuál es el código FIG de este elemento?", askTranslation: "¿Cuál es la descripción completa en portugués?", askCompare: "¿Qué elemento tiene el MAYOR valor de dificultad?", videoEmpty: "No hay vídeos verificados con estos filtros; otras preguntas siguen disponibles.", none: "No hay preguntas para estos filtros.", min: "Seleccione al menos un aparato y un tipo.", filterAll: "Todas", filterNone: "Ninguno", noMedia: "Si el vídeo no se integra, ábralo en su sitio original.", qTypes: { video: "Vídeo: identificar movimiento", code: "Código FIG", translation: "Inglés → portugués", compare: "Mayor dificultad" } }
+  };
+  function qw(k) { return (QUIZ_WORDS[state.lang] || QUIZ_WORDS["pt-BR"])[k]; }
+  function quizTypeLabel(k) { return qw("qTypes")[k] || t("quizType_" + k); }
   function quizAllApps() { return [...CODE_APPS.WAG.map((a) => "WAG-" + a), ...CODE_APPS.MAG.map((a) => "MAG-" + a)]; }
   function quizCfg() {
     if (codex.qcfg) return codex.qcfg;
-    let c = null; try { c = JSON.parse(localStorage.getItem(QUIZ_CFG_KEY) || "null"); } catch (e) {}
-    if (!c || !Array.isArray(c.apps) || !Array.isArray(c.types)) c = { apps: quizAllApps(), types: [...QUIZ_TYPES], n: 10 };
-    c.apps = c.apps.filter((k) => quizAllApps().includes(k)); c.types = c.types.filter((k) => QUIZ_TYPES.includes(k));
+    let c = null;
+    try { c = JSON.parse(localStorage.getItem(QUIZ_CFG_KEY) || "null"); } catch (e) {}
+    if (!c || !Array.isArray(c.apps) || !Array.isArray(c.types)) c = { apps: quizAllApps(), types: [...QUIZ_TYPES], n: 10, level: "all", onlyNamed: false, q: "" };
+    c.apps = [...new Set(c.apps)].filter((k) => quizAllApps().includes(k));
+    c.types = [...new Set(c.types)].filter((k) => QUIZ_TYPES.includes(k));
+    if (!QUIZ_LEVELS.includes(c.level)) c.level = "all";
+    c.onlyNamed = !!c.onlyNamed;
+    c.q = typeof c.q === "string" ? c.q.slice(0, 100) : "";
+    c.n = [5, 10, 20, 30, 40].includes(Number(c.n)) ? Number(c.n) : 10;
     return (codex.qcfg = c);
   }
   function quizSaveCfg() { try { localStorage.setItem(QUIZ_CFG_KEY, JSON.stringify(quizCfg())); } catch (e) {} }
@@ -6986,83 +7057,189 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const px = w >= 1 ? 0 : (x / (1 - w)) * 100, py = h >= 1 ? 0 : (y / (1 - h)) * 100;
     return `<div class="qimg ${cls}" role="img" aria-label="${t("quizFigAlt")}" style="aspect-ratio:${(w * PAGE_RATIO).toFixed(4)}/${h.toFixed(4)};background-image:url('${file}');background-size:${(100 / w).toFixed(2)}% ${(100 / h).toFixed(2)}%;background-position:${px.toFixed(2)}% ${py.toFixed(2)}%"></div>`;
   }
-  // Lista de variantes (cada desenho/descrição de uma caixa da tabela) dos aparelhos marcados
+  function quizMatchLevel(e, level) {
+    if (level === "all") return true;
+    if (level === "vault") return e.a === "VT";
+    if (e.a === "VT") return false;
+    const v = codePts(e.a, e.row);
+    return level === "basic" ? v <= 0.3 : level === "intermediate" ? v >= 0.4 && v <= 0.6 : v >= 0.7;
+  }
+  /* As descrições vêm sempre por inteiro do JSON FIG; não remover os epônimos entre parênteses. */
   function quizPool() {
-    const out = [];
-    quizCfg().apps.forEach((k) => {
+    const cfg = quizCfg(), q = normalizeElementSearch(cfg.q.trim()), out = [];
+    cfg.apps.forEach((k) => {
       const [g, a] = k.split("-");
-      codeRows(g, a).forEach((row) => elementDescription(row).split(" // ").forEach((text, vi) => out.push({ g, a, row, vi, text, fig: !!(row[7] && row[7][vi]) })));
+      codeRows(g, a).forEach((row) => {
+        if (cfg.onlyNamed && !row[4]) return;
+        elementDescription(row).split(" // ").forEach((text, vi) => {
+          const e = { g, a, row, vi, text, fig: !!(row[7] && row[7][vi]) };
+          if (!quizMatchLevel(e, cfg.level)) return;
+          if (q && !normalizeElementSearch([row[0], row[3], row[4], row[8]].join(" ")).includes(q)) return;
+          out.push(e);
+        });
+      });
     });
     return out;
   }
-  function stripNames(text) { return text.replace(/\s*\((?![0-9½¼¾])[A-ZÀ-Ý][^()°]*\)/g, "").trim(); }
+  function quizVideoFor(e) {
+    return (window.GYM_SKILL_VIDEOS || []).find((v) => v.gender === e.g && v.apparatus === e.a && v.code === e.row[0] && (v.variant ?? 0) === e.vi && /^[A-Za-z0-9_-]{11}$/.test(v.youtubeId || ""));
+  }
+  function skillVideoUrl(video, embed = false) {
+    const start = Math.max(0, Math.floor(Number(video.start) || 0));
+    const end = Math.floor(Number(video.end) || 0);
+    return embed ? `https://www.youtube-nocookie.com/embed/${video.youtubeId}?start=${start}${end > start ? "&end=" + end : ""}` :
+      `https://www.youtube.com/watch?v=${video.youtubeId}&t=${start}s`;
+  }
+  function elementVideoLinks(row) {
+    const videos = (window.GYM_SKILL_VIDEOS || []).filter((video) =>
+      video.gender === codex.gender && video.apparatus === codex.app && video.code === row[0]);
+    if (!videos.length) return "";
+    return `<details class="quiz-credit"><summary>${quizTypeLabel("video")} (${videos.length})</summary>${videos.map((video, index) =>
+      `<p><a href="${escapeHTML(skillVideoUrl(video))}" target="_blank" rel="noopener noreferrer">▶ ${index + 1} · ${escapeHTML(elementDescription(row).split(" // ")[video.variant || 0])}</a> · <a href="${escapeHTML(video.skillUrl)}" target="_blank" rel="noopener noreferrer">UpGrade</a></p>`).join("")}</details>`;
+  }
+  function quizRulePool() {
+    const cfg = quizCfg();
+    const apps = cfg.apps.filter((key) => cfg.level === "vault" ? key.endsWith("-VT") :
+      cfg.level === "all" || !key.endsWith("-VT"));
+    if (cfg.onlyNamed) return [];
+    const allow = (scope, app) => {
+      if (!apps.length) return false;
+      if (scope !== "ALL" && !apps.some((k) => k.startsWith(scope + "-"))) return false;
+      if (app) return app.split(",").some((a) => apps.some((k) => k.endsWith("-" + a) && (scope === "ALL" || k.startsWith(scope + "-"))));
+      return true;
+    };
+    const legacy = CODEX_QUIZ_RULES.map((q, i) => ({ id: "r" + i, q, scope: QUIZ_LEGACY_RULE_SCOPE[i] || "ALL", app: QUIZ_LEGACY_RULE_APP[i] || "" }));
+    const extra = QUIZ_EXTRA_RULES.map((q, i) => ({ id: "x" + i, q, scope: q[3] || "ALL", app: q[4] || "" }));
+    const arithmetic = [];
+    for (const deduction of [0.1, 0.3, 0.5, 1]) {
+      for (const difficulty of [4, 5, 6, 7]) {
+        const correct = (difficulty + 9 - deduction).toFixed(2);
+        arithmetic.push({ id: "score-" + difficulty + "-" + deduction, scope: "ALL", app: "",
+          q: [`GymGames: nota D ${difficulty.toFixed(1)}, execução 9,00 e penalidade neutra ${deduction.toFixed(2)}. Qual é a nota final?`,
+            [correct, (Number(correct) + 0.1).toFixed(2), (Number(correct) + 0.5).toFixed(2), (Number(correct) - 1).toFixed(2)], 0] });
+      }
+    }
+    const query = normalizeElementSearch(cfg.q.trim());
+    return [...legacy, ...extra, ...arithmetic].filter((r) => allow(r.scope, r.app) &&
+      (!query || normalizeElementSearch(r.q[0] + " " + r.q[1].join(" ")).includes(query)));
+  }
   function quizSameApp(pool, e) { return pool.filter((x) => x.g === e.g && x.a === e.a); }
   function quizDistractors(cands, e, keyFn, n = 3) {
-    const seen = new Set([keyFn(e)]); const out = [];
-    const sameGroup = quizShuffle(cands.filter((x) => x.row[1] === e.row[1])), rest = quizShuffle(cands.filter((x) => x.row[1] !== e.row[1]));
-    for (const x of [...sameGroup, ...rest]) { const k = keyFn(x); if (seen.has(k)) continue; seen.add(k); out.push(x); if (out.length >= n) break; }
+    const seen = new Set([keyFn(e)]), out = [];
+    const same = quizShuffle(cands.filter((x) => x.row[1] === e.row[1]));
+    const rest = quizShuffle(cands.filter((x) => x.row[1] !== e.row[1]));
+    for (const x of [...same, ...rest]) { const k = keyFn(x); if (seen.has(k)) continue; seen.add(k); out.push(x); if (out.length >= n) break; }
     return out;
   }
   function quizLabel(e) { return `${e.g === "WAG" ? t("femaleGym") : t("maleGym")} · ${codeAppName(e.g, e.a)}`; }
+  function quizVideoQuestion(pool, used) {
+    for (const e of quizShuffle(pool.filter((entry) => quizVideoFor(entry)))) {
+      const same = codeRows(e.g, e.a).flatMap((row) => elementDescription(row).split(" // ").map((text, vi) => ({ g: e.g, a: e.a, row, vi, text })));
+      const kinds = quizShuffle(["description", "value", "code", "group"]);
+      for (const kind of kinds) {
+        const key = `video-${e.g}-${e.a}-${e.row[0]}-${e.vi}-${kind}`;
+        if (used.has(key)) continue;
+        const label = (entry) => kind === "description" ? entry.text : kind === "value" ? String(entry.row[2]) :
+          kind === "code" ? String(entry.row[0]) : codeGroupName(entry.g, entry.a, entry.row[1]);
+        const distractors = quizDistractors(same, e, label);
+        if (distractors.length < 3) continue;
+        const options = quizShuffle([e, ...distractors]);
+        used.add(key);
+        return { type: "video", videoKind: kind, video: quizVideoFor(e),
+          ask: kind === "description" ? qw("askVideo") : kind === "value" ? t("quizAskValue") :
+            kind === "code" ? qw("askCode") : t("quizAskGroup"),
+          options: options.map((entry) => ({ text: label(entry) })), answer: options.indexOf(e),
+          info: quizInfo(e), reveal: e.text };
+      }
+    }
+    return null;
+  }
   function quizInfo(e) { return `${e.row[0]} · ${e.a === "VT" ? e.row[2] : e.row[2] + " (" + codePts(e.a, e.row).toFixed(1) + ")"} · ${codeGroupName(e.g, e.a, e.row[1])}`; }
   function quizMake(type, pool, used) {
+    if (type === "video") return quizVideoQuestion(pool, used);
     if (type === "rule") {
-      const free = CODEX_QUIZ_RULES.map((q, i) => i).filter((i) => !used.has("r" + i)); if (!free.length) return null;
-      const i = quizPick(free); used.add("r" + i); const q = CODEX_QUIZ_RULES[i];
-      return { type, ask: t("quizAskRule"), text: q[0], options: q[1].map((o) => ({ text: o })), answer: q[2], info: "" };
+      const free = quizRulePool().filter((r) => !used.has("rule-" + r.id)); if (!free.length) return null;
+      const r = quizPick(free); used.add("rule-" + r.id);
+      return { type, ask: t("quizAskRule"), text: r.q[0], options: r.q[1].map((o) => ({ text: o })), answer: r.q[2], info: "" };
     }
-    for (let tries = 0; tries < 40; tries++) {
-      const e = quizPick(pool); const key = `${type}-${e.g}-${e.a}-${e.row[0]}-${e.vi}`;
+    if (!pool.length) return null;
+    let candidates = pool;
+    if (type === "video") candidates = pool.filter((e) => !!quizVideoFor(e));
+    if (type === "translation") candidates = pool.filter((e) => e.row[8] && e.row[3]);
+    if (type === "eponym") candidates = pool.filter((e) => e.row[4]);
+    if (type === "figure" || type === "name" || type === "code") candidates = pool.filter((e) => e.fig);
+    if (!candidates.length) return null;
+    /* Todo elemento elegível é examinado em ordem embaralhada, evitando desperdiçar vídeos escassos. */
+    for (const e of quizShuffle(candidates)) {
+      const key = `${type}-${e.g}-${e.a}-${e.row[0]}-${e.vi}`;
       if (used.has(key)) continue;
-      const same = quizSameApp(pool, e); let q = null;
+      const same = codeRows(e.g, e.a).flatMap((row) => elementDescription(row).split(" // ").map((text, vi) =>
+        ({ g: e.g, a: e.a, row, vi, text, fig: !!(row[7] && row[7][vi]) })));
+      let q = null;
       if (type === "value") {
-        if (e.text.length > 170) continue;
         const scale = e.a === "VT" ? [...new Set(codeRows(e.g, e.a).map((x) => x[2]))].sort((x, y) => Number(x) - Number(y)) : "ABCDEFGHIJ".split("");
-        const idx = scale.indexOf(e.row[2]); if (idx < 0) continue;
+        const idx = scale.indexOf(e.row[2]); if (idx < 0 || scale.length < 4) continue;
         const start = Math.max(0, Math.min(scale.length - 4, idx - Math.floor(Math.random() * 4)));
         const opts = scale.slice(start, start + 4);
-        const safeFig = e.fig && e.a !== "VT" && !(e.g === "MAG" && "FGHIJ".includes(e.row[2]));
-        q = { type, ask: t("quizAskValue"), text: e.text, fig: safeFig ? codeFigure(e.g, e.row, e.vi) : "", options: opts.map((o) => ({ text: String(o) })), answer: opts.indexOf(e.row[2]), big: true };
-      } else if (type === "name") {
-        if (!e.fig || e.text.length > 150) continue;
-        const d = quizDistractors(same.filter((x) => x.text.length <= 150), e, (x) => x.text); if (d.length < 3) continue;
+        q = { type, ask: t("quizAskValue"), text: e.text, fig: e.fig ? codeFigure(e.g, e.row, e.vi) : "", options: opts.map((o) => ({ text: String(o) })), answer: opts.indexOf(e.row[2]), big: true };
+      } else if (type === "name" || type === "video" || type === "translation") {
+        const label = (x) => type === "translation" ? (x.row[8] || "").split(" // ")[x.vi] || x.row[8] : x.text;
+        const correct = label(e);
+        const d = quizDistractors(same.filter((x) => (type !== "translation" || x.row[8]) && label(x) && label(x) !== correct), e, label);
+        if (d.length < 3) continue;
         const opts = quizShuffle([e, ...d]);
-        q = { type, ask: t("quizAskName"), fig: codeFigure(e.g, e.row, e.vi), options: opts.map((o) => ({ text: o.text })), answer: opts.indexOf(e) };
+        const ask = type === "name" ? t("quizAskName") : type === "video" ? qw("askVideo") : qw("askTranslation");
+        const sourceVideo = type === "video" ? quizVideoFor(e) : null;
+        q = { type, ask, fig: type === "name" ? codeFigure(e.g, e.row, e.vi) : "", text: type === "translation" ? (e.row[3] || "").split(" // ")[e.vi] || e.row[3] : "", video: sourceVideo, options: opts.map((o) => ({ text: label(o) })), answer: opts.indexOf(e) };
       } else if (type === "figure") {
-        if (!e.fig || e.text.length > 170) continue;
         const d = quizDistractors(same.filter((x) => x.fig), e, (x) => x.row[0] + "-" + x.vi); if (d.length < 3) continue;
         const opts = quizShuffle([e, ...d]);
         q = { type, ask: t("quizAskFigure"), text: e.text, options: opts.map((o) => ({ fig: codeFigure(o.g, o.row, o.vi, "qimg-opt") })), answer: opts.indexOf(e) };
       } else if (type === "eponym") {
         const m = e.text.match(/\(((?![0-9½¼¾])[A-ZÀ-Ý][^()°]*)\)\.?\s*$/); if (!m || !e.row[4] || !e.row[4].includes(m[1].trim())) continue;
-        const name = m[1].trim(); const base = stripNames(e.text); if (base.length < 12 || base.length > 170) continue;
+        const name = m[1].trim(); const base = e.text.replace(/\s*\([^()]*\)\.?\s*$/, "").trim();
         const names = [...new Set(same.flatMap((x) => (x.row[4] || "").split(", ")).filter((n) => n && n !== name && !e.row[4].includes(n)))];
         if (names.length < 3) continue;
         const opts = quizShuffle([name, ...quizShuffle(names).slice(0, 3)]);
         q = { type, ask: t("quizAskEponym"), text: base, options: opts.map((o) => ({ text: o })), answer: opts.indexOf(name) };
       } else if (type === "group") {
-        const groups = Object.keys(CODE?.groups?.[e.g]?.[e.a] || {}); if (groups.length < 3 || e.text.length > 170) continue;
-        let opts = quizShuffle(groups.filter((x) => x !== e.row[1])).slice(0, 3); opts = quizShuffle([e.row[1], ...opts]);
-        q = { type, ask: t("quizAskGroup"), text: stripNames(e.text), options: opts.map((o) => ({ text: codeGroupName(e.g, e.a, o) })), answer: opts.indexOf(e.row[1]) };
+        const groups = Object.keys(CODE?.groups?.[e.g]?.[e.a] || {}); if (groups.length < 4) continue;
+        const opts = quizShuffle([e.row[1], ...quizShuffle(groups.filter((x) => x !== e.row[1])).slice(0, 3)]);
+        q = { type, ask: t("quizAskGroup"), text: e.text, options: opts.map((o) => ({ text: codeGroupName(e.g, e.a, o) })), answer: opts.indexOf(e.row[1]) };
+      } else if (type === "code") {
+        const d = quizDistractors(same.filter((x) => x.fig), e, (x) => x.row[0]); if (d.length < 3) continue;
+        const opts = quizShuffle([e, ...d]);
+        q = { type, ask: qw("askCode"), fig: codeFigure(e.g, e.row, e.vi), options: opts.map((o) => ({ text: String(o.row[0]) })), answer: opts.indexOf(e), big: true };
+      } else if (type === "compare") {
+        const grade = (x) => codePts(x.a, x.row);
+        const others = quizShuffle(quizSameApp(pool, e).filter((x) => x.text !== e.text && grade(x) < grade(e)));
+        const chosen = [], usedText = new Set([e.text]);
+        for (const x of others) { if (usedText.has(x.text)) continue; usedText.add(x.text); chosen.push(x); if (chosen.length === 3) break; }
+        if (chosen.length < 3) continue;
+        const opts = quizShuffle([e, ...chosen]);
+        q = { type, ask: qw("askCompare"), options: opts.map((o) => ({ text: o.text })), answer: opts.indexOf(e) };
       }
       if (!q) continue;
-      used.add(key); q.sub = quizLabel(e); q.info = `${quizInfo(e)}${e.row[4] ? " · " + e.row[4] : ""}`; q.reveal = type === "figure" ? "" : e.text;
+      used.add(key); q.sub = quizLabel(e); q.info = quizInfo(e); q.reveal = e.text;
       return q;
     }
     return null;
   }
   function quizStart() {
-    const cfg = quizCfg(); const pool = quizPool();
-    const types = cfg.types.filter((ty) => ty === "rule" || pool.length);
-    if (!types.length) { showToast(t("quizPickSomething")); return; }
-    const used = new Set(); const qs = [];
-    let guard = 0;
-    while (qs.length < cfg.n && guard++ < cfg.n * 12) {
-      const ty = types[(qs.length + guard) % types.length];
-      const q = quizMake(ty === "rule" && Math.random() < 0.5 && types.length > 1 ? quizPick(types) : ty, pool, used);
-      if (q) qs.push(q);
+    const cfg = quizCfg(), pool = quizPool();
+    const types = cfg.types.filter((ty) => ty === "rule" ? quizRulePool().length : ty === "video" ? pool.some(quizVideoFor) : pool.length);
+    if (!cfg.apps.length || !cfg.types.length) { showToast(qw("min")); return; }
+    if (!types.length) { showToast(qw("none")); return; }
+    const used = new Set(), qs = [], exhausted = new Set();
+    let cycle = 0;
+    while (qs.length < cfg.n && exhausted.size < types.length && cycle++ < cfg.n * types.length * 2) {
+      for (const ty of quizShuffle(types.filter((x) => !exhausted.has(x)))) {
+        if (qs.length >= cfg.n) break;
+        const q = quizMake(ty, pool, used);
+        if (q) qs.push(q); else exhausted.add(ty);
+      }
     }
-    if (!qs.length) { showToast(t("quizPickSomething")); return; }
+    if (!qs.length) { showToast(qw("none")); return; }
     codex.quiz = { i: 0, score: 0, streak: 0, bestStreak: 0, picked: null, done: false, qs: quizShuffle(qs) };
     refreshCodexBody(); resetScrollSoon();
   }
@@ -7074,7 +7251,7 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const y = window.scrollY; refreshCodexBody(); window.scrollTo(0, y);
   }
   function quizNext() {
-    const Q = codex.quiz; if (!Q) return;
+    const Q = codex.quiz; if (!Q || Q.done || Q.picked == null) return;
     if (Q.i >= Q.qs.length - 1) {
       Q.done = true;
       if (Q.score > quizBest()) { try { localStorage.setItem(CODEX_BEST_KEY, String(Q.score)); } catch (e) {} Q.record = true; }
@@ -7082,15 +7259,20 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     refreshCodexBody(); resetScrollSoon();
   }
   function quizSetup() {
-    const cfg = quizCfg();
-    const appBtn = (g, a) => { const k = `${g}-${a}`; const on = cfg.apps.includes(k); return `<button class="qchip ${on ? "active" : ""}" data-act="quizApp" data-val="${k}" aria-pressed="${on}">${appIconSvg(a.toLowerCase(), 18)}<span>${escapeHTML(codeAppName(g, a))}</span></button>`; };
+    const cfg = quizCfg(), pool = quizPool();
+    const clips = new Set(pool.map(quizVideoFor).filter(Boolean).map((video) => video.youtubeId)).size;
+    const appBtn = (g, a) => { const k = `${g}-${a}`, on = cfg.apps.includes(k); return `<button class="qchip ${on ? "active" : ""}" data-act="quizApp" data-val="${k}" aria-pressed="${on}">${appIconSvg(a.toLowerCase(), 18)}<span>${escapeHTML(codeAppName(g, a))}</span></button>`; };
     const sexBlock = (g, label) => `<div class="qset"><div class="qset-head"><span class="field-label">${label}</span><button class="qlink" data-act="quizSex" data-val="${g}">${CODE_APPS[g].every((a) => cfg.apps.includes(`${g}-${a}`)) ? t("quizNone") : t("quizAll")}</button></div><div class="qchips">${CODE_APPS[g].map((a) => appBtn(g, a)).join("")}</div></div>`;
     return `<div class="quiz-setup">
         <div class="quiz-setup-head"><div><h2 class="display text-2xl">${t("quizTitle")}</h2><p class="sub">${t("quizIntro")}</p></div><div class="quiz-best">${t("quizBest")}: <b>${quizBest()}</b></div></div>
-        ${sexBlock("WAG", t("femaleGym"))}
-        ${sexBlock("MAG", t("maleGym"))}
-        <div class="qset"><div class="qset-head"><span class="field-label">${t("quizTypes")}</span></div><div class="qchips">${QUIZ_TYPES.map((k) => `<button class="qchip ${cfg.types.includes(k) ? "active" : ""}" data-act="quizType" data-val="${k}" aria-pressed="${cfg.types.includes(k)}"><span>${t("quizType_" + k)}</span></button>`).join("")}</div></div>
-        <div class="qset"><div class="qset-head"><span class="field-label">${t("quizCount")}</span></div><div class="segment quiz-count">${[5, 10, 20].map((n) => `<button class="${cfg.n === n ? "active" : ""}" data-act="quizN" data-val="${n}">${n}</button>`).join("")}</div></div>
+        ${sexBlock("WAG", t("femaleGym"))}${sexBlock("MAG", t("maleGym"))}
+        <div class="qset"><div class="qset-head"><span class="field-label">${qw("level")}</span></div><div class="qchips">${QUIZ_LEVELS.map((level, i) => `<button class="qchip ${cfg.level === level ? "active" : ""}" data-act="quizLevel" data-val="${level}" aria-pressed="${cfg.level === level}">${qw("levels")[i]}</button>`).join("")}</div></div>
+        <div class="qset"><label class="field" for="quizSearch"><span class="field-label">${qw("search")}</span><input id="quizSearch" class="input" type="search" maxlength="100" value="${escapeHTML(cfg.q)}" placeholder="${qw("search")}" /></label><div class="flex flex-wrap gap-2 mt-2"><button class="btn btn-secondary" data-act="quizSearchApply">${qw("apply")}</button><button class="qchip ${cfg.onlyNamed ? "active" : ""}" data-act="quizNamed" aria-pressed="${cfg.onlyNamed}">${qw("named")}</button></div></div>
+        <div class="qset"><div class="qset-head"><span class="field-label">${t("quizTypes")}</span><div class="flex gap-3"><button class="qlink" data-act="quizTypesAll">${t("quizAll")}</button><button class="qlink" data-act="quizTypesNone">${t("quizNone")}</button></div></div><div class="qchips">${QUIZ_TYPES.map((k) => `<button class="qchip ${cfg.types.includes(k) ? "active" : ""}" data-act="quizType" data-val="${k}" aria-pressed="${cfg.types.includes(k)}"><span>${escapeHTML(quizTypeLabel(k))}</span></button>`).join("")}</div></div>
+        <div class="qset"><div class="qset-head"><span class="field-label">${t("quizCount")}</span></div><div class="segment quiz-count" style="max-width:100%;grid-template-columns:repeat(5,minmax(0,1fr))">${[5, 10, 20, 30, 40].map((n) => `<button class="${cfg.n === n ? "active" : ""}" data-act="quizN" data-val="${n}">${n}</button>`).join("")}</div></div>
+        <div class="quiz-filter-summary"><span>${qw("filtered")}: <b>${pool.length}</b></span><span>${qw("clips")}: <b>${clips}</b></span></div>
+        ${cfg.types.includes("video") && !clips ? `<p class="sub">${qw("videoEmpty")}</p>` : ""}
+        <p class="sub">${qw("note")}</p>
         <button class="btn btn-primary w-full" data-act="quizStart">${icon("play")} ${t("quizStart")}</button>
       </div>`;
   }
@@ -7099,27 +7281,16 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     if (!Q) return quizSetup();
     if (Q.done) {
       const right = Q.qs.filter((q) => q._ok).length;
-      return `<div class="quiz-intro">
-        <div class="quiz-score">${Q.score}</div>
-        <h2 class="display text-2xl">${Q.record ? t("quizRecord") : t("quizDone")}</h2>
-        <p class="sub">${t("quizSummary", { right, total: Q.qs.length, streak: Q.bestStreak })}</p>
-        <div class="quiz-best">${t("quizBest")}: <b>${quizBest()}</b></div>
-        <div class="grid gap-2 w-full" style="max-width:340px"><button class="btn btn-primary" data-act="quizStart">${icon("play")} ${t("quizAgain")}</button><button class="btn btn-secondary" data-act="quizConfig">${t("quizConfig")}</button></div>
-      </div>`;
+      return `<div class="quiz-intro"><div class="quiz-score">${Q.score}</div><h2 class="display text-2xl">${Q.record ? t("quizRecord") : t("quizDone")}</h2><p class="sub">${t("quizSummary", { right, total: Q.qs.length, streak: Q.bestStreak })}</p><div class="quiz-best">${t("quizBest")}: <b>${quizBest()}</b></div><div class="grid gap-2 w-full" style="max-width:340px"><button class="btn btn-primary" data-act="quizStart">${icon("play")} ${t("quizAgain")}</button><button class="btn btn-secondary" data-act="quizConfig">${t("quizConfig")}</button></div></div>`;
     }
-    const q = Q.qs[Q.i]; const answered = Q.picked != null;
-    const figOpts = q.type === "figure";
-    return `<div class="quiz">
-      <div class="quiz-bar"><span>${t("quizQuestion", { n: Q.i + 1, total: Q.qs.length })}</span><span class="quiz-pts">${Q.score} pt${Q.streak > 1 ? ` · ${t("quizStreak", { n: Q.streak })}` : ""}</span></div>
+    const q = Q.qs[Q.i], answered = Q.picked != null, figOpts = q.type === "figure";
+    const media = q.video ? `<div class="quiz-video"><iframe src="${escapeHTML(skillVideoUrl(q.video, true))}" title="Vídeo de execução do elemento" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><p class="quiz-credit">${qw("source")}: <a href="${escapeHTML(q.video.skillUrl)}" target="_blank" rel="noopener noreferrer">${escapeHTML(q.video.source || "UpGrade Gymnastics")}</a> · <a href="${escapeHTML(skillVideoUrl(q.video))}" target="_blank" rel="noopener noreferrer">${qw("original")}</a></p>` : "";
+    return `<div class="quiz"><div class="quiz-bar"><span>${t("quizQuestion", { n: Q.i + 1, total: Q.qs.length })}</span><span class="quiz-pts">${Q.score} pt${Q.streak > 1 ? ` · ${t("quizStreak", { n: Q.streak })}` : ""}</span></div>
       <div class="progress quiz-prog" style="grid-template-columns:repeat(${Q.qs.length},minmax(0,1fr))">${Q.qs.map((x, i) => `<span class="step ${i < Q.i || (i === Q.i && answered) ? (x._ok ? "done" : "miss") : ""} ${i === Q.i && !answered ? "active" : ""}"></span>`).join("")}</div>
-      <p class="kicker mt-4">${q.sub ? escapeHTML(q.sub) + " — " : ""}${q.ask}</p>
-      ${q.fig ? `<div class="qimg-wrap">${q.fig}</div>` : ""}
-      ${q.text ? `<h2 class="quiz-text">${escapeHTML(q.text)}</h2>` : ""}
-      <div class="quiz-opts ${figOpts ? "quiz-opts-fig" : q.big ? "" : "quiz-opts-text"}">
-        ${q.options.map((o, i) => `<button class="quiz-opt ${answered ? (i === q.answer ? "right" : i === Q.picked ? "wrong" : "dim") : ""}" data-act="quizAnswer" data-val="${i}" ${answered ? "disabled" : ""}>${o.fig ? o.fig : escapeHTML(o.text)}</button>`).join("")}
-      </div>
-      ${answered ? `<div class="quiz-feedback ${q._ok ? "ok" : "no"}"><b>${q._ok ? t("quizRight") : (figOpts || !q.big ? t("quizWrongShort") : t("quizWrong", { a: q.options[q.answer].text }))}</b>${q.reveal && q.type === "name" ? `<span>${escapeHTML(q.reveal)}</span>` : ""}${q.info ? `<span>${escapeHTML(q.info)}</span>` : ""}</div>
-        <button class="btn btn-primary w-full mt-3" data-act="quizNext">${icon("arrow")} ${Q.i >= Q.qs.length - 1 ? t("quizFinish") : t("quizNext")}</button>` : ""}
+      <p class="kicker mt-4">${q.sub ? escapeHTML(q.sub) + " — " : ""}${escapeHTML(q.ask)}</p>
+      ${media}${q.fig ? `<div class="qimg-wrap">${q.fig}</div>` : ""}${q.text ? `<h2 class="quiz-text">${escapeHTML(q.text)}</h2>` : ""}
+      <div class="quiz-opts ${figOpts ? "quiz-opts-fig" : q.big ? "" : "quiz-opts-text"}">${q.options.map((o, i) => `<button class="quiz-opt ${answered ? (i === q.answer ? "right" : i === Q.picked ? "wrong" : "dim") : ""}" data-act="quizAnswer" data-val="${i}" ${answered ? "disabled" : ""}>${o.fig || escapeHTML(o.text)}</button>`).join("")}</div>
+      ${answered ? `<div class="quiz-feedback ${q._ok ? "ok" : "no"}"><b>${q._ok ? t("quizRight") : t("quizWrongShort")}</b>${q.reveal ? `<span>${escapeHTML(q.reveal)}</span>` : ""}${q.info ? `<span>${escapeHTML(q.info)}</span>` : ""}</div><button class="btn btn-primary w-full mt-3" data-act="quizNext">${icon("arrow")} ${Q.i >= Q.qs.length - 1 ? t("quizFinish") : t("quizNext")}</button>` : ""}
     </div>`;
   }
   function quizToggle(list, k) { const i = list.indexOf(k); if (i >= 0) list.splice(i, 1); else list.push(k); quizSaveCfg(); refreshCodexBody(); }
@@ -7140,9 +7311,22 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     quizConfig: () => { codex.quiz = null; refreshCodexBody(); },
     quizApp: (el) => quizToggle(quizCfg().apps, el.dataset.val),
     quizType: (el) => quizToggle(quizCfg().types, el.dataset.val),
-    quizSex: (el) => { const c = quizCfg(); const g = el.dataset.val; const keys = CODE_APPS[g].map((a) => `${g}-${a}`); const all = keys.every((k) => c.apps.includes(k)); c.apps = c.apps.filter((k) => !keys.includes(k)); if (!all) c.apps.push(...keys); quizSaveCfg(); refreshCodexBody(); },
+    quizSex: (el) => { const c = quizCfg(), g = el.dataset.val, keys = CODE_APPS[g].map((a) => `${g}-${a}`); const all = keys.every((k) => c.apps.includes(k)); c.apps = c.apps.filter((k) => !keys.includes(k)); if (!all) c.apps.push(...keys); quizSaveCfg(); refreshCodexBody(); },
     quizN: (el) => { quizCfg().n = Number(el.dataset.val); quizSaveCfg(); refreshCodexBody(); },
+    quizLevel: (el) => { quizCfg().level = el.dataset.val; quizSaveCfg(); refreshCodexBody(); },
+    quizNamed: () => { quizCfg().onlyNamed = !quizCfg().onlyNamed; quizSaveCfg(); refreshCodexBody(); },
+    quizTypesAll: () => { quizCfg().types = [...QUIZ_TYPES]; quizSaveCfg(); refreshCodexBody(); },
+    quizTypesNone: () => { quizCfg().types = []; quizSaveCfg(); refreshCodexBody(); },
+    quizSearchApply: () => { const input = document.getElementById("quizSearch"); quizCfg().q = (input?.value || "").trim(); quizSaveCfg(); refreshCodexBody(); },
     codexFig: (el) => { const li = el.closest(".el-row"); const host = li && li.querySelector(".el-figs"); if (!host) return; if (host.innerHTML) { host.innerHTML = ""; return; } const row = codeRows().find((r) => r[0] === el.dataset.id); if (row) host.innerHTML = (row[7] || []).map((r, i) => codeFigure(codex.gender, row, i)).join(""); }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.target?.id === "quizSearch" && event.key === "Enter") {
+      event.preventDefault();
+      quizCfg().q = event.target.value.trim();
+      quizSaveCfg();
+      refreshCodexBody();
+    }
   });
   let codexSearchTimer = null;
   document.addEventListener("input", (e) => {
