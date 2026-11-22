@@ -6875,7 +6875,8 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       (!q || normalizeElementSearch([r[0], r[3], r[4], r[8]].join(" ")).includes(q)));
   }
   function normalizeElementSearch(text) {
-    return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/\b(?:nargony|nagorny|nagornyi|nagornyy|nagornyyi)\b/g, "nagornyy");
   }
   function elementDescription(row) {
     return state.lang === "pt-BR" && row[8] ? row[8] : row[3];
@@ -7085,8 +7086,10 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     return out;
   }
   const quizVideoIndex = new Map();
+  // YouTube oEmbed returned 404 for these sources on 2026-11-22.
+  const unavailableVideoIds = new Set(["LIyQX8vrRXo","0au2FnrNbSg","DWSsC9iBUjY","1nXDD-CcOdU","4kTBFH8MNUA","-IGyIn4exCs","iHMw9jDNHSs","Tqp0MD5pbMQ","_g2C9ylVzTA","mO9Dz4oW1Us","QNPJZL2quBQ"]);
   for (const video of window.GYM_SKILL_VIDEOS || []) {
-    if (!/^[A-Za-z0-9_-]{11}$/.test(video.youtubeId)) continue;
+    if (!/^[A-Za-z0-9_-]{11}$/.test(video.youtubeId) || unavailableVideoIds.has(video.youtubeId)) continue;
     const key = [video.gender, video.apparatus, video.code, video.variant ?? 0].join(":");
     if (!quizVideoIndex.has(key)) quizVideoIndex.set(key, []);
     quizVideoIndex.get(key).push(video);
@@ -7104,8 +7107,20 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
     const videos = (window.GYM_SKILL_VIDEOS || []).filter((video) =>
       video.gender === codex.gender && video.apparatus === codex.app && video.code === row[0]);
     if (!videos.length) return "";
-    return `<details class="quiz-credit"><summary>${quizTypeLabel("video")} (${videos.length})</summary>${videos.map((video, index) =>
-      `<p><a href="${escapeHTML(skillVideoUrl(video))}" target="_blank" rel="noopener noreferrer">▶ ${index + 1} · ${escapeHTML(elementDescription(row).split(" // ")[video.variant || 0])}</a> · <a href="${escapeHTML(video.skillUrl)}" target="_blank" rel="noopener noreferrer">UpGrade</a></p>`).join("")}</details>`;
+    return catalogPlayer(videos.map((video, i) => catalogClipButton(video, i,
+      elementDescription(row).split(" // ")[video.variant || 0])).join(""));
+  }
+  function catalogPlayer(buttons) {
+    return `<div class="catalog-player"><div class="flex flex-wrap gap-2">${buttons}</div><div class="catalog-screen"></div></div>`;
+  }
+  function catalogClipButton(video, index, title) {
+    const start = video.start || 0;
+    const label = `${state.lang === "en" ? "Video" : "Vídeo"} ${index + 1} · ${Math.floor(start/60)}:${String(start%60).padStart(2,"0")}`;
+    if (unavailableVideoIds.has(video.youtubeId)) {
+      const status = {en:"Unavailable", es:"No disponible", "pt-BR":"Indisponível"}[state.lang];
+      return `<span class="sub">${label} · ${status}</span>`;
+    }
+    return `<button type="button" class="qlink" data-act="catalogPlay" data-id="${escapeHTML(video.youtubeId)}" data-start="${start}" data-end="${video.end || 0}" title="${escapeHTML(title)}" aria-label="${escapeHTML(title)} · ${label}">▶ ${label}</button>`;
   }
   const skillBindings = new Map((window.GYM_SKILL_VIDEOS || []).map(v => [v.skillUrl.split("/").pop(), v]));
   function movementVideos() {
@@ -7120,10 +7135,9 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
       const search = [title, description, skill.description, apparatus, skill.apparatus, skill.gender, row?.[0], row?.[4]].join(" ");
       if (query && !normalizeElementSearch(search).includes(query)) continue;
       const links = skill.clips.map(([youtubeId,start,end], i) => {
-        const url = skillVideoUrl({youtubeId,start,end});
-        return `<a class="qlink" target="_blank" rel="noopener noreferrer" href="${escapeHTML(url)}">▶ ${i+1} · ${Math.floor(start/60)}:${String(start%60).padStart(2,"0")}</a>`;
+        return catalogClipButton({youtubeId,start,end}, i, title);
       });
-      results.push(`<li class="el-row"><div class="el-main"><strong>${escapeHTML(title)}</strong>${title !== description ? `<div>${escapeHTML(description)}</div>` : ""}<div class="el-meta">${skill.gender} · ${escapeHTML(apparatus)} · ${row ? escapeHTML(row[0]) : "UpGrade"}</div><div class="flex flex-wrap gap-3">${links.join("")} <a class="qlink" href="https://www.upgradegymnastics.com/skills/${id}" target="_blank" rel="noopener noreferrer">UpGrade</a></div></div></li>`);
+      results.push(`<li class="el-row"><div class="el-main"><strong>${escapeHTML(title)}</strong>${title !== description ? `<div>${escapeHTML(description)}</div>` : ""}<div class="el-meta">${skill.gender} · ${escapeHTML(apparatus)} · ${row ? escapeHTML(row[0]) : "UpGrade"} · <a href="https://www.upgradegymnastics.com/skills/${id}" target="_blank" rel="noopener noreferrer">UpGrade</a></div>${catalogPlayer(links.join(""))}</div></li>`);
     }
     return results.length ? `<ul class="el-list">${results.join("")}</ul>` : `<p class="ded-empty">${t("codexEmpty")}</p>`;
   }
@@ -7326,6 +7340,13 @@ M,Erick Lopez,CUB,2023,5,8.7,5.2,8.1,N/A,N/A,N/A,N/A,4.9,7.8,4.8,8,5.2,8.05,5.1,
   Object.assign(ACTIONS, {
     tactic: (el) => setTactic(el.dataset.val),
     openCodex: (el) => openCodex(el?.dataset?.val), closeCodex,
+    catalogPlay: (el) => {
+      const video = {youtubeId: el.dataset.id, start: el.dataset.start, end: el.dataset.end};
+      if (!/^[A-Za-z0-9_-]{11}$/.test(video.youtubeId)) return;
+      const host = el.closest(".catalog-player").querySelector(".catalog-screen");
+      document.querySelectorAll(".catalog-screen iframe").forEach(frame => frame.closest(".catalog-screen").replaceChildren());
+      host.innerHTML = `<div class="quiz-video"><iframe src="${escapeHTML(skillVideoUrl(video, true))}&amp;autoplay=1" title="${escapeHTML(el.title)}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><a class="qlink" target="_blank" rel="noopener noreferrer" href="${escapeHTML(skillVideoUrl(video))}">${qw("original")}</a>`;
+    },
     codexTab: (el) => { codex.tab = el.dataset.val; codex.limit = 40; renderCodex(); },
     codexGender: (el) => { codex.gender = el.dataset.val; codex.app = CODE_APPS[codex.gender][codex.gender === "WAG" ? 1 : 0]; codex.letter = ""; codex.limit = 40; refreshCodexBody(); },
     codexApp: (el) => { codex.app = el.dataset.val; codex.letter = ""; codex.limit = 40; refreshCodexBody(); },
